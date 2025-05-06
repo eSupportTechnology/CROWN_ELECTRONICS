@@ -22,6 +22,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\FAQController;
 
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -73,6 +74,9 @@ Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->
 
 
 
+Route::get('/buy', function () {
+    return view('frontend.how-to-buy');
+})->name('buy');
 
 
 Route::get('/dashboard', function () {
@@ -167,7 +171,7 @@ Route::post('/test-order', function() {
 });
 
 Route::get('/livesearch', [SearchController::class, 'search'])->name('livesearch');
-
+Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
 
 

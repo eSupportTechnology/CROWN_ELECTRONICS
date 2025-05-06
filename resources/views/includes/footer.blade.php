@@ -74,9 +74,9 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
-                                <li class="footer-nav"><a href="#">About Us</a></li>
+                                <li class="footer-nav"><a href="/about">About Us</a></li>
                                 <li class="footer-nav"><a href="#">Careers</a></li>
-                                <li class="footer-nav"><a href="#">Contact Us</a></li>
+                                <li class="footer-nav"><a href="/contact">Contact Us</a></li>
                                 
                             </ul>
                         </div>
@@ -91,8 +91,8 @@
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
-                                <li class="footer-nav"><a href="#">Frequently Asked Questions</a></li>
-                                <li class="footer-nav"><a href="#">How To Buy</a></li>
+                                <li class="footer-nav"><a href="/faq">Frequently Asked Questions</a></li>
+                                <li class="footer-nav"><a href="/buy">How To Buy</a></li>
                                 <li class="footer-nav"><a href="#">Shipping &amp; Delivery</a></li>
                                 <li class="footer-nav"><a href="#">Warranty Information</a></li>
                                 <li class="footer-nav"><a href="#">Return Products</a></li>
@@ -327,9 +327,9 @@
                     <div class="footer-links-set">
                         <p class="footer-title">About</p>
                         <ul>
-                            <li><a class="footer-link" href="#">About Us</a></li>
+                            <li><a class="footer-link" href="/about">About Us</a></li>
                             <li><a class="footer-link" href="#">Careers</a></li>
-                            <li><a class="footer-link" href="#">Contact Us</a></li>
+                            <li><a class="footer-link" href="/contact">Contact Us</a></li>
                            
                         </ul>
                     </div>
@@ -339,8 +339,8 @@
                     <div class="footer-links-set">
                         <p class="footer-title">Help</p>
                         <ul>
-                            <li><a class="footer-link" href="#">Frequently Asked Questions</a></li>
-                            <li><a class="footer-link" href="#">How To Buy</a></li>
+                            <li><a class="footer-link" href="/faq">Frequently Asked Questions</a></li>
+                            <li><a class="footer-link" href="/buy">How To Buy</a></li>
                             <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
                             <li><a class="footer-link" href="#">Warranty Information</a></li>
                             <li><a class="footer-link" href="#">Return Products</a></li>
