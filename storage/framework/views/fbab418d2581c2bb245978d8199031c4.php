@@ -97,7 +97,9 @@
         </span>
         <span class="text-white text-md item-hover__text d-none d-lg-flex">Cart</span>
     </a>
+      
 
+    
 
                 </div>
             </div>
@@ -121,14 +123,50 @@
                                                                 
 
                                 <!-- Profile Dropdown -->
-    <div class="profile-dropdown">
+ 
     <div class="profile-dropdown">
         <?php if(auth()->guard()->check()): ?>
 
-        <div class="auth-container"><div class="loged-user d-inline-flex"><div class="log-user-img"><img src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></div> <div class="log-user-data dropdown"><div class="user-name">Hi!
-        <?php echo e(auth()->user()->name); ?>
+        
 
-                                                </div> <div class="dropdown-box">
+
+
+     <div class="log-user-img dropdown col-2-5">
+        <a href="#"><img src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></a> 
+        <div class="dropdown-box">
+            <div class="user-name">
+     Hi!
+     <?php echo e(auth()->user()->name); ?>
+
+</div> <ul class="log-popup-links">
+    <li>
+        <a href="/profile">
+            <img src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                Account
+                                            </a></li> 
+                                            
+                                            
+                                            
+                                             <li>
+                                                        <a >
+                                                            <img src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png"><form method="POST" action="<?php echo e(route('logout')); ?>" >
+                                                             
+                                                               
+                                                             <?php echo csrf_field(); ?>
+                                                            <button type="submit" class="dropdown-item w-100">Logout</button>
+                                                         </form>
+                                                            </a></li> 
+                                        </ul>
+                                    </div></div>
+
+
+
+
+
+
+
+
+                                                <div class="dropdown-box">
                                                     
                                                 <ul class="log-popup-links">
                                                     <li>
@@ -175,10 +213,12 @@
 
                                             <div class= "mobshow">
                                                     <a href="<?php echo e(route('login')); ?>" class="d-flex">
-                                                        <div class="dt-icon-div"><img
-                                                                src=" <?php echo e(asset('frontend/newstyle/assets/images/account-icon.png')); ?> " style="padding-bottom: 17px;">
+                                                        <div class="dt-icon-div">
+                                                            <img src=" <?php echo e(asset('frontend/newstyle/assets/images/account-icon.png')); ?> " style="padding-bottom: 17px;">
                                                         </div>
-                                                        <div></div>
+                                            
+
+                                            
                                                     </a>
                                                 </div>
 
@@ -188,7 +228,7 @@
 
             
         <?php endif; ?>
-    </div>
+
       
     
     
@@ -233,18 +273,18 @@
         <img src="<?php echo e(asset('frontend/newstyle/assets/images/loader.gif')); ?>" style="display:block">
 
         </div>
-
-        <div class="destop-affix">
+<div class="fixed-header">
+        <div class="destop-affix ">
             <div class="destop-header">
                 <div id="topupbar_banner_desktop"></div>
 
                 <!-- top banner mobile-->
                 <div class="site-common-con header-search">
                     <div class="destop-main-header">
-                                                    <div class="des-logo">
+                        <div class="des-logo">
                                 <a href="/"><img src="<?php echo e(asset('frontend/newstyle/assets/images/logo.png')); ?>">
                                 </a>
-                            </div>
+                        </div>
                         
                         <div class="search-con">
                             <div class="top-search">
@@ -254,13 +294,13 @@
                                         class="fa-solid fa-magnifying-glass"></i></button>
                                 <div id="suggestions-box-display" class="suggestions-box suggestions-box-display"
                                     style="display: none;">
-                                    <div class="left-suggestion-no-products" hidden>
+                                <div class="left-suggestion-no-products" hidden>
                                         <p>No results found.</p>
-                                    </div>
-                                    <div class="left-suggestion-main-con">
-                                    </div>
+                                </div>
+                                <div class="left-suggestion-main-con">
+                                </div>
 
-                                    <div class="right-suggestion-main-con">
+                                <div class="right-suggestion-main-con">
                                         <div>
                                             <h4 class="headding search-category-title" hidden>Categories</h4>
                                             <ul>
@@ -269,19 +309,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            
-
+       </div>
 
 
 
 
-
-
-
-
-                            
-</div>
                         <div class="header-right-con">
                             <div class="top-right-nav">
                             <div class="des-cart pos-relative cart-popup ">
@@ -377,59 +409,15 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
 </div>                            
 
-                                
-
-                                <!-- <div class="site-converters">
-                                    <div> <img class="flag"
-                                            src="frontend/newstyle/assets/images/latest-icon/currency-new.png">
-                                    </div>
-                                    <div class="dropdown">
-                                        <div class="txt-lan">
-                                            EN/
-                                        </div>
-                                        <div class="txt-currency">LKR
-                                            <i class="fa-solid fa-chevron-down"></i>
-                                        </div>
-                                        <div class="dropdown-box">
-                                            <div class="form-group">
-                                                <label>Language</label>
-                                                <select name="username" id="username" required="required" onchange="if (!window.__cfRLUnblockHandlers) return false; window.location.href = this.value" class="form-select" data-cf-modified-a071cb3ff60724c4b8f55cf9-=""> -->
-                                                    <!-- <option>EN (English)</option>
-                                                <option>SN (Sinhala)</option>
-                                                <option>TM (Tamil)</option> -->
-
-                                                                                                            <!-- <option value="?locale=en"
-                                                            selected>
-                                                            English</option>
-                                                    
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Currency</label>
-                                                <select name="username" class="currency form-select"
-                                                    required="required" > -->
-
-                                                    
-                                                    <!-- <option>LKR</option>
-                                                 <option>USD</option> -->
-
-                                                                                                                                                                        <!-- <option value="?currency=USD"
-                                                                >
-                                                                USD</option>
-                                                                                                                                                                                                                                <option value="?currency=LKR"
-                                                                selected>
-                                                                LKR</option>
-                                                                                                                                                            </select>
-                                            </div> -->
-                                            <!-- <button class="btn btn-site-default w-100">Select</button> -->
-                                        <!-- </div> -->
+                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                
+
+
 
             <!--    category begin -->
             <div class="header-bottom destop-categories">
@@ -522,7 +510,12 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
                                         
                                         
                                         
-                                        
+                                        <li class="column-1">
+                                            <a href="/about" title="">
+                                                
+                                                Brands </a>
+
+                                        </li>
                                         
                                         
 
@@ -542,12 +535,12 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
                                         </li>
 
-                                        <li class="column-1">
+                                        <!-- <li class="column-1">
                                             <a href="<?php echo e(route('frontend.vendor')); ?>" title="">
                                                 
                                                 Vendors </a>
 
-                                        </li>
+                                        </li> -->
                                         
                                         
                                         
@@ -561,8 +554,8 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
                                         <div class="top-track">
 
-                                                                                            <!-- <a href="#"><i
-                                                        class="fa-solid fa-location-dot me-2"></i>Track your order</a> -->
+                                                                                       <a href="#"><i
+                                                        class="fa-solid fa-location-dot me-2"></i>Track your order</a> 
                                             
                                         </div>
                                         <div><a href="#" title="">
@@ -596,6 +589,25 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
  
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
     <!-- mobile header end -->
 
 
@@ -614,45 +626,6 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
 
     <!-- onestop showroom login -->
-<!-- Modal -->
-<!-- usd convert modal begin -->
-<div class="modal fade" id="modal-usd" tabindex="-1" aria-labelledby="modal-usd" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="row w-100">
-                    <div class="col-sm-12">
-                        <h5 class="modal-title" id="popupModalLabel">Notice</h5>
-                        <p>The payment mode is about to switch to USD (US Dollars)<br>
-                            Please read our terms & conditions and proceed accordingly</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <p class="usd-term-title">Terms & Conditions</p>
-                <ul>
-                    <li>Locally issued cards will not be accepted as a valid payment mode.</li>
-                    <li>International cards are not eligible for any easy payment schemes.</li>
-                    <li>The pickup option is not available for payments made in USD.</li>
-                </ul>
-
-                <div class="d-flex justify-content-center btn-set-usd">
-                    <button class="btn btn-site-default" data-currency-type="USD" id="currency-change">Proceed with
-                        currency change</button>
-                    <button id="back-to-product" data-previous-currency-type="LKR" class="btn usd-back-btn">Back to
-                        product</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- usd convert modal end -->
 
 
 
@@ -704,12 +677,13 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
                                                                                 
 
        <li class="column-1"><a href="/shop" title="">Shop</a></li>
+       <li class="column-1"><a href="#" title="">Brands</a></li>
                                                                                 
         <li><a href="/about" title=""> About Us </a></li>
                                                                                 
         <li ><a href="/contact" title="">Contact Us </a></li>
                                         
-        <li ><a href="<?php echo e(route('frontend.vendor')); ?>" title="">Vendors </a></li>
+        <!-- <li ><a href="<?php echo e(route('frontend.vendor')); ?>" title="">Vendors </a></li> -->
                                                                                 
                                                                                 
     </ul>

@@ -171,8 +171,12 @@
         </div>
     </div>
 
-    <div class="site-common-con mt-5">
-        <div class="row">
+    <div class="site-common-con mt-5" style="
+    padding-top: 50px;
+">
+        <div class="row" style="
+    padding-top: 50px;
+">
             <div class="col-12 col-xl-6">
                 <h1 class="page-title-wrap">About Us</h1>
                 <h3 class="about-sub-head">We, at Buyabans.com, offer you the convenience of browsing, purchasing, and

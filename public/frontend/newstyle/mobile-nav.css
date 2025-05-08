@@ -324,7 +324,7 @@ blockquote {
 }
 
 .container {
-    max-width: 1280px
+    max-width: 90%;
 }
 
 .row {

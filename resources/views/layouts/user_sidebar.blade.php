@@ -123,7 +123,7 @@
         </nav>
 
         <!-- Main content -->
-        <main class="px-4 col-md-9 ms-sm-auto col-lg-10">
+        <main style="width:50%;">
             <div class="card1">
                 <div class="card-body card-container">
                     @yield('dashboard-content')

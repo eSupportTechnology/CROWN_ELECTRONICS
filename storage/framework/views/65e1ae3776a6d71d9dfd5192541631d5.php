@@ -28,7 +28,8 @@
 /* Mobile (up to 576px) */
 @media (max-width: 576px) {
     .carousel-item {
-        height: 200px; /* Adjust height for mobile */
+        height: 30vh; /* Adjust height for mobile */
+       
     }
 
     .carousel{
@@ -37,9 +38,11 @@
 }
 
 /* Tablet (576px to 768px) */
-@media (min-width: 577px) and (max-width: 768px) {
+@media (min-width: 577px){
     .carousel-item {
-        height: 500px; /* Adjust height for tablets */
+        height: 45vh; /* Adjust height for tablets */
+        margin-top: 125px;
+
     }
 }
 
@@ -103,7 +106,7 @@
 
     <!-- Carousel Section -->
     <!-- Carousel Section -->
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" s>
     <div class="carousel-inner">
         <!-- Loop through the sliders and display each one -->
         <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -168,7 +171,7 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
                                                 <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
@@ -289,7 +292,7 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
                                                 <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
@@ -351,7 +354,7 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
                                                 <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
@@ -365,7 +368,7 @@
         </div>
     </div>
 
-    <div class="site-common-con" style="margin-bottom: 50px;">
+    <div class="site-common-con" style="margin-bottom: 50px; margin-top: 30px;">
     <div class="row m-0">
         <!-- First Banner Image (Left Side) -->
         <?php if(isset($banners[0])): ?>

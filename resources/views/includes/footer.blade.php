@@ -12,7 +12,7 @@
                 </div>
                 <div class="footer-details">
                     <p>Customer Support</p>
-                    <span>8am - 5pm</span>
+                    <!-- <span>8am - 5pm</span> -->
                 </div>
             </div>
             <div class="col-6 mobi-purple-div">
@@ -263,7 +263,7 @@
                 </div>
                 <div class="footer-details">
                     <p>Customer Support</p>
-                    <span>8am - 5pm</span>
+                    <!-- <span>8am - 5pm</span> -->
                 </div>
             </div>
             <div class="footer-box">
@@ -291,14 +291,10 @@
 
         <div class="container footer-padding">
             <div class="row align-items-start">
-                <div class="col-md-3 address-info">
-                <img src="{{ asset('frontend/newstyle/assets/images/logo.png') }}">
+                <div class="col-md-4 address-info">
+                <img src="{{ asset('frontend/newstyle/assets/images/logo.png') }}" style="width: 180px;">
 
-                    <div class="address">
-                        <p>No. 38, 2nd Lane,</p>
-                        <p>Rubber Watte Road,</p>
-                        <p>Gangodawila, Nugegoda, Sri Lanka.</p>
-                    </div>
+                    
                     <div class="hotline">
                         <p>HOTLINE</p>
                         <a class="tel-no" href="#">+94 112 251 202 </a>
@@ -323,7 +319,9 @@
                     <div class="footer-img-div"><a href="#" target="_blank"><img src="frontend/newstyle/assets/images/icon/order-tracking.png">Track your Order</a></div>
                 </div> -->
 
-                <div class="col-md-3">
+                
+
+                <div class="col-md-2">
                     <div class="footer-links-set">
                         <p class="footer-title">About</p>
                         <ul>
@@ -335,18 +333,24 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+
+
+
+
+                <div class="col-md-2">
                     <div class="footer-links-set">
                         <p class="footer-title">Help</p>
                         <ul>
-                            <li><a class="footer-link" href="/faq">Frequently Asked Questions</a></li>
+                            <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
                             <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
-                            <li><a class="footer-link" href="#">Warranty Information</a></li>
-                            <li><a class="footer-link" href="#">Return Products</a></li>
+                            
                         </ul>
                     </div>
                 </div>
+                
+               
+                
 
                 <div class="col-md-2">
                     <div class="footer-links-set">
@@ -358,6 +362,19 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="col-md-2">
+                    <div class="footer-links-set">
+                        <p class="footer-title">Quick Links</p>
+                        <ul>
+                            <li><a class="footer-link" href="#">Brands</a></li>
+                            <li><a class="footer-link" href="#">Warranty Information</a></li>
+                            <li><a class="footer-link" href="#">Return Products</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 

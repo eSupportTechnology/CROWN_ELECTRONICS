@@ -38,6 +38,10 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-4">
+                            <label class="form-label">Regular price <i class="text-danger">*</i></label>
+                            <input name="regular_price" id="regular_price" placeholder="Rs" type="number" class="form-control" />
+                        </div>
+                        <div class="mb-4">
                             <label class="form-label">Normal price <i class="text-danger">*</i></label>
                             <input name="normal_price" id="normal_price" placeholder="Rs" type="number" class="form-control" />
                         </div>
