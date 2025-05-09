@@ -4027,7 +4027,7 @@ legend {
     letter-spacing: 0px;
     color: #fff !important;
     font-weight: 400;
-    font-family: "Roboto" !important !important;
+    font-family: "Roboto" !important;
     line-height: 30px;
     margin: 0px
 }
@@ -4076,7 +4076,7 @@ legend {
     letter-spacing: 0px;
     color: #fff;
     font-size: 14px !important;
-    font-family: "Roboto" !important !important
+    font-family: "Roboto" !important;
 }
 
 .review-products .grid-pro-drtail-con {
