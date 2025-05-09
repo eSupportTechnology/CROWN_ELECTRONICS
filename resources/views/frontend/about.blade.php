@@ -179,7 +179,7 @@
 ">
             <div class="col-12 col-xl-6">
                 <h1 class="page-title-wrap">About Us</h1>
-                <h3 class="about-sub-head">We, at Buyabans.com, offer you the convenience of browsing, purchasing, and
+                <h3 class="about-sub-head">We, at CROWN ELECTRONICS, offer you the convenience of browsing, purchasing, and
                     reserving products & services from across the Abans Group of Companies.</h3>
                 <p class="common-p">Our virtual store boasts an endless array of globally recognizable brands and includes
                     only authentic products. We guarantee that our discounts are genuine, and your payments are secured. Our
@@ -192,14 +192,14 @@
                     to suit all your needs.</p>
             </div>
             <div class="col-12 col-xl-6">
-                <img class="about-img" src="https://buyabans.com/themes/buyabans/assets/images/about-page.webp"
+                <img class="about-img" src="http://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
                     alt="Abans Building">
             </div>
         </div>
 
         <div class="row mt-3">
             <div class="col-xl-12">
-                <h2 class="page-title-wrap text-center">Abans Fact Check</h2>
+                <h2 class="page-title-wrap text-center">CROWN ELECTRONICS Fact Check</h2>
             </div>
         </div>
 

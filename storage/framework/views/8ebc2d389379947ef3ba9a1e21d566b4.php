@@ -90,7 +90,7 @@
         </div>
         <div class="orders-box">
             <img src="https://icons.veryicon.com/png/128/miscellaneous/document-format/reviewed-5.png" alt="To be reviewed">
-            <p>To be reviewed</p>
+            <p>To be revieweds</p> 
         </div>
     </div>
 </div>
