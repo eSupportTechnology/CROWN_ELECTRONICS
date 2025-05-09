@@ -19,7 +19,7 @@
             <h6 class="mb-0">Shop</h6>
             <ul class="flex-wrap gap-8 flex-align">
                 <li class="text-sm">
-                    <a href="/home" class="gap-8 text-gray-900 flex-align hover-text-main-600">
+                    <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
                         <i class="ph ph-house"></i>
                         Home
                     </a>
