@@ -54,14 +54,14 @@
 
         <div class="row footer-mobi-details text-center m-0">
             <div class="col-12 mobi-footer-link">
-                <ul>
-                <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/facebook.webp')); ?>"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/twitter.webp')); ?>"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/instagram.webp')); ?>"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/linkedin-in.webp')); ?>"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/youtube.webp')); ?>"></a></li>
+            <ul>
+    <li><a href="#" target="_blank"><i class="fab fa-facebook" fab fa-facebook></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-twitter" fab fa-facebook></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-instagram" fab fa-facebook></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in" fab fa-facebook></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-youtube" fab fa-facebook></i></a></li>
+</ul>
 
-                </ul>
             </div>
 
             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -300,14 +300,14 @@
                         <a class="tel-no" href="#">+94 112 251 202 </a>
                     </div>
                     <div class="social-media">
-                        <ul>
-                        <li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/facebook.webp')); ?>"></a></li>
-<li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/twitter.webp')); ?>"></a></li>
-<li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/instagram.webp')); ?>"></a></li>
-<li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/linkedin-in.webp')); ?>"></a></li>
-<li><a href="#" target="_blank"><img src="<?php echo e(asset('frontend/newstyle/assets/images/footer/youtube.webp')); ?>"></a></li>
+                    <ul>
+    <li><a href="#" target="_blank"><i class="fab fa-facebook" style="color:#001ed4 ; font-size: 22px;"></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-twitter" style="color:#001ed4 ; font-size: 22px;" ></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-instagram" style="color:#001ed4 ; font-size: 22px;"></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in" style="color:#001ed4 ; font-size: 22px;"></i></a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-youtube" style="color:#001ed4 ; font-size: 22px;"></i></a></li>
+</ul>
 
-                        </ul>
                     </div>
                 </div>
 

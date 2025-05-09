@@ -511,7 +511,7 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
                                         
                                         
                                         <li class="column-1">
-                                            <a href="/about" title="">
+                                            <a href="#" title="">
                                                 
                                                 Brands </a>
 
