@@ -9,7 +9,7 @@ use App\Http\Controllers\AdminTemplateController;
 use App\Http\Controllers\HomeTemplateController;
 use App\Http\Controllers\AffiliateTemplateController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController; 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CompanySettingsController;
@@ -139,8 +139,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/affiliate',[AffiliateTemplateController::class,'index'])->name('affiliate');
-Route::get('/',[HomeTemplateController::class,'index'])->name('home');
+Route::get('/affiliate', [AffiliateTemplateController::class, 'index'])->name('affiliate');
+Route::get('/', [HomeTemplateController::class, 'index'])->name('home');
 
 Route::get('/shop', [ShopPageController::class, 'index'])->name('shop.index');
 Route::get('/shop/category/{category}', [ShopPageController::class, 'filterByCategory'])->name('shop.filterByCategory');
@@ -165,7 +165,7 @@ Route::get('/order/order_received/{order_code}', [PaymentController::class, 'get
 Route::post('/buy_now_place-order', [CustomerOrderController::class, 'buynow_placeOrder'])->name('buynow_placeOrder');
 Route::post('/place-order', [CustomerOrderController::class, 'placeOrder'])->name('placeOrder');
 
-Route::post('/test-order', function() {
+Route::post('/test-order', function () {
     Log::info('Test Order placed');
     return 'Test order placed';
 });
@@ -178,6 +178,7 @@ Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 //admin dashboard
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\BrandController;
 use App\Http\Middleware\AdminAuth;
 
 
@@ -186,128 +187,134 @@ Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin
 Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
 Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
-    Route::get('/admin',[AdminTemplateController::class,'index'])->name('admin.index');
-    
-    
+    Route::get('/admin', [AdminTemplateController::class, 'index'])->name('admin.index');
+
+
     //notification
 
 
-Route::get('/admin/notifications', [NotificationController::class, 'index'])->name('admin.notifications');
-Route::post('/admin/notifications/add-user/{user}', [NotificationController::class, 'addUserNotification'])->name('notifications.addUser');
-Route::post('/admin/notifications/add-order/{order}', [NotificationController::class, 'addOrderNotification'])->name('notifications.addOrder');
-Route::post('/admin/notifications/clear', [NotificationController::class, 'clearNotifications'])->name('notifications.clear');
+    Route::get('/admin/notifications', [NotificationController::class, 'index'])->name('admin.notifications');
+    Route::post('/admin/notifications/add-user/{user}', [NotificationController::class, 'addUserNotification'])->name('notifications.addUser');
+    Route::post('/admin/notifications/add-order/{order}', [NotificationController::class, 'addOrderNotification'])->name('notifications.addOrder');
+    Route::post('/admin/notifications/clear', [NotificationController::class, 'clearNotifications'])->name('notifications.clear');
 
 
 
 
 
-Route::get('/admin/profile', [AdminProfileController::class, 'showProfile'])->name('profile');
-Route::post('/admin/profile/update', [AdminProfileController::class, 'updateProfile'])->name('admin.profile.update');
-Route::post('/admin/profile/password', [AdminProfileController::class, 'updatePassword'])->name('admin.profile.password.update');
+    Route::get('/admin/profile', [AdminProfileController::class, 'showProfile'])->name('profile');
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'updateProfile'])->name('admin.profile.update');
+    Route::post('/admin/profile/password', [AdminProfileController::class, 'updatePassword'])->name('admin.profile.password.update');
 
 
-Route::get('/admin/products_list', [ProductController::class, 'showproducts'])->name('products_list');
+    Route::get('/admin/brands_list', [BrandController::class, 'showbrands'])->name('brand_list');
+    Route::post('/admin/brands_list', [BrandController::class, 'store'])->name('brands.store');
+    Route::get('/admin/brands_list/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::delete('/admin/brands_list/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
+    Route::put('/admin/brands_list/{brand}', [BrandController::class, 'update'])->name('brands.update');
 
-Route::get('products/{product}/view', [ProductController::class, 'view_details'])->name('products.view');
-Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-Route::get('/admin/add_products', [ProductController::class, 'displayCategories'])->name('add_products');
-Route::get('/api/subcategories/{categoryId}', [ProductController::class, 'getSubcategories']);
-Route::get('/api/sub-subcategories/{subcategoryId}', [ProductController::class, 'getSubSubcategories']);
+    Route::get('/admin/products_list', [ProductController::class, 'showproducts'])->name('products_list');
 
-
-Route::get('/admin/categories', [CategoryController::class, 'index'])->name('categories');
-Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/admin/categories', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/admin/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::put('/admin/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
-Route::delete('/admin/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::get('products/{product}/view', [ProductController::class, 'view_details'])->name('products.view');
+    Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/admin/add_products', [ProductController::class, 'displayCategories'])->name('add_products');
+    Route::get('/api/subcategories/{categoryId}', [ProductController::class, 'getSubcategories']);
+    Route::get('/api/sub-subcategories/{subcategoryId}', [ProductController::class, 'getSubSubcategories']);
 
 
-Route::get('/admin/customers', [CustomerController::class, 'show'])->name('customers');
-Route::get('/admin/customer-details/{user_id}', [CustomerController::class, 'showCustomerDetails'])->name('customer-details');
-
-Route::get('/admin/orders', [OrderController::class, 'index'])->name('orders');
-Route::delete('/admin/orders/{order}', [OrderController::class, 'destroy'])->name('order.delete');
-Route::get('/admin/order-details/{orderCode}', [OrderController::class, 'showOrderDetails'])->name('order-details');
-Route::patch('/order/update-status/{order_code}', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
-
+    Route::get('/admin/categories', [CategoryController::class, 'index'])->name('categories');
+    Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/admin/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/admin/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('/admin/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/admin/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 
-Route::view('/admin/affiliate_customers', 'AdminDashboard.affiliate_customers')->name('affiliate_customers');
+    Route::get('/admin/customers', [CustomerController::class, 'show'])->name('customers');
+    Route::get('/admin/customer-details/{user_id}', [CustomerController::class, 'showCustomerDetails'])->name('customer-details');
 
-Route::get('/admin/affiliate_rules', [AffiliateRulesController::class, 'index'])->name('affiliate_rules');
-Route::post('/admin/affiliate_rules', [AffiliateRulesController::class, 'store'])->name('admin_rules.store');
-Route::delete('/admin/affiliate_rules/{id}', [AffiliateRulesController::class, 'destroy'])->name('affiliate_rules.destroy');
-Route::put('/admin/affiliate_rules/{id}', [AffiliateRulesController::class, 'update'])->name('admin_users.update');
-
-Route::get('/admin/affiliate_withdrawals', [AffiliateWithdrawalsController::class, 'index'])->name('affiliate_withdrawals');
-Route::post('/admin/affiliate_withdrawals/update/{id}', [AffiliateWithdrawalsController::class, 'updatePaymentStatus'])->name('affiliate.updatePaymentStatus');
-
-Route::get('/admin/affiliate_customers', [AffiliateUserController::class, 'showAffiliates'])->name('affiliate_customers');
-Route::post('/admin/affiliates/{id}/status/{status}', [AffiliateUserController::class, 'updateStatus'])->name('admin.affiliates.updateStatus');
-Route::get('/admin/Affiliatecustomer-details/{id}', [AffiliateUserController::class, 'showDetails'])->name('admin.affiliates.show');
-
-//Route::get('/admin/reviews', [ReviewsController::class, 'adminView'])->name('adminReviews');
-Route::get('/admin/reviews-details/{id}', [ReviewsController::class, 'adminViewDetails'])->name('viewReviewDetails');
-Route::patch('/reviews/{id}/status', [ReviewsController::class, 'updateStatus'])->name('reviews.updateStatus');
-Route::delete('/reviews/{review}', [ReviewsController::class, 'destroy'])->name('admin.reviews.destroy');
-
-
-// Route::view('/admin/reviews', 'AdminDashboard.reviews')->name('reviews');
-Route::get('/admin/customer_inquiries', [InquiryController::class, 'index'])->name('admin.customer.inquiries');
-Route::post('/admin/inquiries/reply/{id}', [InquiryController::class, 'storeReply'])->name('admin.inquiries.reply');
+    Route::get('/admin/orders', [OrderController::class, 'index'])->name('orders');
+    Route::delete('/admin/orders/{order}', [OrderController::class, 'destroy'])->name('order.delete');
+    Route::get('/admin/order-details/{orderCode}', [OrderController::class, 'showOrderDetails'])->name('order-details');
+    Route::patch('/order/update-status/{order_code}', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
 
 
 
-Route::get('/admin/vendors', [VendorAccountController::class, 'show'])->name('vendors');
-Route::get('/admin/vendors/payments', [VendorPaymentRequestController::class, 'index'])->name('admin.vendor.payments');
-Route::post('/admin/vendors/payments/update/{id}', [VendorPaymentRequestController::class, 'updatePaymentStatus'])->name('vendor.updatePaymentStatus');
+    Route::view('/admin/affiliate_customers', 'AdminDashboard.affiliate_customers')->name('affiliate_customers');
 
-Route::post('/admin/vendors/{id}/status/{status}', [VendorAccountController::class, 'updateStatus'])->name('admin.vendors.updateStatus');
-Route::get('/admin/{vendorId}', [VendorAccountController::class, 'showVendorDetails'])->name('vendor-details');
+    Route::get('/admin/affiliate_rules', [AffiliateRulesController::class, 'index'])->name('affiliate_rules');
+    Route::post('/admin/affiliate_rules', [AffiliateRulesController::class, 'store'])->name('admin_rules.store');
+    Route::delete('/admin/affiliate_rules/{id}', [AffiliateRulesController::class, 'destroy'])->name('affiliate_rules.destroy');
+    Route::put('/admin/affiliate_rules/{id}', [AffiliateRulesController::class, 'update'])->name('admin_users.update');
 
+    Route::get('/admin/affiliate_withdrawals', [AffiliateWithdrawalsController::class, 'index'])->name('affiliate_withdrawals');
+    Route::post('/admin/affiliate_withdrawals/update/{id}', [AffiliateWithdrawalsController::class, 'updatePaymentStatus'])->name('affiliate.updatePaymentStatus');
 
+    Route::get('/admin/affiliate_customers', [AffiliateUserController::class, 'showAffiliates'])->name('affiliate_customers');
+    Route::post('/admin/affiliates/{id}/status/{status}', [AffiliateUserController::class, 'updateStatus'])->name('admin.affiliates.updateStatus');
+    Route::get('/admin/Affiliatecustomer-details/{id}', [AffiliateUserController::class, 'showDetails'])->name('admin.affiliates.show');
 
-
-Route::view('/admins/role_lists', 'AdminDashboard.role_list')->name('role_list');
-//Route::view('/adminss/company_profile', 'AdminDashboard.manage_company')->name('manage_company_profile');
-
-
-Route::get('/adminss/company_profile', [CompanySettingsController::class, 'company'])->name('manage_company_profile');
-Route::post('/admin/manage_company/update', [CompanySettingsController::class, 'store'])->name('manage_company.store');
-
-Route::resource('system_users', UserController::class);
-
-Route::get('/admins/userss', [UserController::class, 'show'])->name('users');
-
-Route::get('/admins/slider', [SliderController::class, 'index'])->name('slider');
-Route::post('/admins/slider', [SliderController::class, 'store'])->name('slider.store');
-Route::delete('/admins/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+    //Route::get('/admin/reviews', [ReviewsController::class, 'adminView'])->name('adminReviews');
+    Route::get('/admin/reviews-details/{id}', [ReviewsController::class, 'adminViewDetails'])->name('viewReviewDetails');
+    Route::patch('/reviews/{id}/status', [ReviewsController::class, 'updateStatus'])->name('reviews.updateStatus');
+    Route::delete('/reviews/{review}', [ReviewsController::class, 'destroy'])->name('admin.reviews.destroy');
 
 
-
-Route::get('/admins/banners', [BannerController::class, 'index'])->name('banners');
-Route::post('/admins/banners', [BannerController::class, 'store'])->name('banners.store');
-Route::delete('/admins/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
-Route::get('/admins/banners/{id}/download', [BannerController::class, 'download'])->name('banners.download');
+    // Route::view('/admin/reviews', 'AdminDashboard.reviews')->name('reviews');
+    Route::get('/admin/customer_inquiries', [InquiryController::class, 'index'])->name('admin.customer.inquiries');
+    Route::post('/admin/inquiries/reply/{id}', [InquiryController::class, 'storeReply'])->name('admin.inquiries.reply');
 
 
-Route::post('/admin/users', [UserController::class, 'store'])->name('system_users.store');
-Route::get('/admin/edit_users/{id}', [UserController::class, 'edit'])->name('edit_users');
-Route::post('/admin/edit_users/{id}', [UserController::class, 'update'])->name('update_users');
-Route::delete('/admin/edit_users/{id}', [UserController::class, 'destroy'])->name('delete_users');
+
+    Route::get('/admin/vendors', [VendorAccountController::class, 'show'])->name('vendors');
+    Route::get('/admin/vendors/payments', [VendorPaymentRequestController::class, 'index'])->name('admin.vendor.payments');
+    Route::post('/admin/vendors/payments/update/{id}', [VendorPaymentRequestController::class, 'updatePaymentStatus'])->name('vendor.updatePaymentStatus');
+
+    Route::post('/admin/vendors/{id}/status/{status}', [VendorAccountController::class, 'updateStatus'])->name('admin.vendors.updateStatus');
+    Route::get('/admin/{vendorId}', [VendorAccountController::class, 'showVendorDetails'])->name('vendor-details');
 
 
-// admin_reports
-Route::get('/admin/report/customer_report', [AdminReportController::class, 'customerReport'])->name('customerReport');
-Route::get('/admin/report/affiliate_customer_report', [AdminReportController::class, 'affiliateCustomerReport'])->name('affiliateCustomerReport');
-Route::get('/admin/report/affiliate_bank_data', [AdminReportController::class, 'affiliateCusBankData'])->name('affiliateCusBankData');
-Route::get('/admin/report/vendor_report', [AdminReportController::class, 'vendorReport'])->name('vendorReport');
-Route::get('/admin/report/order_report', [AdminReportController::class, 'orderReport'])->name('orderReport');
-Route::get('/admin/report/product_report', [AdminReportController::class, 'productReport'])->name('productReport');
+
+
+    Route::view('/admins/role_lists', 'AdminDashboard.role_list')->name('role_list');
+    //Route::view('/adminss/company_profile', 'AdminDashboard.manage_company')->name('manage_company_profile');
+
+
+    Route::get('/adminss/company_profile', [CompanySettingsController::class, 'company'])->name('manage_company_profile');
+    Route::post('/admin/manage_company/update', [CompanySettingsController::class, 'store'])->name('manage_company.store');
+
+    Route::resource('system_users', UserController::class);
+
+    Route::get('/admins/userss', [UserController::class, 'show'])->name('users');
+
+    Route::get('/admins/slider', [SliderController::class, 'index'])->name('slider');
+    Route::post('/admins/slider', [SliderController::class, 'store'])->name('slider.store');
+    Route::delete('/admins/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
+
+
+    Route::get('/admins/banners', [BannerController::class, 'index'])->name('banners');
+    Route::post('/admins/banners', [BannerController::class, 'store'])->name('banners.store');
+    Route::delete('/admins/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
+    Route::get('/admins/banners/{id}/download', [BannerController::class, 'download'])->name('banners.download');
+
+
+    Route::post('/admin/users', [UserController::class, 'store'])->name('system_users.store');
+    Route::get('/admin/edit_users/{id}', [UserController::class, 'edit'])->name('edit_users');
+    Route::post('/admin/edit_users/{id}', [UserController::class, 'update'])->name('update_users');
+    Route::delete('/admin/edit_users/{id}', [UserController::class, 'destroy'])->name('delete_users');
+
+
+    // admin_reports
+    Route::get('/admin/report/customer_report', [AdminReportController::class, 'customerReport'])->name('customerReport');
+    Route::get('/admin/report/affiliate_customer_report', [AdminReportController::class, 'affiliateCustomerReport'])->name('affiliateCustomerReport');
+    Route::get('/admin/report/affiliate_bank_data', [AdminReportController::class, 'affiliateCusBankData'])->name('affiliateCusBankData');
+    Route::get('/admin/report/vendor_report', [AdminReportController::class, 'vendorReport'])->name('vendorReport');
+    Route::get('/admin/report/order_report', [AdminReportController::class, 'orderReport'])->name('orderReport');
+    Route::get('/admin/report/product_report', [AdminReportController::class, 'productReport'])->name('productReport');
 });
 
 
@@ -373,14 +380,14 @@ Route::put('/raffletickets/{id}/setDefault', [AffiliateTrackingController::class
 Route::delete('/raffletickets/{id}', [AffiliateTrackingController::class, 'destroy'])->name('raffletickets.destroy');
 
 Route::get('/raffletickets/{id}/report', [AffiliateReportController::class, 'report'])->name('raffletickets.report');
-Route::get('/affiliate/dashboard/reports/traffic_report',[AffiliateReportController::class, 'trafficreport'] )->name('traffic_report');
-Route::get('/affiliate/dashboard/payment/withdrawals', [AffiliateReportController::class, 'withdrawals'] )->name('withdrawals');
+Route::get('/affiliate/dashboard/reports/traffic_report', [AffiliateReportController::class, 'trafficreport'])->name('traffic_report');
+Route::get('/affiliate/dashboard/payment/withdrawals', [AffiliateReportController::class, 'withdrawals'])->name('withdrawals');
 Route::get('/affiliate/dashboard/payment/payment_info', [AffiliateReportController::class, 'showPaymentInfo'])->name('payment_info');
 Route::post('/affiliate/dashboard/payment/realtime_tracking', [AffiliateReportController::class, 'realtimereport'])->name('realtime_tracking');
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 Route::get('home/My-Account/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
@@ -414,8 +421,8 @@ Route::get('home/My-Account/returns-details', function () {
 
 
 //reviews
-Route::get('home/My-Account/My-Reviews',[ReviewsController::class,'myReviews'])->name('My-Reviews');
-Route::get('home/My-Account/Write-Reviews/{id}',[ReviewsController::class,'writeReviews'])->name('write-review');
+Route::get('home/My-Account/My-Reviews', [ReviewsController::class, 'myReviews'])->name('My-Reviews');
+Route::get('home/My-Account/Write-Reviews/{id}', [ReviewsController::class, 'writeReviews'])->name('write-review');
 Route::post('/reviews/{id}', [ReviewsController::class, 'store'])->name('reviews.store');
 Route::delete('/home/reviews/{review}', [ReviewsController::class, 'customerDestroy'])->name('customer.reviews.destroy');
 
@@ -465,4 +472,3 @@ Route::get('/vendor/profile', [VendorAccountController::class, 'showProfile'])->
 Route::post('/vendor/profile/update', [VendorAccountController::class, 'updateProfile'])->name('vendor.updateProfile');
 Route::post('/vendor/password/update', [VendorAccountController::class, 'updatePassword'])->name('vendor.updatePassword');
 Route::post('/vendor/bank/update', [VendorAccountController::class, 'updateBankDetails'])->name('vendor.updateBankDetails');
-
