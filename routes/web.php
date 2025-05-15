@@ -212,6 +212,8 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin/brands_list/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit');
     Route::delete('/admin/brands_list/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
     Route::put('/admin/brands_list/{brand}', [BrandController::class, 'update'])->name('brands.update');
+    Route::get('/brands-data', [BrandController::class, 'getBrands']);
+
 
     Route::get('/admin/products_list', [ProductController::class, 'showproducts'])->name('products_list');
 

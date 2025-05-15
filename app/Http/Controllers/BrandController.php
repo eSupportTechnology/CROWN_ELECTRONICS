@@ -79,4 +79,11 @@ class BrandController extends Controller
         $brand  = Brand::findOrFail($brandId);
         return view('AdminDashboard.edit_brand', compact('brand'));
     }
+
+    public function getBrands()
+    {
+        $brands = Brand::select('name', 'slug', 'image', 'is_top_brand')->get();
+
+        return response()->json($brands);
+    }
 }
