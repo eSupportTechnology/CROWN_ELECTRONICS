@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <style>
     .spacing-top {
@@ -23,7 +21,6 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            How To Buy
                         </li>
                     </ol>
                 </nav>
@@ -36,13 +33,14 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" aria-orientation="vertical">
                         <a class="nav-link " id="v-pills-one-tab" href="/faq">FAQ</a>
 
-                        <a class="nav-link  active " id="v-pills-two-tab" href="/buy">How To Buy</a>
+                        <a class="nav-link " id="v-pills-two-tab" href="/buy">How To Buy</a>
 
-                        <a class="nav-link " id="v-pills-three-tab" href="/shipping-delivery">Shipping & Delivery</a>
+                        <a class="nav-link  active " id="v-pills-three-tab" href="/shipping-delivery">Shipping &
+                            Delivery</a>
 
                         <a class="nav-link " id="v-pills-three-tab" href="/warranty">Warranty Information</a>
 
-                        <a href="/return-product" class="nav-link " id="v-pills-four-tab" href="/return-product">Return
+                        <a href="/return-product" class="nav-link " id="v-pills-four-tab" href="/return-products">Return
                             Products</a>
                     </div>
                 </div>
@@ -223,8 +221,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade  show active " id="v-pills-two" role="tabpanel"
-                            aria-labelledby="v-pills-two-tab">
+                        <div class="tab-pane fade " id="v-pills-two" role="tabpanel" aria-labelledby="v-pills-two-tab">
 
                             <h3 class="title-terms mb-4" style="padding-top: 0px;">How To Buy</h3>
                             <ol>
@@ -253,7 +250,7 @@
                             </ol>
                         </div>
 
-                        <div class="tab-pane fade " id="v-pills-three" role="tabpanel"
+                        <div class="tab-pane fade  show active " id="v-pills-three" role="tabpanel"
                             aria-labelledby="v-pills-three-tab">
 
                             <h3 class="title-terms mb-4">Shipping &amp; Delivery</h3>
@@ -603,4 +600,6 @@
 
 
     </main>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/ShippingDelivery.blade.php ENDPATH**/ ?>

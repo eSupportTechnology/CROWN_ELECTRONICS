@@ -104,6 +104,34 @@ Route::get('/cart', function () {
     return view('frontend.cart');
 })->name('cart');
 
+Route::get('/shipping-delivery', function () {
+    return view('frontend.ShippingDelivery');
+})->name('shipping-delivery');
+
+Route::get('/privacy-policy', function () {
+    return view('frontend.PrivacyPolicy');
+})->name('PrivacyPolicy');
+
+Route::get('/return-product', function () {
+    return view('frontend.ReturnProduct');
+})->name('return-product');
+
+Route::get('/return-refund', function () {
+    return view('frontend.ReturnRefund');
+})->name('return-refund');
+
+Route::get('/terms-condition', function () {
+    return view('frontend.TermsCondition');
+})->name('terms-condition');
+
+Route::get('/warranty', function () {
+    return view('frontend.warranty');
+})->name('warranty');
+
+Route::get('/newsletter-subscription', function () {
+    return view('frontend.Subscribe-Newsletter');
+})->name('Subscribe_Newsletter');
+
 
 use App\Http\Controllers\Navbar;
 use App\Http\Controllers\SearchController;

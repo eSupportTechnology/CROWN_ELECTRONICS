@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <style>
     .spacing-top {
@@ -14,8 +12,8 @@
 </style>
     <main class="content-container">
 
-        <div class="spacing-top"></div>
 
+        <div class="spacing-top"></div>
 
         <div class="nav-ash">
             <div class="site-common-con">
@@ -23,7 +21,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            How To Buy
+                            FAQ
                         </li>
                     </ol>
                 </nav>
@@ -34,21 +32,22 @@
             <div class="row">
                 <div class="col-md-3 terms-nav">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" aria-orientation="vertical">
-                        <a class="nav-link " id="v-pills-one-tab" href="/faq">FAQ</a>
+                        <a class="nav-link  active " id="v-pills-one-tab" href="faq.html">FAQ</a>
 
-                        <a class="nav-link  active " id="v-pills-two-tab" href="/buy">How To Buy</a>
+                        <a class="nav-link " id="v-pills-two-tab" href="/buy">How To Buy</a>
 
                         <a class="nav-link " id="v-pills-three-tab" href="/shipping-delivery">Shipping & Delivery</a>
 
                         <a class="nav-link " id="v-pills-three-tab" href="/warranty">Warranty Information</a>
 
-                        <a href="/return-product" class="nav-link " id="v-pills-four-tab" href="/return-product">Return
+                        <a href="return-product" class="nav-link " id="v-pills-four-tab" href="/return-product">Return
                             Products</a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content terms-tab" id="v-pills-tabContent">
-                        <div class="tab-pane fade " id="v-pills-one" role="tabpanel" aria-labelledby="v-pills-one-tab">
+                        <div class="tab-pane fade  show active " id="v-pills-one" role="tabpanel"
+                            aria-labelledby="v-pills-one-tab">
                             <div id="accordion" role="tablist">
 
                                 <div class="content-section">
@@ -223,8 +222,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade  show active " id="v-pills-two" role="tabpanel"
-                            aria-labelledby="v-pills-two-tab">
+                        <div class="tab-pane fade " id="v-pills-two" role="tabpanel" aria-labelledby="v-pills-two-tab">
 
                             <h3 class="title-terms mb-4" style="padding-top: 0px;">How To Buy</h3>
                             <ol>
@@ -603,4 +601,6 @@
 
 
     </main>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/faq.blade.php ENDPATH**/ ?>

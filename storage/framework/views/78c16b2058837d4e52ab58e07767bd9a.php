@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <main class="content-container">
 
 
@@ -67,15 +65,7 @@
                                 <input type="tel" id="mobile" name="mobile" class="form-control">
                             </div>
 
-                            {{-- <div class="recaptcha-container">
-                                <div class="recaptcha">
-                                    <input type="checkbox" id="recaptcha" name="recaptcha">
-                                    <label for="recaptcha">I'm not a robot</label>
-                                    <div class="recaptcha-logo">
-                                        <img src="/api/placeholder/60/38" alt="reCAPTCHA logo">
-                                    </div>
-                                </div>
-                            </div> --}}
+                            
                             <div class="form-group col-sm-12">
                                 <button type="submit" class="btn btn-site-default btn-inq fl mt-3">Subscribe</button>
                             </div>
@@ -92,4 +82,6 @@
     </main>
 
     <br>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/Subscribe-Newsletter.blade.php ENDPATH**/ ?>
