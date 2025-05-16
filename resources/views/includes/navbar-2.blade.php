@@ -627,7 +627,7 @@
 
                                         <div class="top-track">
 
-                                            <a href="#"><i class="fa-solid fa-location-dot me-2"></i>Track your
+                                            <a href="{{ route('my-orders') }}"><i class="fa-solid fa-location-dot me-2"></i>Track your
                                                 order</a>
 
                                         </div>

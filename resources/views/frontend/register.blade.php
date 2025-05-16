@@ -104,7 +104,7 @@
                     <!-- Privacy Policy -->
                     <div class="my-48 text-center">
                         <p class="text-gray-500">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our 
-                            <a href="{{ route('privacy-policy') }}"  class="text-main-600 text-decoration-underline">privacy policy</a>.
+                            <a href="{{ route('PrivacyPolicy') }}"  class="text-main-600 text-decoration-underline">privacy policy</a>.
                         </p>
                     </div>
                     <!-- Submit Button -->
