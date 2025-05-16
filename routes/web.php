@@ -179,6 +179,8 @@ Route::get('/brands-data', [BrandController::class, 'getBrands']);
 
 Route::get('/brand/{slug}', [BrandController::class, 'showBrandProducts'])->name('brand.products');
 
+Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
+
 //admin dashboard
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\AdminProfileController;
