@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminReportController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\VendorReportController;
@@ -105,6 +106,7 @@ Route::get('/cart', function () {
 
 
 use App\Http\Controllers\Navbar;
+use App\Http\Controllers\SearchController;
 
 Route::get('/navbar-2', [Navbar::class, 'getCartCount'])->name('cart.count');
 
@@ -173,12 +175,13 @@ Route::post('/test-order', function () {
 Route::get('/livesearch', [SearchController::class, 'search'])->name('livesearch');
 Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
+Route::get('/brands-data', [BrandController::class, 'getBrands']);
 
+Route::get('/brand/{slug}', [BrandController::class, 'showBrandProducts'])->name('brand.products');
 
 //admin dashboard
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\AdminProfileController;
-use App\Http\Controllers\BrandController;
 use App\Http\Middleware\AdminAuth;
 
 
@@ -212,7 +215,7 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin/brands_list/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit');
     Route::delete('/admin/brands_list/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
     Route::put('/admin/brands_list/{brand}', [BrandController::class, 'update'])->name('brands.update');
-    Route::get('/brands-data', [BrandController::class, 'getBrands']);
+
 
 
     Route::get('/admin/products_list', [ProductController::class, 'showproducts'])->name('products_list');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -85,5 +86,48 @@ class BrandController extends Controller
         $brands = Brand::select('name', 'slug', 'image', 'is_top_brand')->get();
 
         return response()->json($brands);
+    }
+
+    public function showBrandProducts($slug)
+    {
+        $brand = Brand::where('slug', $slug)->firstOrFail();
+        $products = $brand->products()->paginate(20);
+
+        $categories = Category::all();
+
+        return view('frontend.brand-items', compact('brand', 'products', 'categories'));
+    }
+
+    public function ajaxBrandProducts(Request $request, $slug)
+    {
+        $brand = Brand::where('slug', $slug)->firstOrFail();
+
+        $products = $brand->products();
+
+        // Category filter
+        if ($request->has('category_id') && $request->category_id != '') {
+            $products->where('category_id', $request->category_id);
+        }
+
+        // Sorting
+        if ($request->has('sort_by')) {
+            switch ($request->sort_by) {
+                case '1': // Price Low to High
+                    $products->orderBy('normal_price', 'asc');
+                    break;
+                case '2': // Price High to Low
+                    $products->orderBy('normal_price', 'desc');
+                    break;
+                case '4': // New Arrivals
+                    $products->orderBy('created_at', 'desc');
+                    break;
+            }
+        }
+
+        $products = $products->with('images')->get();
+
+        return response()->json([
+            'products' => $products,
+        ]);
     }
 }
