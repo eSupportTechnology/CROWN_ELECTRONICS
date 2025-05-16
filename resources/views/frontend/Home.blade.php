@@ -94,9 +94,20 @@
 
 
 .product-image {
-    width: 100%!important;
-    height: auto!important;
-    object-fit: cover!important;
+    width: 100%;
+    height: 178px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.grid-product-img {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+    display: block;
 }
 
 
