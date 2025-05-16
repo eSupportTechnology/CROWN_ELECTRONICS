@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('shop_id')->nullable()->after('product_id');
             $table->renameColumn('total_price', 'commission_price');
-            $table->decimal('commission_price', 8, 2)->nullable()->change();
+            $table->decimal('commission_price', 15, 2)->nullable()->change();
         });
     }
 
