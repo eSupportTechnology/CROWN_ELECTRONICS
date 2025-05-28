@@ -16,7 +16,7 @@
 
 
 -- Dumping database structure for esuprjxs_crown
-CREATE DATABASE IF NOT EXISTS `esuprjxs_crown` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `esuprjxs_crown` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `esuprjxs_crown`;
 
 -- Dumping structure for table esuprjxs_crown.affiliate_links
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_links` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_links: ~1 rows (approximately)
-REPLACE INTO `affiliate_links` (`id`, `user_id`, `raffle_ticket_id`, `link`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_links` (`id`, `user_id`, `raffle_ticket_id`, `link`, `created_at`, `updated_at`) VALUES
 	(5, 2, 1, 'http://127.0.0.1:8000/track/hellotracking/P-60B170?redirect=http%3A%2F%2F127.0.0.1%3A8000%2Fproduct-details%2FP-60B170', '2024-11-26 18:55:17', '2024-11-26 18:55:17');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_product
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_referrals` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_referrals: ~1 rows (approximately)
-REPLACE INTO `affiliate_referrals` (`id`, `user_id`, `raffle_ticket_id`, `product_url`, `views_count`, `referral_count`, `product_price`, `affiliate_commission`, `total_affiliate_price`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_referrals` (`id`, `user_id`, `raffle_ticket_id`, `product_url`, `views_count`, `referral_count`, `product_price`, `affiliate_commission`, `total_affiliate_price`, `created_at`, `updated_at`) VALUES
 	(4, 2, 1, 'http://127.0.0.1:8000/product-details/P-60B170', 4, 2, 4500.00, 2250.00, 2250.00, '2024-11-26 18:55:17', '2024-11-27 05:44:26');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_rules
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_rules` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_rules: ~1 rows (approximately)
-REPLACE INTO `affiliate_rules` (`id`, `rule`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_rules` (`id`, `rule`, `created_at`, `updated_at`) VALUES
 	(1, 'Commission Structure: Defines how affiliates are paid, either per sale, per lead, or per click, and specifies the payment rate (percentage or flat fee).', '2024-11-11 22:37:23', '2024-11-11 22:37:23');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_users
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_users: ~2 rows (approximately)
-REPLACE INTO `affiliate_users` (`id`, `name`, `address`, `district`, `DOB`, `gender`, `NIC`, `contactno`, `email`, `password`, `promotion_method`, `instagram_url`, `facebook_url`, `tiktok_url`, `youtube_url`, `content_website_url`, `content_whatsapp_url`, `bank_name`, `branch`, `account_name`, `account_number`, `status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_users` (`id`, `name`, `address`, `district`, `DOB`, `gender`, `NIC`, `contactno`, `email`, `password`, `promotion_method`, `instagram_url`, `facebook_url`, `tiktok_url`, `youtube_url`, `content_website_url`, `content_whatsapp_url`, `bank_name`, `branch`, `account_name`, `account_number`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Manushi Weerasinghe', 'No.124, "Sisilasa"', 'Kurunegala', '2000-08-19', 'female', '200073203633', '0716280393', 'manuw2819@gmail.com', '$2y$12$rUIrl.eUkDiqB7vm0QX7/.1NdM2UmfutRc5Ka7DCz8Pc4kErWPeoe', '"[\\"Instagram\\",\\"Facebook\\",\\"TikTok\\",\\"YouTube\\",\\"Content website\\\\\\/blog\\",\\"WhatsApp\\"]"', 'https://www.instagram.com/manushi', 'https://www.facebook.com/manushi', 'https://www.titok.com/manushi', 'https://www.youtube.com/manushi', 'https://www.website.com/manushi', 'https://www.whatsapp.com/manushi', 'BOC', 'Ridigama', 'KGRSM Weerasinghe', '8465232656', 'approved', '2024-11-11 22:40:12', '2024-11-11 22:45:46'),
 	(2, 'k.a.kavidu malshan kulathunga', 'f/16,delpathdeniya', 'kegalle', '1999-07-21', 'male', '199920302235', '0719707612', 'admin@dkmart.lk', '$2y$12$3FkW7JE89xPHQTzVT93LWOHS1GupCv4aURH3R6Vxd.kC2/.Q6DjAq', '"[\\"YouTube\\"]"', NULL, NULL, NULL, 'https://www.youtube.com/watch?v=BYQHcxE7g24', NULL, NULL, 'sampath', 'galigamuwa', 'kavidu malshan', '25226987', 'approved', '2024-11-19 05:53:08', '2024-11-26 18:56:37');
 
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `banners` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.banners: ~3 rows (approximately)
-REPLACE INTO `banners` (`id`, `image`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `banners` (`id`, `image`, `created_at`, `updated_at`) VALUES
 	(12, 'banners/nI0jZg4pYIBWXmUi10UDoQUNXkNqlFDFU9szPIt5.png', '2025-05-08 08:03:41', '2025-05-08 08:03:41'),
 	(13, 'banners/PkPnmosYvSFpxoxAWawy5PVThjhNNDh0vsaYpK9b.png', '2025-05-08 08:03:50', '2025-05-08 08:03:50'),
 	(14, 'banners/uqlOaBCxkjUA5NMGQRnsJb55f95A4JV22a9LEnOr.jpg', '2025-05-08 10:51:45', '2025-05-08 10:51:45');
@@ -204,17 +204,17 @@ CREATE TABLE IF NOT EXISTS `bookings` (
 -- Dumping structure for table esuprjxs_crown.brands
 CREATE TABLE IF NOT EXISTS `brands` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `is_top_brand` tinyint(1) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table esuprjxs_crown.brands: ~0 rows (approximately)
-REPLACE INTO `brands` (`id`, `name`, `image`, `slug`, `is_top_brand`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.brands: ~5 rows (approximately)
+INSERT IGNORE INTO `brands` (`id`, `name`, `image`, `slug`, `is_top_brand`, `created_at`, `updated_at`) VALUES
 	(1, 'LG', 'brands/Hqdu6dflxfeIavAGEGl8XFRZ7ZH7lGh4AEqBy9sE.svg', 'lg', 1, '2025-05-16 02:52:01', '2025-05-16 02:52:01'),
 	(2, 'HP', 'brands/FOiWC5VFOi3SlA0bJKTyMDCO7Saqo8rDoGlxY5yj.png', 'hp', 1, '2025-05-16 03:01:47', '2025-05-16 03:01:47'),
 	(3, 'HARMAS', 'brands/o3mZJcVC5A6oWYTywjGZNSJ3nNWHK6mm7mePj6KJ.png', 'harmas', 0, '2025-05-16 03:02:19', '2025-05-16 03:02:19'),
@@ -229,13 +229,15 @@ CREATE TABLE IF NOT EXISTS `cache` (
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.cache: ~5 rows (approximately)
-REPLACE INTO `cache` (`key`, `value`, `expiration`) VALUES
+-- Dumping data for table esuprjxs_crown.cache: ~7 rows (approximately)
+INSERT IGNORE INTO `cache` (`key`, `value`, `expiration`) VALUES
 	('admin@example.com|112.134.226.211', 'i:1;', 1746774616),
 	('admin@example.com|112.134.226.211:timer', 'i:1746774616;', 1746774616),
 	('admin@example.com|127.0.0.1', 'i:1;', 1745421709),
 	('admin@example.com|127.0.0.1:timer', 'i:1745421709;', 1745421709),
-	('cart_count_7', 'i:2;', 1745943974);
+	('cart_count_7', 'i:2;', 1745943974),
+	('manulakavishka7@gmail.com|127.0.0.1', 'i:1;', 1747392623),
+	('manulakavishka7@gmail.com|127.0.0.1:timer', 'i:1747392623;', 1747392623);
 
 -- Dumping structure for table esuprjxs_crown.cache_locks
 CREATE TABLE IF NOT EXISTS `cache_locks` (
@@ -278,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.categories: ~7 rows (approximately)
-REPLACE INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(18, 'TV', '2025-05-08 11:48:59', '2025-05-08 11:48:59'),
 	(19, 'Audio & Video', '2025-05-08 11:50:33', '2025-05-08 11:50:33'),
 	(20, 'Home Appliances', '2025-05-08 11:52:19', '2025-05-08 11:52:19'),
@@ -322,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `company_settings` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.company_settings: ~1 rows (approximately)
-REPLACE INTO `company_settings` (`id`, `title`, `address`, `email`, `contact`, `website`, `footer_text`, `logo`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `company_settings` (`id`, `title`, `address`, `email`, `contact`, `website`, `footer_text`, `logo`, `created_at`, `updated_at`) VALUES
 	(1, 'CROWN ELECTRONICS', 'No. 38, 2nd Lane,  Rubber Watte Road,  Gangodawila, Nugegoda, Sri Lanka.', 'dkmart@gmail.com', '+94 112 251 202', 'CROWN ELECTRONICS', NULL, 'storage/logo/1746454046.png', '2024-10-30 18:07:56', '2025-05-05 08:37:26');
 
 -- Dumping structure for table esuprjxs_crown.customer_orders
@@ -353,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `customer_orders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.customer_orders: ~6 rows (approximately)
-REPLACE INTO `customer_orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone`, `email`, `house_no`, `apartment`, `city`, `postal_code`, `date`, `total_cost`, `status`, `activity_logs`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `customer_orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone`, `email`, `house_no`, `apartment`, `city`, `postal_code`, `date`, `total_cost`, `status`, `activity_logs`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
 	(33, 'ORD-HMOWQ7JL', 3, 'k.a.kavidu malshan kulathunga', '0719707610', 'freelyricshub@gmail.com', 'f/16,delpathdeniya', NULL, 'galigamuwa', '71350', '2024-11-27', 4800.00, 'Packed', '[{"timestamp":"2024-11-27 01:18:05","message":"Order accepted by the vendor."},{"timestamp":"2024-11-27 01:19:17","message":"Order packed by the vendor."}]', 'COD', 'Pending', '2024-11-26 19:39:41', '2024-11-26 19:49:17'),
 	(34, 'ORD-J64XRM0S', 6, 'Anuradha ;mkkkmmk', '0783302448', 'batmananuradha@gmail.com', '164/08/16, Kannadiwaththa, Bomugammana, Divulapitiya', ';mkmk', 'gampaha', '11250', '2025-04-23', 1300.00, 'Pending', NULL, NULL, 'Pending', '2025-04-23 01:01:21', '2025-04-23 01:01:21'),
 	(35, 'ORD-FPZ1SOLI', 7, 'Anuradha Sampath', '0783302448', 'anuradhasampath64@gmail.com', '164/08/16, Kannadiwaththa,', 'Bomugammana, Divulapitiya', 'gampaha', '11250', '2025-04-27', 100300.00, 'Pending', NULL, 'COD', 'Pending', '2025-04-27 02:59:29', '2025-04-27 03:00:10'),
@@ -505,7 +507,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.migrations: ~55 rows (approximately)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT IGNORE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '0001_01_01_000000_create_users_table', 1),
 	(2, '0001_01_01_000001_create_cache_table', 1),
 	(3, '0001_01_01_000002_create_jobs_table', 1),
@@ -643,7 +645,7 @@ CREATE TABLE IF NOT EXISTS `payment_requests` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.payment_requests: ~1 rows (approximately)
-REPLACE INTO `payment_requests` (`id`, `user_id`, `withdraw_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `payment_requests` (`id`, `user_id`, `withdraw_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
 	(2, 2, 1500.00, 'sampath', 'galigamuwa', 'kavidu malshan', '25226987', 100.00, 1400.00, 'Completed', '2024-11-26 19:40:38', '2024-11-26 19:40:38', '2024-11-26 19:42:27');
 
 -- Dumping structure for table esuprjxs_crown.personal_access_tokens
@@ -713,7 +715,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.products: ~104 rows (approximately)
-REPLACE INTO `products` (`id`, `product_id`, `shop_id`, `product_name`, `product_description`, `category_id`, `brand_id`, `subcategory_id`, `sub_subcategory_id`, `quantity`, `tags`, `normal_price`, `regular_price`, `is_affiliate`, `affiliate_price`, `commission_percentage`, `commission_price`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `products` (`id`, `product_id`, `shop_id`, `product_name`, `product_description`, `category_id`, `brand_id`, `subcategory_id`, `sub_subcategory_id`, `quantity`, `tags`, `normal_price`, `regular_price`, `is_affiliate`, `affiliate_price`, `commission_percentage`, `commission_price`, `created_at`, `updated_at`) VALUES
 	(41, 'P-A96DE6', NULL, 'JBL PartyBox Club 120 Speaker', 'The JBL PartyBox Club 120 turns any space to party, and vibe. Powerful JBL Pro Sound fills the air while an entrancing lightshow of starry lights, cool light trails, and strobe effects syncs to your beat. Instantly pair any Bluetooth device and stream your favorite party playlist, or use the mic and guitar inputs to share your own sound. Either way, you can steer the party\'s flow with fun interactive party effects using the JBL PartyBox app. A folding ergonomic handle makes the PartyBox Club 120 easy to take with you anywhere, and the splash-proof construction means it won\'t be troubled by a little rain. It delivers up to 12 hours of playtimeâ€”and if the party\'s still flowing by then, just swap out the replaceable battery and keep the music and lights going strong. For an even bigger time, stereo pair two JBL PartyBox Club 120s for a wider soundstage, or use the JBL PartyBox app to connect multiple JBL Auracast-enabled speakers wirelessly. Roll up to the party with the JBL PartyBox Club 120.', 19, NULL, 60, NULL, 1000, 'Top Selling', 169999.00, 0.00, 0, NULL, 0.00, NULL, '2025-05-09 13:21:30', '2025-05-09 13:21:30'),
 	(42, 'P-312425', NULL, 'JBL PartyBox Stage 320 Speaker', 'Bring your party anywhere with the JBL PartyBox Stage 320, you can get the party started anytime, anywhere. Transform any space, inside or outdoors, into a dance floor. Powerful JBL Pro Sound and big thumping bass fill a wide soundstage and get the crowd moving, while their eyes are delighted by an adaptive lightshow of swirling starry lights, cool light trails, and amazing strobe effects synced to your beat. Use the mic and guitar inputs to show off your stage presence. You can steer the party\'s flow throughout the night with fun interactive party effects. The solid telescopic handle and wide, sturdy wheels mean you can roll the JBL PartyBox Stage 320 just about anywhere, and once you\'re there, the splash-proof construction means a little rain won\'t ruin the fun. Best of all, it delivers up to 18 hours of playtimeâ€”and if the good times are still rolling, just swap out the replaceable battery and keep going. For an even bigger party, it\'s easy to connect or use the JBL PartyBox app to connect multiple JBL Auracast-enabled speakers wirelessly. Bring people together and elevate the experience with the JBL PartyBox Stage 320.', 19, NULL, 60, NULL, 999, 'Top Selling', 249999.00, 1.00, 0, NULL, 0.00, NULL, '2025-05-09 13:24:51', '2025-05-09 13:24:51'),
 	(43, 'P-650599', NULL, 'Abans Vipe Nitro Portable Speaker - Black', 'The Abans Vipe Nitro Portable Speaker (NITRO X7) offers powerful sound in a compact design, perfect for music lovers on the go. Featuring advanced Bluetooth connectivity, it allows seamless pairing with your devices. Its sleek and durable construction ensures long-lasting performance, while the built-in rechargeable battery provides extended playback time. Ideal for both indoor and outdoor use, the NITRO X7 delivers rich bass and clear highs, enhancing your listening experience wherever you are.', 19, 5, 60, NULL, 998, 'Top Selling', 119999.00, 99999.00, 0, NULL, 0.00, NULL, '2025-05-09 13:27:50', '2025-05-16 03:07:32'),
@@ -832,7 +834,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
 ) ENGINE=InnoDB AUTO_INCREMENT=353 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.product_images: ~299 rows (approximately)
-REPLACE INTO `product_images` (`id`, `product_id`, `image_path`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `product_images` (`id`, `product_id`, `image_path`, `created_at`, `updated_at`) VALUES
 	(52, 'P-A96DE6', 'product_images/1746782490_public (1).png', '2025-05-09 13:21:30', '2025-05-09 13:21:30'),
 	(53, 'P-A96DE6', 'product_images/1746782490_public.png', '2025-05-09 13:21:30', '2025-05-09 13:21:30'),
 	(54, 'P-A96DE6', 'product_images/1746782490_public (2).png', '2025-05-09 13:21:30', '2025-05-09 13:21:30'),
@@ -1148,7 +1150,7 @@ CREATE TABLE IF NOT EXISTS `raffle_tickets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.raffle_tickets: ~1 rows (approximately)
-REPLACE INTO `raffle_tickets` (`id`, `user_id`, `token`, `status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `raffle_tickets` (`id`, `user_id`, `token`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 2, 'hellotracking', 'Pending', '2024-11-19 05:54:35', '2024-11-19 05:54:35');
 
 -- Dumping structure for table esuprjxs_crown.reviews
@@ -1226,8 +1228,9 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.sessions: ~2 rows (approximately)
-REPLACE INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+-- Dumping data for table esuprjxs_crown.sessions: ~3 rows (approximately)
+INSERT IGNORE INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+	('28dmCA4kbUNdffURPCPhRlyQ9eZgqYqSyNB1KKm3', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiejNybVNTRmgxek8xTzRPenFUUkhFckNoM3E0cXdOcnNuMDNrTnpvVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1748405163),
 	('BKiQy4M5PpsD1UJrvvRvTVMteA25bsESDaW39IRF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiS2hnamVHRERiRDliUmE5RjY5bzczZllRVnlEb0lYdXVucDVURlhBaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9yZXZpZXdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo4OiJpc19hZG1pbiI7YjoxO3M6NDoibmFtZSI7czo1OiJBZG1pbiI7czo1OiJlbWFpbCI7czoxNzoiYWRtaW5AZXhhbXBsZS5jb20iO3M6NToiaW1hZ2UiO047fQ==', 1744786906),
 	('ZiX8TanATiZ5FcEtPGRXLzwRcKF1ZoVXHanjbIrp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVWYyRzJ6OHlyUDVIdWhsUzhRbFo4ZnI3NkRyMk9MbHBQT2d3ZklPdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1744781864);
 
@@ -1246,7 +1249,7 @@ CREATE TABLE IF NOT EXISTS `shops` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.shops: ~1 rows (approximately)
-REPLACE INTO `shops` (`id`, `vendor_id`, `shop_name`, `shop_description`, `shop_logo`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `shops` (`id`, `vendor_id`, `shop_name`, `shop_description`, `shop_logo`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'DK Mart', 'DK MART', 'shop_logos/dklogo.png', '2024-11-19 03:03:09', '2024-11-25 05:52:42');
 
 -- Dumping structure for table esuprjxs_crown.sliders
@@ -1259,7 +1262,7 @@ CREATE TABLE IF NOT EXISTS `sliders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.sliders: ~3 rows (approximately)
-REPLACE INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
 	(5, 'slider_images/NCsBFkniIRpXkspADqHSTEngqGW5leB5bemMxePs.png', '2025-05-08 07:58:53', '2025-05-08 07:58:53'),
 	(6, 'slider_images/27Kcs4HV8JUGlDHzx2mo5OQcc0KPF5UY8ykyHNrk.png', '2025-05-08 07:59:04', '2025-05-08 07:59:04'),
 	(7, 'slider_images/mZDEe2rZER26ZyIYLCbw0uEuu0UG1C44REiJ1TsD.png', '2025-05-08 07:59:13', '2025-05-08 07:59:13');
@@ -1302,7 +1305,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.subcategories: ~52 rows (approximately)
-REPLACE INTO `subcategories` (`id`, `category_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `subcategories` (`id`, `category_id`, `name`, `created_at`, `updated_at`) VALUES
 	(53, 18, 'JVC TV Special Offer', '2025-05-08 11:48:59', '2025-05-08 11:48:59'),
 	(54, 18, 'LED TV', '2025-05-08 11:48:59', '2025-05-08 11:48:59'),
 	(55, 18, 'Smart LED TV', '2025-05-08 11:48:59', '2025-05-08 11:48:59'),
@@ -1369,7 +1372,7 @@ CREATE TABLE IF NOT EXISTS `sub_subcategories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.sub_subcategories: ~90 rows (approximately)
-REPLACE INTO `sub_subcategories` (`id`, `subcategory_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `sub_subcategories` (`id`, `subcategory_id`, `name`, `created_at`, `updated_at`) VALUES
 	(7, 66, 'Single Door', '2025-05-08 11:52:19', '2025-05-08 11:52:19'),
 	(8, 66, 'Double Door', '2025-05-14 11:53:18', '2025-05-14 11:53:18'),
 	(9, 66, 'Side by Side', '2025-05-14 11:53:18', '2025-05-14 11:53:18'),
@@ -1475,11 +1478,12 @@ CREATE TABLE IF NOT EXISTS `system_users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `system_users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.system_users: ~1 rows (approximately)
-REPLACE INTO `system_users` (`id`, `name`, `email`, `contact`, `password`, `role`, `image`, `status`, `created_at`, `updated_at`) VALUES
-	(1, 'Manushi Weerasinghe', 'manuw2819@gmail.com', '0716280394', '$2y$12$u9Wf1r7MWu8bNF/iE4ws6ubGM7eEAyVqfcixqejw.eaLguijfOwqy', 'Admin', '1731475199_avatar-1.png', 'Active', '2024-10-30 18:08:27', '2024-11-12 23:49:59');
+-- Dumping data for table esuprjxs_crown.system_users: ~2 rows (approximately)
+INSERT IGNORE INTO `system_users` (`id`, `name`, `email`, `contact`, `password`, `role`, `image`, `status`, `created_at`, `updated_at`) VALUES
+	(1, 'Manushi Weerasinghe', 'manuw2819@gmail.com', '0716280394', '$2y$12$u9Wf1r7MWu8bNF/iE4ws6ubGM7eEAyVqfcixqejw.eaLguijfOwqy', 'Admin', '1731475199_avatar-1.png', 'Active', '2024-10-30 18:08:27', '2024-11-12 23:49:59'),
+	(2, 'Manula', 'manulakavishka9@gmail.com', NULL, '$2y$12$H4Tb6/2XXbmezI7Taa5eC.x7FFJhM8ck1OD07tyrXKVIErAxQHp96', 'Admin', NULL, 'Active', '2025-05-28 09:33:33', '2025-05-28 09:33:34');
 
 -- Dumping structure for table esuprjxs_crown.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -1497,16 +1501,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.users: ~6 rows (approximately)
-REPLACE INTO `users` (`id`, `name`, `email`, `address`, `dob`, `phone`, `gender`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.users: ~7 rows (approximately)
+INSERT IGNORE INTO `users` (`id`, `name`, `email`, `address`, `dob`, `phone`, `gender`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Manushi Weerasinghe', 'manuw2819@gmail.com', 'No.124, "Sisilasa"', '2024-11-01', '+94716280393', NULL, NULL, '$2y$12$TE9JIuSOj3RLYDsnvoR.WuT2.kPTqSVp8Y78lUPsM.YISZ5T8XEGm', NULL, '2024-11-06 23:02:15', '2024-11-06 23:02:15'),
 	(3, 'k.a.kavidu malshan kulathunga', 'freelyricshub@gmail.com', 'f/16,delpathdeniya', '1999-07-21', '+94719707612', 'male', NULL, '$2y$12$VrTjKzIP42MAVFK0.p7LfupuFt42mHDbrWYIsjGe683Kb4enqVA9e', NULL, '2024-11-19 05:44:33', '2024-11-26 06:20:13'),
 	(4, 'pavidu', 'pavidu@gmail.com', 'ranasigha', '1998-07-21', '+94719707615', NULL, NULL, '$2y$12$s3feBcTDzqIrvmNlObm2OeYsFaedZ1TzHrx4vtPjtj2gaiEFT7jfK', NULL, '2024-11-26 22:42:26', '2024-11-26 22:42:26'),
 	(5, 'kasuni', 'kasuni@gmail.com', 'f/16,delpathdeniya', '2002-08-20', '+94719707620', NULL, NULL, '$2y$12$YIOghwp3KMJffBPmktWnle46DVcoWeTufAZQubYAide3R09EL8gg.', NULL, '2024-11-26 22:48:59', '2024-11-26 22:48:59'),
 	(6, 'Anuradha', 'batmananuradha@gmail.com', '164/08/16, Kannadiwaththa, Bomugammana, Divulapitiya, ;mkmk', '2025-04-01', '+94783302448', NULL, NULL, '$2y$12$zs0rtIk12WPVyHtQ/CaL0eOb2wfRBjQGYvJeOJMQWZdUWsoYk3pM6', NULL, '2025-04-23 01:00:45', '2025-04-23 01:00:45'),
-	(7, 'Anuradha Sampath', 'anuradhasampath666@gmail.com', '164/08/16, Kannadiwaththa,, Bomugammana, Divulapitiya', '2025-04-07', '0783302448', NULL, NULL, '$2y$12$E.SsdKjZ.s9ZLBsZ6Ce6buV.jSS9gfiN2w2O5x.o7JkkJq37.dIkG', NULL, '2025-04-25 03:35:10', '2025-04-25 03:35:10');
+	(7, 'Anuradha Sampath', 'anuradhasampath666@gmail.com', '164/08/16, Kannadiwaththa,, Bomugammana, Divulapitiya', '2025-04-07', '0783302448', NULL, NULL, '$2y$12$E.SsdKjZ.s9ZLBsZ6Ce6buV.jSS9gfiN2w2O5x.o7JkkJq37.dIkG', NULL, '2025-04-25 03:35:10', '2025-04-25 03:35:10'),
+	(8, 'm', 'manulakavishka9@gmail.com', NULL, NULL, NULL, NULL, NULL, '$2y$12$H4Tb6/2XXbmezI7Taa5eC.x7FFJhM8ck1OD07tyrXKVIErAxQHp96', NULL, NULL, NULL);
 
 -- Dumping structure for table esuprjxs_crown.variations
 CREATE TABLE IF NOT EXISTS `variations` (
@@ -1524,7 +1529,7 @@ CREATE TABLE IF NOT EXISTS `variations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.variations: ~104 rows (approximately)
-REPLACE INTO `variations` (`id`, `product_id`, `type`, `value`, `hex_value`, `quantity`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `variations` (`id`, `product_id`, `type`, `value`, `hex_value`, `quantity`, `created_at`, `updated_at`) VALUES
 	(66, 'P-A96DE6', NULL, NULL, NULL, NULL, '2025-05-09 13:21:30', '2025-05-09 13:21:30'),
 	(67, 'P-312425', NULL, NULL, NULL, NULL, '2025-05-09 13:24:51', '2025-05-09 13:24:51'),
 	(69, 'P-760E70', NULL, NULL, NULL, NULL, '2025-05-09 13:43:19', '2025-05-09 13:43:19'),
@@ -1651,7 +1656,7 @@ CREATE TABLE IF NOT EXISTS `vendors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendors: ~1 rows (approximately)
-REPLACE INTO `vendors` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `profile_image`, `bank_name`, `branch`, `account_name`, `account_number`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendors` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `profile_image`, `bank_name`, `branch`, `account_name`, `account_number`, `created_at`, `updated_at`) VALUES
 	(1, 'Admin', 'freelyricshub@gmail.com', '$2y$12$ply3ddeHLJO/B1J0HMHjFeJDZWJIvDvqCnsB.clYUcxuBUslLeVR.', '0712345678', 'f/16,delpathdeniya', 'approved', NULL, 'sampath', 'kegalle', 'kavidu', '12345678', '2024-11-19 03:01:00', '2024-11-26 19:51:21');
 
 -- Dumping structure for table esuprjxs_crown.vendor_payment_requests
@@ -1675,7 +1680,7 @@ CREATE TABLE IF NOT EXISTS `vendor_payment_requests` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendor_payment_requests: ~1 rows (approximately)
-REPLACE INTO `vendor_payment_requests` (`id`, `vendor_id`, `request_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendor_payment_requests` (`id`, `vendor_id`, `request_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1500.00, 'sampath', 'kegalle', 'kavidu', '12345678', 100.00, 1400.00, 'Completed', '2024-11-26 19:51:39', '2024-11-26 19:51:39', '2024-11-26 19:52:13');
 
 -- Dumping structure for table esuprjxs_crown.vendor_wallets
@@ -1692,7 +1697,7 @@ CREATE TABLE IF NOT EXISTS `vendor_wallets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendor_wallets: ~1 rows (approximately)
-REPLACE INTO `vendor_wallets` (`id`, `vendor_id`, `balance`, `total_earnings`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendor_wallets` (`id`, `vendor_id`, `balance`, `total_earnings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 9450.00, 9450.00, '2024-11-22 01:38:18', '2024-11-26 19:49:24');
 
 -- Dumping structure for table esuprjxs_crown.wishlists
