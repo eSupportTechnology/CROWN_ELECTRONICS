@@ -18,6 +18,7 @@ class Product extends Model
         'brand_id',
         'subcategory_id',
         'sub_subcategory_id',
+        'currency_id',
         'quantity',
         'tags',
         'normal_price',
@@ -70,5 +71,9 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class, 'currency_id');
     }
 }

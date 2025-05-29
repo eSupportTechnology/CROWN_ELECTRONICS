@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Currency;
 use App\Models\Subcategory;
 use App\Models\SubSubcategory;
 use App\Models\Product;
@@ -71,7 +72,8 @@ class ProductController extends Controller
     {
         $categories = Category::with('subcategories.subSubcategories')->get();
         $brands = Brand::all();
-        return view('AdminDashboard.add_products', compact('categories', 'brands'));
+        $currencies = Currency::all();
+        return view('AdminDashboard.add_products', compact('categories', 'brands','currencies'));
     }
 
     public function getSubcategories($categoryId)
@@ -101,6 +103,7 @@ class ProductController extends Controller
             'brand_id' => 'nullable',
             'subcategory_id' => 'nullable',
             'sub_subcategory_id' => 'nullable',
+            'currency_id' => 'nullable',
             'quantity' => 'required|integer',
             'tags' => 'nullable|string',
             'normal_price' => 'required|numeric',
@@ -132,6 +135,7 @@ class ProductController extends Controller
             'brand_id' => $validatedData['brand_id'],
             'subcategory_id' => $validatedData['subcategory_id'],
             'sub_subcategory_id' => $request->input('sub_subcategory_id'),
+            'currency_id' => $validatedData['currency_id'],
             'quantity' => $validatedData['quantity'],
             'tags' => $validatedData['tags'],
             'normal_price' => $validatedData['normal_price'],
@@ -187,7 +191,8 @@ class ProductController extends Controller
         $product = Product::with(['category', 'subcategory', 'subSubcategory', 'variations'])->findOrFail($productId);
         $categories = Category::with('subcategories.subSubcategories')->get();
         $brands = Brand::all();
-        return view('AdminDashboard.edit_products', compact('product', 'categories', 'brands'));
+        $currencies = Currency::all();
+        return view('AdminDashboard.edit_products', compact('product', 'categories', 'brands', 'currencies'));
     }
 
 
@@ -207,6 +212,7 @@ class ProductController extends Controller
             'brand_id' => 'nullable',
             'subcategory_id' => 'nullable',
             'sub_subcategory_id' => 'nullable',
+            'currency_id' => 'nullable',
             'quantity' => 'required|integer',
             'tags' => 'nullable|string',
             'normal_price' => 'required|numeric',
@@ -238,6 +244,7 @@ class ProductController extends Controller
             'brand_id' => $validatedData['brand_id'],
             'subcategory_id' => $validatedData['subcategory_id'],
             'sub_subcategory_id' => $validatedData['sub_subcategory_id'],
+            'currency_id' => $validatedData['currency_id'],
             'quantity' => $validatedData['quantity'],
             'tags' => $validatedData['tags'],
             'normal_price' => $validatedData['normal_price'],

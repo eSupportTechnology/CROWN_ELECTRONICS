@@ -36,6 +36,19 @@
                             <input name="quantity" id="quantity" type="number"
                                 value="{{ old('quantity', $product->quantity) }}" class="form-control" />
                         </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Currency <i class="text-danger">*</i></label>
+                            <select name="currency_id" class="form-select" id="currencySelect">
+                                @foreach ($currencies as $currency)
+                                    <option value="{{ $currency->id }}" data-symbol="{{ $currency->symbol }}" {{ $currency->id == $product->currency_id ? 'selected' : '' }}>
+                                        {{ $currency->name }} {{ $currency->symbol }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
                         <label class="form-check mb-4">
                             <input name="is_affiliate" id="affiliate_checkbox" class="form-check-input" type="checkbox"
                                 {{ $product->is_affiliate ? 'checked' : '' }} />
@@ -46,7 +59,7 @@
                                 <div class="mb-4">
                                     <label class="form-label">Normal price <i class="text-danger">*</i></label>
                                     <input name="normal_price" id="normal_price"
-                                        value="{{ old('normal_price', $product->normal_price) }}" placeholder="Rs"
+                                        value="{{ old('normal_price', $product->normal_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
                                         type="number" class="form-control" />
                                 </div>
                             </div>
@@ -54,7 +67,7 @@
                                 <div class="mb-4">
                                     <label class="form-label">Affiliate price</label>
                                     <input name="affiliate_price" id="affiliate_price"
-                                        value="{{ old('affiliate_price', $product->affiliate_price) }}" placeholder="Rs"
+                                        value="{{ old('affiliate_price', $product->affiliate_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
                                         type="number" class="form-control" readonly />
                                 </div>
                             </div>
@@ -73,7 +86,7 @@
                                 <div class="mb-4">
                                     <label class="form-label">Commission price</label>
                                     <input name="com_price" id="com_price"
-                                        value="{{ old('commission_price', $product->commission_price) }}" placeholder="Rs"
+                                        value="{{ old('commission_price', $product->commission_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
                                         type="number" class="form-control" readonly />
                                 </div>
                             </div>
@@ -221,6 +234,32 @@
             </div>
         </div>
     </form>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const currencySelect = document.getElementById('currencySelect');
+            const placeholderFields = [
+                document.getElementById('normal_price'),
+                document.getElementById('affiliate_price'),
+                document.getElementById('com_price')
+            ];
+
+            function updatePlaceholders() {
+                const selectedOption = currencySelect.options[currencySelect.selectedIndex];
+                const symbol = selectedOption.getAttribute('data-symbol') || 'Rs';
+                placeholderFields.forEach(field => {
+                    field.placeholder = symbol;
+                });
+            }
+
+            // Initial placeholder set
+            updatePlaceholders();
+
+            // On currency change
+            currencySelect.addEventListener('change', updatePlaceholders);
+        });
+    </script>
 
 
     <script>
