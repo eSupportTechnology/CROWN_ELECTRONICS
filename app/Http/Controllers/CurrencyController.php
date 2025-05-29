@@ -21,9 +21,10 @@ Log::info('Accessing currencies index page');
             'code' => 'required|string|max:3|unique:currencies,code',
             'name' => 'required|string|max:255',
             'symbol' => 'nullable|string|max:10',
+            'exchange_rate' => 'required|numeric|min:0',
         ]);
 
-        Currency::create($request->only(['code', 'name', 'symbol']));
+        Currency::create($request->only(['code', 'name', 'symbol', 'exchange_rate']));
 
         return redirect()->back()->with('success', 'Currency added successfully.');
     }
@@ -42,9 +43,10 @@ Log::info('Accessing currencies index page');
             'code' => 'required|string|max:3|unique:currencies,code,' . $currency->id,
             'name' => 'required|string|max:255',
             'symbol' => 'nullable|string|max:10',
+            'exchange_rate' => 'required|numeric|min:0',
         ]);
 
-        $currency->update($request->only(['code', 'name', 'symbol']));
+        $currency->update($request->only(['code', 'name', 'symbol', 'exchange_rate']));
 
         return redirect()->route('currencies.index')->with('success', 'Currency updated successfully.');
     }

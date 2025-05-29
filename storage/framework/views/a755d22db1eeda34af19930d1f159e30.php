@@ -182,8 +182,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
-                                                <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -303,8 +303,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
-                                                <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -365,8 +365,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. <?php echo e(number_format($product->regular_price, 2)); ?></span>
-                                                <span class="selling-price">Rs. <?php echo e(number_format($product->normal_price, 2)); ?></span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>

@@ -36,6 +36,14 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="exchange_rate" class="form-label">Currency Exchange Rate</label>
+                <input type="text" class="form-control @error('symbol') is-invalid @enderror" id="exchange_rate" name="exchange_rate" value="{{ old('exchange_rate', $currency->exchange_rate) }}">
+                @error('exchange_rate')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div class="text-end">
                 <a href="{{ route('currencies.index') }}" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update Currency</button>

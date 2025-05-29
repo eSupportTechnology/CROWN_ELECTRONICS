@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             }
             $view->with('cartCount', $cartCount);
         });
- 
+
 
 
         View::composer('*', function ($view) {
@@ -52,14 +52,21 @@ class AppServiceProvider extends ServiceProvider
                     $productImage = $product->images()->first();
                     $imagePath = $productImage ? 'storage/' . $productImage->image_path : 'default.png';
 
+                    if ($product->currency && $product->currency->code != 'LKR') {
+                        $subtotal = number_format($item->price * $item->quantity * $product->currency->exchange_rate, 2);
+                        $cartTotal += $item->price * $item->quantity * $product->currency->exchange_rate;
+                    } else {
+                        $subtotal = number_format($item->price * $item->quantity, 2);
+                        $cartTotal += $item->price * $item->quantity;
+                    }
+
                     $miniCart[] = [
                         'name' => $product->product_name,
                         'image' => asset($imagePath),
                         'quantity' => $item->quantity,
-                        'subtotal' => number_format($item->price * $item->quantity, 2),
+                        'subtotal' => $subtotal,
                     ];
 
-                    $cartTotal += $item->price * $item->quantity;
                 }
 
                 $cartCount = $cartItems->count();
@@ -70,9 +77,9 @@ class AppServiceProvider extends ServiceProvider
                  ->with('cartCount', $cartCount);
         });
 
-          
-        
-          
+
+
+
 
     }
 }

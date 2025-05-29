@@ -1,7 +1,4 @@
-
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <style>
 
 .color-circle {
@@ -70,20 +67,20 @@
     <section class="cart py-80">
     <div class="container container-lg">
         <div class="row gy-4">
-                @if(isset($message))
+                <?php if(isset($message)): ?>
                     <!-- Display the empty cart message -->
                     <div class="cart-empty-card text-center border border-gray-100 rounded-8 py-48 px-40 bg-light">
                         <i class="material-icons text-6xl mb-24">shopping_cart</i>
-                        <h3 class="text-lg fw-semibold mb-16">{{ $message }}</h3>
-                        @if(!auth()->check())
+                        <h3 class="text-lg fw-semibold mb-16"><?php echo e($message); ?></h3>
+                        <?php if(!auth()->check()): ?>
                             <p class="mb-24">Sign in to view your cart and start shopping.</p>
-                            <a href="{{ route('login') }}" class="btn btn-main py-12 w-50 rounded-8">Sign In</a>
-                        @else
+                            <a href="<?php echo e(route('login')); ?>" class="btn btn-main py-12 w-50 rounded-8">Sign In</a>
+                        <?php else: ?>
                             <p class="mb-24">Start shopping to fill your cart.</p>
-                            <a href="{{ route('shop.index') }}" class="btn btn-main py-12 w-50 rounded-8">Start Shopping</a>
-                        @endif
+                            <a href="<?php echo e(route('shop.index')); ?>" class="btn btn-main py-12 w-50 rounded-8">Start Shopping</a>
+                        <?php endif; ?>
                     </div>
-                @else
+                <?php else: ?>
                 <div class="col-xl-9 col-lg-8">
                     <!-- Display the cart items table -->
                     <div class="cart-table border border-gray-100 rounded-8 px-40 py-40">
@@ -99,73 +96,73 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($cartItems as $item)
+                                    <?php $__currentLoopData = $cartItems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td>
                                             <div class="table-product d-flex align-items-center gap-24">
-                                                <a href="{{ route('showProductDetails', $item->product_id) }}" class="table-product__thumb border border-gray-100 rounded-8 flex-center p-0">
-                                                    <img src="{{ asset('storage/' . $item->product_image) }}" alt="{{ $item->product_name }}">
+                                                <a href="<?php echo e(route('showProductDetails', $item->product_id)); ?>" class="table-product__thumb border border-gray-100 rounded-8 flex-center p-0">
+                                                    <img src="<?php echo e(asset('storage/' . $item->product_image)); ?>" alt="<?php echo e($item->product_name); ?>">
                                                 </a>
                                                 <div class="table-product__content text-start">
                                                     <h6 class="title text-lg fw-semibold mb-8">
-                                                        <a href="{{ route('showProductDetails', $item->product_id) }}" class="link text-line-2" tabindex="0">{{ $item->product_name }}</a>
+                                                        <a href="<?php echo e(route('showProductDetails', $item->product_id)); ?>" class="link text-line-2" tabindex="0"><?php echo e($item->product_name); ?></a>
                                                     </h6>
-                                                    @if($item->size || $item->color)
+                                                    <?php if($item->size || $item->color): ?>
                                                             <div class="mt-2">
-                                                                @if($item->size)
-                                                                    <span>Size: {{ $item->size }}</span>
-                                                                @endif
-                                                                @if($item->color)
+                                                                <?php if($item->size): ?>
+                                                                    <span>Size: <?php echo e($item->size); ?></span>
+                                                                <?php endif; ?>
+                                                                <?php if($item->color): ?>
                                                                     <span>Color:</span>
-                                                                    <span class="color-circle" style="background-color: {{ $item->color }};"></span>
-                                                                @endif
+                                                                    <span class="color-circle" style="background-color: <?php echo e($item->color); ?>;"></span>
+                                                                <?php endif; ?>
                                                             </div>
-                                                        @endif
+                                                        <?php endif; ?>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="text-lg h6 mb-0 fw-semibold">{{$item->product->currency->symbol ?? 'Rs' }}. {{ number_format($item->price, 2) }}</span>
-                                            @if($item->product->currency && $item->product->currency->code != 'LKR')
+                                            <span class="text-lg h6 mb-0 fw-semibold"><?php echo e($item->product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($item->price, 2)); ?></span>
+                                            <?php if($item->product->currency && $item->product->currency->code != 'LKR'): ?>
                                             <div class="mt-2">
-                                            <span>Rs: {{ number_format($item->price * $item->product->currency->exchange_rate , 2) }}</span>
+                                            <span>Rs: <?php echo e(number_format($item->price * $item->product->currency->exchange_rate , 2)); ?></span>
                                             </div>
-                                            @endif
+                                            <?php endif; ?>
                                         </td>
                                         <td>
-                                            <form action="{{ route('cart.update', $item->id) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
+                                            <form action="<?php echo e(route('cart.update', $item->id)); ?>" method="POST">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('PUT'); ?>
                                                 <div class="d-flex rounded-4 overflow-hidden">
-                                                    <button type="button" class="quantity__minus border border-end border-gray-100 flex-shrink-0 h-48 w-48 text-neutral-600 flex-center hover-bg-main-600 hover-text-white" data-id="{{ $item->id }}">
+                                                    <button type="button" class="quantity__minus border border-end border-gray-100 flex-shrink-0 h-48 w-48 text-neutral-600 flex-center hover-bg-main-600 hover-text-white" data-id="<?php echo e($item->id); ?>">
                                                         <i class="ph ph-minus"></i>
                                                     </button>
-                                                    <input type="number" name="quantity" class="quantity__input flex-grow-1 border border-gray-100 border-start-0 border-end-0 text-center w-32 " value="{{ $item->quantity }}" min="1" style="height: 47px;">
-                                                    <button type="button" class="quantity__plus border border-end border-gray-100 flex-shrink-0 h-48 w-48 text-neutral-600 flex-center hover-bg-main-600 hover-text-white" data-id="{{ $item->id }}">
+                                                    <input type="number" name="quantity" class="quantity__input flex-grow-1 border border-gray-100 border-start-0 border-end-0 text-center w-32 " value="<?php echo e($item->quantity); ?>" min="1" style="height: 47px;">
+                                                    <button type="button" class="quantity__plus border border-end border-gray-100 flex-shrink-0 h-48 w-48 text-neutral-600 flex-center hover-bg-main-600 hover-text-white" data-id="<?php echo e($item->id); ?>">
                                                         <i class="ph ph-plus"></i>
                                                     </button>
                                                 </div>
                                             </form>
                                         </td>
                                         <td>
-                                            <span class="text-lg h6 mb-0 fw-semibold">{{$item->product->currency->symbol ?? 'Rs' }}. {{ number_format($item->subtotal, 2) }}</span>
-                                            @if($item->product->currency && $item->product->currency->code != 'LKR')
+                                            <span class="text-lg h6 mb-0 fw-semibold"><?php echo e($item->product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($item->subtotal, 2)); ?></span>
+                                            <?php if($item->product->currency && $item->product->currency->code != 'LKR'): ?>
                                             <div class="mt-2">
-                                            <span>Rs: {{ number_format($item->subtotal * $item->product->currency->exchange_rate , 2) }}</span>
+                                            <span>Rs: <?php echo e(number_format($item->subtotal * $item->product->currency->exchange_rate , 2)); ?></span>
                                             </div>
-                                            @endif
+                                            <?php endif; ?>
                                         </td>
                                         <td>
-                                            <form action="{{ route('cart.remove', $item->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
+                                            <form action="<?php echo e(route('cart.remove', $item->id)); ?>" method="POST">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
                                                 <button type="submit" class="remove-tr-btn flex-align gap-12 hover-text-danger-600">
                                                     <i class="material-icons text-2xl">delete</i>
                                                 </button>
                                             </form>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -180,7 +177,7 @@
                         <div class="mb-32 flex-between gap-8">
                             <span class="text-gray-900 font-heading-two">Subtotal</span>
 
-                            @php
+                            <?php
     $total = $cartItems->sum(function ($item) {
         $product = $item->product;
         $subtotal = $item->subtotal;
@@ -191,9 +188,9 @@
 
         return $subtotal;
     });
-@endphp
+?>
 
-<span class="text-gray-900 fw-semibold">Rs. {{ number_format($total, 2) }}</span>
+<span class="text-gray-900 fw-semibold">Rs. <?php echo e(number_format($total, 2)); ?></span>
 
                         </div>
                         <div class="mb-0 flex-between gap-8">
@@ -204,12 +201,12 @@
                     <div class="bg-color-three rounded-8 p-24 mt-24">
                         <div class="flex-between gap-8">
                             <span class="text-gray-900 text-xl fw-semibold">Total</span>
-                            <span class="text-gray-900 text-xl fw-semibold">Rs. {{ number_format($total + 300, 2) }}</span>
+                            <span class="text-gray-900 text-xl fw-semibold">Rs. <?php echo e(number_format($total + 300, 2)); ?></span>
                         </div>
                     </div>
-                    <a href="{{ route('checkout') }}" class="btn btn-main mt-40 py-18 w-100 rounded-8">Proceed to checkout</a>
+                    <a href="<?php echo e(route('checkout')); ?>" class="btn btn-main mt-40 py-18 w-100 rounded-8">Proceed to checkout</a>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -254,5 +251,7 @@ $(document).ready(function () {
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/cart.blade.php ENDPATH**/ ?>

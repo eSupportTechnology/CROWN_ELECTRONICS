@@ -183,8 +183,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">Rs. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
+                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs'}}. {{ number_format($product->normal_price, 2) }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -303,8 +303,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">Rs. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
+                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->normal_price, 2) }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -364,8 +364,8 @@
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">Rs. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">Rs. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
+                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->normal_price, 2) }}</span>
                                             </div>
                                         </div>
                                     </div>

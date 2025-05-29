@@ -114,7 +114,7 @@
                                 </div>
 
                                 <div class="mt-8 mb-20 product-card__price">
-                                    <span class="text-heading text-md fw-semibold ">Rs {{ number_format($product->normal_price, 2) }} <span class="text-gray-500 fw-normal">/Qty</span></span>
+                                    <span class="text-heading text-md fw-semibold ">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($product->normal_price, 2) }} <span class="text-gray-500 fw-normal">/Qty</span></span>
                                 </div>
 
                                 <a href="#"
@@ -149,7 +149,7 @@
                                                 <hr />
 
                                                 <div class="mt-8 mb-3 product-price d-flex align-items-center">
-                                                    <h6 class="mb-0">Rs {{ $product->normal_price }}</h6>
+                                                    <h6 class="mb-0">{{$product->currency->symbol ?? 'Rs' }} {{ $product->normal_price }}</h6>
                                                 </div>
 
                                                 @auth

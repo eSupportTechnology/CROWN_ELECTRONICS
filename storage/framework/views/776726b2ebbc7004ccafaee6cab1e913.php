@@ -19,6 +19,7 @@
                         <th>Code</th>
                         <th>Name</th>
                         <th>Symbol</th>
+                        <th>Exchange Rate</th>
                         <th class="text-end">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                                 <td><?php echo e($currency->code); ?></td>
                                 <td><?php echo e($currency->name); ?></td>
                                 <td><?php echo e($currency->symbol); ?></td>
+                                <td><?php echo e($currency->exchange_rate); ?></td>
                                 <td class="text-end">
                                     <a href="<?php echo e(route('currencies.edit', $currency->id)); ?>" class="btn btn-warning btn-sm me-2">
                                         <i class="fas fa-edit"></i>
@@ -77,6 +79,10 @@
                     <div class="mb-3">
                         <label for="symbol" class="form-label">Currency Symbol</label>
                         <input type="text" class="form-control" id="symbol" name="symbol" placeholder="e.g. $">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exchange_rate" class="form-label">Currency Exchange Rate</label>
+                        <input type="text" class="form-control" id="exchange_rate" name="exchange_rate" placeholder="e.g. 1.00">
                     </div>
                     <div class="text-end">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

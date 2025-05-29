@@ -10,5 +10,6 @@ class Currency extends Model
         'code',
         'name',
         'symbol',
+        'exchange_rate',
     ];
 }

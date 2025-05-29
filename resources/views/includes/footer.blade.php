@@ -1,5 +1,5 @@
 <div class="mobile-footer-con">
-   
+
 
     <div class="footer ft-destop">
         <div class="row bg-purple m-0">
@@ -77,7 +77,7 @@
                                 <li class="footer-nav"><a href="/about">About Us</a></li>
                                 <li class="footer-nav"><a href="#">Careers</a></li>
                                 <li class="footer-nav"><a href="/contact">Contact Us</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
 
-               
+
 
             </div>
 
@@ -188,7 +188,7 @@
 
 
 
-<!-- 
+<!--
 ============================================================================================================================ -->
 
 
@@ -222,13 +222,13 @@
                             <div class="cart-product">
                                 <div class="main-pro-details">
                                     <div class="product-img">
-                                        
+
                                         <img src="{{ $item['image'] }}" alt="product">
-                                        
+
                                     </div>
                                     <div class="product-title">{{ Str::limit($item['name'], 10) }}</div>
                                     <div class="product-title">Qty: {{ $item['quantity'] }}</div>
-                                    <div class="product-title">Rs. {{ $item['subtotal'] }}</div>
+                                    <div class="product-title">{{$product->currency->symbol ?? 'Rs' }}. {{ $item['subtotal'] }}</div>
                                 </div>
                             </div>
                         @empty
@@ -294,7 +294,7 @@
                 <div class="col-md-4 address-info">
                 <img src="{{ asset('frontend/newstyle/assets/images/logo.png') }}" style="width: 180px;">
 
-                    
+
                     <div class="hotline">
                         <p>HOTLINE</p>
                         <a class="tel-no" href="#">+94 112 251 202 </a>
@@ -319,7 +319,7 @@
                     <div class="footer-img-div"><a href="#" target="_blank"><img src="frontend/newstyle/assets/images/icon/order-tracking.png">Track your Order</a></div>
                 </div> -->
 
-                
+
 
                 <div class="col-md-2">
                     <div class="footer-links-set">
@@ -328,7 +328,7 @@
                             <li><a class="footer-link" href="/about">About Us</a></li>
                             <li><a class="footer-link" href="#">Careers</a></li>
                             <li><a class="footer-link" href="/contact">Contact Us</a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -344,13 +344,13 @@
                             <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
                             <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
-                            
+
                         </ul>
                     </div>
                 </div>
-                
-               
-                
+
+
+
 
                 <div class="col-md-2">
                     <div class="footer-links-set">
@@ -370,7 +370,7 @@
                             <li><a class="footer-link" href="#">Brands</a></li>
                             <li><a class="footer-link" href="#">Warranty Information</a></li>
                             <li><a class="footer-link" href="#">Return Products</a></li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -415,26 +415,26 @@
 <!-- footer for destop end -->
 
 
-        
 
-        
+
+
         <overlay-loader :is-open="show_loader"></overlay-loader>
 
-        
+
     </div>
 
-  
-
-
-     
 
 
 
 
 
 
-    
-   
+
+
+
+
+
+
 
 
 

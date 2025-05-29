@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code', 3)->unique(); // e.g. USD, EUR
             $table->string('name');              // e.g. US Dollar
             $table->string('symbol')->nullable(); // e.g. $, €
+            $table->decimal('exchange_rate', 15, 8)->default(1); // Rate to base currency
             $table->timestamps();
         });
     }
