@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
         if ($request->ajax()) {
             $query = $request->get('q');
-            
+
             // Search products based on the query
             $products = Product::with('images') // Eager load images
                 ->where('product_name', 'LIKE', '%' . $query . '%')
@@ -34,7 +34,7 @@ class SearchController extends Controller
             ->map(function ($product) {
                 return [
                     'name' => $product->product_name,
-                    'image' => $product->images->first() ? asset('storage/' . $product->images->first()->image_path) : 'default.jpg',
+                    'image' => $product->images->first() ? asset('storage/app/public/' . $product->images->first()->image_path) : 'default.jpg',
                     'url' => url('/product-details/' . $product->product_id),
                 ];
             });
