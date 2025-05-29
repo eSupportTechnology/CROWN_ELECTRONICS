@@ -109,11 +109,11 @@
                     </div>
                     <!-- Submit Button -->
                     <div class="mt-48 text-center">
-                        <x-primary-button type="submit" class="btn btn-primary px-4 py-2">
+                        <button type="submit" class="btn btn-primary px-4 py-2">
                             {{ __('Register') }}
-                        </x-primary-button>
+                        </button>
                     </div>
-                    
+
                     <div class="mt-3 text-center">
                         <p>Already have an account?
                             <a href="{{ route('login') }}" class="text-primary">Login</a>

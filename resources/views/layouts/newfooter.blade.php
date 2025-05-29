@@ -1,10 +1,10 @@
 <div class="mobile-footer-con">
-   
+
 
     <div class="footer ft-destop">
         <div class="row bg-purple m-0">
             <div class="col-6 mobi-purple-div">
-                <div class="footer-icon">
+                <div class="footer-icon" style="width: 35px; height: 35px;">
                     <a href="#">
                         <img src="frontend/newstyle/assets/images/icon/Page-1.webp">
                     </a>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-6 mobi-purple-div">
-                <div class="footer-icon">
+                <div class="footer-icon" style="width: 35px; height: 30px;">
                     <a href="#">
                         <img src="frontend/newstyle/assets/images/icon/sri-lanka.webp">
                     </a>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="col-6 mobi-purple-div">
-                <div class="footer-icon">
+                <div class="footer-icon" style="width: 35px; height: 35px;">
                     <a href="#">
                         <img src="frontend/newstyle/assets/images/icon/stopwatch.webp">
                     </a>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-6 mobi-purple-div">
-                <div class="footer-icon">
+                <div class="footer-icon" style="width: 35px; height: 35px;">
                     <a href="#">
                         <img src="frontend/newstyle/assets/images/icon/technical-support.webp">
                     </a>
@@ -72,7 +72,7 @@
                                 <li class="footer-nav"><a href="#">About Us</a></li>
                                 <li class="footer-nav"><a href="#">Careers</a></li>
                                 <li class="footer-nav"><a href="#">Contact Us</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-               
+
 
             </div>
 
@@ -192,7 +192,7 @@
 
 
 
-<!-- 
+<!--
 ============================================================================================================================ -->
 
 
@@ -281,7 +281,7 @@
                             <li><a class="footer-link" href="#">About Us</a></li>
                             <li><a class="footer-link" href="#">Careers</a></li>
                             <li><a class="footer-link" href="#">Contact Us</a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -348,28 +348,28 @@
 <!-- footer for destop end -->
 
 
-        
 
-        
+
+
         <overlay-loader :is-open="show_loader"></overlay-loader>
 
-        
+
     </div>
 
-  
+
 
      <!-- <script src="assets/js/jquery-3.6.0.min.js" type="a071cb3ff60724c4b8f55cf9-text/javascript"></script>  -->
   <!-- <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="assets/libs/sweetalerts/sweetalert2.all.min.js"></script> -->
     <!-- <script src="assets/libs/bootstrap/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" type="a071cb3ff60724c4b8f55cf9-text/javascript">
     </script>  -->
 
-    <!-- <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="themes/default/assets/js/shop.js"></script> 
+    <!-- <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="themes/default/assets/js/shop.js"></script>
     <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="assets/js/main.js"></script>
      <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="../cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="assets/libs/owl-carousel/owl.carousel.min.js" defer></script>
     <script type="a071cb3ff60724c4b8f55cf9-text/javascript" src="assets/libs/countdown/jquery.countdown-new.min.js" defer></script>
      -->
-    
+
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
@@ -377,8 +377,8 @@
 
 
 
-    
-   
+
+
 
 
 <script src="/frontend/newstyle/rocket-loader.min.js" data-cf-settings="a071cb3ff60724c4b8f55cf9-|49" defer></script>

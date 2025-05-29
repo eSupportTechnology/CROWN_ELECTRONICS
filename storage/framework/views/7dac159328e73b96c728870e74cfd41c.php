@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
-    
+
 
 
 
@@ -59,7 +59,7 @@
                             <textarea name="message" class="common-input px-16" id="message" placeholder="Type your message"></textarea>
                         </div>
                         <div class="col-sm-12 mt-32">
-                            <button type="submit" class="btn btn-main py-18 px-32 rounded-8">Send</button>
+                            <button type="submit" class="btn btn-main py-2 px-4 rounded-8">Send</button>
                         </div>
                     </div>
                 </form>
@@ -70,7 +70,7 @@
                 <div class="contact-box border border-gray-100 rounded-16 px-24 py-40">
                     <h6 class="mb-48">Get In Touch</h6>
                          <?php
-                            $companySettings = \App\Models\CompanySettings::first(); 
+                            $companySettings = \App\Models\CompanySettings::first();
                         ?>
                     <div class="flex-align gap-16 mb-16">
                         <span class="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0"><i class="ph-fill ph-phone-call"></i></span>
@@ -101,11 +101,11 @@
 </section>
 <!-- ============================ Contact Section End ================================== -->
 
-  
 
 
-      
- 
+
+
+
  <?php $__env->stopSection(); ?>
 
 
