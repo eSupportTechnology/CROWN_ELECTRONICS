@@ -149,6 +149,9 @@
                     <a href="<?php echo e(route('manage_company_profile')); ?>">
                         Manage Company
                     </a>
+                    <a href="<?php echo e(route('currencies.index')); ?>">
+                        Manage Currencies
+                    </a>
                     <a href="<?php echo e(route('users')); ?>">
                         Users
                     </a>
@@ -160,6 +163,8 @@
                     <a href="<?php echo e(route('banners')); ?>">
                         Banner images
                     </a>
+
+
 
 
 

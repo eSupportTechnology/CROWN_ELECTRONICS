@@ -1,13 +1,13 @@
 <style>
     /* Hide elements with the class .mobhide on screens smaller than or equal to 768px */
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
         .mobhide {
             display: none !important;
             /* Add !important if you want to override other styles */
         }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1000px) {
         .mobshow {
             display: none !important;
             /* Hides .mobshow on screens 768px or wider */
@@ -587,7 +587,7 @@
                                                         <p class="brand-topic">Top Brands</p>
                                                         <div id="top-brands" class="brand-logos-set row"></div>
                                                     </div>
-                                                    <div class="col-sm-6 px-40">
+                                                    <div class="px-40 col-sm-6">
                                                         <p class="brand-topic">All Brands</p>
                                                         <div id="all-brands" class="row align-items-start"></div>
                                                     </div>
@@ -811,11 +811,11 @@
                                 <!-- Subcategory List -->
                                 <?php if($category->subcategories->isNotEmpty()): ?>
                                     <ul
-                                        class="dropdown subcategory-dropdown bg-light border mt-1 rounded shadow-sm d-none">
+                                        class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
                                         <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <li>
                                                 <a href="<?php echo e(url('/shop?subcategory_id=' . $subcategory->id)); ?>"
-                                                    class="d-block px-4 py-2 text-dark text-decoration-none"
+                                                    class="px-4 py-2 d-block text-dark text-decoration-none"
                                                     style="line-height: 1.6;">
                                                     <?php echo e($subcategory->name); ?>
 

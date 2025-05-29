@@ -149,6 +149,9 @@
                     <a href="{{ route('manage_company_profile') }}">
                         Manage Company
                     </a>
+                    <a href="{{ route('currencies.index') }}">
+                        Manage Currencies
+                    </a>
                     <a href="{{ route('users') }}">
                         Users
                     </a>
@@ -160,6 +163,8 @@
                     <a href="{{ route('banners') }}">
                         Banner images
                     </a>
+
+
 
 
 

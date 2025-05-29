@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\VendorReportController;
@@ -341,6 +342,12 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin/edit_users/{id}', [UserController::class, 'edit'])->name('edit_users');
     Route::post('/admin/edit_users/{id}', [UserController::class, 'update'])->name('update_users');
     Route::delete('/admin/edit_users/{id}', [UserController::class, 'destroy'])->name('delete_users');
+
+    Route::get('/admins/currencies', [CurrencyController::class, 'index'])->name('currencies.index');
+    Route::post('/admins/currencies', [CurrencyController::class, 'store'])->name('currencies.store');
+    Route::get('/admins/edit_currencies/{id}', [CurrencyController::class, 'edit'])->name('currencies.edit');
+    Route::post('/admins/edit_currencies/{id}', [CurrencyController::class, 'update'])->name('currencies.update');
+    Route::delete('/admins/edit_currencies/{id}', [CurrencyController::class, 'destroy'])->name('currencies.destroy');
 
 
     // admin_reports
