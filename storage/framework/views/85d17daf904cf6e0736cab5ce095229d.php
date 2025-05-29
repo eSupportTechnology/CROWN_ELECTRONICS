@@ -2,7 +2,7 @@
 
 
 
-<!-- 
+<!--
 
 
 ==============================================================================================================================================================
@@ -19,6 +19,7 @@
    /* Custom styles */
    .carousel-item {
        background-size: cover;
+        background-repeat: no-repeat;
        background-position: center;
        height: 400px; /* Adjust height as needed */
        width: 100%;
@@ -29,7 +30,10 @@
 @media (max-width: 576px) {
     .carousel-item {
         height: 30vh; /* Adjust height for mobile */
-       
+
+
+
+
     }
 
     .carousel{
@@ -43,6 +47,15 @@
         height: 45vh; /* Adjust height for tablets */
         margin-top: 125px;
 
+
+
+
+
+    }
+}
+@media(max-width:1200px){
+    .carousel-item{
+        background-size:contain;
     }
 }
 
@@ -93,7 +106,7 @@
 
 .product-image {
     width: 100%;
-    height: 178px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,7 +175,7 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
-                                        
+
                                         <!-- Product Image -->
                                         <div class="product-image">
                                             <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
@@ -172,7 +185,7 @@
                                                 <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
@@ -217,7 +230,7 @@
         loop: true,              // Enable looping
         margin: 10,              // Margin between items
         nav: true,               // Show next/prev arrows
-        
+
         dots: false,             // Disable dots navigation
         autoplay: false,          // Enable auto-scrolling
         autoplayTimeout: 2000,   // Auto-scroll interval in ms
@@ -283,7 +296,7 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
-                                        
+
                                         <!-- Product Image -->
                                         <div class="product-image">
                                             <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
@@ -293,7 +306,7 @@
                                                 <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
@@ -345,7 +358,7 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
-                                        
+
                                         <!-- Product Image -->
                                         <div class="product-image">
                                             <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
@@ -355,7 +368,7 @@
                                                 <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
@@ -380,14 +393,14 @@
     </div>
 
     <div class="site-common-con" style="margin-bottom: 50px; margin-top: 30px;">
-    <div class="row m-0">
+    <div class="m-0 row">
         <!-- First Banner Image (Left Side) -->
         <?php if(isset($banners[0])): ?>
             <div class="col-12 col-sm-6 custom-4-banner">
                 <img src="<?php echo e(asset('storage/' . $banners[0]->image)); ?>" class="img-fluid" alt="Banner 1">
             </div>
         <?php endif; ?>
-        
+
         <!-- Second Banner Image (Right Side) -->
         <?php if(isset($banners[1])): ?>
             <div class="col-12 col-sm-6 custom-4-banner">
@@ -395,7 +408,7 @@
             </div>
         <?php endif; ?>
     </div>
-    
+
     <!-- Single Banner Image (Full Width) -->
     <?php if(isset($banners[2])): ?>
         <a href="<?php echo e($banners[2]->url ?? '#'); ?>">
@@ -471,17 +484,17 @@
 
 
 
-<!-- 
+<!--
 
 =====================================================================================================================================================
-                                     Home page end 
+                                     Home page end
 
 ===================================================================================================================================================== -->
 
 
 
 
-    
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const productIds = [...document.querySelectorAll('.heart-icon')].map(button => button.id.replace('wishlist-icon-', ''));
@@ -548,4 +561,5 @@ function toggleWishlist(button, productId) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/home.blade.php ENDPATH**/ ?>
