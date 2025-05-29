@@ -19,6 +19,7 @@
    /* Custom styles */
    .carousel-item {
        background-size: cover;
+        background-repeat: no-repeat;
        background-position: center;
        height: 400px; /* Adjust height as needed */
        width: 100%;
@@ -29,6 +30,9 @@
 @media (max-width: 576px) {
     .carousel-item {
         height: 30vh; /* Adjust height for mobile */
+
+
+
 
     }
 
@@ -43,6 +47,15 @@
         height: 45vh; /* Adjust height for tablets */
         margin-top: 125px;
 
+
+
+
+
+    }
+}
+@media(max-width:1200px){
+    .carousel-item{
+        background-size:contain;
     }
 }
 
@@ -93,7 +106,7 @@
 
 .product-image {
     width: 100%;
-    height: 178px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,7 +393,7 @@
     </div>
 
     <div class="site-common-con" style="margin-bottom: 50px; margin-top: 30px;">
-    <div class="row m-0">
+    <div class="m-0 row">
         <!-- First Banner Image (Left Side) -->
         <?php if(isset($banners[0])): ?>
             <div class="col-12 col-sm-6 custom-4-banner">

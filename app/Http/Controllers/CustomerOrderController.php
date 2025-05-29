@@ -186,6 +186,14 @@ class CustomerOrderController extends Controller
         // Calculate subtotal based on the products in the request
         if ($request->has('products') && is_array($request->products)) {
             foreach ($request->products as $product) {
+                $productRecord = Product::find($product['product_id']);
+                if (!$productRecord) {
+                    return redirect()->back()->with('error', 'Product not found');
+                }
+                if ($productRecord->currency && $productRecord->currency->code !== 'LKR') {
+                    // Convert cost to LKR if the product currency is not LKR
+                    $product['cost'] = $product['cost'] * $productRecord->currency->exchange_rate;
+                }
                 $itemSubtotal = $product['cost'] * $product['quantity'];
                 $subtotal += $itemSubtotal;
             }

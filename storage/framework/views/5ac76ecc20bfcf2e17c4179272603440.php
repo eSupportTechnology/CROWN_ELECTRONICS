@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- ========================= Breadcrumb Start =============================== -->
 <div class="breadcrumb mb-0 py-26 bg-main-two-50">
@@ -26,8 +24,8 @@
 
     <!-- ================================= Checkout Page Start ===================================== -->
     <section class="checkout py-80">
-    <form action="{{ route('buynow_placeOrder') }}" method="POST">
-    @csrf
+    <form action="<?php echo e(route('buynow_placeOrder')); ?>" method="POST">
+    <?php echo csrf_field(); ?>
 
     <div class="container container-lg">
         <div class="row">
@@ -75,53 +73,54 @@
                             <span class="text-gray-900 fw-medium text-xl font-heading-two">Subtotal</span>
                         </div>
 
-                        @foreach($products as $index => $product)
+                        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex-between gap-24 mb-32">
                                 <div class="flex-align gap-12">
-                                    <span class="text-gray-900 fw-normal text-sm font-heading-two w-144">{{ $product->product_name }}</span>
+                                    <span class="text-gray-900 fw-normal text-sm font-heading-two w-144"><?php echo e($product->product_name); ?></span>
                                     <span class="text-gray-900 fw-normal text-sm font-heading-two"><i class="ph-bold ph-x"></i></span>
-                                    <span class="text-gray-900 fw-semibold text-sm font-heading-two">{{ $quantity }}</span>
+                                    <span class="text-gray-900 fw-semibold text-sm font-heading-two"><?php echo e($quantity); ?></span>
                                 </div>
-                                <span class="text-gray-900 fw-bold text-sm font-heading-two">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($subtotal, 2) }}
-                                    @if($product->currency && $product->currency->code != 'LKR')
+                                <span class="text-gray-900 fw-bold text-sm font-heading-two"><?php echo e($product->currency->symbol ?? 'Rs'); ?> <?php echo e(number_format($subtotal, 2)); ?>
+
+                                    <?php if($product->currency && $product->currency->code != 'LKR'): ?>
 
                                     <br>
-                                    <p>Rs: {{ number_format($subtotal * $product->currency->exchange_rate , 2) }}</p>
-                                    @endif
+                                    <p>Rs: <?php echo e(number_format($subtotal * $product->currency->exchange_rate , 2)); ?></p>
+                                    <?php endif; ?>
                                 </span>
                             </div>
                             <!-- Hidden fields for the product details -->
-                            <input type="hidden" name="products[0][product_id]" value="{{ $product->id }}">
-                            <input type="hidden" name="products[0][quantity]" value="{{ $quantity }}">
-                            <input type="hidden" name="products[0][size]" value="{{ $selectedSize }}">
-                            <input type="hidden" name="products[0][color]" value="{{ $selectedColor }}">
-                            <input type="hidden" name="products[0][cost]" value="{{ $product->normal_price }}">
-                        @endforeach
+                            <input type="hidden" name="products[0][product_id]" value="<?php echo e($product->id); ?>">
+                            <input type="hidden" name="products[0][quantity]" value="<?php echo e($quantity); ?>">
+                            <input type="hidden" name="products[0][size]" value="<?php echo e($selectedSize); ?>">
+                            <input type="hidden" name="products[0][color]" value="<?php echo e($selectedColor); ?>">
+                            <input type="hidden" name="products[0][cost]" value="<?php echo e($product->normal_price); ?>">
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         <div class="border-top border-gray-100 pt-30 mt-30">
                             <div class="mb-0 flex-between gap-8">
                                 <span class="text-gray-900 font-heading-two text-md fw-semibold">Subtotal</span>
 
                                 <span class="text-gray-900 font-heading-two text-md fw-semibold">Rs
-                                    @if($product->currency && $product->currency->code != 'LKR')
-                                    {{ number_format($subtotal* $product->currency->exchange_rate , 2) }}</span>
-                                    @else
-                                    {{ number_format($subtotal, 2) }}</span>
-                                    @endif
+                                    <?php if($product->currency && $product->currency->code != 'LKR'): ?>
+                                    <?php echo e(number_format($subtotal* $product->currency->exchange_rate , 2)); ?></span>
+                                    <?php else: ?>
+                                    <?php echo e(number_format($subtotal, 2)); ?></span>
+                                    <?php endif; ?>
                             </div>
                             <div class="mb-32 flex-between gap-8">
                                 <span class="text-gray-900 font-heading-two text-md fw-semibold">Delivery Fee</span>
-                                <span class="text-gray-900 font-heading-two text-md fw-semibold">Rs {{ number_format(300, 2) }}</span>
+                                <span class="text-gray-900 font-heading-two text-md fw-semibold">Rs <?php echo e(number_format(300, 2)); ?></span>
                             </div>
                             <div class="mb-0 flex-between gap-8">
                                 <span class="text-gray-900 font-heading-two text-xl fw-bold">Total</span>
                                 <span class="text-gray-900 font-heading-two text-xl fw-bold">Rs 
 
-                                    @if($product->currency && $product->currency->code != 'LKR')
-                                    {{ number_format($subtotal* $product->currency->exchange_rate +300 , 2) }}</span>
-                                    @else
-                                    {{ number_format($total, 2) }}</span>
-                                    @endif
+                                    <?php if($product->currency && $product->currency->code != 'LKR'): ?>
+                                    <?php echo e(number_format($subtotal* $product->currency->exchange_rate +300 , 2)); ?></span>
+                                    <?php else: ?>
+                                    <?php echo e(number_format($total, 2)); ?></span>
+                                    <?php endif; ?>
                                 </span>
                             </div>
                         </div>
@@ -142,4 +141,6 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/buy_now_checkout.blade.php ENDPATH**/ ?>
