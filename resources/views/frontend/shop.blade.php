@@ -15,6 +15,13 @@
     display: none !important;
   }
 }
+ @media(max-width:1200px){
+    .product-card__cart{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    }
+ }
 
 </style>
 
