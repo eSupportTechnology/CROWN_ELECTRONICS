@@ -1,8 +1,8 @@
 <div class="mobile-footer-con">
-   
+
 
     <div class="footer ft-destop">
-        <div class="row bg-purple m-0">
+        <div class="m-0 row bg-purple">
             <div class="col-6 mobi-purple-div">
                 <div class="footer-icon">
                     <a href="#">
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="row footer-mobi-details text-center m-0">
+        <div class="m-0 text-center row footer-mobi-details">
             <div class="col-12 mobi-footer-link">
             <ul>
     <li><a href="#" target="_blank"><i class="fab fa-facebook" fab fa-facebook  style="color:#001ed4 ; font-size: 22px;"></i></a></li>
@@ -77,7 +77,7 @@
                                 <li class="footer-nav"><a href="/about">About Us</a></li>
                                 <li class="footer-nav"><a href="#">Careers</a></li>
                                 <li class="footer-nav"><a href="/contact">Contact Us</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -93,9 +93,9 @@
                             <ul>
                                 <li class="footer-nav"><a href="/faq">Frequently Asked Questions</a></li>
                                 <li class="footer-nav"><a href="/buy">How To Buy</a></li>
-                                <li class="footer-nav"><a href="#">Shipping &amp; Delivery</a></li>
-                                <li class="footer-nav"><a href="#">Warranty Information</a></li>
-                                <li class="footer-nav"><a href="#">Return Products</a></li>
+                                <li class="footer-nav"><a href="/shipping-delivery">Shipping &amp; Delivery</a></li>
+                                <li class="footer-nav"><a href="/warranty">Warranty Information</a></li>
+                                <li class="footer-nav"><a href="/return-product">Return Products</a></li>
                             </ul>
                         </div>
                     </div>
@@ -109,19 +109,19 @@
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
-                                <li class="footer-nav"><a href="#">Privacy Policy</a></li>
-                                <li class="footer-nav"><a href="#">Return and Refund Policy</a></li>
-                                <li class="footer-nav"><a href="#">Terms and Conditions</a></li>
+                                <li class="footer-nav"><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li class="footer-nav"><a href="/return-refund">Return and Refund Policy</a></li>
+                                <li class="footer-nav"><a href="/terms-condition">Terms and Conditions</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-               
+
 
             </div>
 
-            <div class="d-flex flex-wrap text-center mobi-payment-icon-set">
+            <div class="flex-wrap text-center d-flex mobi-payment-icon-set">
             <div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/VISA1.webp')); ?>"></div>
 <div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/MASTER1.webp')); ?>"></div>
 <div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/AMEX1.webp')); ?>"></div>
@@ -188,7 +188,7 @@
 
 
 
-<!-- 
+<!--
 ============================================================================================================================ -->
 
 
@@ -222,9 +222,9 @@
                             <div class="cart-product">
                                 <div class="main-pro-details">
                                     <div class="product-img">
-                                        
+
                                         <img src="<?php echo e($item['image']); ?>" alt="product">
-                                        
+
                                     </div>
                                     <div class="product-title"><?php echo e(Str::limit($item['name'], 10)); ?></div>
                                     <div class="product-title">Qty: <?php echo e($item['quantity']); ?></div>
@@ -244,7 +244,7 @@
                     </div>
 
                     <div>
-                        <a href="<?php echo e(url('/cart')); ?>" class="btn btn-site-default w-100 mt-4">View Cart</a>
+                        <a href="<?php echo e(url('/cart')); ?>" class="mt-4 btn btn-site-default w-100">View Cart</a>
                     </div>
                 </div>
             </div>
@@ -294,7 +294,7 @@
                 <div class="col-md-4 address-info">
                 <img src="<?php echo e(asset('frontend/newstyle/assets/images/logo.png')); ?>" style="width: 180px;">
 
-                    
+
                     <div class="hotline">
                         <p>HOTLINE</p>
                         <a class="tel-no" href="#">+94 112 251 202 </a>
@@ -311,7 +311,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-md-3 mt-1">
+                <!-- <div class="mt-1 col-md-3">
                     <p class="footer-title">&nbsp;</p>
                     <div class="footer-img-div"><a href="#"><img src="frontend/newstyle/assets/images/icon/shop.png">Showroom Locator</a></div>
                     <div class="footer-img-div"><a href="#"><img src="frontend/newstyle/assets/images/icon/shop.png">Showroom Login</a></div>
@@ -319,7 +319,7 @@
                     <div class="footer-img-div"><a href="#" target="_blank"><img src="frontend/newstyle/assets/images/icon/order-tracking.png">Track your Order</a></div>
                 </div> -->
 
-                
+
 
                 <div class="col-md-2">
                     <div class="footer-links-set">
@@ -328,7 +328,7 @@
                             <li><a class="footer-link" href="/about">About Us</a></li>
                             <li><a class="footer-link" href="#">Careers</a></li>
                             <li><a class="footer-link" href="/contact">Contact Us</a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -343,22 +343,22 @@
                         <ul>
                             <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
-                            <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
-                            
+                            <li><a class="footer-link" href="/shipping-delivery">Shipping &amp; Delivery</a></li>
+
                         </ul>
                     </div>
                 </div>
-                
-               
-                
+
+
+
 
                 <div class="col-md-2">
                     <div class="footer-links-set">
                         <p class="footer-title">Policies</p>
                         <ul>
-                            <li><a class="footer-link" href="#">Privacy Policy</a></li>
-                            <li><a class="footer-link" href="#">Return and Refund Policy</a></li>
-                            <li><a class="footer-link" href="#">Terms and Conditions</a></li>
+                            <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a class="footer-link" href="/return-refund">Return and Refund Policy</a></li>
+                            <li><a class="footer-link" href="/terms-condition">Terms and Conditions</a></li>
                         </ul>
                     </div>
                 </div>
@@ -368,9 +368,9 @@
                         <p class="footer-title">Quick Links</p>
                         <ul>
                             <li><a class="footer-link" href="#">Brands</a></li>
-                            <li><a class="footer-link" href="#">Warranty Information</a></li>
-                            <li><a class="footer-link" href="#">Return Products</a></li>
-                            
+                            <li><a class="footer-link" href="/warranty">Warranty Information</a></li>
+                            <li><a class="footer-link" href="/return-product">Return Products</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -415,26 +415,26 @@
 <!-- footer for destop end -->
 
 
-        
 
-        
+
+
         <overlay-loader :is-open="show_loader"></overlay-loader>
 
-        
+
     </div>
 
-  
-
-
-     
 
 
 
 
 
 
-    
-   
+
+
+
+
+
+
 
 
 

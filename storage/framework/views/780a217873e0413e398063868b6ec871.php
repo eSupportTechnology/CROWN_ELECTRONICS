@@ -2,8 +2,8 @@
 
 
 
-                
-                  
+
+
 <style>
 .account {
     display: flex
@@ -12,8 +12,8 @@
 }
 
 </style>
-                    
-              
+
+
     <!-- ========================= Breadcrumb Start =============================== -->
 <div class="mb-0 breadcrumb py-26 bg-main-two-50">
     <div class="container container-lg">
@@ -443,7 +443,7 @@
 
                     <!-- Privacy Policy -->
                     <div class="my-48 text-center">
-                        <p class="text-gray-500">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our 
+                        <p class="text-gray-500">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our
                             <a href="<?php echo e(route('PrivacyPolicy')); ?>"  class="text-main-600 text-decoration-underline">privacy policy</a>.
                         </p>
                     </div>
@@ -451,14 +451,14 @@
                     <div class="mt-48 text-center">
                         <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald411d1792bd6cc877d687758b753742c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['type' => 'submit','class' => 'px-40 btn py-18']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['type' => 'submit','class' => 'btn btn-primary px-4 py-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['type' => 'submit','class' => 'px-40 btn py-18']); ?>
+<?php $component->withAttributes(['type' => 'submit','class' => 'btn btn-primary px-4 py-2']); ?>
                             <?php echo e(__('Register')); ?>
 
                          <?php echo $__env->renderComponent(); ?>
@@ -472,8 +472,9 @@
 <?php unset($__componentOriginald411d1792bd6cc877d687758b753742c); ?>
 <?php endif; ?>
                     </div>
+                    
                     <div class="mt-3 text-center">
-                        <p>Already have an account? 
+                        <p>Already have an account?
                             <a href="<?php echo e(route('login')); ?>" class="text-primary">Login</a>
                         </p>
                 </div>
@@ -511,4 +512,5 @@
 
     </body>
 </html>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/register.blade.php ENDPATH**/ ?>
