@@ -52,7 +52,7 @@ class HomeTemplateController extends Controller
         $sliders = Slider::all(); // Assuming you have a Slider model
 
         // Return the view with all the necessary data
-        return view('frontend.home', compact('categories', 'products', 'topSellingProducts', 'Onlineexclusive', 'belowrs', 'banners', 'sliders'));
+        return view('frontend.Home', compact('categories', 'products', 'topSellingProducts', 'Onlineexclusive', 'belowrs', 'banners', 'sliders'));
     }
 
 }
