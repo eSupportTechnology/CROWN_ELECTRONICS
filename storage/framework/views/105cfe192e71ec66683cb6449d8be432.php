@@ -228,7 +228,7 @@
                                     </div>
                                     <div class="product-title"><?php echo e(Str::limit($item['name'], 10)); ?></div>
                                     <div class="product-title">Qty: <?php echo e($item['quantity']); ?></div>
-                                    <div class="product-title">Rs. <?php echo e($item['subtotal']); ?></div>
+                                    <div class="product-title"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e($item['subtotal']); ?></div>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -343,7 +343,7 @@
                         <ul>
                             <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
-                            <li><a class="footer-link" href="/shipping-delivery">Shipping &amp; Delivery</a></li>
+                            <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
 
                         </ul>
                     </div>
@@ -368,8 +368,8 @@
                         <p class="footer-title">Quick Links</p>
                         <ul>
                             <li><a class="footer-link" href="#">Brands</a></li>
-                            <li><a class="footer-link" href="/warranty">Warranty Information</a></li>
-                            <li><a class="footer-link" href="/return-product">Return Products</a></li>
+                            <li><a class="footer-link" href="#">Warranty Information</a></li>
+                            <li><a class="footer-link" href="#">Return Products</a></li>
 
                         </ul>
                     </div>
