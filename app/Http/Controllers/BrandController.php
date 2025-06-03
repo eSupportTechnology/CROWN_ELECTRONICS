@@ -85,7 +85,9 @@ class BrandController extends Controller
     {
         $brands = Brand::select('name', 'slug', 'image', 'is_top_brand')->get();
 
-        return response()->json($brands);
+          return response()->json($brands);
+
+
     }
 
     public function showBrandProducts($slug)
@@ -94,6 +96,7 @@ class BrandController extends Controller
         $products = $brand->products()->paginate(20);
 
         $categories = Category::all();
+         
 
         return view('frontend.brand-items', compact('brand', 'products', 'categories'));
     }

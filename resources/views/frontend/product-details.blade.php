@@ -63,14 +63,14 @@ img{
 .product-content{
     padding: 2rem 1rem;
 }
-.product-title{
+{{--  .product-title{
     font-size: 3rem;
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
     color: #12263a;
     margin: 1rem 0;
-}
+}  --}}
 .product-title::after{
     content: "";
     position: absolute;
@@ -226,13 +226,13 @@ img{
 
 
 <!-- ========================= Breadcrumb Start =============================== -->
-<div class="breadcrumb mb-0 py-26 bg-main-two-50">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50">
     <div class="container container-lg">
-        <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
+        <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
             <h6 class="mb-0"> Product Details</h6>
-            <ul class="flex-align gap-8 flex-wrap">
+            <ul class="flex-wrap gap-8 flex-align">
                 <li class="text-sm">
-                    <a href="/home" class="text-gray-900 flex-align gap-8 hover-text-main-600">
+                    <a href="/home" class="gap-8 text-gray-900 flex-align hover-text-main-600">
                         <i class="ph ph-house"></i>
                         Home
                     </a>
@@ -286,27 +286,27 @@ img{
                     <div class="col-xl-6">
                         <div class="product-details__content">
 
-                            <!-- <div class="flex-center mb-24 flex-wrap gap-16 bg-color-one rounded-8 py-16 px-24 position-relative z-1">
+                            <!-- <div class="flex-wrap gap-16 px-24 py-16 mb-24 flex-center bg-color-one rounded-8 position-relative z-1">
                                 <img src="{{ asset('/frontend/assets/images/bg/details-offer-bg.png') }}" alt="" class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 z-n1">
-                                <div class="flex-align gap-16">
-                                    <span class="text-white text-sm">Special Offer:</span>
+                                <div class="gap-16 flex-align">
+                                    <span class="text-sm text-white">Special Offer:</span>
                                 </div>
                                 <div class="countdown" id="countdown11">
-                                    <ul class="countdown-list flex-align flex-wrap">
-                                        <li class="countdown-list__item text-heading flex-align gap-4 text-xs fw-medium w-28 h-28 rounded-4 border border-main-600 p-0 flex-center"><span class="days"></span></li>
-                                        <li class="countdown-list__item text-heading flex-align gap-4 text-xs fw-medium w-28 h-28 rounded-4 border border-main-600 p-0 flex-center"><span class="hours"></span></li>
-                                        <li class="countdown-list__item text-heading flex-align gap-4 text-xs fw-medium w-28 h-28 rounded-4 border border-main-600 p-0 flex-center"><span class="minutes"></span></li>
-                                        <li class="countdown-list__item text-heading flex-align gap-4 text-xs fw-medium w-28 h-28 rounded-4 border border-main-600 p-0 flex-center"><span class="seconds"></span></li>
+                                    <ul class="flex-wrap countdown-list flex-align">
+                                        <li class="gap-4 p-0 text-xs border countdown-list__item text-heading flex-align fw-medium w-28 h-28 rounded-4 border-main-600 flex-center"><span class="days"></span></li>
+                                        <li class="gap-4 p-0 text-xs border countdown-list__item text-heading flex-align fw-medium w-28 h-28 rounded-4 border-main-600 flex-center"><span class="hours"></span></li>
+                                        <li class="gap-4 p-0 text-xs border countdown-list__item text-heading flex-align fw-medium w-28 h-28 rounded-4 border-main-600 flex-center"><span class="minutes"></span></li>
+                                        <li class="gap-4 p-0 text-xs border countdown-list__item text-heading flex-align fw-medium w-28 h-28 rounded-4 border-main-600 flex-center"><span class="seconds"></span></li>
                                     </ul>
                                 </div>
-                                <span class="text-white text-xs">Remains untill the end of the offer</span>
+                                <span class="text-xs text-white">Remains untill the end of the offer</span>
                             </div> -->
 
                             <h5 class="mb-12">{{ $product->product_name }}</h5>
-                            <div class="flex-align flex-wrap gap-12">
+                            <div class="flex-wrap gap-12 flex-align">
                                 @if ($totalReviews!=0)
-                                <div class="flex-align gap-12 flex-wrap">
-                                    <div class="flex-align gap-8">
+                                <div class="flex-wrap gap-12 flex-align">
+                                    <div class="gap-8 flex-align">
                                         @php
                                         $fullStars = floor($averageRating); // Number of full stars
                                         $hasHalfStar = ($averageRating - $fullStars) >= 0.5; // Half-star condition
@@ -319,16 +319,16 @@ img{
                                             @endif
                                     </div>
                                     <span class="text-sm fw-medium text-neutral-600">{{ number_format($averageRating, 1) }} Star Rating</span>
-                                    <span class="text-sm fw-medium text-gray-500">({{$totalReviews}})</span>
+                                    <span class="text-sm text-gray-500 fw-medium">({{$totalReviews}})</span>
                                 </div>
                                 @endif
                             </div>
-                            <span class="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block"></span>
+                            <span class="pt-32 mt-32 text-gray-700 border-gray-100 border-top d-block"></span>
 
-                            <div class="my-0 flex-align gap-16 flex-wrap">
-                                <div class="flex-align gap-8">
-                                    <div class="flex-align gap-8 text-main-two-600">
-                                        <i class="ph-fill ph-seal-percent text-xl"></i>
+                            <div class="flex-wrap gap-16 my-0 flex-align">
+                                <div class="gap-8 flex-align">
+                                    <div class="gap-8 flex-align text-main-two-600">
+                                        <i class="text-xl ph-fill ph-seal-percent"></i>
                                         -10%
                                     </div>
                                     <h6 class="mb-0">{{$product->currency->symbol ?? 'Rs' }}. {{ $product->normal_price }}
@@ -339,13 +339,13 @@ img{
 
                                     </h6>
                                 </div>
-                                <div class="flex-align gap-8">
+                                <div class="gap-8 flex-align">
                                     <span class="text-gray-700">Regular Price</span>
-                                    <h6 class="text-xl text-gray-400 mb-0 fw-medium">{{$product->currency->symbol ?? 'Rs' }}. {{ $product->regular_price }}</h6>
+                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">Rs 5500.00</h6>
                                 </div>
                             </div>
 
-                            <span class="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block"></span>
+                            <span class="pt-32 mt-32 text-gray-700 border-gray-100 border-top d-block"></span>
 
                             <div class="">
                                 <p class="mb-10 text-black">
@@ -358,12 +358,12 @@ img{
                                 </p>
                                 <!-- Sizes Section -->
                                 @if ($product->variations->pluck('value')->filter()->unique()->isNotEmpty())
-                                <div class="flex-between align-items-start flex-wrap gap-16">
-                                    <div class="d-flex align-items-center mb-5">
+                                <div class="flex-wrap gap-16 flex-between align-items-start">
+                                    <div class="mb-5 d-flex align-items-center">
                                         <span class="text-gray-900 me-3">Size:</span>
                                         @foreach ($product->variations->pluck('value')->filter()->unique() as $size)
                                         <button type="button"
-                                            class="size_button ms-5 border border-2 border-gray-300 d-flex align-items-center justify-content-center"
+                                            class="border border-2 border-gray-300 size_button ms-5 d-flex align-items-center justify-content-center"
                                             data-size="{{ $size }}">
                                             {{ $size }}
                                         </button>
@@ -375,12 +375,12 @@ img{
 
                                 <!-- Colors Section -->
                                 @if ($product->variations->pluck('hex_value')->filter()->unique()->isNotEmpty())
-                                <div class="flex-between align-items-center flex-wrap gap-16 mt-4">
-                                    <div class="d-flex align-items-center mb-4">
+                                <div class="flex-wrap gap-16 mt-4 flex-between align-items-center">
+                                    <div class="mb-4 d-flex align-items-center">
                                         <span class="text-gray-900 me-3">Color:</span>
                                         @foreach ($product->variations->pluck('hex_value')->filter()->unique() as $color)
                                         <button type="button"
-                                            class="color-list__button w-24 h-24 border border-2 border-gray-50 rounded-circle me-2"
+                                            class="w-24 h-24 border border-2 color-list__button border-gray-50 rounded-circle me-2"
                                             style="background-color: {{ $color }};"
                                             data-color="{{ $color }}">
                                         </button>
@@ -391,9 +391,9 @@ img{
 
                             </div>
 
-                            <span class="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block"></span>
+                            <span class="pt-32 mt-32 text-gray-700 border-gray-100 border-top d-block"></span>
                             <div class="mt-0">
-                                <span class="fw-medium text-gray-900">100% Guarantee Safe Checkout</span>
+                                <span class="text-gray-900 fw-medium">100% Guarantee Safe Checkout</span>
                             </div>
 
                         </div>
@@ -401,31 +401,31 @@ img{
                 </div>
             </div>
             <div class="col-xl-3">
-                <div class="product-details__sidebar py-40 px-32 border border-gray-100 rounded-16">
+                <div class="px-32 py-40 border border-gray-100 product-details__sidebar rounded-16">
                     <div class="mb-32">
-                        <label for="stock" class="text-lg mb-8 text-heading fw-semibold d-block">Total Stock: {{ $product->quantity }}</label>
+                        <label for="stock" class="mb-8 text-lg text-heading fw-semibold d-block">Total Stock: {{ $product->quantity }}</label>
                         <span class="text-xl d-flex">
                             <i class="ph ph-location"></i>
                         </span>
-                        <div class="d-flex rounded-4 overflow-hidden">
-                            <button type="button" class="quantity__minus flex-shrink-0 h-48 w-48 text-neutral-600 bg-gray-50 flex-center hover-bg-main-600 hover-text-white">
+                        <div class="overflow-hidden d-flex rounded-4">
+                            <button type="button" class="flex-shrink-0 w-48 h-48 quantity__minus text-neutral-600 bg-gray-50 flex-center hover-bg-main-600 hover-text-white">
                                 <i class="ph ph-minus"></i>
                             </button>
-                            <input type="number" style="height: 48px;" class="quantity__input flex-grow-1 border border-gray-100 border-start-0 border-end-0 text-center w-32 px-16 " id="quantityInput" name="quantity" value="1" min="1">
-                            <button type="button" class="quantity__plus flex-shrink-0 h-48 w-48 text-neutral-600 bg-gray-50 flex-center hover-bg-main-600 hover-text-white">
+                            <input type="number" style="height: 48px;" class="w-32 px-16 text-center border border-gray-100 quantity__input flex-grow-1 border-start-0 border-end-0 " id="quantityInput" name="quantity" value="1" min="1">
+                            <button type="button" class="flex-shrink-0 w-48 h-48 quantity__plus text-neutral-600 bg-gray-50 flex-center hover-bg-main-600 hover-text-white">
                                 <i class="ph ph-plus"></i>
                             </button>
                         </div>
                     </div>
 
                     <div class="mb-32">
-                        <div class="flex-between flex-wrap gap-8 border-bottom border-gray-100 pb-16 mb-16">
+                        <div class="flex-wrap gap-8 pb-16 mb-16 border-gray-100 flex-between border-bottom">
                             <span class="text-gray-500">Price</span>
-                            <h6 class="text-lg mb-0 price-display">{{ $product->normal_price }}</h6>
+                            <h6 class="mb-0 text-lg price-display">{{ $product->normal_price }}</h6>
                         </div>
-                        <div class="flex-between flex-wrap gap-8">
+                        <div class="flex-wrap gap-8 flex-between">
                             <span class="text-gray-500">Shipping</span>
-                            <h6 class="text-lg mb-0">Rs. 350.00</h6>
+                            <h6 class="mb-0 text-lg">Rs 350.00</h6>
                         </div>
                     </div>
 
@@ -460,14 +460,14 @@ img{
                     @endauth
 
                     <div class="mt-32">
-                        <div class="px-16 py-8 bg-main-50 rounded-8 flex-between gap-24 mb-14">
-                            <span class="w-32 h-32 bg-white text-main-600 rounded-circle flex-center text-xl flex-shrink-0">
+                        <div class="gap-24 px-16 py-8 bg-main-50 rounded-8 flex-between mb-14">
+                            <span class="flex-shrink-0 w-32 h-32 text-xl bg-white text-main-600 rounded-circle flex-center">
                                 <i class="ph-fill ph-truck"></i>
                             </span>
                             <span class="text-sm text-neutral-600">Ship from <span class="fw-semibold">DK Mart</span> </span>
                         </div>
-                        <div class="px-16 py-8 bg-main-50 rounded-8 flex-between gap-24 mb-0">
-                            <span class="w-32 h-32 bg-white text-main-600 rounded-circle flex-center text-xl flex-shrink-0">
+                        <div class="gap-24 px-16 py-8 mb-0 bg-main-50 rounded-8 flex-between">
+                            <span class="flex-shrink-0 w-32 h-32 text-xl bg-white text-main-600 rounded-circle flex-center">
                                 <i class="ph-fill ph-storefront"></i>
                             </span>
                             <span class="text-sm text-neutral-600">Sold by: <span class="fw-semibold">{{ $product->shop->shop_name ?? '' }}</span> </span>
@@ -479,9 +479,9 @@ img{
         </div>
 
         <div class="pt-80">
-            <div class="product-dContent border rounded-24">
-                <div class="product-dContent__header border-bottom border-gray-100 flex-between flex-wrap gap-16">
-                    <ul class="nav common-tab nav-pills mb-3" id="pills-tab" role="tablist">
+            <div class="border product-dContent rounded-24">
+                <div class="flex-wrap gap-16 border-gray-100 product-dContent__header border-bottom flex-between">
+                    <ul class="mb-3 nav common-tab nav-pills" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">Description</button>
                         </li>
@@ -489,7 +489,7 @@ img{
                             <button class="nav-link" id="pills-reviews-tab" data-bs-toggle="pill" data-bs-target="#pills-reviews" type="button" role="tab" aria-controls="pills-reviews" aria-selected="false">Reviews</button>
                         </li>
                     </ul>
-                    <a href="#" class="btn bg-color-one rounded-16 flex-align gap-8 text-main-600 hover-bg-main-600 hover-text-white">
+                    <a href="#" class="gap-8 btn bg-color-one rounded-16 flex-align text-main-600 hover-bg-main-600 hover-text-white">
                         <img src="{{ asset('/frontend/assets/images/icon/satisfaction-icon.png') }}" alt="">
                         100% Satisfaction Guaranteed
                     </a>
@@ -505,7 +505,7 @@ img{
                                 <h6 class="mb-24">Product Specifications</h6>
                                 <ul class="mt-32">
                                     <li class="text-gray-400 mb-14 flex-align gap-14">
-                                        <span class="w-20 h-20 bg-main-50 text-main-600 text-xs flex-center rounded-circle">
+                                        <span class="w-20 h-20 text-xs bg-main-50 text-main-600 flex-center rounded-circle">
                                             <i class="ph ph-check"></i>
                                         </span>
                                         <span class="text-heading fw-medium">
@@ -516,12 +516,12 @@ img{
                                         </span>
                                     </li>
                                     <li class="text-gray-400 mb-14 flex-align gap-14">
-                                        <span class="w-20 h-20 bg-main-50 text-main-600 text-xs flex-center rounded-circle">
+                                        <span class="w-20 h-20 text-xs bg-main-50 text-main-600 flex-center rounded-circle">
                                             <i class="ph ph-check"></i>
                                         </span>
                                         <span class="text-heading fw-medium">
                                             Available colors:
-                                            <span class="text-gray-500  gap-4">
+                                            <span class="gap-4 text-gray-500">
                                                 @foreach($product->variations->pluck('hex_value')->filter()->unique() as $color)
                                                 <span class="w-14 h-14 rounded-circle" style="background-color: {{ $color }};"></span>
                                                 @endforeach
@@ -538,22 +538,22 @@ img{
                                     <h6 class="mb-24">Product Reviews</h6>
                                     <div class="reviews">
                                         @forelse($reviews as $review)
-                                        <div class="d-flex align-items-start gap-24 pb-44 border-bottom border-gray-100 mb-44">
+                                        <div class="gap-24 border-gray-100 d-flex align-items-start pb-44 border-bottom mb-44">
                                             <!-- Reviewer Info -->
-                                            <img src="{{ asset('/frontend/assets/images/icon/default-user.png') }}" alt="" class="w-52 h-52 object-fit-cover rounded-circle flex-shrink-0">
+                                            <img src="{{ asset('/frontend/assets/images/icon/default-user.png') }}" alt="" class="flex-shrink-0 w-52 h-52 object-fit-cover rounded-circle">
                                             <div class="flex-grow-1">
-                                                <div class="flex-between align-items-start gap-8">
+                                                <div class="gap-8 flex-between align-items-start">
                                                     <div>
                                                         <h6 class="mb-12 text-md">{{ $review->is_anonymous ? 'Anonymous' : $review->reviewer->name }}</h6>
                                                         <!-- Rating -->
-                                                        <div class="flex-align gap-8">
+                                                        <div class="gap-8 flex-align">
                                                             @for ($i = 1; $i <= 5; $i++)
                                                                 <i class="{{ $review->rating >= $i ? 'fa-star fas filled' : 'far fa-star' }}" style="color: #ffbf00;"></i>
                                                                 @endfor
                                                         </div>
                                                     </div>
                                                     <!-- Review Date -->
-                                                    <span class="text-gray-800 text-xs">{{ $review->created_at->format('d.m.Y') }}</span>
+                                                    <span class="text-xs text-gray-800">{{ $review->created_at->format('d.m.Y') }}</span>
                                                 </div>
                                                 <!-- Review Text -->
                                                 <p class="text-gray-700">{{ $review->review }}</p>
@@ -587,8 +587,8 @@ img{
                                     <!-- <div class="mt-56">
                                         <div class="">
                                             <h6 class="mb-24">Write a Review</h6>
-                                            <span class="text-heading mb-8">What is it like to Product?</span>
-                                            <div class="flex-align gap-8">
+                                            <span class="mb-8 text-heading">What is it like to Product?</span>
+                                            <div class="gap-8 flex-align">
                                                 <span class="text-15 fw-medium text-warning-600 d-flex"><i class="ph-fill ph-star"></i></span>
                                                 <span class="text-15 fw-medium text-warning-600 d-flex"><i class="ph-fill ph-star"></i></span>
                                                 <span class="text-15 fw-medium text-warning-600 d-flex"><i class="ph-fill ph-star"></i></span>
@@ -599,14 +599,14 @@ img{
                                         <div class="mt-32">
                                             <form action="#">
                                                 <div class="mb-32">
-                                                    <label for="title" class="text-neutral-600 mb-8">Review Title</label>
+                                                    <label for="title" class="mb-8 text-neutral-600">Review Title</label>
                                                     <input type="text" class="common-input rounded-8" id="title" placeholder="Great Products">
                                                 </div>
                                                 <div class="mb-32">
-                                                    <label for="desc" class="text-neutral-600 mb-8">Review Content</label>
+                                                    <label for="desc" class="mb-8 text-neutral-600">Review Content</label>
                                                     <textarea class="common-input rounded-8" id="desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</textarea>
                                                 </div>
-                                                <button type="submit" class="btn btn-main rounded-pill mt-48">Submit Review</button>
+                                                <button type="submit" class="mt-48 btn btn-main rounded-pill">Submit Review</button>
                                             </form>
                                         </div>
                                     </div> -->
@@ -614,11 +614,11 @@ img{
                                 <div class="col-lg-6">
                                     <div class="ms-xxl-5">
                                         <h6 class="mb-24">Customers Feedback</h6>
-                                        <div class="d-flex flex-wrap gap-44">
+                                        <div class="flex-wrap d-flex gap-44">
                                             <!-- Average Rating -->
-                                            <div class="border border-gray-100 rounded-8 px-40 py-52 flex-center flex-column flex-shrink-0 text-center">
+                                            <div class="flex-shrink-0 px-40 text-center border border-gray-100 rounded-8 py-52 flex-center flex-column">
                                                 <h2 class="mb-6 text-main-600">{{ number_format($averageRating, 1) }}</h2>
-                                                <div class="flex-center gap-8">
+                                                <div class="gap-8 flex-center">
                                                     @php
                                                     $fullStars = floor($averageRating); // Number of full stars
                                                     $hasHalfStar = ($averageRating - $fullStars) >= 0.5; // Half-star condition
@@ -634,24 +634,24 @@ img{
                                             </div>
 
                                             <!-- Rating Breakdown -->
-                                            <div class="border border-gray-100 rounded-8 px-24 py-40 flex-grow-1">
+                                            <div class="px-24 py-40 border border-gray-100 rounded-8 flex-grow-1">
                                                 @foreach ($ratingCounts as $rating => $count)
                                                 @php
                                                 $percentage = $totalReviews > 0 ? ($count / $totalReviews) * 100 : 0;
                                                 @endphp
-                                                <div class="flex-align gap-8 mb-20">
-                                                    <span class="text-gray-900 flex-shrink-0">{{ $rating }}</span>
-                                                    <div class="progress w-100 bg-gray-100 rounded-pill h-8" role="progressbar" aria-label="Basic example" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="gap-8 mb-20 flex-align">
+                                                    <span class="flex-shrink-0 text-gray-900">{{ $rating }}</span>
+                                                    <div class="h-8 bg-gray-100 progress w-100 rounded-pill" role="progressbar" aria-label="Basic example" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">
                                                         <div class="progress-bar bg-main-600 rounded-pill" style="width: {{ $percentage }}%"></div>
                                                     </div>
-                                                    <div class="flex-align gap-4">
+                                                    <div class="gap-4 flex-align">
                                                         @for ($i = 1; $i <= 5; $i++)
                                                             <span class="text-xs fw-medium {{ $rating >= $i ? 'text-warning-600' : 'text-gray-600' }} d-flex">
                                                             <i class="ph-fill ph-star"></i>
                                                             </span>
                                                             @endfor
                                                     </div>
-                                                    <span class="text-gray-900 flex-shrink-0">{{ $count }}</span>
+                                                    <span class="flex-shrink-0 text-gray-900">{{ $count }}</span>
                                                 </div>
                                                 @endforeach
                                             </div>
