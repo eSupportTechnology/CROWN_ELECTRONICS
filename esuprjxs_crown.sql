@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_links` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_links: ~1 rows (approximately)
-REPLACE INTO `affiliate_links` (`id`, `user_id`, `raffle_ticket_id`, `link`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_links` (`id`, `user_id`, `raffle_ticket_id`, `link`, `created_at`, `updated_at`) VALUES
 	(5, 2, 1, 'http://127.0.0.1:8000/track/hellotracking/P-60B170?redirect=http%3A%2F%2F127.0.0.1%3A8000%2Fproduct-details%2FP-60B170', '2024-11-26 18:55:17', '2024-11-26 18:55:17');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_product
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_referrals` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_referrals: ~1 rows (approximately)
-REPLACE INTO `affiliate_referrals` (`id`, `user_id`, `raffle_ticket_id`, `product_url`, `views_count`, `referral_count`, `product_price`, `affiliate_commission`, `total_affiliate_price`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_referrals` (`id`, `user_id`, `raffle_ticket_id`, `product_url`, `views_count`, `referral_count`, `product_price`, `affiliate_commission`, `total_affiliate_price`, `created_at`, `updated_at`) VALUES
 	(4, 2, 1, 'http://127.0.0.1:8000/product-details/P-60B170', 4, 2, 4500.00, 2250.00, 2250.00, '2024-11-26 18:55:17', '2024-11-27 05:44:26');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_rules
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_rules` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_rules: ~1 rows (approximately)
-REPLACE INTO `affiliate_rules` (`id`, `rule`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_rules` (`id`, `rule`, `created_at`, `updated_at`) VALUES
 	(1, 'Commission Structure: Defines how affiliates are paid, either per sale, per lead, or per click, and specifies the payment rate (percentage or flat fee).', '2024-11-11 22:37:23', '2024-11-11 22:37:23');
 
 -- Dumping structure for table esuprjxs_crown.affiliate_users
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `affiliate_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.affiliate_users: ~2 rows (approximately)
-REPLACE INTO `affiliate_users` (`id`, `name`, `address`, `district`, `DOB`, `gender`, `NIC`, `contactno`, `email`, `password`, `promotion_method`, `instagram_url`, `facebook_url`, `tiktok_url`, `youtube_url`, `content_website_url`, `content_whatsapp_url`, `bank_name`, `branch`, `account_name`, `account_number`, `status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `affiliate_users` (`id`, `name`, `address`, `district`, `DOB`, `gender`, `NIC`, `contactno`, `email`, `password`, `promotion_method`, `instagram_url`, `facebook_url`, `tiktok_url`, `youtube_url`, `content_website_url`, `content_whatsapp_url`, `bank_name`, `branch`, `account_name`, `account_number`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Manushi Weerasinghe', 'No.124, "Sisilasa"', 'Kurunegala', '2000-08-19', 'female', '200073203633', '0716280393', 'manuw2819@gmail.com', '$2y$12$rUIrl.eUkDiqB7vm0QX7/.1NdM2UmfutRc5Ka7DCz8Pc4kErWPeoe', '"[\\"Instagram\\",\\"Facebook\\",\\"TikTok\\",\\"YouTube\\",\\"Content website\\\\\\/blog\\",\\"WhatsApp\\"]"', 'https://www.instagram.com/manushi', 'https://www.facebook.com/manushi', 'https://www.titok.com/manushi', 'https://www.youtube.com/manushi', 'https://www.website.com/manushi', 'https://www.whatsapp.com/manushi', 'BOC', 'Ridigama', 'KGRSM Weerasinghe', '8465232656', 'approved', '2024-11-11 22:40:12', '2024-11-11 22:45:46'),
 	(2, 'k.a.kavidu malshan kulathunga', 'f/16,delpathdeniya', 'kegalle', '1999-07-21', 'male', '199920302235', '0719707612', 'admin@dkmart.lk', '$2y$12$3FkW7JE89xPHQTzVT93LWOHS1GupCv4aURH3R6Vxd.kC2/.Q6DjAq', '"[\\"YouTube\\"]"', NULL, NULL, NULL, 'https://www.youtube.com/watch?v=BYQHcxE7g24', NULL, NULL, 'sampath', 'galigamuwa', 'kavidu malshan', '25226987', 'approved', '2024-11-19 05:53:08', '2024-11-26 18:56:37');
 
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `banners` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.banners: ~3 rows (approximately)
-REPLACE INTO `banners` (`id`, `image`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `banners` (`id`, `image`, `created_at`, `updated_at`) VALUES
 	(2, 'banners/pySXFZPbAOSNKlhLiGszBG0eQ4pR6SD5VTGCPbiW.jpg', '2025-05-05 10:31:36', '2025-05-05 10:31:36'),
 	(3, 'banners/RtuR6WgcQU6Y1wjIdpW7ZR0yjo6QXoC29DePO8tF.jpg', '2025-05-05 10:31:51', '2025-05-05 10:31:51'),
 	(6, 'banners/qBP8s0sWOiqqRHNujv6iqjZGtHHAbieJEZ2uqnQI.jpg', '2025-05-05 10:44:48', '2025-05-05 10:44:48');
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Dumping data for table esuprjxs_crown.brands: ~5 rows (approximately)
-REPLACE INTO `brands` (`id`, `name`, `image`, `slug`, `is_top_brand`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `brands` (`id`, `name`, `image`, `slug`, `is_top_brand`, `created_at`, `updated_at`) VALUES
 	(1, 'LG', 'brands/Hqdu6dflxfeIavAGEGl8XFRZ7ZH7lGh4AEqBy9sE.svg', 'lg', 1, '2025-05-16 02:52:01', '2025-05-16 02:52:01'),
 	(2, 'HP', 'brands/FOiWC5VFOi3SlA0bJKTyMDCO7Saqo8rDoGlxY5yj.png', 'hp', 1, '2025-05-16 03:01:47', '2025-05-16 03:01:47'),
 	(3, 'HARMAS', 'brands/o3mZJcVC5A6oWYTywjGZNSJ3nNWHK6mm7mePj6KJ.png', 'harmas', 0, '2025-05-16 03:02:19', '2025-05-16 03:02:19'),
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `cache` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.cache: ~7 rows (approximately)
-REPLACE INTO `cache` (`key`, `value`, `expiration`) VALUES
+INSERT IGNORE INTO `cache` (`key`, `value`, `expiration`) VALUES
 	('admin@example.com|112.134.226.211', 'i:1;', 1746774616),
 	('admin@example.com|112.134.226.211:timer', 'i:1746774616;', 1746774616),
 	('admin@example.com|127.0.0.1', 'i:1;', 1745421709),
@@ -279,8 +279,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.categories: ~7 rows (approximately)
-REPLACE INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.categories: ~17 rows (approximately)
+INSERT IGNORE INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'Women\'s Fashion', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
 	(2, 'Men\'s Fashion', '2024-10-31 21:48:57', '2024-10-31 21:48:57'),
 	(3, 'Electronic Devices', '2024-10-31 21:52:35', '2024-10-31 21:52:35'),
@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `company_settings` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.company_settings: ~1 rows (approximately)
-REPLACE INTO `company_settings` (`id`, `title`, `address`, `email`, `contact`, `website`, `footer_text`, `logo`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `company_settings` (`id`, `title`, `address`, `email`, `contact`, `website`, `footer_text`, `logo`, `created_at`, `updated_at`) VALUES
 	(1, 'CROWN ELECTRONICS', 'No. 38, 2nd Lane,  Rubber Watte Road,  Gangodawila, Nugegoda, Sri Lanka.', 'esuprjxs_crown@gmail.com', '+94 112 251 202', 'CROWN ELECTRONICS', NULL, 'storage/logo/1746454046.png', '2024-10-30 18:07:56', '2025-05-05 08:37:26');
 
 -- Dumping structure for table esuprjxs_crown.currencies
@@ -351,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `currencies` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.currencies: ~3 rows (approximately)
-REPLACE INTO `currencies` (`id`, `code`, `name`, `symbol`, `exchange_rate`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `currencies` (`id`, `code`, `name`, `symbol`, `exchange_rate`, `created_at`, `updated_at`) VALUES
 	(1, 'LKR', 'LK Rupees', 'රු', 1.00000000, '2025-05-29 00:50:47', '2025-05-29 03:45:53'),
 	(3, 'USD', 'US Doller', '$', 299.56000000, '2025-05-29 00:58:18', '2025-05-29 03:46:09'),
 	(4, 'GBP', 'GB Pounds', '£', 404.12000000, '2025-05-29 03:35:00', '2025-05-29 04:14:07');
@@ -384,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `customer_orders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.customer_orders: ~6 rows (approximately)
-REPLACE INTO `customer_orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone`, `email`, `house_no`, `apartment`, `city`, `postal_code`, `date`, `total_cost`, `status`, `activity_logs`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `customer_orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone`, `email`, `house_no`, `apartment`, `city`, `postal_code`, `date`, `total_cost`, `status`, `activity_logs`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
 	(33, 'ORD-HMOWQ7JL', 3, 'k.a.kavidu malshan kulathunga', '0719707610', 'freelyricshub@gmail.com', 'f/16,delpathdeniya', NULL, 'galigamuwa', '71350', '2024-11-27', 4800.00, 'Packed', '[{"timestamp":"2024-11-27 01:18:05","message":"Order accepted by the vendor."},{"timestamp":"2024-11-27 01:19:17","message":"Order packed by the vendor."}]', 'COD', 'Pending', '2024-11-26 19:39:41', '2024-11-26 19:49:17'),
 	(34, 'ORD-J64XRM0S', 6, 'Anuradha ;mkkkmmk', '0783302448', 'batmananuradha@gmail.com', '164/08/16, Kannadiwaththa, Bomugammana, Divulapitiya', ';mkmk', 'gampaha', '11250', '2025-04-23', 1300.00, 'Pending', NULL, NULL, 'Pending', '2025-04-23 01:01:21', '2025-04-23 01:01:21'),
 	(35, 'ORD-FPZ1SOLI', 7, 'Anuradha Sampath', '0783302448', 'anuradhasampath64@gmail.com', '164/08/16, Kannadiwaththa,', 'Bomugammana, Divulapitiya', 'gampaha', '11250', '2025-04-27', 100300.00, 'Pending', NULL, 'COD', 'Pending', '2025-04-27 02:59:29', '2025-04-27 03:00:10'),
@@ -536,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.migrations: ~57 rows (approximately)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT IGNORE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '0001_01_01_000000_create_users_table', 1),
 	(2, '0001_01_01_000001_create_cache_table', 1),
 	(3, '0001_01_01_000002_create_jobs_table', 1),
@@ -676,7 +676,7 @@ CREATE TABLE IF NOT EXISTS `payment_requests` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.payment_requests: ~1 rows (approximately)
-REPLACE INTO `payment_requests` (`id`, `user_id`, `withdraw_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `payment_requests` (`id`, `user_id`, `withdraw_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
 	(2, 2, 1500.00, 'sampath', 'galigamuwa', 'kavidu malshan', '25226987', 100.00, 1400.00, 'Completed', '2024-11-26 19:40:38', '2024-11-26 19:40:38', '2024-11-26 19:42:27');
 
 -- Dumping structure for table esuprjxs_crown.personal_access_tokens
@@ -748,8 +748,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `products_subcategory_id_foreign` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.products: ~0 rows (approximately)
-REPLACE INTO `products` (`id`, `product_id`, `shop_id`, `product_name`, `product_description`, `category_id`, `brand_id`, `subcategory_id`, `sub_subcategory_id`, `currency_id`, `quantity`, `tags`, `normal_price`, `regular_price`, `is_affiliate`, `affiliate_price`, `commission_percentage`, `commission_price`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.products: ~8 rows (approximately)
+INSERT IGNORE INTO `products` (`id`, `product_id`, `shop_id`, `product_name`, `product_description`, `category_id`, `brand_id`, `subcategory_id`, `sub_subcategory_id`, `currency_id`, `quantity`, `tags`, `normal_price`, `regular_price`, `is_affiliate`, `affiliate_price`, `commission_percentage`, `commission_price`, `created_at`, `updated_at`) VALUES
 	(26, 'P-23C4EB', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 3, 3, NULL, NULL, NULL, 989, 'Online Exclusive', 1000.00, 0.00, 1, 1000.00, 10.00, 100.00, '2025-04-23 07:08:26', '2025-05-29 05:20:07'),
 	(27, 'P-596847', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 3, NULL, NULL, NULL, NULL, 194, 'Online Exclusive', 1900.00, 0.00, 1, 1900.00, 10.00, 190.00, '2025-04-23 07:09:17', '2025-05-01 22:12:08'),
 	(29, 'P-8550C6', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 3, NULL, NULL, NULL, 4, 997, 'Below', 1000.00, 0.00, 1, 100000.00, 10.00, 10000.00, '2025-04-23 07:17:04', '2025-05-29 05:20:07'),
@@ -771,8 +771,8 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.product_images: ~0 rows (approximately)
-REPLACE INTO `product_images` (`id`, `product_id`, `image_path`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.product_images: ~9 rows (approximately)
+INSERT IGNORE INTO `product_images` (`id`, `product_id`, `image_path`, `created_at`, `updated_at`) VALUES
 	(33, 'P-23C4EB', 'product_images/1745411906_1730285227_item6.png', '2025-04-23 07:08:26', '2025-04-23 07:08:26'),
 	(34, 'P-596847', 'product_images/1745411957_1730458784_Samsung_Galaxy_A15.png', '2025-04-23 07:09:17', '2025-04-23 07:09:17'),
 	(36, 'P-8550C6', 'product_images/1745412424_1731398899_category-5.jpg', '2025-04-23 07:17:04', '2025-04-23 07:17:04'),
@@ -798,7 +798,7 @@ CREATE TABLE IF NOT EXISTS `raffle_tickets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.raffle_tickets: ~1 rows (approximately)
-REPLACE INTO `raffle_tickets` (`id`, `user_id`, `token`, `status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `raffle_tickets` (`id`, `user_id`, `token`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 2, 'hellotracking', 'Pending', '2024-11-19 05:54:35', '2024-11-19 05:54:35');
 
 -- Dumping structure for table esuprjxs_crown.reviews
@@ -877,7 +877,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.sessions: ~3 rows (approximately)
-REPLACE INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+INSERT IGNORE INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 	('28dmCA4kbUNdffURPCPhRlyQ9eZgqYqSyNB1KKm3', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiejNybVNTRmgxek8xTzRPenFUUkhFckNoM3E0cXdOcnNuMDNrTnpvVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1748405163),
 	('BKiQy4M5PpsD1UJrvvRvTVMteA25bsESDaW39IRF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiS2hnamVHRERiRDliUmE5RjY5bzczZllRVnlEb0lYdXVucDVURlhBaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9yZXZpZXdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo4OiJpc19hZG1pbiI7YjoxO3M6NDoibmFtZSI7czo1OiJBZG1pbiI7czo1OiJlbWFpbCI7czoxNzoiYWRtaW5AZXhhbXBsZS5jb20iO3M6NToiaW1hZ2UiO047fQ==', 1744786906),
 	('ZiX8TanATiZ5FcEtPGRXLzwRcKF1ZoVXHanjbIrp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVWYyRzJ6OHlyUDVIdWhsUzhRbFo4ZnI3NkRyMk9MbHBQT2d3ZklPdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1744781864);
@@ -897,7 +897,7 @@ CREATE TABLE IF NOT EXISTS `shops` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.shops: ~1 rows (approximately)
-REPLACE INTO `shops` (`id`, `vendor_id`, `shop_name`, `shop_description`, `shop_logo`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `shops` (`id`, `vendor_id`, `shop_name`, `shop_description`, `shop_logo`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'DK Mart', 'DK MART', 'shop_logos/dklogo.png', '2024-11-19 03:03:09', '2024-11-25 05:52:42');
 
 -- Dumping structure for table esuprjxs_crown.sliders
@@ -909,8 +909,8 @@ CREATE TABLE IF NOT EXISTS `sliders` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.sliders: ~3 rows (approximately)
-REPLACE INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.sliders: ~6 rows (approximately)
+INSERT IGNORE INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
 	(2, 'slider_images/ZXtyyDMuRjRlfRQ2h5MxFengSCgNPhv1Hi1wopD7.jpg', '2025-05-05 10:19:56', '2025-05-05 10:19:56'),
 	(3, 'slider_images/nT6WvbkH6dbigZwRKVeF5MV65gRoqvNPlABnHUNd.jpg', '2025-05-05 10:20:08', '2025-05-05 10:20:08'),
 	(4, 'slider_images/ghGjrulk3661VAhw3yoELXec72cdvjDvTqaGRiFT.jpg', '2025-05-05 10:43:39', '2025-05-05 10:43:39'),
@@ -956,7 +956,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.subcategories: ~88 rows (approximately)
-REPLACE INTO `subcategories` (`id`, `category_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `subcategories` (`id`, `category_id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Shoes', '2024-10-30 17:18:48', '2024-11-25 13:21:17'),
 	(2, 1, 'Clothings', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
 	(3, 1, 'Bags', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
@@ -1059,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `sub_subcategories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.sub_subcategories: ~96 rows (approximately)
-REPLACE INTO `sub_subcategories` (`id`, `subcategory_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `sub_subcategories` (`id`, `subcategory_id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Heels', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
 	(2, 2, 'Tops', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
 	(3, 2, 'Dresses', '2024-10-30 17:18:48', '2024-10-30 17:18:48'),
@@ -1174,7 +1174,7 @@ CREATE TABLE IF NOT EXISTS `system_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.system_users: ~2 rows (approximately)
-REPLACE INTO `system_users` (`id`, `name`, `email`, `contact`, `password`, `role`, `image`, `status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `system_users` (`id`, `name`, `email`, `contact`, `password`, `role`, `image`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Manushi Weerasinghe', 'manuw2819@gmail.com', '0716280394', '$2y$12$u9Wf1r7MWu8bNF/iE4ws6ubGM7eEAyVqfcixqejw.eaLguijfOwqy', 'Admin', '1731475199_avatar-1.png', 'Active', '2024-10-30 18:08:27', '2024-11-12 23:49:59'),
 	(2, 'Manula', 'manulakavishka9@gmail.com', NULL, '$2y$12$H4Tb6/2XXbmezI7Taa5eC.x7FFJhM8ck1OD07tyrXKVIErAxQHp96', 'Admin', NULL, 'Active', '2025-05-28 09:33:33', '2025-05-28 09:33:34');
 
@@ -1197,7 +1197,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.users: ~7 rows (approximately)
-REPLACE INTO `users` (`id`, `name`, `email`, `address`, `dob`, `phone`, `gender`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `users` (`id`, `name`, `email`, `address`, `dob`, `phone`, `gender`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Manushi Weerasinghe', 'manuw2819@gmail.com', 'No.124, "Sisilasa"', '2024-11-01', '+94716280393', NULL, NULL, '$2y$12$TE9JIuSOj3RLYDsnvoR.WuT2.kPTqSVp8Y78lUPsM.YISZ5T8XEGm', NULL, '2024-11-06 23:02:15', '2024-11-06 23:02:15'),
 	(3, 'k.a.kavidu malshan kulathunga', 'freelyricshub@gmail.com', 'f/16,delpathdeniya', '1999-07-21', '+94719707612', 'male', NULL, '$2y$12$VrTjKzIP42MAVFK0.p7LfupuFt42mHDbrWYIsjGe683Kb4enqVA9e', NULL, '2024-11-19 05:44:33', '2024-11-26 06:20:13'),
 	(4, 'pavidu', 'pavidu@gmail.com', 'ranasigha', '1998-07-21', '+94719707615', NULL, NULL, '$2y$12$s3feBcTDzqIrvmNlObm2OeYsFaedZ1TzHrx4vtPjtj2gaiEFT7jfK', NULL, '2024-11-26 22:42:26', '2024-11-26 22:42:26'),
@@ -1221,8 +1221,8 @@ CREATE TABLE IF NOT EXISTS `variations` (
   CONSTRAINT `variations_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table esuprjxs_crown.variations: ~0 rows (approximately)
-REPLACE INTO `variations` (`id`, `product_id`, `type`, `value`, `hex_value`, `quantity`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table esuprjxs_crown.variations: ~9 rows (approximately)
+INSERT IGNORE INTO `variations` (`id`, `product_id`, `type`, `value`, `hex_value`, `quantity`, `created_at`, `updated_at`) VALUES
 	(48, 'P-596847', 'size', NULL, NULL, NULL, '2025-04-23 07:09:30', '2025-04-23 07:09:30'),
 	(53, 'P-16E31F', NULL, NULL, NULL, NULL, '2025-04-23 07:30:01', '2025-04-23 07:30:01'),
 	(56, 'P-8550C6', 'size', NULL, NULL, NULL, '2025-04-28 23:24:13', '2025-04-28 23:24:13'),
@@ -1254,7 +1254,7 @@ CREATE TABLE IF NOT EXISTS `vendors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendors: ~1 rows (approximately)
-REPLACE INTO `vendors` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `profile_image`, `bank_name`, `branch`, `account_name`, `account_number`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendors` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `profile_image`, `bank_name`, `branch`, `account_name`, `account_number`, `created_at`, `updated_at`) VALUES
 	(1, 'Admin', 'freelyricshub@gmail.com', '$2y$12$ply3ddeHLJO/B1J0HMHjFeJDZWJIvDvqCnsB.clYUcxuBUslLeVR.', '0712345678', 'f/16,delpathdeniya', 'approved', NULL, 'sampath', 'kegalle', 'kavidu', '12345678', '2024-11-19 03:01:00', '2024-11-26 19:51:21');
 
 -- Dumping structure for table esuprjxs_crown.vendor_payment_requests
@@ -1278,7 +1278,7 @@ CREATE TABLE IF NOT EXISTS `vendor_payment_requests` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendor_payment_requests: ~1 rows (approximately)
-REPLACE INTO `vendor_payment_requests` (`id`, `vendor_id`, `request_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendor_payment_requests` (`id`, `vendor_id`, `request_amount`, `bank_name`, `branch`, `account_name`, `account_number`, `processing_fee`, `paid_amount`, `status`, `requested_at`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1500.00, 'sampath', 'kegalle', 'kavidu', '12345678', 100.00, 1400.00, 'Completed', '2024-11-26 19:51:39', '2024-11-26 19:51:39', '2024-11-26 19:52:13');
 
 -- Dumping structure for table esuprjxs_crown.vendor_wallets
@@ -1295,7 +1295,7 @@ CREATE TABLE IF NOT EXISTS `vendor_wallets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table esuprjxs_crown.vendor_wallets: ~1 rows (approximately)
-REPLACE INTO `vendor_wallets` (`id`, `vendor_id`, `balance`, `total_earnings`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `vendor_wallets` (`id`, `vendor_id`, `balance`, `total_earnings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 9450.00, 9450.00, '2024-11-22 01:38:18', '2024-11-26 19:49:24');
 
 -- Dumping structure for table esuprjxs_crown.wishlists
