@@ -322,7 +322,14 @@ img{
                                         <i class="text-xl ph-fill ph-seal-percent"></i>
                                         -10%
                                     </div>
-                                    <h6 class="mb-0">Rs <?php echo e($product->normal_price); ?></h6>
+                                    <h6 class="mb-0"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e($product->normal_price); ?>
+
+
+                                        <?php if($product->currency && $product->currency->code != 'LKR'): ?>
+                                            (Rs. <?php echo e($product->normal_price * $product->currency->exchange_rate); ?>)
+                                        <?php endif; ?>
+
+                                    </h6>
                                 </div>
                                 <div class="gap-8 flex-align">
                                     <span class="text-gray-700">Regular Price</span>

@@ -5,16 +5,45 @@
             display: none !important;
             /* Add !important if you want to override other styles */
         }
-        
+         .search-con {
+        max-width: 100%;
+    }
+
+    .top-search.search-container {
+        flex-direction: row;
+    }
+
+    .submit-search {
+        padding: 6px 10px;
+    }
+
 
     }
 
     @media (min-width: 1000px) {
         .mobshow {
             display: none !important;
+
             /* Hides .mobshow on screens 768px or wider */
         }
+
     }
+    /* Mobile adjustments */
+@media (max-width: 1000px) {
+    .search-con {
+        max-width: 100%;
+    }
+
+    .top-search.search-container {
+        flex-direction: row;
+    }
+
+    .submit-search {
+        padding: 6px 10px;
+    }
+}
+
+
 </style>
 
 <body>
@@ -70,12 +99,36 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="col-2-5">
-                        <div class="mobi-header-btn mobi-search-btn">
-                            <img class="cart-icon"
-                                src="frontend/newstyle/assets/images/icon/mobi-search.png">
-                        </div>
-                    </div> -->
+{{--  
+                          <div class="search-con" style="margin-right: 20px; margin-top: 10px;"  >
+                                <div class="top-search search-container" style="">
+                                    <input type="text" class="form-control main-search top-search-suggestion"
+                                        placeholder="Search for products, categories and more">
+                                    <button type="button" class="btn btn-primary submit-search"><i
+                                            class="fa-solid fa-magnifying-glass"></i></button>
+                                    <div id="suggestions-box-display"
+                                        class="suggestions-box suggestions-box-display" style="display: none;">
+                                        <div class="left-suggestion-no-products" hidden>
+                                            <p>No results found.</p>
+                                        </div>
+
+                                        <div class="left-suggestion-main-con">
+                                            <!-- JS will inject products here -->
+                                        </div>
+
+                                        <div class="right-suggestion-main-con">
+                                            <div>
+                                                <h4 class="headding search-category-title">Categories</h4>
+                                                <ul class="category-list">
+                                                    <!-- JS will inject categories here -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                    </div>  --}}
 
 
                             <!-- Header Middle Right start -->
@@ -129,7 +182,7 @@
 
                             <div class="col-2-5">
                                 <div class="header-right-con">
-                                    <div class="top-right-nav">
+                                    <div class="top-right-nav" style="display: flex;gap:10px;  margin-top: 10px;">
 
 
                                         <!-- Profile Dropdown -->
@@ -218,7 +271,7 @@
                                     </div>
                                 @else
                                     <!-- Default Profile Icon and Links for Guests -->
-                                    <div class="sign-up d-inline-flex">
+                                    {{--  <div class="sign-up d-inline-flex">
                                         <div class= "mobhide">
                                             <a href="{{ route('login') }}" class="d-flex">
                                                 <div class="dt-icon-div"><img
@@ -234,13 +287,13 @@
                                             <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
                                                     Up</span></a>
                                         </div>
-                                    </div>
+                                    </div>  --}}
 
-                                    <div class= "mobshow">
+                                    <div class= "mobshow" style="margin-right: 5px; margin-top: 5px;" >
                                         <a href="{{ route('login') }}" class="d-flex">
                                             <div class="dt-icon-div">
                                                 <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
-                                                    style="padding-bottom: 17px;">
+                                                    style="">
                                             </div>
 
 
@@ -259,12 +312,13 @@
 
 
 
-                            <div class="des-cart pos-relative cart-popup ">
+                            <div class="des-cart pos-relative cart-popup " style="padding-bottom: 5px">
+
                                 <a href="javascript:void(0)" class="gap-8 ml-10 flex-align flex-column item-hover-two"
                                     style="margin-right:30px;">
                                     <span
                                         class="mt-6 text-2xl text-white2 d-flex position-relative me-6 item-hover__text">
-                                        <i class="ph ph-shopping-cart-simple"></i>
+                                        <i class="ph ph-shopping-cart-simple" style="color:#001ed4;"></i>
                                         <!-- Display the cart count dynamically -->
                                         <span id="cart-count"
                                             class="w-16 h-16 text-xs text-white flex-center rounded-circle bg-main-two-600 position-absolute top-n6 end-n4">
