@@ -158,16 +158,25 @@
         }
     </style>
 
-    <div class="nav-ash">
-        <div class="site-common-con">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                </ol>
-            </nav>
+    <div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 115px">
+    <div class="container container-lg">
+        <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
+            <h6 class="mb-0">About Us</h6>
+            <ul class="flex-wrap gap-8 flex-align">
+                <li class="text-sm">
+                    <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
+                        <i class="ph ph-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="flex-align">
+                    <i class="ph ph-caret-right"></i>
+                </li>
+                <li class="text-sm text-main-600"> About As </li>
+            </ul>
         </div>
     </div>
+</div>
 
     <div class="site-common-con mt-5" style="
     padding-top: 50px;
@@ -232,8 +241,8 @@
     </section>
     <!-- End About Area -->
 <?php $__env->stopSection(); ?>
-    
-    
-  
+
+
+
 
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\JOB\esupport\CROWN_ELECTRONICS\resources\views/frontend/about.blade.php ENDPATH**/ ?>

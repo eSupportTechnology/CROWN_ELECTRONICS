@@ -13,10 +13,10 @@
 </style>
 
 <!-- ========================= Breadcrumb Start =============================== -->
-<div class="mb-0 breadcrumb py-26 bg-main-two-50">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
     <div class="container container-lg">
         <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
-            <h6 class="mb-0">Shop</h6>
+            <h6 class="mb-0">Brand</h6>
             <ul class="flex-wrap gap-8 flex-align">
                 <li class="text-sm">
                     <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
@@ -27,7 +27,7 @@
                 <li class="flex-align">
                     <i class="ph ph-caret-right"></i>
                 </li>
-                <li class="text-sm text-main-600"> Product Shop </li>
+                <li class="text-sm text-main-600"> Product Brand </li>
             </ul>
         </div>
     </div>

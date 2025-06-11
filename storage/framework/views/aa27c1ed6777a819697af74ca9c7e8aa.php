@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 
-    
+
 
 
 
 
     <!-- ========================= Breadcrumb Start =============================== -->
-<div class="breadcrumb mb-0 py-26 bg-main-two-50">
+<div class="breadcrumb mb-0 py-26 bg-main-two-50" style="margin-top: 120px">
     <div class="container container-lg">
         <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
             <h6 class="mb-0">Contact</h6>
@@ -70,7 +70,7 @@
                 <div class="contact-box border border-gray-100 rounded-16 px-24 py-40">
                     <h6 class="mb-48">Get In Touch</h6>
                          <?php
-                            $companySettings = \App\Models\CompanySettings::first(); 
+                            $companySettings = \App\Models\CompanySettings::first();
                         ?>
                     <div class="flex-align gap-16 mb-16">
                         <span class="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0"><i class="ph-fill ph-phone-call"></i></span>
@@ -101,11 +101,11 @@
 </section>
 <!-- ============================ Contact Section End ================================== -->
 
-  
 
 
-      
- 
+
+
+
  <?php $__env->stopSection(); ?>
 
 

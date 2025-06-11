@@ -262,13 +262,13 @@
 
 
     <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="mb-0 breadcrumb py-26 bg-main-two-50">
+    <div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
         <div class="container container-lg">
             <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
                 <h6 class="mb-0"> Product Details</h6>
                 <ul class="flex-wrap gap-8 flex-align">
                     <li class="text-sm">
-                        <a href="/home" class="gap-8 text-gray-900 flex-align hover-text-main-600">
+                        <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
                             <i class="ph ph-house"></i>
                             Home
                         </a>
