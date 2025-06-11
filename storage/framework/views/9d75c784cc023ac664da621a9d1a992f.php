@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -140,17 +138,17 @@
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" s>
     <div class="carousel-inner">
         <!-- Loop through the sliders and display each one -->
-        @foreach($sliders as $index => $slider)
-            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/' . $slider->image) }}');">
+        <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="carousel-item <?php echo e($index === 0 ? 'active' : ''); ?>" style="background-image: url('<?php echo e(asset('storage/' . $slider->image)); ?>');">
                 <!-- You can optionally add text or content inside each carousel item -->
             </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     <div class="carousel-indicators">
         <!-- Loop through sliders to generate the correct indicators -->
-        @foreach($sliders as $index => $slider)
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></button>
-        @endforeach
+        <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="<?php echo e($index); ?>" class="<?php echo e($index === 0 ? 'active' : ''); ?>"></button>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
 
@@ -169,46 +167,47 @@
             <div class="home-product-list owl-carousel owl-theme owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all; width: 2600px;">
-                    @foreach ($Onlineexclusive as $product)
+                    <?php $__currentLoopData = $Onlineexclusive; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="owl-item active" style="width: 216.638px;">
                                 <div class="item items-28">
                                     <div class="grid-product-wapper">
                                         <!-- Discount Tag -->
-                                        @if($product->discount > 0)
+                                        <?php if($product->discount > 0): ?>
                                             <div class="normal-pro-promo-tags">
                                                 <div class="discout-tag">
-                                                    <span class="discount-amount">{{ $product->discount }}%</span>
+                                                    <span class="discount-amount"><?php echo e($product->discount); ?>%</span>
                                                     <span class="off-txt">OFF</span>
                                                 </div>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
 
                                         <!-- Product Image -->
                                         <div class="product-image">
-                                            <a href="{{ route('showProductDetails', $product->product_id) }}">
-                                                <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->product_name }}" class="grid-product-img" loading="eager" width="178" height="178">
+                                            <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
+                                                <img src="<?php echo e(asset('storage/' . $product->images->first()->image_path)); ?>" alt="<?php echo e($product->product_name); ?>" class="grid-product-img" loading="eager" width="178" height="178">
                                             </a>
                                             <div class="products-btn-set">
-                                                <a href="{{ route('showProductDetails', $product->product_id) }}" class="home-buynow">BUY NOW</a>
+                                                <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
 
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
-                                                <div class="pro-name-compact" title="{{ $product->product_name }}">
-                                                    {{ $product->product_name }}
+                                                <div class="pro-name-compact" title="<?php echo e($product->product_name); ?>">
+                                                    <?php echo e($product->product_name); ?>
+
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs'}}. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
@@ -289,46 +288,47 @@
             <div class="home-product-list owl-carousel owl-theme owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all; width: 2600px;">
-                    @foreach ($topSellingProducts as $product)
+                    <?php $__currentLoopData = $topSellingProducts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="owl-item active" style="width: 216.638px;">
                                 <div class="item items-28">
                                     <div class="grid-product-wapper">
                                         <!-- Discount Tag -->
-                                        @if($product->discount > 0)
+                                        <?php if($product->discount > 0): ?>
                                             <div class="normal-pro-promo-tags">
                                                 <div class="discout-tag">
-                                                    <span class="discount-amount">{{ $product->discount }}%</span>
+                                                    <span class="discount-amount"><?php echo e($product->discount); ?>%</span>
                                                     <span class="off-txt">OFF</span>
                                                 </div>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
 
                                         <!-- Product Image -->
                                         <div class="product-image">
-                                            <a href="{{ route('showProductDetails', $product->product_id) }}">
-                                                <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->product_name }}" class="grid-product-img" loading="eager" width="178" height="178">
+                                            <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
+                                                <img src="<?php echo e(asset('storage/' . $product->images->first()->image_path)); ?>" alt="<?php echo e($product->product_name); ?>" class="grid-product-img" loading="eager" width="178" height="178">
                                             </a>
                                             <div class="products-btn-set">
-                                                <a href="{{ route('showProductDetails', $product->product_id) }}" class="home-buynow">BUY NOW</a>
+                                                <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
 
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
-                                                <div class="pro-name-compact" title="{{ $product->product_name }}">
-                                                    {{ $product->product_name }}
+                                                <div class="pro-name-compact" title="<?php echo e($product->product_name); ?>">
+                                                    <?php echo e($product->product_name); ?>
+
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
@@ -350,46 +350,47 @@
             <div class="home-product-list owl-carousel owl-theme owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all; width: 2600px;">
-                    @foreach ($belowrs as $product)
+                    <?php $__currentLoopData = $belowrs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="owl-item active" style="width: 216.638px;">
                                 <div class="item items-28">
                                     <div class="grid-product-wapper">
                                         <!-- Discount Tag -->
-                                        @if($product->discount > 0)
+                                        <?php if($product->discount > 0): ?>
                                             <div class="normal-pro-promo-tags">
                                                 <div class="discout-tag">
-                                                    <span class="discount-amount">{{ $product->discount }}%</span>
+                                                    <span class="discount-amount"><?php echo e($product->discount); ?>%</span>
                                                     <span class="off-txt">OFF</span>
                                                 </div>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
 
                                         <!-- Product Image -->
                                         <div class="product-image">
-                                            <a href="{{ route('showProductDetails', $product->product_id) }}">
-                                                <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->product_name }}" class="grid-product-img" loading="eager" width="178" height="178">
+                                            <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>">
+                                                <img src="<?php echo e(asset('storage/' . $product->images->first()->image_path)); ?>" alt="<?php echo e($product->product_name); ?>" class="grid-product-img" loading="eager" width="178" height="178">
                                             </a>
                                             <div class="products-btn-set">
-                                                <a href="{{ route('showProductDetails', $product->product_id) }}" class="home-buynow">BUY NOW</a>
+                                                <a href="<?php echo e(route('showProductDetails', $product->product_id)); ?>" class="home-buynow">BUY NOW</a>
                                             </div>
                                         </div>
 
                                         <!-- Product Title & Prices -->
                                         <div class="grid-pro-drtail-con">
                                             <div class="col-md-12 grid-product-title">
-                                                <div class="pro-name-compact" title="{{ $product->product_name }}">
-                                                    {{ $product->product_name }}
+                                                <div class="pro-name-compact" title="<?php echo e($product->product_name); ?>">
+                                                    <?php echo e($product->product_name); ?>
+
                                                 </div>
                                             </div>
                                             <div class="u">
-                                                <span class="market-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->regular_price, 2) }}</span>
-                                                <span class="selling-price">{{$product->currency->symbol ?? 'Rs' }}. {{ number_format($product->normal_price, 2) }}</span>
+                                                <span class="market-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->regular_price, 2)); ?></span>
+                                                <span class="selling-price"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e(number_format($product->normal_price, 2)); ?></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
@@ -399,28 +400,28 @@
     <div class="site-common-con" style="margin-bottom: 50px; margin-top: 30px;">
     <div class="m-0 row">
         <!-- First Banner Image (Left Side) -->
-        @if(isset($banners[0]))
+        <?php if(isset($banners[0])): ?>
             <div class="col-12 col-sm-6 custom-4-banner">
-                <img src="{{ asset('storage/' . $banners[0]->image) }}" class="img-fluid" alt="Banner 1">
+                <img src="<?php echo e(asset('storage/' . $banners[0]->image)); ?>" class="img-fluid" alt="Banner 1">
             </div>
-        @endif
+        <?php endif; ?>
 
         <!-- Second Banner Image (Right Side) -->
-        @if(isset($banners[1]))
+        <?php if(isset($banners[1])): ?>
             <div class="col-12 col-sm-6 custom-4-banner">
-                <img src="{{ asset('storage/' . $banners[1]->image) }}" class="img-fluid" alt="Banner 2">
+                <img src="<?php echo e(asset('storage/' . $banners[1]->image)); ?>" class="img-fluid" alt="Banner 2">
             </div>
-        @endif
+        <?php endif; ?>
     </div>
 
     <!-- Single Banner Image (Full Width) -->
-    @if(isset($banners[2]))
-        <a href="{{ $banners[2]->url ?? '#' }}">
+    <?php if(isset($banners[2])): ?>
+        <a href="<?php echo e($banners[2]->url ?? '#'); ?>">
             <div class="col-12 col-sm-12 single-banner-m">
-                <img src="{{ asset('storage/' . $banners[2]->image) }}" class="img-fluid" alt="Single Banner">
+                <img src="<?php echo e(asset('storage/' . $banners[2]->image)); ?>" class="img-fluid" alt="Single Banner">
             </div>
         </a>
-    @endif
+    <?php endif; ?>
 </div>
 
 
@@ -508,7 +509,7 @@ document.addEventListener('DOMContentLoaded', function () {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
         },
         body: JSON.stringify({ product_ids: productIds })
     })
@@ -546,7 +547,7 @@ function toggleWishlist(button, productId) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
         },
         body: JSON.stringify({ product_id: productId })
     })
@@ -564,4 +565,6 @@ function toggleWishlist(button, productId) {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\JOB\esupport\CROWN_ELECTRONICS\resources\views/frontend/Home.blade.php ENDPATH**/ ?>
