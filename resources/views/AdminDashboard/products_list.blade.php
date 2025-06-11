@@ -64,7 +64,7 @@
                                     </td>
                                     <td>{{ $product->category->name ?? 'N/A' }}</td>
                                     <td>{{ $product->quantity }}</td>
-                                    <td>Rs. {{ $product->normal_price }}</td>
+                                    <td>{{$product->currency->symbol ?? 'Rs'}}. {{ $product->normal_price }}</td>
                                     <td class="text-end">
                                         <div>
                                             <a href="{{ route('products.view', $product->id) }}" class="btn btn-view btn-sm me-2">
