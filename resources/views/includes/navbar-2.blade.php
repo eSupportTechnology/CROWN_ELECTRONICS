@@ -202,12 +202,11 @@
                         </div>
                     </div>
                     <div class="search-con relative"
-                        style="position: absolute; top: 5rem; width:95%; align-item: center;">
-                        {{-- <div class="top-search search-container"> --}}
+                        style="position: absolute; top: 5rem; width:90%; align-item: center;">
                         <input type="text" class="form-control main-search top-search-suggestion"
                             placeholder="Search for products, categories and more" style="height: 0.2px">
 
-                        <div id="suggestions-box-display" class="suggestions-box suggestions-box-display"
+                        <div id="mobile-suggestions-box-display" class="suggestions-box suggestions-box-displays"
                             style="display: none;">
                             <div class="left-suggestion-no-products" hidden>
                                 <p>No results found.</p>
@@ -221,7 +220,6 @@
                                 <div>
                                     <h4 class="headding search-category-title">Categories</h4>
                                     <ul class="category-list">
-                                        <!-- JS will inject categories here -->
                                     </ul>
                                 </div>
                             </div>
@@ -258,7 +256,7 @@
                                                     placeholder="Search for products, categories and more">
                                                 <button type="button" class="btn btn-primary submit-search"><i
                                                         class="fa-solid fa-magnifying-glass"></i></button>
-                                                <div id="suggestions-box-display"
+                                                <div id="web-suggestions-box-display"
                                                     class="suggestions-box suggestions-box-display"
                                                     style="display: none;">
                                                     <div class="left-suggestion-no-products" hidden>
@@ -949,61 +947,58 @@
 
 
     <script>
-        document.querySelector('.main-search').addEventListener('keyup', function() {
-            let query = this.value.trim();
+        document.querySelectorAll('.main-search').forEach(input => {
+    input.addEventListener('keyup', function () {
+        let query = this.value.trim();
+        const parent = this.closest('.search-con');
+        const box = parent.querySelector('.suggestions-box');
 
-            if (query.length < 2) {
-                document.getElementById('suggestions-box-display').style.display = 'none';
-                return;
-            }
+        if (query.length < 2) {
+            box.style.display = 'none';
+            return;
+        }
 
-            fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
-                .then(res => res.json())
-                .then(data => {
-                    const box = document.getElementById('suggestions-box-display');
-                    const productCon = box.querySelector('.left-suggestion-main-con');
-                    const categoryCon = box.querySelector('.category-list');
-                    const noResults = box.querySelector('.left-suggestion-no-products');
+        fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
+            .then(res => res.json())
+            .then(data => {
+                const productCon = box.querySelector('.left-suggestion-main-con');
+                const categoryCon = box.querySelector('.category-list');
+                const noResults = box.querySelector('.left-suggestion-no-products');
 
-                    productCon.innerHTML = '';
-                    categoryCon.innerHTML = '';
+                productCon.innerHTML = '';
+                categoryCon.innerHTML = '';
 
-                    if (data.products.length === 0 && data.categories.length === 0) {
-                        noResults.hidden = false;
-                        box.style.display = 'block';
-                        return;
-                    }
-
-                    noResults.hidden = true;
-
-                    // Add products
-                    data.products.forEach(product => {
-                        const productHTML = `
-                <a class="search-product-element" href="${product.url}">
-                    <div class="suggestion-box">
-                        <div class="suggestion-product-img"><img class="img-fluid" alt="" src="${product.image ?? ''}"></div>
-                        <div class="suggestion-box-details">
-                            <div class="product-line product-name">${product.name}</div>
-                        </div>
-                    </div>
-                </a>
-            `;
-                        productCon.innerHTML += productHTML;
-                    });
-
-                    // Add categories
-                    data.categories.forEach(category => {
-                        const categoryHTML =
-                            `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
-                        categoryCon.innerHTML += categoryHTML;
-                    });
-
+                if (data.products.length === 0 && data.categories.length === 0) {
+                    noResults.hidden = false;
                     box.style.display = 'block';
-                })
-                .catch(err => {
-                    console.error('Search error:', err);
+                    return;
+                }
+
+                noResults.hidden = true;
+
+                data.products.forEach(product => {
+                    const productHTML = `
+                        <a class="search-product-element" href="${product.url}">
+                            <div class="suggestion-box">
+                                <div class="suggestion-product-img"><img class="img-fluid" alt="" src="${product.image ?? ''}"></div>
+                                <div class="suggestion-box-details">
+                                    <div class="product-line product-name">${product.name}</div>
+                                </div>
+                            </div>
+                        </a>`;
+                    productCon.innerHTML += productHTML;
                 });
-        });
+
+                data.categories.forEach(category => {
+                    categoryCon.innerHTML += `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
+                });
+
+                box.style.display = 'block';
+            })
+            .catch(err => console.error('Search error:', err));
+    });
+});
+
     </script>
 
 
