@@ -37,16 +37,16 @@
                         @foreach ($customers as $index => $customer)
                             <tr>
                                 <td>{{ $customers->firstItem() + $index }}</td> <!-- Display correct customer number -->
-                                <td>{{ $customer->name }}</td> 
-                                <td>{{ $customer->email }}</td> 
-                                <td>{{ $customer->phone }}</td> 
-                                <td>{{ $customer->created_at->format('Y-m-d') }}</td> 
-                                <td>{{ $customer->customer_orders_count }}</td> 
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->email }}</td>
+                                <td>{{ $customer->phone }}</td>
+                                <td>{{ $customer->created_at ? $customer->created_at->format('Y-m-d') : 'N/A' }}</td>
+                                <td>{{ $customer->customer_orders_count }}</td>
                                 <td class="text-end">
                                     <a href="{{ route('customer-details', $customer->id) }}" class="btn btn-view btn-sm me-2">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                </td>                                  
+                                </td>
                             </tr>
                          @endforeach
                     </tbody>
@@ -65,7 +65,7 @@
 <div class="pagination-area mt-30 mb-50">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-start">
-            {{ $customers->links() }}  
+            {{ $customers->links() }}
         </ul>
     </nav>
 </div>
