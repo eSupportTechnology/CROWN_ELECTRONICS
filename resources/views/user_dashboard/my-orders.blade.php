@@ -26,6 +26,7 @@
 
 <!-- All Orders Tab -->
 <div id="all-orders" class="tab-content active">
+    @auth
     @foreach ($orders as $order)
     <div class="order-card" style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 15px;">
         <div class="order-card-header d-flex justify-content-between align-items-center" style="margin-bottom: 20px; border-bottom: 1px solid #eaeaea;">
@@ -53,5 +54,11 @@
         </div>
     </div>
     @endforeach
+    @endauth
+    @guest
+    <div class="alert alert-warning" role="alert">
+        Please <a href="{{ route('login') }}" class="alert-link">log in</a> to view your orders.
+    </div>
+    @endguest
 </div>
 @endsection

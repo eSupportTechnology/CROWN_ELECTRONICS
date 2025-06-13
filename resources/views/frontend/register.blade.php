@@ -95,7 +95,7 @@
                         <x-input-label class="fw-bold" for="password" :value="__('Password')" />
                         <span class="text-danger">*</span>
                         <div class="position-relative">
-                            <x-text-input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="new-password" />
+<input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="new-password" />
                             <span class="cursor-pointer toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash" id="toggle-password"></span>
                         </div>
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -133,21 +133,34 @@
 
 <!-- JavaScript for Password Toggle -->
 <script>
-    document.getElementById('toggle-password').addEventListener('click', function () {
-        const passwordInput = document.getElementById('password');
-        const toggleIcon = document.getElementById('toggle-password');
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleIcon = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
 
-        // Toggle the input type
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleIcon.classList.remove('ph-eye-slash');
-            toggleIcon.classList.add('ph-eye');
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.remove('ph-eye');
-            toggleIcon.classList.add('ph-eye-slash');
-        }
-    });
+    let isPasswordVisible = false; // track state manually
+
+    if (toggleIcon && passwordInput) {
+        toggleIcon.addEventListener('click', function () {
+            console.log('Toggle password visibility clicked');
+
+            isPasswordVisible = !isPasswordVisible;
+
+            if (isPasswordVisible) {
+                console.log('Showing password');
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('ph-eye-slash');
+                toggleIcon.classList.add('ph-eye');
+            } else {
+                console.log('Hiding password');
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('ph-eye');
+                toggleIcon.classList.add('ph-eye-slash');
+            }
+        });
+    }
+});
+
+
 </script>
 
 

@@ -615,12 +615,12 @@
                             <h3 class="title-terms" style="padding-top: 0px;">Privacy Policy</h3>
                             <p class="monial-graph">We, Abans PLC (PV 5301 PB/PQ), having its registered office at No. 498,
                                 Galle Road, Colombo 03 are pleased to provide our policy on privacy for the users of our
-                                website <a href="www.buyabans.html">www.buyabans.com</a>. We collect, use, maintain and
+                                website <a href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a>. We collect, use, maintain and
                                 disclose
                                 information collected from users of our website. We assure you that, we use our best and
                                 reasonable
                                 effort to protect the privacy of users of our website, <a
-                                    href="www.buyabans.html">www.buyabans.com</a>.</p>
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a>.</p>
                             <p class="monial-graph">We receive your personal information such as Name, Address, E-mail
                                 address,
                                 National Identity Card Number, Mobile Number, Credit Card details &amp; Transaction
@@ -628,7 +628,7 @@
                                 usage &amp; preference information, Log and device information, etc., and we only collect
                                 and
                                 store the information you submit voluntarily when you use our website, <a
-                                    href="www.buyabans.html">www.buyabans.com</a>. You can always refuse to provide personal
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a>. You can always refuse to provide personal
                                 information, except that it may prevent you from engaging in certain site-related
                                 activities.
                             </p>
@@ -674,18 +674,18 @@
                                 sites
                                 that are subject to their privacy policies.</p>
                             <p class="monial-graph">The information contained on <a
-                                    href="www.buyabans.html">www.buyabans.com</a>
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a>
                                 website is for general information purposes only. The <a
-                                    href="www.buyabans.html">www.buyabans.com</a> website assumes no responsibility for
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a> website assumes no responsibility for
                                 errors or
                                 omissions in the content of the services. In no event shall <a
-                                    href="www.buyabans.html">www.buyabans.com</a> website be liable for any special, direct,
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a> website be liable for any special, direct,
                                 indirect, consequential, or incidental damages or any damages whatsoever, whether in an
                                 action
                                 of contract, negligence or other tort, arising out of or in connection with the use of the
                                 services or the content of the service. We reserve the right to make additions, deletions or
                                 modifications to the content on the services at any time without prior notice. The <a
-                                    href="www.buyabans.html">www.buyabans.com</a> website does not warrant that the website
+                                    href="https://crown.esupportsystem.shop/">crown.esupportsystem.shop</a> website does not warrant that the website
                                 is
                                 free from viruses or other harmful components.</p>
                             <p class="monial-graph">We may change this privacy policy from time to time, as necessary. When
