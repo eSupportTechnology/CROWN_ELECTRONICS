@@ -201,11 +201,11 @@
                 only authentic products. We guarantee that our discounts are genuine, and your payments are secured. Our
                 delivery teams cover the entirety of Sri Lanka, and our friendly staff are always ready to provide you
                 after-sales support through extensive network of over a hundred Abans service centers.</p>
-            <p class="common-p">Established in March 2007, Buyabans.com operates from Abans headquarters in Colombo, Sri
+            <!-- <p class="common-p">Established in March 2007, Buyabans.com operates from Abans headquarters in Colombo, Sri
                 Lanka, and also serves customers purchasing from UK, Australia, USA, Italy, etc., for their loved ones
                 in Sri Lanka. Echoing our parent company Abans PLC's values of reliability, value-for-money, and honesty
                 in service, with the best online shopping experience with access to the best products at the best prices
-                to suit all your needs.</p>
+                to suit all your needs.</p> -->
         </div>
         <div class="col-12 col-xl-6">
             <img class="about-img" src="http://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"

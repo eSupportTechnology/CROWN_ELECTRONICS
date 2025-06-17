@@ -34,14 +34,19 @@
         .carousel-item {
             height: 30vh;
             /* Adjust height for mobile */
-
-
-
-
         }
 
         .carousel {
             margin-top: 65px;
+        }
+
+        .site-common-con {
+            margin-top: 10px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .site-common-con .row+.row {
+            margin-top: 10px !important;
         }
     }
 
@@ -51,18 +56,22 @@
             height: 45vh;
             /* Adjust height for tablets */
             margin-top: 125px;
-
-
-
-
-
         }
+        
+
     }
 
     @media(max-width:1200px) {
         .carousel-item {
             background-size: contain;
         }
+
+        .site-common-con {
+            margin-top: 10px !important;
+            margin-bottom: 15px !important;
+        }
+
+
     }
 
     @media (min-width: 1201px) {
@@ -71,6 +80,8 @@
             /* or whatever style you want */
         }
     }
+
+
 
 
 
@@ -407,8 +418,8 @@
         </div>
     </div>
 
-    <div class="site-common-con" style="margin-bottom: 50px; margin-top: 30px;">
-        <div class="m-0 row">
+    <div class="site-common-con mb-5">
+        <div class="m-0 row pt-0 mt-2">
             <!-- First Banner Image (Left Side) -->
             @if(isset($banners[0]))
             <div class="col-12 col-sm-6 custom-4-banner">
@@ -425,15 +436,16 @@
         </div>
 
         <!-- Single Banner Image (Full Width) -->
-        <div class="m-0 row">
+        <div class="m-0 row pt-0 mt-5">
             @if(isset($banners[3]))
             <a href="{{ $banners[3]->url ?? '#' }}">
-                <div class="col-12 col-sm-12 single-banner-m">
-                    <img src="{{ asset('storage/' . $banners[3]->image) }}" class="img-fluid" alt="Single Banner">
+                <div class="col-12 col-sm-12 single-banner-m p-0 m-0">
+                    <img src="{{ asset('storage/' . $banners[3]->image) }}" class="img-fluid mt-0 pt-0" alt="Single Banner">
                 </div>
             </a>
             @endif
         </div>
+
     </div>
 
 

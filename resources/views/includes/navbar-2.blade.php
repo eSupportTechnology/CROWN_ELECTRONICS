@@ -13,6 +13,17 @@
             /* Hides .mobshow on screens 768px or wider */
         }
     }
+
+    @media (max-width: 768px) {
+        .main-search {
+            font-size: 1rem;
+            padding: 10px 14px;
+        }
+
+        .suggestions-box {
+            font-size: 0.95rem;
+        }
+    }
 </style>
 
 <body>
@@ -94,43 +105,17 @@
                                     <!-- Profile Dropdown -->
                                     <div class="profile-dropdown">
                                         @auth
-                                            <div class="log-user-img dropdown col-2-5">
-                                                <a href="#"><img
-                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></a>
-                                                <div class="dropdown-box">
-                                                    <div class="user-name">
-                                                        Hi!
-                                                        {{ auth()->user()->name }}
-                                                    </div>
-                                                    <ul class="log-popup-links">
-                                                        <li>
-                                                            <a href="/profile">
-                                                                <img
-                                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                                Account
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a>
-                                                                <img
-                                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                                <form method="POST" action="{{ route('logout') }}">
-                                                                    @csrf
-                                                                    <button type="submit"
-                                                                        class="dropdown-item w-100">Logout</button>
-                                                                </form>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
+                                        <div class="log-user-img dropdown col-2-5">
+                                            <a href="#"><img
+                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></a>
                                             <div class="dropdown-box">
-
+                                                <div class="user-name">
+                                                    Hi!
+                                                    {{ auth()->user()->name }}
+                                                </div>
                                                 <ul class="log-popup-links">
                                                     <li>
-                                                        <a href="{{ route('dashboard') }}">
+                                                        <a href="/profile">
                                                             <img
                                                                 src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
                                                             Account
@@ -151,37 +136,63 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @else
-                                <!-- Default Profile Icon and Links for Guests -->
-                                <div class="sign-up d-inline-flex">
-                                    <div class= "mobhide">
-                                        <a href="{{ route('login') }}" class="d-flex">
-                                            <div class="dt-icon-div"><img
-                                                    src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
-                                            </div>
-                                            <div>Login</div>
-                                        </a>
-                                    </div>
 
-                                    <div class="boder-right"></div>
+                                        <div class="dropdown-box">
 
-                                    <div class= "mobhide">
-                                        <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
-                                                Up</span></a>
-                                    </div>
-                                </div>
+                                            <ul class="log-popup-links">
+                                                <li>
+                                                    <a href="{{ route('dashboard') }}">
+                                                        <img
+                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                        Account
+                                                    </a>
+                                                </li>
 
-                                <div class= "mobshow">
-                                    <a href="{{ route('login') }}" class="d-flex">
-                                        <div class="dt-icon-div">
-                                            <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
-                                                style="padding-bottom: 17px;">
+                                                <li>
+                                                    <a>
+                                                        <img
+                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                        <form method="POST" action="{{ route('logout') }}">
+                                                            @csrf
+                                                            <button type="submit"
+                                                                class="dropdown-item w-100">Logout</button>
+                                                        </form>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
+                            @else
+                            <!-- Default Profile Icon and Links for Guests -->
+                            <div class="sign-up d-inline-flex">
+                                <div class="mobhide">
+                                    <a href="{{ route('login') }}" class="d-flex">
+                                        <div class="dt-icon-div"><img
+                                                src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                        </div>
+                                        <div>Login</div>
+                                    </a>
+                                </div>
+
+                                <div class="boder-right"></div>
+
+                                <div class="mobhide">
+                                    <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
+                                            Up</span></a>
+                                </div>
+                            </div>
+
+                            <div class="mobshow">
+                                <a href="{{ route('login') }}" class="d-flex">
+                                    <div class="dt-icon-div">
+                                        <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
+                                            style="padding-bottom: 17px;">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                         @endauth
                         <div class="des-cart pos-relative cart-popup ">
                             <a href="javascript:void(0)" class="gap-8 ml-10 flex-align flex-column item-hover-two"
@@ -201,32 +212,41 @@
 
                         </div>
                     </div>
-                    <div class="search-con relative"
-                        style="position: absolute; top: 5rem; width:90%; align-item: center;">
-                        <input type="text" class="form-control main-search top-search-suggestion"
-                            placeholder="Search for products, categories and more" style="height: 0.2px">
 
-                        <div id="mobile-suggestions-box-display" class="suggestions-box suggestions-box-displays"
-                            style="display: none;">
-                            <div class="left-suggestion-no-products" hidden>
-                                <p>No results found.</p>
-                            </div>
+                </header>
+                <div class="container-fluid py-2 px-3 bg-white shadow-sm">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-6">
+                            <div class="position-relative">
+                                <!-- Search Input -->
+                                <input type="text"
+                                    class="form-control main-search top-search-suggestion"
+                                    placeholder="Search for products, categories and more"
+                                    style="height: 42px; border-radius: 8px;" />
+                                
 
-                            <div class="left-suggestion-main-con">
-                                <!-- JS will inject products here -->
-                            </div>
+                                <!-- Suggestions Box -->
+                                <div id="mobile-suggestions-box-display" class="suggestions-box suggestions-box-displays"
+                                    style="display: none;">
+                                    <div class="left-suggestion-no-products p-3 text-center" hidden>
+                                        <p class="mb-0">No results found.</p>
+                                    </div>
 
-                            <div class="right-suggestion-main-con">
-                                <div>
-                                    <h4 class="headding search-category-title">Categories</h4>
-                                    <ul class="category-list">
-                                    </ul>
+                                    <div class="left-suggestion-main-con px-3 py-2">
+                                        <!-- Product suggestions via JS -->
+                                    </div>
+
+                                    <div class="right-suggestion-main-con px-3 pb-2">
+                                        <h6 class="search-category-title fw-bold mb-2">Categories</h6>
+                                        <ul class="category-list list-unstyled mb-0">
+                                            <!-- Category suggestions via JS -->
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </header>
-
+                </div>
 
                 <!-- destop header begin -->
 
@@ -324,70 +344,70 @@
                                                     <div class="profile-dropdown">
                                                         @auth
 
-                                                            <div class="auth-container">
-                                                                <div class="loged-user d-inline-flex">
-                                                                    <div class="log-user-img"><img
-                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
+                                                        <div class="auth-container">
+                                                            <div class="loged-user d-inline-flex">
+                                                                <div class="log-user-img"><img
+                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
+                                                                </div>
+                                                                <div class="log-user-data dropdown">
+                                                                    <div class="user-name">Hi!
+                                                                        {{ auth()->user()->name }}
                                                                     </div>
-                                                                    <div class="log-user-data dropdown">
-                                                                        <div class="user-name">Hi!
-                                                                            {{ auth()->user()->name }}
-                                                                        </div>
-                                                                        <div class="dropdown-box">
+                                                                    <div class="dropdown-box">
 
-                                                                            <ul class="log-popup-links">
-                                                                                <li>
-                                                                                    <a href="{{ route('dashboard') }}">
-                                                                                        <img
-                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                                                        Account
-                                                                                    </a>
-                                                                                </li>
+                                                                        <ul class="log-popup-links">
+                                                                            <li>
+                                                                                <a href="{{ route('dashboard') }}">
+                                                                                    <img
+                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                                                    Account
+                                                                                </a>
+                                                                            </li>
 
-                                                                                <li>
-                                                                                    <a>
-                                                                                        <img
-                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                                                        <form method="POST"
-                                                                                            action="{{ route('logout') }}">
+                                                                            <li>
+                                                                                <a>
+                                                                                    <img
+                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                                                    <form method="POST"
+                                                                                        action="{{ route('logout') }}">
 
 
-                                                                                            @csrf
-                                                                                            <button type="submit"
-                                                                                                class="dropdown-item w-100">Logout</button>
-                                                                                        </form>
-                                                                                    </a>
-                                                                                </li>
+                                                                                        @csrf
+                                                                                        <button type="submit"
+                                                                                            class="dropdown-item w-100">Logout</button>
+                                                                                    </form>
+                                                                                </a>
+                                                                            </li>
 
 
 
-                                                                            </ul>
-                                                                        </div>
+                                                                        </ul>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        @else
-                                                            <!-- Default Profile Icon and Links for Guests -->
-                                                            <div class="sign-up d-inline-flex">
-                                                                <div>
-                                                                    <a href="{{ route('login') }}" class="d-flex">
-                                                                        <div class="dt-icon-div"><img
-                                                                                src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
-                                                                        </div>
-                                                                        <div>Login</div>
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="boder-right"></div>
-
-                                                                <div>
-                                                                    <a class="sign-up-link"
-                                                                        href="{{ route('register') }}"><span>Sign
-                                                                            Up</span></a>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
+                                                        @else
+                                                        <!-- Default Profile Icon and Links for Guests -->
+                                                        <div class="sign-up d-inline-flex">
+                                                            <div>
+                                                                <a href="{{ route('login') }}" class="d-flex">
+                                                                    <div class="dt-icon-div"><img
+                                                                            src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                                                    </div>
+                                                                    <div>Login</div>
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="boder-right"></div>
+
+                                                            <div>
+                                                                <a class="sign-up-link"
+                                                                    href="{{ route('register') }}"><span>Sign
+                                                                        Up</span></a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
 
 
                                                     @endauth
@@ -434,34 +454,34 @@
                                             <div class="wrap-menu">
                                                 <div class="wrap-inner">
                                                     @foreach ($categories as $category)
-                                                        <div class="fly main-link">
-                                                            <a href="{{ url('/shop?category_id=' . $category->id) }}">
+                                                    <div class="fly main-link">
+                                                        <a href="{{ url('/shop?category_id=' . $category->id) }}">
 
-                                                                {{ $category->name }}
-                                                            </a>
-
-
-                                                            <div class="inner">
-                                                                <div class="scroll-height"></div>
-                                                                <div class="scroll-cat-set">
-                                                                    <!-- Check if the category has subcategories -->
-                                                                    @if ($category->subcategories->isNotEmpty())
-                                                                        <ul>
-                                                                            @foreach ($category->subcategories as $subcategory)
-                                                                                <li class="fly main-link">
-                                                                                    <a
-                                                                                        href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
-                                                                                        {{ $subcategory->name }}
-                                                                                    </a>
+                                                            {{ $category->name }}
+                                                        </a>
 
 
-                                                                                </li>
-                                                                            @endforeach
-                                                                        </ul>
-                                                                    @endif
-                                                                </div>
+                                                        <div class="inner">
+                                                            <div class="scroll-height"></div>
+                                                            <div class="scroll-cat-set">
+                                                                <!-- Check if the category has subcategories -->
+                                                                @if ($category->subcategories->isNotEmpty())
+                                                                <ul>
+                                                                    @foreach ($category->subcategories as $subcategory)
+                                                                    <li class="fly main-link">
+                                                                        <a
+                                                                            href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
+                                                                            {{ $subcategory->name }}
+                                                                        </a>
+
+
+                                                                    </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                                @endif
                                                             </div>
                                                         </div>
+                                                    </div>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -687,41 +707,41 @@
                         <ul class=" list-unstyled">
 
                             @foreach ($categories as $category)
-                                <li class="position-relative">
+                            <li class="position-relative">
 
-                                    <!-- Main Category and Toggle -->
-                                    <div class="d-flex justify-content-between align-items-center ">
-                                        <a href="{{ url('/shop?category_id=' . $category->id) }}"
-                                            class="text-dark text-decoration-none fw-semibold"
-                                            style="line-height: 1.6;">
-                                            {{ $category->name }}
-                                        </a>
+                                <!-- Main Category and Toggle -->
+                                <div class="d-flex justify-content-between align-items-center ">
+                                    <a href="{{ url('/shop?category_id=' . $category->id) }}"
+                                        class="text-dark text-decoration-none fw-semibold"
+                                        style="line-height: 1.6;">
+                                        {{ $category->name }}
+                                    </a>
 
-                                        @if ($category->subcategories->isNotEmpty())
-                                            <span class="toggle-btn" onclick="toggleDropdown(this)"
-                                                style="cursor: pointer;">
-                                                <i class="fa fa-chevron-down text-muted"></i>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <!-- Subcategory List -->
                                     @if ($category->subcategories->isNotEmpty())
-                                        <ul
-                                            class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
-                                            @foreach ($category->subcategories as $subcategory)
-                                                <li>
-                                                    <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
-                                                        class="px-4 py-2 d-block text-dark text-decoration-none"
-                                                        style="line-height: 1.6;">
-                                                        {{ $subcategory->name }}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
+                                    <span class="toggle-btn" onclick="toggleDropdown(this)"
+                                        style="cursor: pointer;">
+                                        <i class="fa fa-chevron-down text-muted"></i>
+                                    </span>
                                     @endif
+                                </div>
 
-                                </li>
+                                <!-- Subcategory List -->
+                                @if ($category->subcategories->isNotEmpty())
+                                <ul
+                                    class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
+                                    @foreach ($category->subcategories as $subcategory)
+                                    <li>
+                                        <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
+                                            class="px-4 py-2 d-block text-dark text-decoration-none"
+                                            style="line-height: 1.6;">
+                                            {{ $subcategory->name }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                                @endif
+
+                            </li>
                             @endforeach
 
                         </ul>
@@ -948,36 +968,48 @@
 
     <script>
         document.querySelectorAll('.main-search').forEach(input => {
-    input.addEventListener('keyup', function () {
-        let query = this.value.trim();
-        const parent = this.closest('.search-con');
-        const box = parent.querySelector('.suggestions-box');
+            input.addEventListener('keyup', function() {
+                console.log('Search input:', this.value);
+                let query = this.value.trim();
+                const parent = this.closest('.search-con');
+                let box = this.closest('.search-con')?.querySelector('.suggestions-box');
 
-        if (query.length < 2) {
-            box.style.display = 'none';
-            return;
-        }
-
-        fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
-            .then(res => res.json())
-            .then(data => {
-                const productCon = box.querySelector('.left-suggestion-main-con');
-                const categoryCon = box.querySelector('.category-list');
-                const noResults = box.querySelector('.left-suggestion-no-products');
-
-                productCon.innerHTML = '';
-                categoryCon.innerHTML = '';
-
-                if (data.products.length === 0 && data.categories.length === 0) {
-                    noResults.hidden = false;
-                    box.style.display = 'block';
+                if (!box) {
+                    box = this.nextElementSibling?.classList.contains('suggestions-box') ?
+                        this.nextElementSibling :
+                        document.querySelector('#mobile-suggestions-box-display');
+                }
+                if (!box) {
+                    console.error('Suggestions box not found in parent element.');
+                    return;
+                } else {
+                    console.log('Suggestions box found:', box);
+                }
+                if (query.length < 2) {
+                    box.style.display = 'none';
                     return;
                 }
 
-                noResults.hidden = true;
+                fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const productCon = box.querySelector('.left-suggestion-main-con');
+                        const categoryCon = box.querySelector('.category-list');
+                        const noResults = box.querySelector('.left-suggestion-no-products');
 
-                data.products.forEach(product => {
-                    const productHTML = `
+                        productCon.innerHTML = '';
+                        categoryCon.innerHTML = '';
+
+                        if (data.products.length === 0 && data.categories.length === 0) {
+                            noResults.hidden = false;
+                            box.style.display = 'block';
+                            return;
+                        }
+
+                        noResults.hidden = true;
+
+                        data.products.forEach(product => {
+                            const productHTML = `
                         <a class="search-product-element" href="${product.url}">
                             <div class="suggestion-box">
                                 <div class="suggestion-product-img"><img class="img-fluid" alt="" src="${product.image ?? ''}"></div>
@@ -986,19 +1018,18 @@
                                 </div>
                             </div>
                         </a>`;
-                    productCon.innerHTML += productHTML;
-                });
+                            productCon.innerHTML += productHTML;
+                        });
 
-                data.categories.forEach(category => {
-                    categoryCon.innerHTML += `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
-                });
+                        data.categories.forEach(category => {
+                            categoryCon.innerHTML += `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
+                        });
 
-                box.style.display = 'block';
-            })
-            .catch(err => console.error('Search error:', err));
-    });
-});
-
+                        box.style.display = 'block';
+                    })
+                    .catch(err => console.error('Search error:', err));
+            });
+        });
     </script>
 
 
