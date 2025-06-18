@@ -1,6 +1,4 @@
-@extends('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <style>
     .spacing-top {
@@ -612,4 +610,5 @@
 
 
 </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\Esupport\CROWN_ELECTRONICS\resources\views/frontend/ShippingDelivery.blade.php ENDPATH**/ ?>

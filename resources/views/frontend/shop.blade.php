@@ -121,7 +121,7 @@
                                 </div>
 
                                 <div class="mt-8 mb-20 product-card__price">
-                                    <span class="text-heading text-md fw-semibold ">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($product->normal_price, 2) }} <span class="text-gray-500 fw-normal">/Qty</span></span>
+                                    <span class="text-heading text-md fw-semibold ">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($product->normal_price, 2) }} </span>
                                 </div>
 
                                 <a href="#"

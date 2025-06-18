@@ -1,20 +1,18 @@
-@extends('frontend.master')
-
-@section('content')
-
-<style>
-    .spacing-top {
-        height: 120px;
-        /* Adjust based on desired spacing */
-    }
-
-    @media (max-width: 768px) {
-        .spacing-top {
-            height: 60px;
-        }
-    }
-</style>
+<?php $__env->startSection('content'); ?>
 <main class="content-container">
+
+    <style>
+        .spacing-top {
+            height: 120px;
+            /* Adjust based on desired spacing */
+        }
+
+        @media (max-width: 768px) {
+            .spacing-top {
+                height: 60px;
+            }
+        }
+    </style>
 
     <div class="spacing-top"></div>
 
@@ -23,7 +21,7 @@
     <div class="mb-0 breadcrumb py-26 bg-main-two-50">
         <div class="container container-lg">
             <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
-                <h6 class="mb-0">Shipping & Delivery</h6>
+                <h6 class="mb-0">Return Products Request</h6>
                 <ul class="flex-wrap gap-8 flex-align">
                     <li class="text-sm">
                         <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
@@ -34,25 +32,26 @@
                     <li class="flex-align">
                         <i class="ph ph-caret-right"></i>
                     </li>
-                    <li class="text-sm text-main-600"> Shipping & Delivery </li>
+                    <li class="text-sm text-main-600"> Return Products Request </li>
                 </ul>
             </div>
         </div>
     </div>
+
     <div class="site-common-con">
         <div class="row">
             <div class="col-md-3 terms-nav">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" aria-orientation="vertical">
-                    <a class="nav-link " id="v-pills-one-tab" href="/faq">FAQ</a>
+                    <a class="nav-link " id="v-pills-one-tab" href="faq">FAQ</a>
 
-                    <a class="nav-link " id="v-pills-two-tab" href="/buy">How To Buy</a>
+                    <a class="nav-link " id="v-pills-two-tab" href="buy">How To Buy</a>
 
-                    <a class="nav-link  active " id="v-pills-three-tab" href="/shipping-delivery">Shipping &
-                        Delivery</a>
+                    <a class="nav-link " id="v-pills-three-tab" href="shipping-delivery">Shipping & Delivery</a>
 
-                    <a class="nav-link " id="v-pills-three-tab" href="/warranty">Warranty Information</a>
+                    <a class="nav-link " id="v-pills-three-tab" href="warranty">Warranty Information</a>
 
-                    <a href="/return-product" class="nav-link " id="v-pills-four-tab" href="/return-products">Return
+                    <a href="return-product" class="nav-link  active " id="v-pills-four-tab"
+                        href="return-product">Return
                         Products</a>
                 </div>
             </div>
@@ -262,7 +261,7 @@
                         </ol>
                     </div>
 
-                    <div class="tab-pane fade  show active " id="v-pills-three" role="tabpanel"
+                    <div class="tab-pane fade " id="v-pills-three" role="tabpanel"
                         aria-labelledby="v-pills-three-tab">
 
                         <h3 class="title-terms mb-4">Shipping &amp; Delivery</h3>
@@ -560,7 +559,7 @@
                     </div>
 
 
-                    <div class="tab-pane fade " id="v-pills-five" role="tabpanel"
+                    <div class="tab-pane fade  show active " id="v-pills-five" role="tabpanel"
                         aria-labelledby="v-pills-five-tab">
                         <h3 class="title-terms">Return Products Request</h3>
 
@@ -612,4 +611,5 @@
 
 
 </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\Esupport\CROWN_ELECTRONICS\resources\views/frontend/ReturnProduct.blade.php ENDPATH**/ ?>

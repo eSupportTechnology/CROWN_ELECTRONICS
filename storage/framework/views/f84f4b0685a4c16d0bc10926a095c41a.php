@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <main class="content-container">
 
 
@@ -20,7 +18,7 @@
     <div class="spacing-top"></div>
 
 
-    <div class="mb-0 breadcrumb py-26 bg-main-two-50" >
+    <div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 15px">
         <div class="container container-lg">
             <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
                 <h6 class="mb-0">Privacy Policy</h6>
@@ -836,4 +834,5 @@
 
 
 </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\Esupport\CROWN_ELECTRONICS\resources\views/frontend/PrivacyPolicy.blade.php ENDPATH**/ ?>
