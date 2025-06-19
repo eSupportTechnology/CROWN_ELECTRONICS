@@ -149,6 +149,63 @@
         margin-bottom: 16px;
         font-size: 16px;
     }
+
+    /* Responsive Enhancements */
+    @media (max-width: 991.98px) {
+        .dashboard-container {
+            padding: 16px 8px;
+            max-width: 100%;
+        }
+
+        .sidebar {
+            position: static;
+            height: auto;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 10px 0;
+            border: none;
+        }
+
+        .card1 {
+            min-height: unset;
+            padding: 16px 8px;
+        }
+
+        .breadcrumb-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .dashboard-container {
+            padding: 8px 2px;
+        }
+
+        .sidebar a {
+            font-size: 15px;
+            padding: 10px 8px;
+        }
+
+        .sidebar .nav-link.active {
+            padding-left: 8px;
+        }
+
+        .card1 {
+            padding: 8px 2px;
+        }
+    }
+
+    .sidebar .nav {
+        gap: 2px;
+    }
+
+    .sidebar a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 </style>
 
 
@@ -178,7 +235,7 @@
     <div class="row">
         <!-- Sidebar toggle button for mobile -->
         <div class="col-12 d-md-none mb-2">
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarDrawer" aria-controls="sidebarDrawer" style="color:rgba(0, 0, 0, 0.81); border-color:rgb(0, 0, 0);">
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarDrawer" aria-controls="sidebarDrawer" style="background-color:rgba(0, 0, 0, 0.47); border-color:rgb(0, 0, 0);">
                 <i class="fas fa-bars fa-lg"></i> Menu
             </button>
         </div>
@@ -205,8 +262,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                            <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> Log Out
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -225,46 +289,56 @@
             </main>
         </div>
     </div>
-    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarDrawer" aria-labelledby="sidebarDrawerLabel" style="padding: 30px 55px;margin-top: 50px">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="sidebarDrawerLabel">Menu</h5>
+    <div class="offcanvas offcanvas-start d-md-none"
+        tabindex="-1"
+        id="sidebarDrawer"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        aria-labelledby="sidebarDrawerLabel" style="padding-top: 5rem ;margin-top:5rem;">
+        <div class="offcanvas-header" style="padding-right: 1rem;">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
                 <li class="nav-item ">
-                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('edit-profile') ? 'active' : '' }}" href="{{ route('edit-profile') }}"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                    <a class="nav-link {{ request()->routeIs('edit-profile') ? 'active' : '' }}" href="{{ route('edit-profile') }}">Edit Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('my-orders') ? 'active' : '' }}" href="{{ route('my-orders') }}"><i class="fas fa-box"></i> My Orders</a>
+                    <a class="nav-link {{ request()->routeIs('my-orders') ? 'active' : '' }}" href="{{ route('my-orders') }}">My Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('My-Reviews') ? 'active' : '' }}" href="{{ route('My-Reviews') }}"><i class="fas fa-star"></i> My Reviews</a>
+                    <a class="nav-link {{ request()->routeIs('My-Reviews') ? 'active' : '' }}" href="{{ route('My-Reviews') }}">My Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('edit-password') ? 'active' : '' }}" href="{{ route('edit-password') }}"><i class="fas fa-key"></i> Password</a>
+                    <a class="nav-link {{ request()->routeIs('edit-password') ? 'active' : '' }}" href="{{ route('edit-password') }}">Password</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Log Out
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
+
+
             </ul>
         </div>
     </div>
 </div>
 <script>
-    document.addEventListener('shown.bs.offcanvas', function() {
-         document.addEventListener('hidden.bs.offcanvas', function() {
-        const backdrops = document.querySelectorAll('.offcanvas-backdrop');
-        backdrops.forEach(el => el.remove());
+    document.addEventListener('hidden.bs.offcanvas', function() {
+        const backdrop = document.querySelector('.offcanvas-backdrop');
+        if (backdrop) backdrop.remove();
         document.body.classList.remove('offcanvas-backdrop');
         document.body.style.overflow = '';
     });
-    })
-   
 </script>
+
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 @endsection

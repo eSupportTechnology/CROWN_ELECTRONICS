@@ -14,6 +14,9 @@ class ReviewsController extends Controller
 {
     public function myReviews()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to view your reviews.');
+        }
         $userId = Auth::id();
 
         $orders = CustomerOrder::where('user_id', $userId)->pluck('order_code');
