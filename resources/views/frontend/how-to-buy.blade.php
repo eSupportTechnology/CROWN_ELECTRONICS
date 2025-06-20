@@ -8,6 +8,10 @@
         /* Adjust based on desired spacing */
     }
 
+    .monial-graph {
+        list-style-type: decimal
+    }
+
     @media (max-width: 768px) {
         .spacing-top {
             height: 60px;

@@ -65,15 +65,12 @@
         list-style-position: outside;
         padding-left: 20px;
         background-color: #ffffff;
-      
         margin: 0;
     }
 
     .styled-list li {
-        padding: 15px;
         font-size: 16px;
-        color: #333;
-        line-height: 1;
+        color: #333;    
     }
 
     .styled-list li:last-child {
@@ -83,6 +80,10 @@
     .styled-list li::marker {
         color:rgb(0, 0, 0);
         font-weight: bold;
+    }
+
+    .monial-graph {
+        list-style-type: circle;
     }
 
 
@@ -367,9 +368,9 @@
 
                         <div class="list-container">
                             <ol class="styled-list">
-                                <li>Items ordered online on crown.esupportsystem.shop will be delivered within 3 to 5 working days anywhere in Sri Lanka.</li>
-                                <li>Estimated delivery time may vary based on the availability of items ordered and the delivery address.</li>
-                                <li>The following delivery charges will apply based on the total value of your order.</li>
+                                <li class="monial-graph">Items ordered online on crown.esupportsystem.shop will be delivered within 3 to 5 working days anywhere in Sri Lanka.</li>
+                                <li class="monial-graph">Estimated delivery time may vary based on the availability of items ordered and the delivery address.</li>
+                                <li class="monial-graph">The following delivery charges will apply based on the total value of your order.</li>
                             </ol>
                         </div>
                         <div class="table-container">

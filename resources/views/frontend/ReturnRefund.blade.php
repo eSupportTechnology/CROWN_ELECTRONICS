@@ -94,7 +94,7 @@
                             <div class="content-section">
                                 <h3 class="title-terms">Return and Refund Policy</h3>
                                 <ul>
-                                    <li><strong>Period :</strong> BuyAbans must be informed within 3 days for
+                                    <li><strong>Period :</strong> Crown Electronicsmust be informed within 3 days for
                                         Electronics &
                                         7
                                         days for Lifestyle brands (Skechers, Under Armour, Hugo Boss) of receiving the
@@ -116,7 +116,7 @@
                                         route to us. Items damaged en route will not be accepted.</li>
                                     <li>It is the customer’s responsibility to ensure proof of postage for parcels that
                                         contain items to be returned.</li>
-                                    <li>BuyAbans will require minimum 05-07 business days to process your return request
+                                    <li>Crown Electronicswill require minimum 05-07 business days to process your return request
                                         and
                                         prepare the replacement unit. </li>
                                 </ul>
@@ -132,7 +132,7 @@
                                         to
                                         your credit card/ bank account may require additional time depending on the bank
                                         due
-                                        to its own operational time for which BuyAbans will not be responsible.</li>
+                                        to its own operational time for which Crown Electronicswill not be responsible.</li>
                                     <li>In the event of purchasing an AC unit with low capacity, the consumer is only
                                         eligible for a credit note for the amount of their purchase or they can switch
                                         to a
@@ -145,7 +145,7 @@
                                     <li>The total warranty and the comprehensive warranty will not apply if an
                                         under-capacity air conditioner is purchased.</li>
                                     <li>All manufacturing and material defects that require repair or return must be
-                                        informed and returned to BuyAbans within the warranty period of 30 days. Any
+                                        informed and returned to Crown Electronicswithin the warranty period of 30 days. Any
                                         repair or return that failed to be reported or returned within the specified
                                         time frame will not be accepted or refunded.</li>
                                     <li>• Refunds will not be provided for change of mind. All sales are final. Refunds
@@ -164,7 +164,7 @@
                                     account
                                     information, and the computer used to log on to the site, secure. Website account
                                     holders are solely responsible for all activities conducted via through their
-                                    BuyAbans.com account or their passwords and BuyAbans shall be indemnified from any
+                                    BuyAbans.com account or their passwords and Crown Electronicsshall be indemnified from any
                                     such
                                     liability.</p>
                             </div>
@@ -183,7 +183,7 @@
                                     goods
                                     from the duty-free shop will only be processed upon the exchange of the items
                                     physically
-                                    at our Duty-free shop. BuyAbans website has the legal right to process a refund in
+                                    at our Duty-free shop. Crown Electronicswebsite has the legal right to process a refund in
                                     any
                                     case upon the approval of the Sri Lanka Customs officers based at Bandaranayake
                                     International Airport (BIA).</p>
@@ -525,7 +525,7 @@
                                     information is used for quick and fruitful responses to your requests, and for
                                     communicating with you in present and future instances. Information about customers
                                     is
-                                    important to BuyAbans and will be treated with utmost confidentiality and will not
+                                    important to Crown Electronicsand will be treated with utmost confidentiality and will not
                                     be
                                     divulged to 03rd parties. Customer information is used only as described below and
                                     with
@@ -766,7 +766,7 @@
                         <div class="content-section">
                             <h3 class="title-terms">Return and Refund Policy</h3>
                             <ul>
-                                <li><strong>Period :</strong> BuyAbans must be informed within 3 days for Electronics &
+                                <li><strong>Period :</strong> Crown Electronicsmust be informed within 3 days for Electronics &
                                     7
                                     days for Lifestyle brands (Skechers, Under Armour, Hugo Boss) of receiving the item
                                     to be eligible for return.</li>
@@ -781,7 +781,7 @@
                                     route to us. Items damaged en route will not be accepted.</li>
                                 <li>It is the customer’s responsibility to ensure proof of postage for parcels that
                                     contain items to be returned.</li>
-                                <li>BuyAbans will require minimum 05-07 business days to process your return request and
+                                <li>Crown Electronicswill require minimum 05-07 business days to process your return request and
                                     prepare the replacement unit. </li>
                             </ul>
                         </div>
@@ -794,7 +794,7 @@
                                     charges borne by the customer for return of item. </li>
                                 <li>All refunds will be processed within 3-5 working days. Processing refunds back to
                                     your credit card/ bank account may require additional time depending on the bank due
-                                    to its own operational time for which BuyAbans will not be responsible.</li>
+                                    to its own operational time for which Crown Electronicswill not be responsible.</li>
                                 <li>In the event of purchasing an AC unit with low capacity, the consumer is only
                                     eligible for a credit note for the amount of their purchase or they can switch to a
                                     unit with a higher capacity. BuyAbans.com will not be issuing refunds for these
@@ -806,10 +806,10 @@
                                 <li>The total warranty and the comprehensive warranty will not apply if an
                                     under-capacity air conditioner is purchased.</li>
                                 <li>All manufacturing and material defects that require repair or return must be
-                                    informed and returned to BuyAbans within the warranty period of 30 days. Any repair
+                                    informed and returned to Crown Electronicswithin the warranty period of 30 days. Any repair
                                     or return that failed to be reported or returned within the specified time frame
                                     will not be accepted or refunded.</li>
-                                <li>• Refunds will not be provided for change of mind. All sales are final. Refunds will
+                                <li>Refunds will not be provided for change of mind. All sales are final. Refunds will
                                     only be issued under specific circumstances as outlined in our policy.</li>
                             </ul>
 
