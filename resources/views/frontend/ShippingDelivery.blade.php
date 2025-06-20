@@ -8,6 +8,104 @@
         /* Adjust based on desired spacing */
     }
 
+    .table-container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .styled-table {
+        width: 100%;
+        max-width: 600px;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #e0e0e0;
+    }
+
+    .styled-table th {
+        background-color: rgb(114, 114, 114);
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .styled-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .styled-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .styled-table td {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .list-container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .styled-list {
+        width: 100%;
+        max-width: 90%;
+        list-style-position: outside;
+        padding-left: 20px;
+        background-color: #ffffff;
+      
+        margin: 0;
+    }
+
+    .styled-list li {
+        padding: 15px;
+        font-size: 16px;
+        color: #333;
+        line-height: 1;
+    }
+
+    .styled-list li:last-child {
+        border-bottom: none;
+    }
+
+    .styled-list li::marker {
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+    }
+
+
+
+    @media (max-width: 600px) {
+        .styled-list {
+            padding-left: 15px;
+        }
+
+        .styled-list li {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+    }
+
+
     @media (max-width: 768px) {
         .spacing-top {
             height: 60px;
@@ -267,51 +365,48 @@
 
                         <h3 class="title-terms mb-4">Shipping &amp; Delivery</h3>
 
-                        <ol>
-                            <li class="monial-graph">Items ordered online on BuyAbans.com will be delivered in within 3
-                                to 5 working days anywhere in Sri Lanka.</li>
-                            <li class="monial-graph">Estimated delivery time may vary based on the availability of
-                                items
-                                ordered and the delivery
-                                address.</li>
-                            <li class="monial-graph">The following delivery charges will apply based on the total value
-                                of
-                                your order.</li>
-                        </ol>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
+                        <div class="list-container">
+                            <ol class="styled-list">
+                                <li>Items ordered online on crown.esupportsystem.shop will be delivered within 3 to 5 working days anywhere in Sri Lanka.</li>
+                                <li>Estimated delivery time may vary based on the availability of items ordered and the delivery address.</li>
+                                <li>The following delivery charges will apply based on the total value of your order.</li>
+                            </ol>
+                        </div>
+                        <div class="table-container">
+                            <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order Amount (Rs.)</th>
+                                        <th>Delivery Charge</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <tr style="height: 18px;">
-                                        <td style="width: 50%; height: 18px;"><strong>Order Amount (Rs.)</strong></td>
-                                        <td style="width: 50%; height: 18px;"><strong>Delivery Charge</strong></td>
-                                    </tr>
-                                    <tr style="height: 18px;">
-                                        <td style="width: 50%; height: 18px;">Up to 10,000&nbsp;</td>
-                                        <td style="width: 50%; height: 18px;">Rs. 490</td>
-                                    </tr>
-                                    <tr style="height: 18px;">
-                                        <td style="width: 50%; height: 18px;">10,001 – 20,000</td>
-                                        <td style="width: 50%; height: 18px;">Rs. 590</td>
+                                    <tr>
+                                        <td>Up to 10,000</td>
+                                        <td>Rs. 490</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 50%;">20,001 - 50,000</td>
-                                        <td style="width: 50%;">Rs. 790</td>
+                                        <td>10,001 – 20,000</td>
+                                        <td>Rs. 590</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 50%;">50,001 - 100,000</td>
-                                        <td style="width: 50%;">Rs. 1090</td>
+                                        <td>20,001 – 50,000</td>
+                                        <td>Rs. 790</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 50%;">100,001 - 200,000</td>
-                                        <td style="width: 50%;">Rs. 1590</td>
+                                        <td>50,001 – 100,000</td>
+                                        <td>Rs. 1090</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 50%;">200,001 &amp; above</td>
-                                        <td style="width: 50%;">Rs. 2090</td>
+                                        <td>100,001 – 200,000</td>
+                                        <td>Rs. 1590</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200,001 & above</td>
+                                        <td>Rs. 2090</td>
                                     </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
 
