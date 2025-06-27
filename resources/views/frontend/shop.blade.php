@@ -26,7 +26,7 @@
 </style>
 
 <!-- ========================= Breadcrumb Start =============================== -->
-<div class="mb-0 breadcrumb py-26 bg-main-two-50">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
     <div class="container container-lg">
         <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
             <h6 class="mb-0">Shop</h6>
@@ -121,7 +121,7 @@
                                 </div>
 
                                 <div class="mt-8 mb-20 product-card__price">
-                                    <span class="text-heading text-md fw-semibold ">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($product->normal_price, 2) }} <span class="text-gray-500 fw-normal">/Qty</span></span>
+                                    <span class="text-heading text-md fw-semibold ">{{$product->currency->symbol ?? 'Rs' }} {{ number_format($product->normal_price, 2) }} </span>
                                 </div>
 
                                 <a href="#"

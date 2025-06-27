@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 use App\Models\CustomerOrder;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -64,6 +65,9 @@ class ProfileController extends Controller
 
     public function myOrders()
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to view your orders.');
+        }
         $orders = CustomerOrder::where('user_id', auth()->id())->get();
         return view('user_dashboard.my-orders', compact('orders'));
     }
@@ -80,7 +84,9 @@ class ProfileController extends Controller
 
     public function dashboard()
     {
-        // Retrieve the authenticated user's details
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to access the dashboard.');
+        }
         $user = Auth::user();
         //dd($user);
 
@@ -91,8 +97,11 @@ class ProfileController extends Controller
     public function editProfile()
     {
         // Get the authenticated user
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to access the profile.');
+        }
         $user = Auth::user();
-
+        Log::info('Editing profile for user: ', ['id' => $user->id, 'name' => $user->name, 'email' => $user->email]);
         // Pass the user data to the view
         return view('user_dashboard.edit-profile', compact('user'));
     }
@@ -133,6 +142,9 @@ class ProfileController extends Controller
 
     public function editPassword()
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to access the password change page.');
+        }
         // Pass the user data to the view
         return view('user_dashboard.edit-password');
     }
@@ -163,11 +175,4 @@ class ProfileController extends Controller
 
         return redirect()->route('dashboard-main')->with('success', 'Password updated successfully.');
     }
-
-
-
-
-
-
-
 }

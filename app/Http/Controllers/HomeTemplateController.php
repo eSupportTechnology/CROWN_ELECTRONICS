@@ -10,6 +10,7 @@ use App\Models\CustomerOrderItems;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BannerController;
+use Illuminate\Support\Facades\Log;
 
 class HomeTemplateController extends Controller
 {
@@ -49,6 +50,7 @@ class HomeTemplateController extends Controller
 
         // Fetch the banner and slider images
         $banners = Banner::all(); // Assuming you have a Banner model
+        Log::info('Fetched banners: ', $banners[3]->toArray() ?? []);
         $sliders = Slider::all(); // Assuming you have a Slider model
 
         // Return the view with all the necessary data

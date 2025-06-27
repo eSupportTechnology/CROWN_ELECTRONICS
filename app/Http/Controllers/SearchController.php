@@ -34,7 +34,7 @@ class SearchController extends Controller
             ->map(function ($product) {
                 return [
                     'name' => $product->product_name,
-                    'image' => $product->images->first() ? asset('storage/app/public/' . $product->images->first()->image_path) : 'default.jpg',
+                    'image' => $product->images->first() ? asset('storage/' . $product->images->first()->image_path) : 'default.jpg',
                     'url' => url('/product-details/' . $product->product_id),
                 ];
             });
@@ -51,9 +51,6 @@ class SearchController extends Controller
             })
             ->unique('name')
             ->values();
-
-
-
 
         return response()->json([
             'products' => $products,

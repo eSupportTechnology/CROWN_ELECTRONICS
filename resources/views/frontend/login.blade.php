@@ -50,13 +50,13 @@
 
                     <!-- Show Error Message -->
                     @if ($errors->any())
-                        <div class="alert alert-danger mb-3">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                    <div class="alert alert-danger mb-3">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endif
 
                     <form method="POST" action="{{ route('login') }}">
@@ -75,7 +75,7 @@
                             <x-input-label class="fw-bold" for="password" :value="__('Password')" />
                             <span class="text-danger">*</span>
                             <div class="position-relative">
-                                <x-text-input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="current-password" />
+                                <input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="current-password" />
                                 <span class="cursor-pointer toggle-password position-absolute top-50 end-0 me-3 translate-middle-y ph ph-eye-slash" id="toggle-password"></span>
                             </div>
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -93,11 +93,11 @@
 
                         <!-- Forgot Password -->
                         @if (Route::has('password.request'))
-                            <div class="text-center mb-3">
-                                <a href="{{ route('password.request') }}" class="text-sm text-danger fw-semibold">
-                                    {{ __('Forgot your password?') }}
-                                </a>
-                            </div>
+                        <div class="text-center mb-3">
+                            <a href="{{ route('password.request') }}" class="text-sm text-danger fw-semibold">
+                                {{ __('Forgot your password?') }}
+                            </a>
+                        </div>
                         @endif
 
                         <!-- Register Link -->
@@ -111,6 +111,34 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleIcon = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+
+            let isPasswordVisible = false; // track state manually
+
+            if (toggleIcon && passwordInput) {
+                toggleIcon.addEventListener('click', function() {
+                    console.log('Toggle password visibility clicked');
+
+                    isPasswordVisible = !isPasswordVisible;
+
+                    if (isPasswordVisible) {
+                        console.log('Showing password');
+                        passwordInput.type = 'text';
+                        toggleIcon.classList.remove('ph-eye-slash');
+                        toggleIcon.classList.add('ph-eye');
+                    } else {
+                        console.log('Hiding password');
+                        passwordInput.type = 'password';
+                        toggleIcon.classList.remove('ph-eye');
+                        toggleIcon.classList.add('ph-eye-slash');
+                    }
+                });
+            }
+        });
+    </script>
 </section>
 <!-- =============================== Account Section End =========================== -->
 
