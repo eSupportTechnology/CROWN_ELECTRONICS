@@ -134,6 +134,7 @@ Route::get('/newsletter-subscription', function () {
 })->name('Subscribe_Newsletter');
 
 
+
 use App\Http\Controllers\Navbar;
 use App\Http\Controllers\SearchController;
 
@@ -209,6 +210,8 @@ Route::get('/brands-data', [BrandController::class, 'getBrands']);
 Route::get('/brand/{slug}', [BrandController::class, 'showBrandProducts'])->name('brand.products');
 
 Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
+Route::get('/search-find', [SearchController::class, 'findProduct']);
+
 
 //admin dashboard
 use App\Http\Controllers\Auth\AdminLoginController;

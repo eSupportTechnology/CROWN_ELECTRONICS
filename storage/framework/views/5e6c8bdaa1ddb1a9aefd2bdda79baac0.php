@@ -37,8 +37,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.rtl.min.css" integrity="sha512-V7mESobi1wvYdh9ghD/BDbehOyEDUwB4c4IVp97uL0QSka0OXjBrFrQVAHii6PNt/Zc1LwX6ISWhgw1jbxQqGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-reboot.min.css" integrity="sha512-HJaQ4y3YcUGCWikWDn8bFeGTy3Z/3IbxFYQ9G3UAWx16PyTL6Nu5P/BDDV9s0WhK3Sq27Wtbk/6IcwGmGSMXYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="<?php echo e(asset('frontend/newstyle/all.min.css')); ?>">
@@ -59,32 +59,16 @@
     <link rel="stylesheet" href="assets/libs/owl-carousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/libs/owl-carousel/owl.carousel.js">
     <link rel="stylesheet" href="assets/libs/owl-carousel/owl.carousel.min.js"> -->
-    
-    
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />            
-        
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 <!-- Your custom styles -->
 <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </head>
 
@@ -148,11 +132,11 @@
 }
 
 .products-btn-set:hover{
-    background-color:   #001ed4 !important; 
+    background-color:   #001ed4 !important;
 }
 
 .home-buynow:hover{
-    background-color:   #001ed4 !important; 
+    background-color:   #001ed4 !important;
 }
 
 .bg-main-50 {
@@ -175,20 +159,7 @@
     width: auto;
 }
 
-
-
-
-
-
-
 </style>
-
-
-
-
-
-
-
 
 <body>
 
@@ -197,13 +168,13 @@
 
  <!-- ============================ Banner Section start =============================== -->
     <?php echo $__env->yieldContent('content'); ?>
-    
+
     <div class="preloader">
         <img src="<?php echo e(asset('frontend/newstyle/assets/images/logo.png')); ?>" alt="" style="width: 250px;">
         <!-- <h1>cart count</h1> -->
     </div>
 
-   
+
     <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     <?php if(session('success')): ?>
@@ -320,8 +291,8 @@
 
 
 
-    
-   
+
+
 
 
 <script src="rocket-loader.min.js" data-cf-settings="a071cb3ff60724c4b8f55cf9-|49" defer></script>

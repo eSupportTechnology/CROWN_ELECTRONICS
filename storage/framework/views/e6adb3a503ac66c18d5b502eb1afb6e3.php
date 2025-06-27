@@ -48,13 +48,13 @@
 
                     <!-- Show Error Message -->
                     <?php if($errors->any()): ?>
-                        <div class="alert alert-danger mb-3">
-                            <ul class="mb-0">
-                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><?php echo e($error); ?></li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ul>
-                        </div>
+                    <div class="alert alert-danger mb-3">
+                        <ul class="mb-0">
+                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </div>
                     <?php endif; ?>
 
                     <form method="POST" action="<?php echo e(route('login')); ?>">
@@ -149,26 +149,7 @@
 <?php endif; ?>
                             <span class="text-danger">*</span>
                             <div class="position-relative">
-                                <?php if (isset($component)) { $__componentOriginal18c21970322f9e5c938bc954620c12bb = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal18c21970322f9e5c938bc954620c12bb = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.text-input','data' => ['id' => 'password','class' => 'common-input w-100','type' => 'password','name' => 'password','placeholder' => 'Enter Password','required' => true,'autocomplete' => 'current-password']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('text-input'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['id' => 'password','class' => 'common-input w-100','type' => 'password','name' => 'password','placeholder' => 'Enter Password','required' => true,'autocomplete' => 'current-password']); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal18c21970322f9e5c938bc954620c12bb)): ?>
-<?php $attributes = $__attributesOriginal18c21970322f9e5c938bc954620c12bb; ?>
-<?php unset($__attributesOriginal18c21970322f9e5c938bc954620c12bb); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal18c21970322f9e5c938bc954620c12bb)): ?>
-<?php $component = $__componentOriginal18c21970322f9e5c938bc954620c12bb; ?>
-<?php unset($__componentOriginal18c21970322f9e5c938bc954620c12bb); ?>
-<?php endif; ?>
+                                <input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="current-password" />
                                 <span class="cursor-pointer toggle-password position-absolute top-50 end-0 me-3 translate-middle-y ph ph-eye-slash" id="toggle-password"></span>
                             </div>
                             <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
@@ -205,12 +186,12 @@
 
                         <!-- Forgot Password -->
                         <?php if(Route::has('password.request')): ?>
-                            <div class="text-center mb-3">
-                                <a href="<?php echo e(route('password.request')); ?>" class="text-sm text-danger fw-semibold">
-                                    <?php echo e(__('Forgot your password?')); ?>
+                        <div class="text-center mb-3">
+                            <a href="<?php echo e(route('password.request')); ?>" class="text-sm text-danger fw-semibold">
+                                <?php echo e(__('Forgot your password?')); ?>
 
-                                </a>
-                            </div>
+                            </a>
+                        </div>
                         <?php endif; ?>
 
                         <!-- Register Link -->
@@ -224,9 +205,36 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleIcon = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+
+            let isPasswordVisible = false; // track state manually
+
+            if (toggleIcon && passwordInput) {
+                toggleIcon.addEventListener('click', function() {
+                    console.log('Toggle password visibility clicked');
+
+                    isPasswordVisible = !isPasswordVisible;
+
+                    if (isPasswordVisible) {
+                        console.log('Showing password');
+                        passwordInput.type = 'text';
+                        toggleIcon.classList.remove('ph-eye-slash');
+                        toggleIcon.classList.add('ph-eye');
+                    } else {
+                        console.log('Hiding password');
+                        passwordInput.type = 'password';
+                        toggleIcon.classList.remove('ph-eye');
+                        toggleIcon.classList.add('ph-eye-slash');
+                    }
+                });
+            }
+        });
+    </script>
 </section>
 <!-- =============================== Account Section End =========================== -->
 
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/login.blade.php ENDPATH**/ ?>
