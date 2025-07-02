@@ -43,12 +43,12 @@
     <div class="container container-lg">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
-                <div class="login-card px-4 px-md-5 py-5 border border-gray-100 rounded-16 shadow-sm bg-white">
+                <div class="px-4 py-5 bg-white border border-gray-100 shadow-sm login-card px-md-5 rounded-16">
                     <h6 class="mb-4 text-xl text-center">Login</h6>
 
                     <!-- Show Error Message -->
                     <?php if($errors->any()): ?>
-                    <div class="alert alert-danger mb-3">
+                    <div class="mb-3 alert alert-danger">
                         <ul class="mb-0">
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li><?php echo e($error); ?></li>
@@ -176,7 +176,7 @@
 
                         <!-- Remember Me and Login -->
                         <div class="mt-4 mb-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
-                            <button type="submit" class="btn btn-primary px-4 py-2"><?php echo e(__('Log in')); ?></button>
+                            <button type="submit" class="px-4 py-2 btn btn-primary"><?php echo e(__('Log in')); ?></button>
 
                             <label for="remember_me" class="mt-3 mt-md-0">
                                 <input id="remember_me" type="checkbox" name="remember" class="me-1" />
@@ -186,7 +186,7 @@
 
                         <!-- Forgot Password -->
                         <?php if(Route::has('password.request')): ?>
-                        <div class="text-center mb-3">
+                        <div class="mb-3 text-center">
                             <a href="<?php echo e(route('password.request')); ?>" class="text-sm text-danger fw-semibold">
                                 <?php echo e(__('Forgot your password?')); ?>
 
@@ -206,35 +206,29 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleIcon = document.getElementById('toggle-password');
-            const passwordInput = document.getElementById('password');
-
-            let isPasswordVisible = false; // track state manually
-
-            if (toggleIcon && passwordInput) {
-                toggleIcon.addEventListener('click', function() {
-                    console.log('Toggle password visibility clicked');
-
-                    isPasswordVisible = !isPasswordVisible;
-
-                    if (isPasswordVisible) {
-                        console.log('Showing password');
-                        passwordInput.type = 'text';
-                        toggleIcon.classList.remove('ph-eye-slash');
-                        toggleIcon.classList.add('ph-eye');
-                    } else {
-                        console.log('Hiding password');
-                        passwordInput.type = 'password';
-                        toggleIcon.classList.remove('ph-eye');
-                        toggleIcon.classList.add('ph-eye-slash');
-                    }
-                });
-            }
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleIcon = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        let isPasswordVisible = false; // Track state manually
+        if (toggleIcon && passwordInput) {
+            toggleIcon.addEventListener('click', function() {
+                isPasswordVisible = !isPasswordVisible;
+                if (isPasswordVisible) {
+                    passwordInput.type = 'text'; // Show password
+                    toggleIcon.classList.remove('ph-eye-slash');
+                    toggleIcon.classList.add('ph-eye');
+                } else {
+                    passwordInput.type = 'password'; // Hide password
+                    toggleIcon.classList.remove('ph-eye');
+                    toggleIcon.classList.add('ph-eye-slash');
+                }
+            });
+        }
+    });
+</script>
 </section>
 <!-- =============================== Account Section End =========================== -->
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/login.blade.php ENDPATH**/ ?>

@@ -19,9 +19,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        
-        return view('frontend.register');
 
+        return view('frontend.register');
     }
 
     /**
@@ -33,13 +32,20 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', Rules\Password::defaults()],
             'address' => ['required', 'string', 'max:255'],
-            'dob' => ['required', 'date'],
-            'phone' => ['required', 'string', 'max:15'],
+            'dob' => ['required', 'date', 'before:today'],
+            'phone' => ['required', 'regex:/^[0-9+\-\s()]+$/', 'min:10', 'max:15'],
+        ], [
+            // ✅ Custom Error Messages
+            'name.regex' => 'The name may only contain letters and spaces.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email address is already taken.',
+            'phone.regex' => 'Please enter a valid phone number (10-15 digits, optionally with +, -, or spaces).',
+            'dob.before' => 'Date of birth must be a valid date before today.',
         ]);
-    
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -48,12 +54,11 @@ class RegisteredUserController extends Controller
             'dob' => $request->dob,
             'phone' => $request->phone,
         ]);
-    
+
         event(new Registered($user));
-    
+
         Auth::login($user);
-    
+
         return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
-    
 }
