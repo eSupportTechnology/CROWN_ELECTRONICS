@@ -1,6 +1,4 @@
-@extends ('frontend.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- ========================= Breadcrumb Start =============================== -->
     <div class="breadcrumb mb-0 py-26 bg-main-two-50" style="margin-top: 120px">
         <div class="container container-lg">
@@ -29,8 +27,8 @@
             <div class="row gy-5">
                 <div class="col-lg-8">
                     <div class="contact-box border border-gray-100 rounded-16 px-24 py-40">
-                        <form action="{{ route('store.inquiries') }}" method="post" enctype="multipart/form-data">
-                            @csrf
+                        <form action="<?php echo e(route('store.inquiries')); ?>" method="post" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
                             <h6 class="mb-32">Make Custom Request</h6>
 
                             <div class="row gy-4">
@@ -74,44 +72,46 @@
 
                 <!-- Right Contact Info Section -->
                 <div class="col-lg-4">
-                    @php
+                    <?php
                         $companySettings = \App\Models\CompanySettings::first();
-                    @endphp
+                    ?>
 
                     <div class="contact-box border border-gray-100 rounded-16 px-24 py-40">
                         <h6 class="mb-48">Get In Touch</h6>
 
-                        @if ($companySettings)
+                        <?php if($companySettings): ?>
                             <div class="flex-align gap-16 mb-16">
-                                <p>{{ $companySettings->contact }}</p>
+                                <p><?php echo e($companySettings->contact); ?></p>
                             </div>
                             <div class="flex-align gap-16 mb-16">
                                 <span class="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
                                     <i class="ph-fill ph-phone-call"></i>
                                 </span>
-                                <a href="tel:{{ $companySettings->contact }}" class="text-md text-gray-900 hover-text-main-600">
-                                    {{ $companySettings->contact }}
+                                <a href="tel:<?php echo e($companySettings->contact); ?>" class="text-md text-gray-900 hover-text-main-600">
+                                    <?php echo e($companySettings->contact); ?>
+
                                 </a>
                             </div>
                             <div class="flex-align gap-16 mb-16">
                                 <span class="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
                                     <i class="ph-fill ph-envelope"></i>
                                 </span>
-                                <a href="mailto:{{ $companySettings->email }}" class="text-md text-gray-900 hover-text-main-600">
-                                    {{ $companySettings->email }}
+                                <a href="mailto:<?php echo e($companySettings->email); ?>" class="text-md text-gray-900 hover-text-main-600">
+                                    <?php echo e($companySettings->email); ?>
+
                                 </a>
                             </div>
                             <div class="flex-align gap-16 mb-0">
                                 <span class="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
                                     <i class="ph-fill ph-map-pin"></i>
                                 </span>
-                                <span class="text-md text-gray-900 ">{{ $companySettings->address }}</span>
+                                <span class="text-md text-gray-900 "><?php echo e($companySettings->address); ?></span>
                             </div>
-                        @else
+                        <?php else: ?>
                             <div class="flex-align gap-16 mb-16">
                                 <p>Contact information will be available soon.</p>
                             </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
 
                     <!-- Support buttons -->
@@ -130,4 +130,6 @@
         </div>
     </section>
     <!-- ============================ Contact Section End ================================== -->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/frontend/contact.blade.php ENDPATH**/ ?>

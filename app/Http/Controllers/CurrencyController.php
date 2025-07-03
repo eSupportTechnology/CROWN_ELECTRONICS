@@ -10,7 +10,6 @@ class CurrencyController extends Controller
 {
     public function index()
     {
-Log::info('Accessing currencies index page');
         $currencies = Currency::all();
         return view('AdminDashboard.currencies', compact('currencies'));
     }
