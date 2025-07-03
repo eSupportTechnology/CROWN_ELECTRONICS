@@ -28,13 +28,9 @@ class CustomerOrderController extends Controller
     $raffleTicket = RaffleTicket::where('token', $tracking_id)->first();
 
     if ($raffleTicket) {
-        // Construct the actual product URL using the product_id
         $product_url = url('product-details/' . $product_id);
 
-        // Log for debugging
-        Log::info('Tracking Referral', ['tracking_id' => $tracking_id, 'product_url' => $product_url, 'user_id' => $affiliate_user_id]);
 
-        // Match the actual product URL in the affiliate_referrals table
         $referral = AffiliateReferral::where('raffle_ticket_id', $raffleTicket->id)
             ->where('product_url', $product_url) // Match against product_url
             ->where('user_id', $affiliate_user_id)
@@ -45,20 +41,13 @@ class CustomerOrderController extends Controller
             $referral->increment('referral_count');
 
             // Log success
-            Log::info('Referral Count Updated', ['referral_id' => $referral->id, 'new_count' => $referral->referral_count]);
 
             return true;
         } else {
-            // Log if referral record is not found
-            Log::info('Referral not found for tracking', [
-                'raffle_ticket_id' => $raffleTicket->id,
-                'product_url' => $product_url,
-                'user_id' => $affiliate_user_id,
-            ]);
+
         }
     } else {
         // Log if raffle ticket is not found
-        Log::info('Raffle ticket not found', ['tracking_id' => $tracking_id]);
     }
 
     return false;
@@ -90,7 +79,6 @@ class CustomerOrderController extends Controller
 
             // Check if cart is empty
             if ($cartItems->isEmpty()) {
-                Log::warning('Cart is empty for user', ['user_id' => $user->id]);
                 return redirect()->back()->with('error', 'Your cart is empty.');
             }
 
@@ -277,7 +265,6 @@ class CustomerOrderController extends Controller
                         }
                     } else {
                         // Log or handle cases where the product is not found
-                        \Log::warning('Product not found for ID: ' . $product['product_id']);
                     }
                 }
 

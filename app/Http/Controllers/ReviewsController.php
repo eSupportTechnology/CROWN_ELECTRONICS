@@ -40,8 +40,7 @@ class ReviewsController extends Controller
 
     public function writeReviews($id)
     {
-        //Log::info($id);
-        
+
         $orderItem = CustomerOrderItems::findOrFail($id);
         $product = Product::findOr($orderItem->product_id);
         return view('user_dashboard.Write-Reviews', compact('product', 'orderItem'));
@@ -49,8 +48,7 @@ class ReviewsController extends Controller
 
     public function store(Request $request, $id)
     {
-        //Log::info('Store request data: ', $request->all());
-        //Log::info($id);
+
 
         $validatedData = $request->validate([
             'product_id' => 'required|exists:products,id',

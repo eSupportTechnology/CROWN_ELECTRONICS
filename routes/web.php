@@ -197,7 +197,6 @@ Route::post('/buy_now_place-order', [CustomerOrderController::class, 'buynow_pla
 Route::post('/place-order', [CustomerOrderController::class, 'placeOrder'])->name('placeOrder');
 
 Route::post('/test-order', function () {
-    Log::info('Test Order placed');
     return 'Test order placed';
 });
 
@@ -462,11 +461,14 @@ Route::get('home/My-Account/returns-details', function () {
 
 
 
-//reviews
-Route::get('home/My-Account/My-Reviews', [ReviewsController::class, 'myReviews'])->name('My-Reviews');
-Route::get('home/My-Account/Write-Reviews/{id}', [ReviewsController::class, 'writeReviews'])->name('write-review');
-Route::post('/reviews/{id}', [ReviewsController::class, 'store'])->name('reviews.store');
-Route::delete('/home/reviews/{review}', [ReviewsController::class, 'customerDestroy'])->name('customer.reviews.destroy');
+
+Route::middleware('auth')->group(function () {
+    Route::get('home/My-Account/My-Reviews', [ReviewsController::class, 'myReviews'])->name('My-Reviews');
+    Route::get('home/My-Account/Write-Reviews/{id}', [ReviewsController::class, 'writeReviews'])->name('write-review');
+    Route::post('/reviews/{id}', [ReviewsController::class, 'store'])->name('reviews.store');
+    Route::delete('/home/reviews/{review}', [ReviewsController::class, 'customerDestroy'])->name('customer.reviews.destroy');
+});
+
 
 
 //Vendor dashboard
