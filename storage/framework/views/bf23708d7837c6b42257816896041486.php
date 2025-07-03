@@ -1,4 +1,8 @@
 <?php $__env->startSection('content'); ?>
+
+
+
+
     <!-- ========================= Breadcrumb Start =============================== -->
     <div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
         <div class="container container-lg">
@@ -204,16 +208,46 @@ unset($__errorArgs, $__bag); ?>
                             <span class="text-xl text-white w-36 h-36 bg-main-600 rounded-8 flex-center"><i
                                     class="ph ph-headset"></i></span>
                         </a>
-                        <a href="#"
-                            class="flex-wrap gap-8 p-10 px-16 bg-neutral-600 hover-bg-main-600 rounded-8 flex-between flex-grow-1">
-                            <span class="text-white fw-medium">Get Direction</span>
-                            <span class="text-xl text-white w-36 h-36 bg-main-600 rounded-8 flex-center"><i
-                                    class="ph ph-map-pin"></i></span>
-                        </a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#mapModal"
+   class="flex-wrap gap-8 p-10 px-16 bg-neutral-600 hover-bg-main-600 rounded-8 flex-between flex-grow-1">
+    <span class="text-white fw-medium">Get Direction</span>
+    <span class="text-xl text-white w-36 h-36 bg-main-600 rounded-8 flex-center">
+        <i class="ph ph-map-pin"></i>
+    </span>
+</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <!-- Google Map Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">Get Directions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <div id="map" class="mb-5" style="width: 100%; height: 500px;">
+        <iframe
+             src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15844.735919332763!2d79.88583444475668!3d6.868544940080565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNo.%2038%2C%202nd%20Lane%2C%20Rubber%20Watte%20Road%2C%20Gangodawila%2C%20Nugegoda%2C%20Sri%20Lanka.!5e0!3m2!1sen!2slk!4v1751443775086!5m2!1sen!2slk" 
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
 
 
     </section>
