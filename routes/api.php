@@ -6,7 +6,7 @@ use App\Http\Controllers\API\MobileCartController;
 use App\Http\Controllers\API\MobileWishlistController;
 use App\Http\Controllers\API\MobileProductController;
 use App\Http\Controllers\API\MobileCategoryController;
-use App\Http\Controllers\API\MobileUserController; 
+use App\Http\Controllers\API\MobileUserController;
 
 // Public Routes
 Route::post('/mobile/register', [MobileAuthController::class, 'register']);
@@ -36,11 +36,12 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/mobile/user/profile', [MobileUserController::class, 'getCurrentUser']);
     Route::post('/mobile/user/store', [MobileUserController::class, 'store']);
     Route::put('/mobile/user/update', [MobileUserController::class, 'updateUser']);
-    
+
     // Admin User Management
     Route::get('/mobile/users', [MobileUserController::class, 'index']); // Get all users
     Route::get('/mobile/users/{id}', [MobileUserController::class, 'show']); // Get user by ID
     Route::delete('/mobile/users/{id}', [MobileUserController::class, 'destroy']); // Delete user
+    
 });
 
 // Public Product & Category Routes

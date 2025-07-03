@@ -237,7 +237,7 @@
                                     <div class="product-img">
                                         <img src="https://buyabans.com/vendor/webkul/ui/assets/images/product/small-product-placeholder.png" alt="product">
                                     </div>
-                                    <div class="product-title">No Product Added</div>
+                                    <div class="product-title ">No Product Added</div>
                                 </div>
                             </div>
                         @endforelse

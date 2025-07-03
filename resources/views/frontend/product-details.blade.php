@@ -74,16 +74,16 @@
         padding: 2rem 1rem;
     }
 
-    .product-title {
+    /* .product-title {
         font-size: 3rem;
         text-transform: capitalize;
         font-weight: 700;
         position: relative;
         color: #12263a;
         margin: 1rem 0;
-    }
+    } */
 
-    .product-title::after {
+    /* .product-title::after {
         content: "";
         position: absolute;
         left: 0;
@@ -91,7 +91,7 @@
         height: 4px;
         width: 80px;
         background: #12263a;
-    }
+    } */
 
     .product-link {
         text-decoration: none;

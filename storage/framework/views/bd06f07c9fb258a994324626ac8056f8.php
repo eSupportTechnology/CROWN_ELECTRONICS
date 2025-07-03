@@ -72,16 +72,16 @@
         padding: 2rem 1rem;
     }
 
-    .product-title {
+    /* .product-title {
         font-size: 3rem;
         text-transform: capitalize;
         font-weight: 700;
         position: relative;
         color: #12263a;
         margin: 1rem 0;
-    }
+    } */
 
-    .product-title::after {
+    /* .product-title::after {
         content: "";
         position: absolute;
         left: 0;
@@ -89,7 +89,7 @@
         height: 4px;
         width: 80px;
         background: #12263a;
-    }
+    } */
 
     .product-link {
         text-decoration: none;
@@ -1031,4 +1031,5 @@
     }
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/frontend/product-details.blade.php ENDPATH**/ ?>
