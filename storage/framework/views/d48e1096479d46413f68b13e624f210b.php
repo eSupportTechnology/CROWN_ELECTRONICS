@@ -254,8 +254,4 @@ $(document).ready(function () {
 <?php $__env->stopSection(); ?>
 
 
-<<<<<<<< HEAD:storage/framework/views/0ee45776c4e983e95166c76bdc32a8e1.php
-<?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Manulas Doc\Project\Intern\Project\CROWN_ELECTRONICS\CROWN_ELECTRONICS\resources\views/frontend/cart.blade.php ENDPATH**/ ?>
-========
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/cart.blade.php ENDPATH**/ ?>
->>>>>>>> 1f9a7e0dcbe8e498f7ea6a181d7f5da9354fabda:storage/framework/views/d48e1096479d46413f68b13e624f210b.php

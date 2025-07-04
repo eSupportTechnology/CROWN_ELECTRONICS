@@ -72,24 +72,7 @@
         padding: 2rem 1rem;
     }
 
-    .product-title {
-        font-size: 3rem;
-        text-transform: capitalize;
-        font-weight: 700;
-        position: relative;
-        color: #12263a;
-        margin: 1rem 0;
-    }
-
-    .product-title::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        width: 80px;
-        background: #12263a;
-    }
+    
 
     .product-link {
         text-decoration: none;
@@ -262,7 +245,7 @@
 
 
 <!-- ========================= Breadcrumb Start =============================== -->
-<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 100px">
     <div class="container container-lg">
         <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
             <h6 class="mb-0"> Product Details</h6>
@@ -594,7 +577,7 @@
                                         </span>
                                         <span class="text-heading fw-medium">
                                             Available colors:
-                                            <span class="gap-4 text-gray-500 d-inline-flex flex-wrap">
+                                            <span class="flex-wrap gap-4 text-gray-500 d-inline-flex">
                                                 <?php $__currentLoopData = $colors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <span class="w-14 h-14 rounded-circle me-1" style="background-color: <?php echo e($color); ?>;"></span>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -1031,4 +1014,5 @@
     }
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/frontend/product-details.blade.php ENDPATH**/ ?>

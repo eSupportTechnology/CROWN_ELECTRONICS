@@ -6662,7 +6662,8 @@ a:hover {
 }
 
 .mini-cart .cart-scroll {
-    max-height: 350px;
+
+    
     overflow: auto
 }
 

@@ -74,8 +74,8 @@
         padding: 2rem 1rem;
     }
 
-    .product-title {
-        font-size: 3rem;
+    {{--  .product-title {
+
         text-transform: capitalize;
         font-weight: 700;
         position: relative;
@@ -91,7 +91,7 @@
         height: 4px;
         width: 80px;
         background: #12263a;
-    }
+    }  --}}
 
     .product-link {
         text-decoration: none;
@@ -264,7 +264,7 @@
 
 
 <!-- ========================= Breadcrumb Start =============================== -->
-<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 100px">
     <div class="container container-lg">
         <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
             <h6 class="mb-0"> Product Details</h6>
@@ -592,7 +592,7 @@
                                         </span>
                                         <span class="text-heading fw-medium">
                                             Available colors:
-                                            <span class="gap-4 text-gray-500 d-inline-flex flex-wrap">
+                                            <span class="flex-wrap gap-4 text-gray-500 d-inline-flex">
                                                 @foreach ($colors as $color)
                                                 <span class="w-14 h-14 rounded-circle me-1" style="background-color: {{ $color }};"></span>
                                                 @endforeach
