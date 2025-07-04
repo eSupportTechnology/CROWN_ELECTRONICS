@@ -45,6 +45,16 @@
         }
     }
 
+.left-suggestion-no-products {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.left-suggestion-no-products img {
+    max-width: 80px;
+    opacity: 0.6;
+}
 
 </style>
 
@@ -303,9 +313,12 @@
                                                 <div id="web-suggestions-box-display"
                                                     class="suggestions-box suggestions-box-display"
                                                     style="display: none;">
-                                                    <div class="left-suggestion-no-products" hidden>
-                                                        <p>No results found.</p>
-                                                    </div>
+                                                    <div class="p-3 text-center left-suggestion-no-products" hidden>
+    <img src="<?php echo e(asset('images/no-results.png')); ?>" alt="No results" style="width: 100px; opacity: 0.5;">
+    <p class="mt-2 text-muted">Oops! We couldn’t find anything for your search.</p>
+    <p class="small text-secondary">Try checking your spelling or use more general terms.</p>
+</div>
+
 
                                                     <div class="left-suggestion-main-con">
                                                         <!-- JS will inject products here -->
@@ -1129,7 +1142,32 @@
         const box = document.getElementById('web-suggestions-box-display');
         if (box) box.style.display = 'none';
     });
+
+    function updateSearchSuggestions(data) {
+    const productsCon = document.querySelector('.left-suggestion-main-con');
+    const categoriesCon = document.querySelector('.category-list');
+    const noResultsCon = document.querySelector('.left-suggestion-no-products');
+    const suggestionsBox = document.querySelector('#web-suggestions-box-display');
+
+    productsCon.innerHTML = '';
+    categoriesCon.innerHTML = '';
+
+    if ((data.products && data.products.length) || (data.categories && data.categories.length)) {
+        suggestionsBox.style.display = 'block';
+        noResultsCon.hidden = true;
+
+        // inject product cards and category links here...
+
+    } else {
+        suggestionsBox.style.display = 'block';
+        noResultsCon.hidden = false;
+    }
+}
 </script>
+
+
+
+
 
 
 
