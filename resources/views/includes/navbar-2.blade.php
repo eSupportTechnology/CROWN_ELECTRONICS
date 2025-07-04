@@ -71,7 +71,7 @@
 
             <div class="mobi-main-header fixed-header">
                 <div id="topupbar_banner_mobile"></div>
-                <header class="mb-4 header mobile-header">
+                <header class=" header mobile-header">
                     <div class="container mobile-header-container">
                         <div class="mobi-full-row">
                             <div class="col-5-5">
@@ -128,11 +128,11 @@
                             </div>
                         </div>
 
-                        <div class="col-2-5">
+                        <div class="flex-wrap d-flex align-items-center justify-content-between ">
                             <div class="header-right-con ">
                                 <div class="top-right-nav">
                                     <!-- Profile Dropdown -->
-                                    <div class="profile-dropdown">
+                                    <div class="profile-dropdown" style="padding-top: 25px">
                                         @auth
                                         <div class="log-user-img dropdown col-2-5">
                                             <a href="#"><img
@@ -144,7 +144,7 @@
                                                 </div>
                                                 <ul class="log-popup-links">
                                                     <li>
-                                                        <a href="/profile">
+                                                        <a href="{{ route('dashboard') }}">
                                                             <img
                                                                 src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
                                                             Account
@@ -217,13 +217,13 @@
                                 <a href="{{ route('login') }}" class="d-flex">
                                     <div class="dt-icon-div">
                                         <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
-                                            style="padding-bottom: 17px;">
+                                            style="padding-bottom: 20px;">
                                     </div>
                                 </a>
                             </div>
                         </div>
                         @endauth
-                        <div class="des-cart pos-relative cart-popup " style="margin-top: 15px; padding-left:10px">
+                        <div class="des-cart pos-relative cart-popup " style="margin-top: 25px; padding-left:10px">
                             <a href="javascript:void(0)" class="gap-8 ml-10 flex-align flex-column item-hover-two"
                                 style="margin-right:30px;">
                                 <span class="mt-6 text-2xl text-white2 d-flex position-relative me-6 item-hover__text">

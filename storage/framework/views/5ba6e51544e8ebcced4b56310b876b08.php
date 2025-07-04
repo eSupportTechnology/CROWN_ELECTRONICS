@@ -53,7 +53,7 @@
         .carousel-item {
             height: 45vh;
             /* Adjust height for tablets */
-            margin-top: 125px;
+            margin-top: 100px;
         }
 
 
@@ -62,6 +62,7 @@
     @media(max-width:1200px) {
         .carousel-item {
             background-size: contain;
+
         }
 
         .site-common-con {

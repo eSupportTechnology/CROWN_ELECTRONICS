@@ -232,14 +232,14 @@
 <div class="container-fluid dashboard-container" style="padding: 30px 55px;margin-top: 50px">
     <div class="row">
         <!-- Sidebar toggle button for mobile -->
-        <div class="col-12 d-md-none mb-2">
+        <div class="mb-2 col-8 d-md-none">
             <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarDrawer" aria-controls="sidebarDrawer" style="background-color:rgba(0, 0, 0, 0.47); border-color:rgb(0, 0, 0);">
                 <i class="fas fa-bars fa-lg"></i> Menu
             </button>
         </div>
 
 
-        <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+        <div class="mb-3 col-md-4 col-lg-3 mb-md-0">
             <div id="sidebarMenu" class="sidebar collapse d-md-block">
                 <div class="offcanvas-body">
                     <ul class="nav flex-column">
@@ -340,4 +340,5 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/layouts/user_sidebar.blade.php ENDPATH**/ ?>
