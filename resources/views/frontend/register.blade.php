@@ -3,6 +3,7 @@
 @section('content')
 
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -51,55 +52,57 @@
                     <h6 class="mb-32 text-xl text-center">Register</h6>
 
                     <!-- Name -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="name" :value="__('Name')" />
-                        <span class="text-danger">*</span>
-                        <x-text-input id="name" class="common-input w-100" type="text" name="name" :value="old('name')" placeholder="Enter the name" required autofocus autocomplete="name" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                    </div>
+                    <!-- Name -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="name" :value="__('Name')" />
+    <span class="text-danger">*</span>
+    <x-text-input id="name" class="common-input w-100" type="text" name="name" placeholder="Enter the name" required />
+    <div class="invalid-feedback">Only letters and spaces are allowed.</div>
+</div>
 
-                    <!-- Address -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="address" :value="__('Address')" />
-                        <span class="text-danger">*</span>
-                        <x-text-input id="address" class="common-input w-100" type="text" name="address" :value="old('address')" placeholder="Enter Address" required autocomplete="address" />
-                        <x-input-error :messages="$errors->get('address')" class="mt-2" />
-                    </div>
+<!-- Address -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="address" :value="__('Address')" />
+    <span class="text-danger">*</span>
+    <x-text-input id="address" class="common-input w-100" type="text" name="address" placeholder="Enter Address" required />
+    <div class="invalid-feedback">Address is required.</div>
+</div>
 
-                    <!-- Date of Birth -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="dob" :value="__('Date of Birth')" />
-                        <span class="text-danger">*</span>
-                        <x-text-input id="dob" class="common-input w-100" type="date" name="dob" :value="old('dob')" placeholder="Enter Date of Birth" required autocomplete="bday" />
-                        <x-input-error :messages="$errors->get('dob')" class="mt-2" />
-                    </div>
+<!-- Date of Birth -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="dob" :value="__('Date of Birth')" />
+    <span class="text-danger">*</span>
+    <x-text-input id="dob" class="common-input w-100" type="date" name="dob" placeholder="Enter Date of Birth" required />
+    <div class="invalid-feedback">Please select a valid date before today.</div>
+</div>
 
-                    <!-- Phone Number -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="phone" :value="__('Phone Number')" />
-                        <span class="text-danger">*</span>
-                        <x-text-input id="phone" class="common-input w-100" type="tel" name="phone" :value="old('phone')" placeholder="Enter Phone Number" required autocomplete="tel" />
-                        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-                    </div>
+<!-- Phone -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="phone" :value="__('Phone Number')" />
+    <span class="text-danger">*</span>
+    <x-text-input id="phone" class="common-input w-100" type="tel" name="phone" placeholder="Enter Phone Number" required />
+    <div class="invalid-feedback">Phone must be 10–15 digits (may include +, - or space).</div>
+</div>
 
-                    <!-- Email Address -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="email" :value="__('Email address')" />
-                        <span class="text-danger">*</span>
-                        <x-text-input id="email" class="common-input w-100" type="email" name="email" :value="old('email')" placeholder="Enter Email Address" required autocomplete="username" />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                    </div>
+<!-- Email -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="email" :value="__('Email address')" />
+    <span class="text-danger">*</span>
+    <x-text-input id="email" class="common-input w-100" type="email" name="email" placeholder="Enter Email Address" required />
+    <div class="invalid-feedback">Please enter a valid email address.</div>
+</div>
 
-                    <!-- Password -->
-                    <div class="mb-24">
-                        <x-input-label class="fw-bold" for="password" :value="__('Password')" />
-                        <span class="text-danger">*</span>
-                        <div class="position-relative">
-<input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required autocomplete="new-password" />
-                            <span class="cursor-pointer toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash" id="toggle-password"></span>
-                        </div>
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
+<!-- Password -->
+<div class="mb-24">
+    <x-input-label class="fw-bold" for="password" :value="__('Password')" />
+    <span class="text-danger">*</span>
+    <div class="position-relative">
+        <input id="password" class="common-input w-100" type="password" name="password" placeholder="Enter Password" required />
+        <span class="cursor-pointer toggle-password position-absolute top-50 end-0 me-3 translate-middle-y ph ph-eye-slash" id="toggle-password"></span>
+    </div>
+    <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+</div>
+
 
                     <!-- Privacy Policy -->
                     <div class="my-48 text-center">
@@ -109,11 +112,11 @@
                     </div>
                     <!-- Submit Button -->
                     <div class="mt-48 text-center">
-                        <x-primary-button type="submit" class="btn btn-primary px-4 py-2">
+                        <x-primary-button type="submit" class="px-4 py-2 btn btn-primary">
                             {{ __('Register') }}
                         </x-primary-button>
                     </div>
-                    
+
                     <div class="mt-3 text-center">
                         <p>Already have an account?
                             <a href="{{ route('login') }}" class="text-primary">Login</a>
@@ -162,6 +165,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+
+        const fields = {
+            name: {
+                input: document.getElementById('name'),
+                validate: value => /^[a-zA-Z\s]+$/.test(value),
+                message: 'Only letters and spaces are allowed.'
+            },
+            address: {
+                input: document.getElementById('address'),
+                validate: value => value.trim().length > 0,
+                message: 'Address is required.'
+            },
+            dob: {
+                input: document.getElementById('dob'),
+                validate: value => value && new Date(value) < new Date(),
+                message: 'Please select a valid date before today.'
+            },
+            phone: {
+                input: document.getElementById('phone'),
+                validate: value => /^[0-9+\-\s]{10,15}$/.test(value),
+                message: 'Phone must be 10–15 digits (may include +, - or space).'
+            },
+            email: {
+                input: document.getElementById('email'),
+                validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                message: 'Please enter a valid email address.'
+            },
+            password: {
+                input: document.getElementById('password'),
+                validate: value => value.length >= 8,
+                message: 'Password must be at least 8 characters long.'
+            }
+        };
+
+        for (const key in fields) {
+            const { input, validate } = fields[key];
+            input.addEventListener('input', () => {
+                const isValid = validate(input.value);
+                input.classList.toggle('is-valid', isValid);
+                input.classList.toggle('is-invalid', !isValid);
+            });
+        }
+
+        form.addEventListener('submit', function (e) {
+            let hasError = false;
+            for (const key in fields) {
+                const { input, validate } = fields[key];
+                const isValid = validate(input.value);
+                input.classList.toggle('is-valid', isValid);
+                input.classList.toggle('is-invalid', !isValid);
+                if (!isValid) hasError = true;
+            }
+
+            if (hasError) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+    });
+</script>
+
 
 
     </body>

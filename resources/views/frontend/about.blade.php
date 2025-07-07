@@ -167,7 +167,7 @@
     }
 </style>
 
-<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 115px">
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 100px">
     <div class="container container-lg">
         <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
             <h6 class="mb-0">About Us</h6>
@@ -187,7 +187,7 @@
     </div>
 </div>
 
-<div class="site-common-con mt-5" style="
+<div class="mt-5 site-common-con" style="
     padding-top: 50px;
 ">
     <div class="row" style="
@@ -213,11 +213,11 @@
         </div>
     </div>
 
-    <div class="row mt-3" style="
+    <div class="mt-3 row" style="
     padding-top: 50px;
 ">
         <div class="col-xl-12">
-            <h2 class="page-title-wrap text-center">CROWN ELECTRONICS Fact Check</h2>
+            <h2 class="text-center page-title-wrap">CROWN ELECTRONICS Fact Check</h2>
         </div>
     </div>
 
@@ -236,7 +236,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <p class="common-p text-center">We continuously strive to innovate, improving the range of products and
+            <p class="text-center common-p">We continuously strive to innovate, improving the range of products and
                 services
                 available online for our customers and we ensure that product information is as up-to-date and accurate
                 as possible. We continue to drive our efforts towards the goal of becoming the leading online platform

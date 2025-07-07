@@ -57,4 +57,23 @@ class SearchController extends Controller
             'categories' => $categories,
         ]);
     }
+
+    public function findProduct(Request $request)
+{
+    $name = $request->input('name');
+
+    // Try to find the product by name
+    $product = Product::where('product_name', 'like', '%' . $name . '%')->first();
+
+    if ($product) {
+        return response()->json([
+            // ✅ Use named route to generate correct URL
+            'url' => route('showProductDetails', ['product_id' => $product->product_id]),
+        ]);
+    }
+
+    return response()->json(['url' => null]);
+}
+
+
 }

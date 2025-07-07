@@ -74,24 +74,24 @@
             padding: 2rem 1rem;
         }
 
-        /* .product-title {
-            font-size: 3rem;
-            text-transform: capitalize;
-            font-weight: 700;
-            position: relative;
-            color: #12263a;
-            margin: 1rem 0;
-        } */
+      .product-title {
 
-        /* .product-title::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 4px;
-            width: 80px;
-            background: #12263a;
-        } */
+        text-transform: capitalize;
+        font-weight: 700;
+        position: relative;
+        color: #12263a;
+        margin: 1rem 0;
+    } */
+
+     .product-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 80px;
+        background: #12263a;
+    }
 
         .product-link {
             text-decoration: none;
@@ -263,27 +263,27 @@
 
 
 
-    <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
-        <div class="container container-lg">
-            <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
-                <h6 class="mb-0"> Product Details</h6>
-                <ul class="flex-wrap gap-8 flex-align">
-                    <li class="text-sm">
-                        <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
-                            <i class="ph ph-house"></i>
-                            Home
-                        </a>
-                    </li>
-                    <li class="flex-align">
-                        <i class="ph ph-caret-right"></i>
-                    </li>
-                    <li class="text-sm text-main-600"> {{ $product->product_name }} </li>
-                </ul>
-            </div>
+<!-- ========================= Breadcrumb Start =============================== -->
+<div class="mb-0 breadcrumb py-26 bg-main-two-50" style="margin-top: 120px">
+    <div class="container container-lg">
+        <div class="flex-wrap gap-16 breadcrumb-wrapper flex-between">
+            <h6 class="mb-0"> Product Details</h6>
+            <ul class="flex-wrap gap-8 flex-align">
+                <li class="text-sm">
+                    <a href="/" class="gap-8 text-gray-900 flex-align hover-text-main-600">
+                        <i class="ph ph-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="flex-align">
+                    <i class="ph ph-caret-right"></i>
+                </li>
+                <li class="text-sm text-main-600"> {{ $product->product_name }} </li>
+            </ul>
         </div>
     </div>
-    <!-- ========================= Breadcrumb End =============================== -->
+</div>
+<!-- ========================= Breadcrumb End =============================== -->
 
 
 
@@ -369,26 +369,27 @@
                                 </div>
                                 <span class="pt-32 mt-32 text-gray-700 border-gray-100 border-top d-block"></span>
 
-                                <div class="flex-wrap gap-16 my-0 flex-align">
-                                    <div class="gap-8 flex-align">
-                                        <div class="gap-8 flex-align text-main-two-600">
-                                            <i class="text-xl ph-fill ph-seal-percent"></i>
-                                            -10%
-                                        </div>
-                                        <h6 class="mb-0">{{ $product->currency->symbol ?? 'Rs' }}.
-                                            {{ $product->normal_price }}
+                            <div class="flex-wrap gap-16 my-0 flex-align">
+                                <div class="gap-8 flex-align">
+                                    <div class="gap-8 flex-align text-main-two-600">
+                                        {{ $product->commission_percentage }}
+                                        <i class="text-xl ph-fill ph-seal-percent"></i>
+
+                                    </div>
+                                    <h6 class="mb-0">{{ $product->currency->symbol ?? 'Rs' }}.
+                                        {{ $product->normal_price }}
 
                                             @if ($product->currency && $product->currency->code != 'LKR')
                                                 (Rs. {{ $product->normal_price * $product->currency->exchange_rate }})
                                             @endif
 
-                                        </h6>
-                                    </div>
-                                    <div class="gap-8 flex-align">
-                                        <span class="text-gray-700">Regular Price</span>
-                                        <h6 class="mb-0 text-xl text-gray-400 fw-medium">Rs 5500.00</h6>
-                                    </div>
+                                    </h6>
                                 </div>
+                                <div class="gap-8 flex-align">
+                                    <span class="text-gray-700">Regular Price</span>
+                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">{{$product->regular_price }}</h6>
+                                </div>
+                            </div>
 
                                 <span class="pt-32 mt-32 text-gray-700 border-gray-100 border-top d-block"></span>
 
@@ -587,24 +588,22 @@
                                                 </li>
                                             @endif
 
-                                            {{-- Available Colors --}}
-                                            @if ($colors->isNotEmpty())
-                                                <li class="text-gray-400 mb-14 flex-align gap-14">
-                                                    <span
-                                                        class="w-20 h-20 text-xs bg-main-50 text-main-600 flex-center rounded-circle">
-                                                        <i class="ph ph-check"></i>
-                                                    </span>
-                                                    <span class="text-heading fw-medium">
-                                                        Available colors:
-                                                        <span class="gap-4 text-gray-500 d-inline-flex flex-wrap">
-                                                            @foreach ($colors as $color)
-                                                                <span class="w-14 h-14 rounded-circle me-1"
-                                                                    style="background-color: {{ $color }};"></span>
-                                                            @endforeach
-                                                        </span>
-                                                    </span>
-                                                </li>
-                                            @endif
+                                    {{-- Available Colors --}}
+                                    @if ($colors->isNotEmpty())
+                                    <li class="text-gray-400 mb-14 flex-align gap-14">
+                                        <span class="w-20 h-20 text-xs bg-main-50 text-main-600 flex-center rounded-circle">
+                                            <i class="ph ph-check"></i>
+                                        </span>
+                                        <span class="text-heading fw-medium">
+                                            Available colors:
+                                            <span class="flex-wrap gap-4 text-gray-500 d-inline-flex">
+                                                @foreach ($colors as $color)
+                                                <span class="w-14 h-14 rounded-circle me-1" style="background-color: {{ $color }};"></span>
+                                                @endforeach
+                                            </span>
+                                        </span>
+                                    </li>
+                                    @endif
 
                                         </ul>
                                     </div>

@@ -50,7 +50,13 @@ class HomeTemplateController extends Controller
 
         // Fetch the banner and slider images
         $banners = Banner::all(); // Assuming you have a Banner model
+
         $sliders = Slider::all(); // Assuming you have a Slider model
+         if (isset($banners[3])) {
+        Log::info('Fetched Banner[3]: ', $banners[3]->toArray());
+    } else {
+        Log::info('Banner index 3 does not exist.');
+    }
 
         // Return the view with all the necessary data
         return view('frontend.Home', compact('categories', 'products', 'topSellingProducts', 'Onlineexclusive', 'belowrs', 'banners', 'sliders'));

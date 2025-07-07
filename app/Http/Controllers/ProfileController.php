@@ -145,30 +145,26 @@ class ProfileController extends Controller
         return view('user_dashboard.edit-password');
     }
 
-    public function changePassword(Request $request)
-    {
-        //dd($request);
-        // Validate the input fields
-        $request->validate([
-            'current_password' => 'required',
-            'new_password'     => 'required|min:8|confirmed', // 'confirmed' ensures new_password and new_password_confirmation match
-        ]);
+  public function changePassword(Request $request)
+{
+    // Validate the input fields
+    $request->validate([
+        'current_password' => 'required',
+        'new_password' => 'required|min:8|confirmed',
+    ]);
 
-        // Get the currently authenticated user
-        $user = Auth::user();
+    // Get the currently authenticated user
+    $user = Auth::user();
 
-        // Check if the provided current password matches the stored password
-        if (! Hash::check($request->current_password, $user->password)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'The current password is incorrect.',
-            ], 400);
-        }
-
-        // Update the user's password
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        return redirect()->route('dashboard-main')->with('success', 'Password updated successfully.');
+    // Check if the provided current password matches the stored password
+    if (!Hash::check($request->current_password, $user->password)) {
+        return redirect()->back()->with('error', 'The current password is incorrect.');
     }
+
+    // Update the user's password
+    $user->password = Hash::make($request->new_password);
+    $user->save();
+
+    return redirect()->route('dashboard')->with('success', 'Password updated successfully.');
+}
 }
