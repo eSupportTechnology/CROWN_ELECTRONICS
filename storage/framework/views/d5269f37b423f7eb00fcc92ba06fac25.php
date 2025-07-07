@@ -6,12 +6,12 @@
                 <div class="content-header">
                     <h2 class="content-title">Add New Product</h2>
                     <div>
-                        <button type="submit" class="btn btn-md rounded font-sm hover-up">Publish</button>
+                        <button type="submit" class="rounded btn btn-md font-sm hover-up">Publish</button>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="card mb-4">
+                <div class="mb-4 card">
                     <div class="card-header">
                         <h4>Basic</h4>
                     </div>
@@ -44,7 +44,7 @@
 
                         </div>
 
-                        <label class="form-check mb-4">
+                        <label class="mb-4 form-check">
                             <input name="is_affiliate" id="affiliate_checkbox" class="form-check-input" type="checkbox" />
                             <span class="form-check-label">Affiliate the Product</span>
                         </label>
@@ -88,14 +88,14 @@
                     </div>
                 </div>
 
-                <div class="card mb-4">
+                <div class="mb-4 card">
                     <div class="card-header">
                         <h4>Variations</h4>
                     </div>
                     <div class="card-body">
                         <div id="variationsContainer">
                             <!-- Initial Row -->
-                            <div class="row mb-3 variation-row">
+                            <div class="mb-3 row variation-row">
                                 <div class="col-lg-4">
                                     <label class="form-label">Select Type</label>
                                     <select name="variations[0][type]" class="form-select"
@@ -117,7 +117,7 @@
                                     <input type="number" name="variations[0][quantity]" class="form-control"
                                         placeholder="Qty" />
                                 </div>
-                                <div class="col-lg-1 text-center">
+                                <div class="text-center col-lg-1">
                                     <label class="form-label">Delete</label>
                                     <button type="button" class="btn btn-danger delete-variation"
                                         onclick="removeVariation(this)">✖</button>
@@ -131,7 +131,7 @@
             </div>
 
             <div class="col-lg-5">
-                <div class="card mb-4">
+                <div class="mb-4 card">
                     <div class="card-header">
                         <h4>Media</h4>
                     </div>
@@ -140,19 +140,19 @@
                             <img src="<?php echo e(asset('backend/assets/imgs/theme/upload.svg')); ?>" alt="" />
                             <input name="images[]" id="media_upload" class="form-control" type="file" multiple />
                         </div>
-                        <div class="image-preview mt-4" id="image_preview_container"
+                        <div class="mt-4 image-preview" id="image_preview_container"
                             style="display: flex; gap: 10px; flex-wrap: wrap;">
                             <!-- Image previews will appear here -->
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
+                <div class="mb-4 card">
                     <div class="card-header">
                         <h4>Organization</h4>
                     </div>
                     <div class="card-body">
                         <div class="row gx-2">
-                            <div class="col-sm-6 mb-3">
+                            <div class="mb-3 col-sm-6">
                                 <label class="form-label">Category <i class="text-danger">*</i></label>
                                 <select name="category_id" class="form-select" id="categorySelect">
                                     <option value="">Select a category</option>
@@ -161,21 +161,21 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
-                            <div class="col-sm-6 mb-3">
+                            <div class="mb-3 col-sm-6">
                                 <label class="form-label">Subcategory</label>
                                 <select name="subcategory_id" class="form-select" id="subcategorySelect" disabled>
                                     <option value="">Select a subcategory</option>
                                 </select>
                             </div>
-                            <div class="col-sm-6 mb-3">
+                            <div class="mb-3 col-sm-6">
                                 <label class="form-label">Sub-Subcategory</label>
                                 <select name="sub_subcategory_id" class="form-select" id="subsubcategorySelect" disabled>
                                     <option value="">Select a sub-subcategory</option>
                                 </select>
                             </div>
-                            <div class="col-sm-6 mb-3">
+                            <div class="mb-3 col-sm-6">
                                 <label class="form-label">Brand </label>
-                                <select name="brand_id" class="form-select" id="brandSelect">
+                                <select name="brand_id" class="form-select" id="brandSelect" >
                                     <option value="">Select a brand</option>
                                     <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($brand->id); ?>"><?php echo e($brand->name); ?></option>
@@ -426,7 +426,7 @@
                 <label class="form-label">Quantity</label>
                 <input type="number" name="variations[${variationIndex}][quantity]" class="form-control" placeholder="Qty" />
             </div>
-            <div class="col-lg-1 text-center">
+            <div class="text-center col-lg-1">
                 <label class="form-label">Delete</label>
                 <button type="button" class="btn btn-danger delete-variation" onclick="removeVariation(this)">✖</button>
             </div>
