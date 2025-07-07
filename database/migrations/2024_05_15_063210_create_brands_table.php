@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('brands', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('image')->nullable();
-            $table->string('slug')->unique();
-            $table->boolean('is_top_brand')->default(false);
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('brands')) {
+            Schema::create('brands', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('image')->nullable();
+                $table->string('slug')->unique();
+                $table->boolean('is_top_brand')->default(false);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

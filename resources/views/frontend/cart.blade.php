@@ -104,7 +104,7 @@
                                         <td>
                                             <div class="table-product d-flex align-items-center gap-24">
                                                 <a href="{{ route('showProductDetails', $item->product_id) }}" class="table-product__thumb border border-gray-100 rounded-8 flex-center p-0">
-                                                    <img src="{{ asset('storage/' . $item->product_image) }}" alt="{{ $item->product_name }}">
+                                                    <img src="{{ asset('storage/' . $item->product_image) }}" ">
                                                 </a>
                                                 <div class="table-product__content text-start">
                                                     <h6 class="title text-lg fw-semibold mb-8">

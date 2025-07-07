@@ -17,6 +17,8 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
         'address',
+        'otp_code',
+        'otp_expires_at',
         'dob',
         'phone',
         'gender',
@@ -50,4 +52,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    protected $dates = [
+        'otp_expires_at',
+    ];
 }
