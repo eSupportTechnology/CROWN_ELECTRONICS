@@ -21,7 +21,8 @@
             font-size: 0.95rem;
         }
     }
-        @media (max-width: 1000px) {
+
+    @media (max-width: 1000px) {
         .mobhide {
             display: none !important;
         }
@@ -145,17 +146,43 @@
                                     <!-- Profile Dropdown -->
                                     <div class="profile-dropdown">
                                         @auth
-                                        <div class="log-user-img dropdown col-2-5">
-                                            <a href="#"><img
-                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></a>
-                                            <div class="dropdown-box">
-                                                <div class="user-name">
-                                                    Hi!
-                                                    {{ auth()->user()->name }}
+                                            <div class="log-user-img dropdown col-2-5">
+                                                <a href="#"><img
+                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png"></a>
+                                                <div class="dropdown-box">
+                                                    <div class="user-name">
+                                                        Hi!
+                                                        {{ auth()->user()->name }}
+                                                    </div>
+                                                    <ul class="log-popup-links">
+                                                        <li>
+                                                            <a href="/profile">
+                                                                <img
+                                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                                Account
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a>
+                                                                <img
+                                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                                <form method="POST" action="{{ route('logout') }}">
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        class="dropdown-item w-100">Logout</button>
+                                                                </form>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
+                                            </div>
+
+                                            <div class="dropdown-box">
+
                                                 <ul class="log-popup-links">
                                                     <li>
-                                                        <a href="/profile">
+                                                        <a href="{{ route('dashboard') }}">
                                                             <img
                                                                 src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
                                                             Account
@@ -176,63 +203,37 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <div class="dropdown-box">
-
-                                            <ul class="log-popup-links">
-                                                <li>
-                                                    <a href="{{ route('dashboard') }}">
-                                                        <img
-                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                        Account
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a>
-                                                        <img
-                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                        <form method="POST" action="{{ route('logout') }}">
-                                                            @csrf
-                                                            <button type="submit"
-                                                                class="dropdown-item w-100">Logout</button>
-                                                        </form>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @else
-                            <!-- Default Profile Icon and Links for Guests -->
-                            <div class="sign-up d-inline-flex">
-                                <div class="mobhide">
+                                <!-- Default Profile Icon and Links for Guests -->
+                                <div class="sign-up d-inline-flex">
+                                    <div class="mobhide">
+                                        <a href="{{ route('login') }}" class="d-flex">
+                                            <div class="dt-icon-div"><img
+                                                    src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                            </div>
+                                            <div>Login</div>
+                                        </a>
+                                    </div>
+
+                                    <div class="boder-right"></div>
+
+                                    <div class="mobhide">
+                                        <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
+                                                Up</span></a>
+                                    </div>
+                                </div>
+
+                                <div class="mobshow">
                                     <a href="{{ route('login') }}" class="d-flex">
-                                        <div class="dt-icon-div"><img
-                                                src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                        <div class="dt-icon-div">
+                                            <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
+                                                style="padding-bottom: 17px;">
                                         </div>
-                                        <div>Login</div>
                                     </a>
                                 </div>
-
-                                <div class="boder-right"></div>
-
-                                <div class="mobhide">
-                                    <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
-                                            Up</span></a>
-                                </div>
                             </div>
-
-                            <div class="mobshow">
-                                <a href="{{ route('login') }}" class="d-flex">
-                                    <div class="dt-icon-div">
-                                        <img src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} "
-                                            style="padding-bottom: 17px;">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
                         @endauth
                         <div class="des-cart pos-relative cart-popup ">
                             <a href="javascript:void(0)" class="gap-8 ml-10 flex-align flex-column item-hover-two"
@@ -259,15 +260,14 @@
                         <div class="col-12 col-md-10 col-lg-6">
                             <div class="position-relative">
                                 <!-- Search Input -->
-                                <input type="text"
-                                    class="form-control main-search top-search-suggestion"
+                                <input type="text" class="form-control main-search top-search-suggestion"
                                     placeholder="Search for products, categories and more"
                                     style="height: 42px; border-radius: 8px;" />
 
 
                                 <!-- Suggestions Box -->
-                                <div id="mobile-suggestions-box-display" class="suggestions-box suggestions-box-displays"
-                                    style="display: none;">
+                                <div id="mobile-suggestions-box-display"
+                                    class="suggestions-box suggestions-box-displays" style="display: none;">
                                     <div class="left-suggestion-no-products p-3 text-center" hidden>
                                         <p class="mb-0">No results found.</p>
                                     </div>
@@ -384,70 +384,70 @@
                                                     <div class="profile-dropdown">
                                                         @auth
 
-                                                        <div class="auth-container">
-                                                            <div class="loged-user d-inline-flex">
-                                                                <div class="log-user-img"><img
-                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
-                                                                </div>
-                                                                <div class="log-user-data dropdown">
-                                                                    <div class="user-name">Hi!
-                                                                        {{ auth()->user()->name }}
+                                                            <div class="auth-container">
+                                                                <div class="loged-user d-inline-flex">
+                                                                    <div class="log-user-img"><img
+                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
                                                                     </div>
-                                                                    <div class="dropdown-box">
+                                                                    <div class="log-user-data dropdown">
+                                                                        <div class="user-name">Hi!
+                                                                            {{ auth()->user()->name }}
+                                                                        </div>
+                                                                        <div class="dropdown-box">
 
-                                                                        <ul class="log-popup-links">
-                                                                            <li>
-                                                                                <a href="{{ route('dashboard') }}">
-                                                                                    <img
-                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                                                    Account
-                                                                                </a>
-                                                                            </li>
+                                                                            <ul class="log-popup-links">
+                                                                                <li>
+                                                                                    <a href="{{ route('dashboard') }}">
+                                                                                        <img
+                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                                                        Account
+                                                                                    </a>
+                                                                                </li>
 
-                                                                            <li>
-                                                                                <a>
-                                                                                    <img
-                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                                                    <form method="POST"
-                                                                                        action="{{ route('logout') }}">
-
-
-                                                                                        @csrf
-                                                                                        <button type="submit"
-                                                                                            class="dropdown-item w-100">Logout</button>
-                                                                                    </form>
-                                                                                </a>
-                                                                            </li>
+                                                                                <li>
+                                                                                    <a>
+                                                                                        <img
+                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                                                        <form method="POST"
+                                                                                            action="{{ route('logout') }}">
 
 
+                                                                                            @csrf
+                                                                                            <button type="submit"
+                                                                                                class="dropdown-item w-100">Logout</button>
+                                                                                        </form>
+                                                                                    </a>
+                                                                                </li>
 
-                                                                        </ul>
+
+
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                         @else
-                                                        <!-- Default Profile Icon and Links for Guests -->
-                                                        <div class="sign-up d-inline-flex">
-                                                            <div>
-                                                                <a href="{{ route('login') }}" class="d-flex">
-                                                                    <div class="dt-icon-div"><img
-                                                                            src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
-                                                                    </div>
-                                                                    <div>Login</div>
-                                                                </a>
+                                                            <!-- Default Profile Icon and Links for Guests -->
+                                                            <div class="sign-up d-inline-flex">
+                                                                <div>
+                                                                    <a href="{{ route('login') }}" class="d-flex">
+                                                                        <div class="dt-icon-div"><img
+                                                                                src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                                                        </div>
+                                                                        <div>Login</div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="boder-right"></div>
+
+                                                                <div>
+                                                                    <a class="sign-up-link"
+                                                                        href="{{ route('register') }}"><span>Sign
+                                                                            Up</span></a>
+                                                                </div>
                                                             </div>
 
-                                                            <div class="boder-right"></div>
-
-                                                            <div>
-                                                                <a class="sign-up-link"
-                                                                    href="{{ route('register') }}"><span>Sign
-                                                                        Up</span></a>
-                                                            </div>
                                                         </div>
-
-                                                    </div>
 
 
                                                     @endauth
@@ -494,34 +494,34 @@
                                             <div class="wrap-menu">
                                                 <div class="wrap-inner">
                                                     @foreach ($categories as $category)
-                                                    <div class="fly main-link">
-                                                        <a href="{{ url('/shop?category_id=' . $category->id) }}">
+                                                        <div class="fly main-link">
+                                                            <a href="{{ url('/shop?category_id=' . $category->id) }}">
 
-                                                            {{ $category->name }}
-                                                        </a>
-
-
-                                                        <div class="inner">
-                                                            <div class="scroll-height"></div>
-                                                            <div class="scroll-cat-set">
-                                                                <!-- Check if the category has subcategories -->
-                                                                @if ($category->subcategories->isNotEmpty())
-                                                                <ul>
-                                                                    @foreach ($category->subcategories as $subcategory)
-                                                                    <li class="fly main-link">
-                                                                        <a
-                                                                            href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
-                                                                            {{ $subcategory->name }}
-                                                                        </a>
+                                                                {{ $category->name }}
+                                                            </a>
 
 
-                                                                    </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                                @endif
+                                                            <div class="inner">
+                                                                <div class="scroll-height"></div>
+                                                                <div class="scroll-cat-set">
+                                                                    <!-- Check if the category has subcategories -->
+                                                                    @if ($category->subcategories->isNotEmpty())
+                                                                        <ul>
+                                                                            @foreach ($category->subcategories as $subcategory)
+                                                                                <li class="fly main-link">
+                                                                                    <a
+                                                                                        href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
+                                                                                        {{ $subcategory->name }}
+                                                                                    </a>
+
+
+                                                                                </li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -566,20 +566,13 @@
                                                             Brands </a>
 
                                                         <ul class="submenu" id="brand-submenu">
-                                                            <div class="row align-items-start">
-                                                                <div class="col-sm-6">
-                                                                    <p class="brand-topic">Top Brands</p>
-                                                                    <div id="top-brands" class="brand-logos-set row">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="px-40 col-sm-6">
-                                                                    <p class="brand-topic">All Brands</p>
-                                                                    <div id="all-brands"
-                                                                        class="row align-items-start">
-                                                                    </div>
+                                                            <div class="row align-items-start px-4 py-3">
+                                                                <p class="brand-topic">All Brands</p>
+                                                                <div id="all-brands" class="row align-items-start">
                                                                 </div>
                                                             </div>
                                                         </ul>
+
 
 
                                                     </li>
@@ -747,41 +740,41 @@
                         <ul class=" list-unstyled">
 
                             @foreach ($categories as $category)
-                            <li class="position-relative">
+                                <li class="position-relative">
 
-                                <!-- Main Category and Toggle -->
-                                <div class="d-flex justify-content-between align-items-center ">
-                                    <a href="{{ url('/shop?category_id=' . $category->id) }}"
-                                        class="text-dark text-decoration-none fw-semibold"
-                                        style="line-height: 1.6;">
-                                        {{ $category->name }}
-                                    </a>
-
-                                    @if ($category->subcategories->isNotEmpty())
-                                    <span class="toggle-btn" onclick="toggleDropdown(this)"
-                                        style="cursor: pointer;">
-                                        <i class="fa fa-chevron-down text-muted"></i>
-                                    </span>
-                                    @endif
-                                </div>
-
-                                <!-- Subcategory List -->
-                                @if ($category->subcategories->isNotEmpty())
-                                <ul
-                                    class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
-                                    @foreach ($category->subcategories as $subcategory)
-                                    <li>
-                                        <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
-                                            class="px-4 py-2 d-block text-dark text-decoration-none"
+                                    <!-- Main Category and Toggle -->
+                                    <div class="d-flex justify-content-between align-items-center ">
+                                        <a href="{{ url('/shop?category_id=' . $category->id) }}"
+                                            class="text-dark text-decoration-none fw-semibold"
                                             style="line-height: 1.6;">
-                                            {{ $subcategory->name }}
+                                            {{ $category->name }}
                                         </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                                @endif
 
-                            </li>
+                                        @if ($category->subcategories->isNotEmpty())
+                                            <span class="toggle-btn" onclick="toggleDropdown(this)"
+                                                style="cursor: pointer;">
+                                                <i class="fa fa-chevron-down text-muted"></i>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <!-- Subcategory List -->
+                                    @if ($category->subcategories->isNotEmpty())
+                                        <ul
+                                            class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
+                                            @foreach ($category->subcategories as $subcategory)
+                                                <li>
+                                                    <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
+                                                        class="px-4 py-2 d-block text-dark text-decoration-none"
+                                                        style="line-height: 1.6;">
+                                                        {{ $subcategory->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                </li>
                             @endforeach
 
                         </ul>
@@ -915,18 +908,12 @@
 
             if (!brandsMenuItem || !submenu) return;
 
-            // Show submenu on hover
             brandsMenuItem.addEventListener('mouseenter', () => {
-                // Clear any existing timeout to avoid flickering
                 if (hoverTimeout) clearTimeout(hoverTimeout);
-
                 submenu.style.display = 'block';
 
-                // Only fetch data if it hasn't been loaded or isn't currently fetching
                 if (!brandsLoaded && !brandsFetching) {
-                    brandsFetching = true; // Lock to prevent multiple requests
-
-                    console.log('Fetching brands data');
+                    brandsFetching = true;
 
                     fetch('/brands-data')
                         .then(res => {
@@ -934,48 +921,25 @@
                             return res.json();
                         })
                         .then(data => {
-                            const topContainer = document.getElementById('top-brands');
                             const allContainer = document.getElementById('all-brands');
-
-                            // Clear containers first to prevent duplicate content
-                            topContainer.innerHTML = '';
                             allContainer.innerHTML = '';
-
-                            const allList = [
-                                [],
-                                [],
-                                [],
-                                []
-                            ];
-                            let col = 0;
 
                             data.forEach(brand => {
                                 const imageUrl = brand.image ? brand.image :
-                                    'default-image.png';
+                                'default-image.png';
 
-                                const brandLink = `<a title="${brand.name}" href="/brand/${brand.slug}">
-                            <img src="/storage/${imageUrl}" alt="${brand.name}" style="height: 50px;">
-                        </a>`;
+                                const brandHTML = `
+                                <div class="brand-img col-sm-3 text-center mb-3">
+                                    <a title="${brand.name}" href="/brand/${brand.slug}">
+                                        <img src="/storage/${imageUrl}" alt="${brand.name}" style="height: 50px;">
+                                    </a>
+                                </div>
+                            `;
 
-                                if (brand.is_top_brand) {
-                                    topContainer.insertAdjacentHTML('beforeend',
-                                        `<div class="brand-img col-sm-3">${brandLink}</div>`
-                                    );
-                                }
-
-                                allList[col].push(
-                                    `<li><a href="/brand/${brand.slug}">${brand.name}</a></li>`
-                                );
-                                col = (col + 1) % 4;
-                            });
-
-                            allList.forEach(column => {
-                                allContainer.insertAdjacentHTML('beforeend',
-                                    `<ul class="col-sm-3">${column.join('')}</ul>`);
+                                allContainer.insertAdjacentHTML('beforeend', brandHTML);
                             });
 
                             brandsLoaded = true;
-                            console.log('Brands loaded successfully');
                         })
                         .catch(err => {
                             console.error('Brand fetch failed:', err);
@@ -986,23 +950,22 @@
                 }
             });
 
-            // Add event listeners to both menu item and submenu to prevent flickering
             submenu.addEventListener('mouseenter', () => {
                 if (hoverTimeout) clearTimeout(hoverTimeout);
                 submenu.style.display = 'block';
             });
 
-            // Hide submenu on mouse leave with slight delay to prevent flickering
             const handleMouseLeave = () => {
                 hoverTimeout = setTimeout(() => {
                     submenu.style.display = 'none';
-                }, 200); // Small delay to prevent flickering when moving between menu and submenu
+                }, 200);
             };
 
             brandsMenuItem.addEventListener('mouseleave', handleMouseLeave);
             submenu.addEventListener('mouseleave', handleMouseLeave);
         });
     </script>
+    >
 
 
 
@@ -1062,7 +1025,8 @@
                         });
 
                         data.categories.forEach(category => {
-                            categoryCon.innerHTML += `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
+                            categoryCon.innerHTML +=
+                                `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
                         });
 
                         box.style.display = 'block';
