@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Inquiry;
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\InquiryReplyMail;
@@ -14,8 +15,8 @@ class InquiryController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'full_name' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|string',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|string',
             'subject' => 'required|string',
             'message' => 'required|string',
         ]);

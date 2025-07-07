@@ -64,7 +64,6 @@ class MobileUserController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
-        \Log::info('Update User Request:', $request->all()); 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => "required|string|email|max:255|unique:system_users,email,{$user->id}",
@@ -75,13 +74,11 @@ class MobileUserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            \Log::error('Validation Errors:', $validator->errors()->all());
 
             return response()->json(['message' => $validator->errors()], 400);
         }
 
         try {
-            \Log::info('Before Update User');
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -90,10 +87,8 @@ class MobileUserController extends Controller
                 'phone' => $request->phone,
                 'gender' => $request->gender,
             ]);
-            \Log::info('After Update User');
             return response()->json(['message' => 'User updated successfully', 'user' => $user], 200);
         } catch (\Exception $e) {
-            \Log::error('Update User Exception:', ['message' => $e->getMessage()]);
             return response()->json(['message' => 'Update failed', 'error' => $e->getMessage()], 500);
         }
     }

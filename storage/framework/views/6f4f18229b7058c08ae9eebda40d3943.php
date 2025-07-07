@@ -6,7 +6,7 @@
             <div class="col-6 mobi-purple-div">
                 <div class="footer-icon">
                     <a href="#">
-                    <img src="{{ asset('frontend/newstyle/assets/images/icon/Page-1.webp') }}">
+                    <img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/Page-1.webp')); ?>">
 
                     </a>
                 </div>
@@ -18,7 +18,7 @@
             <div class="col-6 mobi-purple-div">
                 <div class="footer-icon">
                     <a href="#">
-                    <img src="{{ asset('frontend/newstyle/assets/images/icon/sri-lanka.webp') }}">
+                    <img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/sri-lanka.webp')); ?>">
 
                     </a>
                 </div>
@@ -30,7 +30,7 @@
             <div class="col-6 mobi-purple-div">
                 <div class="footer-icon">
                     <a href="#">
-                    <img src="{{ asset('frontend/newstyle/assets/images/icon/stopwatch.webp') }}">
+                    <img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/stopwatch.webp')); ?>">
 
                     </a>
                 </div>
@@ -42,7 +42,7 @@
             <div class="col-6 mobi-purple-div">
                 <div class="footer-icon">
                     <a href="#">
-                    <img src="{{ asset('frontend/newstyle/assets/images/icon/technical-support.webp') }}">
+                    <img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/technical-support.webp')); ?>">
 
                     </a>
                 </div>
@@ -122,29 +122,29 @@
             </div>
 
             <div class="flex-wrap text-center d-flex mobi-payment-icon-set">
-            <div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/VISA1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/MASTER1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/AMEX1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/COMBANK1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/FRIMI.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/HSBC.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/PB1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/DFCC.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SAMPATH1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NDB1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NTB1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/PAB.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/BOC1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/AMANA1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/CDB1.webp') }}"></div>
-<div class="bank-image"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/KOKO.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/HNB1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/LOLC1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NSB1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SC1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SEY1.webp') }}"></div>
-<div class="bank-image-mobi"><img class="lazy" src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/UB1.webp') }}"></div>
+            <div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/VISA1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/MASTER1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/AMEX1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/COMBANK1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/FRIMI.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/HSBC.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/PB1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/DFCC.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SAMPATH1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NDB1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NTB1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/PAB.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/BOC1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/AMANA1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/CDB1.webp')); ?>"></div>
+<div class="bank-image"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/KOKO.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/HNB1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/LOLC1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NSB1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SC1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SEY1.webp')); ?>"></div>
+<div class="bank-image-mobi"><img class="lazy" src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/UB1.webp')); ?>"></div>
 
             </div>
 
@@ -199,7 +199,7 @@
     <div class="cart-white">
         <div class="close-minicart"><i class="fa-solid fa-xmark"></i></div>
         <div class="cart-logo">
-            <img src="{{ asset('frontend/newstyle/assets/images/logo.png') }}">
+            <img src="<?php echo e(asset('frontend/newstyle/assets/images/logo.png')); ?>">
         </div>
         <h4>My Cart</h4>
         <div id="mini-cart-data">
@@ -208,30 +208,30 @@
                     <div class="toatal-div-main">
                         <div class="sub-total-label">Cart Subtotal</div>
                         <div class="pro-amount">
-                            <span>{{ $cartCount }}</span> Items Added
+                            <span><?php echo e($cartCount); ?></span> Items Added
                         </div>
                     </div>
-                    <div class="sub-total">Rs. {{ $cartTotal }}</div>
+                    <div class="sub-total">Rs. <?php echo e($cartTotal); ?></div>
                 </div>
 
                 <div class="cart-added">
                     <p class="cart-include">Cart Include</p>
 
                     <div class="cart-scroll">
-                        @forelse($miniCart as $item)
+                        <?php $__empty_1 = true; $__currentLoopData = $miniCart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="cart-product">
                                 <div class="main-pro-details">
                                     <div class="product-img">
 
-                                        <img src="{{ $item['image'] }}" alt="product">
+                                        <img src="<?php echo e($item['image']); ?>" alt="product">
 
                                     </div>
-                                    <div class="product-title">{{ Str::limit($item['name'], 10) }}</div>
-                                    <div class="product-title">Qty: {{ $item['quantity'] }}</div>
-                                    <div class="product-title">{{$product->currency->symbol ?? 'Rs' }}. {{ $item['subtotal'] }}</div>
+                                    <div class="product-title"><?php echo e(Str::limit($item['name'], 10)); ?></div>
+                                    <div class="product-title">Qty: <?php echo e($item['quantity']); ?></div>
+                                    <div class="product-title"><?php echo e($product->currency->symbol ?? 'Rs'); ?>. <?php echo e($item['subtotal']); ?></div>
                                 </div>
                             </div>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                             <div class="cart-product">
                                 <div class="main-pro-details">
                                     <div class="product-img">
@@ -240,11 +240,11 @@
                                     <div class="product-title ">No Product Added</div>
                                 </div>
                             </div>
-                        @endforelse
+                        <?php endif; ?>
                     </div>
 
                     <div>
-                        <a href="{{ url('/cart') }}" class="mt-4 btn btn-site-default w-100">View Cart</a>
+                        <a href="<?php echo e(url('/cart')); ?>" class="mt-4 btn btn-site-default w-100">View Cart</a>
                     </div>
                 </div>
             </div>
@@ -259,7 +259,7 @@
     <div class="footer ft-destop">
         <div class="purple-div">
             <div class="footer-box">
-                <div class="footer-icon"><img src="{{ asset('frontend/newstyle/assets/images/icon/Page-1.webp') }}">
+                <div class="footer-icon"><img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/Page-1.webp')); ?>">
                 </div>
                 <div class="footer-details">
                     <p>Customer Support</p>
@@ -267,21 +267,21 @@
                 </div>
             </div>
             <div class="footer-box">
-                <div class="footer-icon"><img src="{{ asset('frontend/newstyle/assets/images/icon/sri-lanka.webp') }}">
+                <div class="footer-icon"><img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/sri-lanka.webp')); ?>">
                 </div>
                 <div class="footer-details">
                     <p>Island-wide Delivery</p>
                 </div>
             </div>
             <div class="footer-box">
-                <div class="footer-icon"><img src="{{ asset('frontend/newstyle/assets/images/icon/stopwatch.webp') }}">
+                <div class="footer-icon"><img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/stopwatch.webp')); ?>">
                 </div>
                 <div class="footer-details">
                     <p>Express Delivery</p>
                 </div>
             </div>
             <div class="footer-box">
-                <div class="footer-icon"><img src="{{ asset('frontend/newstyle/assets/images/icon/technical-support.webp') }}">
+                <div class="footer-icon"><img src="<?php echo e(asset('frontend/newstyle/assets/images/icon/technical-support.webp')); ?>">
                 </div>
                 <div class="footer-details">
                     <p>100+ Service Centers</p>
@@ -292,12 +292,12 @@
         <div class="container footer-padding">
             <div class="row align-items-start">
                 <div class="col-md-4 address-info">
-                <img src="{{ asset('frontend/newstyle/assets/images/logo.png') }}" style="width: 180px;">
+                <img src="<?php echo e(asset('frontend/newstyle/assets/images/logo.png')); ?>" style="width: 180px;">
 
 
                     <div class="hotline">
                         <p>HOTLINE</p>
-                        <a class="tel-no" href="tel:+94112251202">+94 112 251 202 </a>
+                        <a class="tel-no" href="#">+94 112 251 202 </a>
                     </div>
                     <div class="social-media">
                     <ul>
@@ -343,7 +343,7 @@
                         <ul>
                             <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
-                            <li><a class="footer-link" href="/shipping-delivery">Shipping &amp; Delivery</a></li>
+                            <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
 
                         </ul>
                     </div>
@@ -368,8 +368,8 @@
                         <p class="footer-title">Quick Links</p>
                         <ul>
                             <li><a class="footer-link" href="#">Brands</a></li>
-                            <li><a class="footer-link" href="/warranty">Warranty Information</a></li>
-                            <li><a class="footer-link" href="/return-product">Return Products</a></li>
+                            <li><a class="footer-link" href="#">Warranty Information</a></li>
+                            <li><a class="footer-link" href="#">Return Products</a></li>
 
                         </ul>
                     </div>
@@ -381,30 +381,30 @@
         <div class="bg-white-con">
             <div class="container">
                 <div class="footer-payment-methods d-flex">
-                <div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/VISA1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/MASTER1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/AMEX1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/COMBANK1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/FRIMI.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/HSBC.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/PB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/DFCC.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SAMPATH1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NDB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NTB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/PAB.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/BOC1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/AMANA1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/CDB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/KOKO.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp') }}"></div> <!-- (duplicate CARGILLS) -->
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/HNB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/LOLC1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/NSB1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SC1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/SEY1.webp') }}"></div>
-<div class="bank-image"><img src="{{ asset('frontend/newstyle/assets/images/new-bank-logo/UB1.webp') }}"></div>
+                <div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/VISA1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/MASTER1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/AMEX1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/COMBANK1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/FRIMI.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/HSBC.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/PB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/DFCC.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SAMPATH1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NDB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NTB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/PAB.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/BOC1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/AMANA1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/CDB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/KOKO.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/CARGILLS1.webp')); ?>"></div> <!-- (duplicate CARGILLS) -->
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/HNB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/LOLC1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/NSB1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SC1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/SEY1.webp')); ?>"></div>
+<div class="bank-image"><img src="<?php echo e(asset('frontend/newstyle/assets/images/new-bank-logo/UB1.webp')); ?>"></div>
 
                 </div>
                 <div class="copyright"><small>Copyright © 2025 CROWN ELECTRONICS. All Rights Reserved.</small></div>
@@ -512,7 +512,7 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
 
 
-<script src="{{ asset('/frontend/newstyle/rocket-loader.min.js') }}" data-cf-settings="a071cb3ff60724c4b8f55cf9-|49" defer></script>
+<script src="<?php echo e(asset('/frontend/newstyle/rocket-loader.min.js')); ?>" data-cf-settings="a071cb3ff60724c4b8f55cf9-|49" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -530,3 +530,4 @@ $(".close-minicart, .mini-cart-overlay").click(function() {
 
 
 
+<?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/includes/footer.blade.php ENDPATH**/ ?>

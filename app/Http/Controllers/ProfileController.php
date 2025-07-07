@@ -1,18 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\CustomerOrder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Hash;
-
-
-use App\Models\CustomerOrder;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -65,7 +62,7 @@ class ProfileController extends Controller
 
     public function myOrders()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('login')->with('error', 'You must be logged in to view your orders.');
         }
         $orders = CustomerOrder::where('user_id', auth()->id())->get();
@@ -84,7 +81,7 @@ class ProfileController extends Controller
 
     public function dashboard()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('login')->with('error', 'You must be logged in to access the dashboard.');
         }
         $user = Auth::user();
@@ -97,42 +94,41 @@ class ProfileController extends Controller
     public function editProfile()
     {
         // Get the authenticated user
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('login')->with('error', 'You must be logged in to access the profile.');
         }
         $user = Auth::user();
-        Log::info('Editing profile for user: ', ['id' => $user->id, 'name' => $user->name, 'email' => $user->email]);
         // Pass the user data to the view
         return view('user_dashboard.edit-profile', compact('user'));
     }
 
     public function updateProfile(Request $request)
     {
-        // Validate the request
         $request->validate([
-            'full_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
-            'phone_num' => 'nullable|string|max:15',
-            'address' => 'nullable|string|max:255',
-            'date_of_birth' => 'nullable|date',
-            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Image validation
+            'full_name'     => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s.]+$/'],
+            'email'         => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore(Auth::id())],
+            'phone_num'     => ['nullable', 'digits_between:7,15'],
+            'address'       => ['nullable', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s,.-]+$/'],
+            'date_of_birth' => ['nullable', 'date'],
+            'profile_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
+        ], [
+            'full_name.regex'          => 'Full name can only contain letters, spaces, and periods.',
+            'phone_num.digits_between' => 'Mobile must be between 7 to 15 digits.',
+            'address.regex'            => 'Address can only contain letters, numbers, commas, periods, hyphens and spaces.',
         ]);
 
-        $user = Auth::user();
-
-        // Update user details
-        $user->name = $request->input('full_name');
-        $user->email = $request->input('email');
+        $user          = Auth::user();
+        $user->name    = $request->input('full_name');
+        $user->email   = $request->input('email');
         $user->address = $request->input('address');
-        $user->phone = $request->input('phone_num');
-        $user->dob = $request->input('date_of_birth');
+        $user->phone   = $request->input('phone_num');
+        $user->dob     = $request->input('date_of_birth');
 
-        // Handle profile image upload
         if ($request->hasFile('profile_image')) {
-            $file = $request->file('profile_image');
+            $file     = $request->file('profile_image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/profile_images'), $filename);
-            $user->profile_image = $filename; // Save filename in the database
+            $user->profile_image = $filename;
         }
 
         $user->save();
@@ -142,7 +138,7 @@ class ProfileController extends Controller
 
     public function editPassword()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('login')->with('error', 'You must be logged in to access the password change page.');
         }
         // Pass the user data to the view

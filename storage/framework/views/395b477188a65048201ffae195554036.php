@@ -1,6 +1,4 @@
-@extends('layouts.user_sidebar')
-
-@section('dashboard-content')
+<?php $__env->startSection('dashboard-content'); ?>
 
 <style>
     h4.py-2.px-2 {
@@ -71,53 +69,15 @@
         white-space: nowrap;
         font-weight: bold;
     }
-     @media (max-width: 576px) {
-        .dashboard-header {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .profile-info {
-            margin-left: 0;
-            margin-top: 10px;
-        }
-
-        .orders-row {
-            justify-content: center;
-        }
-
-        .orders-box {
-            width: 80px;
-        }
-    }
-     @media (max-width: 576px) {
-        .dashboard-header {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .profile-info {
-            margin-left: 0;
-            margin-top: 10px;
-        }
-
-        .orders-row {
-            justify-content: center;
-        }
-
-        .orders-box {
-            width: 80px;
-        }
-    }
 </style>
 
 <!-- Dashboard Header -->
 <h4 class="px-2 py-2">Dashboard</h4>
 <div class="dashboard-header">
-    <img src="{{ asset('path/to/default-user.png') }}" alt="Profile Image" class="rounded-circle" width="60" height="60">
+    <img src="<?php echo e(asset('path/to/default-user.png')); ?>" alt="Profile Image" class="rounded-circle" width="60" height="60">
     <div class="profile-info">
-        <h4>{{ Auth::user()->name }}</h4>
-        <p>{{ Auth::user()->email }}</p>
+        <h4><?php echo e(Auth::user()->name); ?></h4>
+        <p><?php echo e(Auth::user()->email); ?></p>
     </div>
 </div>
 
@@ -137,12 +97,8 @@
             <img src="https://icons.veryicon.com/png/128/miscellaneous/bigmk_app_icon/in-transit.png" alt="Shipped">
             <p>Shipped</p>
         </div>
-        <div class="orders-box">
-            <img src="https://icons.veryicon.com/png/128/miscellaneous/document-format/reviewed-5.png" alt="To be reviewed">
-            <p>To be revieweds</p>
-        </div>
-        <a href="{{ route('My-Reviews') }}" class="orders-box text-decoration-none text-dark">
-            @php
+        <a href="<?php echo e(route('My-Reviews')); ?>" class="orders-box text-decoration-none text-dark">
+            <?php
                 use App\Models\CustomerOrder;
                 use App\Models\CustomerOrderItems;
 
@@ -151,11 +107,13 @@
                 $toBeReviewedCount = CustomerOrderItems::whereIn('order_code', $orderCodes)
                     ->where('reviewed', 'no')
                     ->count();
-            @endphp
+            ?>
             <img src="https://icons.veryicon.com/png/128/miscellaneous/document-format/reviewed-5.png" alt="To be Reviewed">
-            <p>To be Reviewed ({{ $toBeReviewedCount }})</p>
+            <p>To be Reviewed (<?php echo e($toBeReviewedCount); ?>)</p>
         </a>
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.user_sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/user_dashboard/dashboard.blade.php ENDPATH**/ ?>
