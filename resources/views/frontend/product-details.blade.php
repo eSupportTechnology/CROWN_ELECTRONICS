@@ -74,7 +74,7 @@
             padding: 2rem 1rem;
         }
 
-    {{--  .product-title {
+      .product-title {
 
         text-transform: capitalize;
         font-weight: 700;
@@ -83,7 +83,7 @@
         margin: 1rem 0;
     } */
 
-    /* .product-title::after {
+     .product-title::after {
         content: "";
         position: absolute;
         left: 0;
@@ -91,7 +91,7 @@
         height: 4px;
         width: 80px;
         background: #12263a;
-    }  --}}
+    }
 
         .product-link {
             text-decoration: none;
@@ -372,8 +372,9 @@
                             <div class="flex-wrap gap-16 my-0 flex-align">
                                 <div class="gap-8 flex-align">
                                     <div class="gap-8 flex-align text-main-two-600">
+                                        {{ $product->commission_percentage }}
                                         <i class="text-xl ph-fill ph-seal-percent"></i>
-                                        -10%
+
                                     </div>
                                     <h6 class="mb-0">{{ $product->currency->symbol ?? 'Rs' }}.
                                         {{ $product->normal_price }}
@@ -386,7 +387,7 @@
                                 </div>
                                 <div class="gap-8 flex-align">
                                     <span class="text-gray-700">Regular Price</span>
-                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">Rs 5500.00</h6>
+                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">{{$product->regular_price }}</h6>
                                 </div>
                             </div>
 
