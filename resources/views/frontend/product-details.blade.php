@@ -386,7 +386,7 @@
                                 </div>
                                 <div class="gap-8 flex-align">
                                     <span class="text-gray-700">Regular Price</span>
-                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">Rs 5500.00</h6>
+                                    <h6 class="mb-0 text-xl text-gray-400 fw-medium">Rs.{{ $product->regular_price }}</h6>
                                 </div>
                             </div>
 
