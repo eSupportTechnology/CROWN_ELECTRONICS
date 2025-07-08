@@ -1,14 +1,37 @@
 <style>
-    @media (max-width: 1000px) {
+    /* Hide elements with the class .mobhide on screens smaller than or equal to 768px */
+    @media (max-width: 1005px) {
         .mobhide {
             display: none !important;
+            /* Add !important if you want to override other styles */
         }
+         .search-con {
+        max-width: 100%;
+    }
+
+    .top-search.search-container {
+        flex-direction: row;
+    }
+
+    .submit-search {
+        padding: 6px 10px;
+    }
+    .header-right-con {
+        display: flex;
+
+    }
+
+
+
     }
 
     @media (min-width: 1000px) {
         .mobshow {
             display: none !important;
+
+            /* Hides .mobshow on screens 768px or wider */
         }
+
     }
 
     @media (max-width: 768px) {
@@ -21,49 +44,18 @@
             font-size: 0.95rem;
         }
     }
-        @media (max-width: 1000px) {
-        .mobhide {
-            display: none !important;
-        }
-    }
 
-    @media (min-width: 1000px) {
-        .mobshow {
-            display: none !important;
-        }
-    }
+.left-suggestion-no-products {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
 
-    @media (max-width: 768px) {
-        .main-search {
-            font-size: 1rem;
-            padding: 10px 14px;
-        }
+.left-suggestion-no-products img {
+    max-width: 80px;
+    opacity: 0.6;
+}
 
-        .suggestions-box {
-            font-size: 0.95rem;
-        }
-    }
-
-    .wrap-menu .inner ul li {
-        background-color: #f0f0f0;
-        padding: 8px 12px;
-        border-radius: 4px;
-        margin-bottom: 4px;
-    }
-
-    .wrap-menu .inner ul li a {
-        color: #333;
-        text-decoration: none;
-        display: block;
-    }
-
-    .wrap-menu .inner ul li:hover {
-        background-color: #c99c62;
-    }
-
-    .wrap-menu .inner ul li:hover a {
-        color: #fff;
-    }
 </style>
 
 <body>
@@ -89,7 +81,7 @@
 
             <div class="mobi-main-header fixed-header">
                 <div id="topupbar_banner_mobile"></div>
-                <header class="header mobile-header mb-4">
+                <header class=" header mobile-header">
                     <div class="container mobile-header-container">
                         <div class="mobi-full-row">
                             <div class="col-5-5">
@@ -110,7 +102,14 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- <div class="col-2-5">
+                        <div class="mobi-header-btn mobi-search-btn">
+                            <img class="cart-icon"
+                                src="frontend/newstyle/assets/images/icon/mobi-search.png">
                         </div>
+                    </div> -->
+
 
                         <!-- Header Middle Right start -->
                         <div class="header-right flex-align d-lg-block d-none">
@@ -139,11 +138,11 @@
                             </div>
                         </div>
 
-                        <div class="col-2-5">
-                            <div class="header-right-con">
+                        <div class="flex-wrap d-flex align-items-center justify-content-between ">
+                            <div class="header-right-con ">
                                 <div class="top-right-nav">
                                     <!-- Profile Dropdown -->
-                                    <div class="profile-dropdown">
+                                    <div class="profile-dropdown" style="padding-top: 25px">
                                         @auth
                                         <div class="log-user-img dropdown col-2-5">
                                             <a href="#"><img
@@ -156,6 +155,32 @@
                                                 <ul class="log-popup-links">
                                                     <li>
                                                         <a href="/profile">
+                                                            <img
+                                                                src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                            Account
+                                                        </a>
+                                                    </li>
+
+                                                        <li>
+                                                            <a>
+                                                                <img
+                                                                    src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                                <form method="POST" action="{{ route('logout') }}">
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        class="dropdown-item w-100">Logout</button>
+                                                                </form>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="dropdown-box">
+
+                                                <ul class="log-popup-links">
+                                                    <li>
+                                                        <a href="{{ route('dashboard') }}">
                                                             <img
                                                                 src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
                                                             Account
@@ -176,34 +201,8 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <div class="dropdown-box">
-
-                                            <ul class="log-popup-links">
-                                                <li>
-                                                    <a href="{{ route('dashboard') }}">
-                                                        <img
-                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                        Account
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a>
-                                                        <img
-                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                        <form method="POST" action="{{ route('logout') }}">
-                                                            @csrf
-                                                            <button type="submit"
-                                                                class="dropdown-item w-100">Logout</button>
-                                                        </form>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @else
                             <!-- Default Profile Icon and Links for Guests -->
                             <div class="sign-up d-inline-flex">
@@ -216,7 +215,7 @@
                                     </a>
                                 </div>
 
-                                <div class="boder-right"></div>
+                                    <div class="boder-right"></div>
 
                                 <div class="mobhide">
                                     <a class="sign-up-link" href="{{ route('register') }}"><span>Sign
@@ -234,11 +233,11 @@
                             </div>
                         </div>
                         @endauth
-                        <div class="des-cart pos-relative cart-popup ">
+                        <div class="des-cart pos-relative cart-popup " style="margin-top: 25px; padding-left:10px">
                             <a href="javascript:void(0)" class="gap-8 ml-10 flex-align flex-column item-hover-two"
                                 style="margin-right:30px;">
                                 <span class="mt-6 text-2xl text-white2 d-flex position-relative me-6 item-hover__text">
-                                    <i class="ph ph-shopping-cart-simple"></i>
+                                    <i class="ph ph-shopping-cart-simple" style="color: #2d44d9"></i>
                                     <!-- Display the cart count dynamically -->
                                     <span id="cart-count"
                                         class="w-16 h-16 text-xs text-white flex-center rounded-circle bg-main-two-600 position-absolute top-n6 end-n4">
@@ -254,13 +253,12 @@
                     </div>
 
                 </header>
-                <div class="container-fluid py-2 px-3 bg-white shadow-sm">
+                <div class="px-3 py-2 bg-white shadow-sm container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-10 col-lg-6">
                             <div class="position-relative">
                                 <!-- Search Input -->
-                                <input type="text"
-                                    class="form-control main-search top-search-suggestion"
+                                <input type="text" class="form-control main-search top-search-suggestion"
                                     placeholder="Search for products, categories and more"
                                     style="height: 42px; border-radius: 8px;" />
 
@@ -268,17 +266,17 @@
                                 <!-- Suggestions Box -->
                                 <div id="mobile-suggestions-box-display" class="suggestions-box suggestions-box-displays"
                                     style="display: none;">
-                                    <div class="left-suggestion-no-products p-3 text-center" hidden>
+                                    <div class="p-3 text-center left-suggestion-no-products" hidden>
                                         <p class="mb-0">No results found.</p>
                                     </div>
 
-                                    <div class="left-suggestion-main-con px-3 py-2">
+                                    <div class="px-3 py-2 left-suggestion-main-con">
                                         <!-- Product suggestions via JS -->
                                     </div>
 
-                                    <div class="right-suggestion-main-con px-3 pb-2">
-                                        <h6 class="search-category-title fw-bold mb-2">Categories</h6>
-                                        <ul class="category-list list-unstyled mb-0">
+                                    <div class="px-3 pb-2 right-suggestion-main-con">
+                                        <h6 class="mb-2 search-category-title fw-bold">Categories</h6>
+                                        <ul class="mb-0 category-list list-unstyled">
                                             <!-- Category suggestions via JS -->
                                         </ul>
                                     </div>
@@ -311,7 +309,7 @@
 
                                         <div class="search-con">
                                             <div class="top-search search-container">
-                                                <input type="text"
+                                                <input type="text" id="search-input"
                                                     class="form-control main-search top-search-suggestion"
                                                     placeholder="Search for products, categories and more">
                                                 <button type="button" class="btn btn-primary submit-search"><i
@@ -319,9 +317,12 @@
                                                 <div id="web-suggestions-box-display"
                                                     class="suggestions-box suggestions-box-display"
                                                     style="display: none;">
-                                                    <div class="left-suggestion-no-products" hidden>
-                                                        <p>No results found.</p>
-                                                    </div>
+                                                    <div class="p-3 text-center left-suggestion-no-products" hidden>
+    <img src="{{ asset('images/no-results.png') }}" alt="No results" style="width: 100px; opacity: 0.5;">
+    <p class="mt-2 text-muted">Oops! We couldn’t find anything for your search.</p>
+    <p class="small text-secondary">Try checking your spelling or use more general terms.</p>
+</div>
+
 
                                                     <div class="left-suggestion-main-con">
                                                         <!-- JS will inject products here -->
@@ -345,7 +346,7 @@
 
 
 
-                                        <div class="header-right-con">
+                                        <div class="header-right-con" >
                                             <div class="top-right-nav">
                                                 <div class="des-cart pos-relative cart-popup ">
 
@@ -384,70 +385,70 @@
                                                     <div class="profile-dropdown">
                                                         @auth
 
-                                                        <div class="auth-container">
-                                                            <div class="loged-user d-inline-flex">
-                                                                <div class="log-user-img"><img
-                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
-                                                                </div>
-                                                                <div class="log-user-data dropdown">
-                                                                    <div class="user-name">Hi!
-                                                                        {{ auth()->user()->name }}
+                                                            <div class="auth-container">
+                                                                <div class="loged-user d-inline-flex">
+                                                                    <div class="log-user-img"><img
+                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/dummy-user.png">
                                                                     </div>
-                                                                    <div class="dropdown-box">
+                                                                    <div class="log-user-data dropdown">
+                                                                        <div class="user-name">Hi!
+                                                                            {{ auth()->user()->name }}
+                                                                        </div>
+                                                                        <div class="dropdown-box">
 
-                                                                        <ul class="log-popup-links">
-                                                                            <li>
-                                                                                <a href="{{ route('dashboard') }}">
-                                                                                    <img
-                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
-                                                                                    Account
-                                                                                </a>
-                                                                            </li>
+                                                                            <ul class="log-popup-links">
+                                                                                <li>
+                                                                                    <a href="{{ route('dashboard') }}">
+                                                                                        <img
+                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/user.png">My
+                                                                                        Account
+                                                                                    </a>
+                                                                                </li>
 
-                                                                            <li>
-                                                                                <a>
-                                                                                    <img
-                                                                                        src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
-                                                                                    <form method="POST"
-                                                                                        action="{{ route('logout') }}">
-
-
-                                                                                        @csrf
-                                                                                        <button type="submit"
-                                                                                            class="dropdown-item w-100">Logout</button>
-                                                                                    </form>
-                                                                                </a>
-                                                                            </li>
+                                                                                <li>
+                                                                                    <a>
+                                                                                        <img
+                                                                                            src="https://buyabans.com/themes/buyabans/assets/images/icon/mini-profile/turn-off.png">
+                                                                                        <form method="POST"
+                                                                                            action="{{ route('logout') }}">
 
 
+                                                                                            @csrf
+                                                                                            <button type="submit"
+                                                                                                class="dropdown-item w-100">Logout</button>
+                                                                                        </form>
+                                                                                    </a>
+                                                                                </li>
 
-                                                                        </ul>
+
+
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                         @else
-                                                        <!-- Default Profile Icon and Links for Guests -->
-                                                        <div class="sign-up d-inline-flex">
-                                                            <div>
-                                                                <a href="{{ route('login') }}" class="d-flex">
-                                                                    <div class="dt-icon-div"><img
-                                                                            src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
-                                                                    </div>
-                                                                    <div>Login</div>
-                                                                </a>
+                                                            <!-- Default Profile Icon and Links for Guests -->
+                                                            <div class="sign-up d-inline-flex">
+                                                                <div>
+                                                                    <a href="{{ route('login') }}" class="d-flex">
+                                                                        <div class="dt-icon-div"><img
+                                                                                src=" {{ asset('frontend/newstyle/assets/images/account-icon.png') }} ">
+                                                                        </div>
+                                                                        <div>Login</div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="boder-right"></div>
+
+                                                                <div>
+                                                                    <a class="sign-up-link"
+                                                                        href="{{ route('register') }}"><span>Sign
+                                                                            Up</span></a>
+                                                                </div>
                                                             </div>
 
-                                                            <div class="boder-right"></div>
-
-                                                            <div>
-                                                                <a class="sign-up-link"
-                                                                    href="{{ route('register') }}"><span>Sign
-                                                                        Up</span></a>
-                                                            </div>
                                                         </div>
-
-                                                    </div>
 
 
                                                     @endauth
@@ -494,34 +495,34 @@
                                             <div class="wrap-menu">
                                                 <div class="wrap-inner">
                                                     @foreach ($categories as $category)
-                                                    <div class="fly main-link">
-                                                        <a href="{{ url('/shop?category_id=' . $category->id) }}">
+                                                        <div class="fly main-link">
+                                                            <a href="{{ url('/shop?category_id=' . $category->id) }}">
 
-                                                            {{ $category->name }}
-                                                        </a>
-
-
-                                                        <div class="inner">
-                                                            <div class="scroll-height"></div>
-                                                            <div class="scroll-cat-set">
-                                                                <!-- Check if the category has subcategories -->
-                                                                @if ($category->subcategories->isNotEmpty())
-                                                                <ul>
-                                                                    @foreach ($category->subcategories as $subcategory)
-                                                                    <li class="fly main-link">
-                                                                        <a
-                                                                            href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
-                                                                            {{ $subcategory->name }}
-                                                                        </a>
+                                                                {{ $category->name }}
+                                                            </a>
 
 
-                                                                    </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                                @endif
+                                                            <div class="inner">
+                                                                <div class="scroll-height"></div>
+                                                                <div class="scroll-cat-set">
+                                                                    <!-- Check if the category has subcategories -->
+                                                                    @if ($category->subcategories->isNotEmpty())
+                                                                        <ul>
+                                                                            @foreach ($category->subcategories as $subcategory)
+                                                                                <li class="fly main-link">
+                                                                                    <a
+                                                                                        href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}">
+                                                                                        {{ $subcategory->name }}
+                                                                                    </a>
+
+
+                                                                                </li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -566,20 +567,13 @@
                                                             Brands </a>
 
                                                         <ul class="submenu" id="brand-submenu">
-                                                            <div class="row align-items-start">
-                                                                <div class="col-sm-6">
-                                                                    <p class="brand-topic">Top Brands</p>
-                                                                    <div id="top-brands" class="brand-logos-set row">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="px-40 col-sm-6">
-                                                                    <p class="brand-topic">All Brands</p>
-                                                                    <div id="all-brands"
-                                                                        class="row align-items-start">
-                                                                    </div>
+                                                            <div class="px-4 py-3 row align-items-start">
+                                                                <p class="brand-topic">All Brands</p>
+                                                                <div id="all-brands" class="row align-items-start">
                                                                 </div>
                                                             </div>
                                                         </ul>
+
 
 
                                                     </li>
@@ -747,41 +741,41 @@
                         <ul class=" list-unstyled">
 
                             @foreach ($categories as $category)
-                            <li class="position-relative">
+                                <li class="position-relative">
 
-                                <!-- Main Category and Toggle -->
-                                <div class="d-flex justify-content-between align-items-center ">
-                                    <a href="{{ url('/shop?category_id=' . $category->id) }}"
-                                        class="text-dark text-decoration-none fw-semibold"
-                                        style="line-height: 1.6;">
-                                        {{ $category->name }}
-                                    </a>
-
-                                    @if ($category->subcategories->isNotEmpty())
-                                    <span class="toggle-btn" onclick="toggleDropdown(this)"
-                                        style="cursor: pointer;">
-                                        <i class="fa fa-chevron-down text-muted"></i>
-                                    </span>
-                                    @endif
-                                </div>
-
-                                <!-- Subcategory List -->
-                                @if ($category->subcategories->isNotEmpty())
-                                <ul
-                                    class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
-                                    @foreach ($category->subcategories as $subcategory)
-                                    <li>
-                                        <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
-                                            class="px-4 py-2 d-block text-dark text-decoration-none"
+                                    <!-- Main Category and Toggle -->
+                                    <div class="d-flex justify-content-between align-items-center ">
+                                        <a href="{{ url('/shop?category_id=' . $category->id) }}"
+                                            class="text-dark text-decoration-none fw-semibold"
                                             style="line-height: 1.6;">
-                                            {{ $subcategory->name }}
+                                            {{ $category->name }}
                                         </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                                @endif
 
-                            </li>
+                                        @if ($category->subcategories->isNotEmpty())
+                                            <span class="toggle-btn" onclick="toggleDropdown(this)"
+                                                style="cursor: pointer;">
+                                                <i class="fa fa-chevron-down text-muted"></i>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <!-- Subcategory List -->
+                                    @if ($category->subcategories->isNotEmpty())
+                                        <ul
+                                            class="mt-1 border rounded shadow-sm dropdown subcategory-dropdown bg-light d-none">
+                                            @foreach ($category->subcategories as $subcategory)
+                                                <li>
+                                                    <a href="{{ url('/shop?subcategory_id=' . $subcategory->id) }}"
+                                                        class="px-4 py-2 d-block text-dark text-decoration-none"
+                                                        style="line-height: 1.6;">
+                                                        {{ $subcategory->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                </li>
                             @endforeach
 
                         </ul>
@@ -915,18 +909,12 @@
 
             if (!brandsMenuItem || !submenu) return;
 
-            // Show submenu on hover
             brandsMenuItem.addEventListener('mouseenter', () => {
-                // Clear any existing timeout to avoid flickering
                 if (hoverTimeout) clearTimeout(hoverTimeout);
-
                 submenu.style.display = 'block';
 
-                // Only fetch data if it hasn't been loaded or isn't currently fetching
                 if (!brandsLoaded && !brandsFetching) {
-                    brandsFetching = true; // Lock to prevent multiple requests
-
-                    console.log('Fetching brands data');
+                    brandsFetching = true;
 
                     fetch('/brands-data')
                         .then(res => {
@@ -934,48 +922,25 @@
                             return res.json();
                         })
                         .then(data => {
-                            const topContainer = document.getElementById('top-brands');
                             const allContainer = document.getElementById('all-brands');
-
-                            // Clear containers first to prevent duplicate content
-                            topContainer.innerHTML = '';
                             allContainer.innerHTML = '';
-
-                            const allList = [
-                                [],
-                                [],
-                                [],
-                                []
-                            ];
-                            let col = 0;
 
                             data.forEach(brand => {
                                 const imageUrl = brand.image ? brand.image :
-                                    'default-image.png';
+                                'default-image.png';
 
-                                const brandLink = `<a title="${brand.name}" href="/brand/${brand.slug}">
-                            <img src="/storage/${imageUrl}" alt="${brand.name}" style="height: 50px;">
-                        </a>`;
+                                const brandHTML = `
+                                <div class="mb-3 text-center brand-img col-sm-3">
+                                    <a title="${brand.name}" href="/brand/${brand.slug}">
+                                        <img src="/storage/${imageUrl}" alt="${brand.name}" style="height: 50px;">
+                                    </a>
+                                </div>
+                            `;
 
-                                if (brand.is_top_brand) {
-                                    topContainer.insertAdjacentHTML('beforeend',
-                                        `<div class="brand-img col-sm-3">${brandLink}</div>`
-                                    );
-                                }
-
-                                allList[col].push(
-                                    `<li><a href="/brand/${brand.slug}">${brand.name}</a></li>`
-                                );
-                                col = (col + 1) % 4;
-                            });
-
-                            allList.forEach(column => {
-                                allContainer.insertAdjacentHTML('beforeend',
-                                    `<ul class="col-sm-3">${column.join('')}</ul>`);
+                                allContainer.insertAdjacentHTML('beforeend', brandHTML);
                             });
 
                             brandsLoaded = true;
-                            console.log('Brands loaded successfully');
                         })
                         .catch(err => {
                             console.error('Brand fetch failed:', err);
@@ -986,91 +951,182 @@
                 }
             });
 
-            // Add event listeners to both menu item and submenu to prevent flickering
             submenu.addEventListener('mouseenter', () => {
                 if (hoverTimeout) clearTimeout(hoverTimeout);
                 submenu.style.display = 'block';
             });
 
-            // Hide submenu on mouse leave with slight delay to prevent flickering
             const handleMouseLeave = () => {
                 hoverTimeout = setTimeout(() => {
                     submenu.style.display = 'none';
-                }, 200); // Small delay to prevent flickering when moving between menu and submenu
+                }, 200);
             };
 
             brandsMenuItem.addEventListener('mouseleave', handleMouseLeave);
             submenu.addEventListener('mouseleave', handleMouseLeave);
         });
     </script>
+    >
 
-
+//search script
 
     <script>
-        document.querySelectorAll('.main-search').forEach(input => {
-            input.addEventListener('keyup', function() {
-                console.log('Search input:', this.value);
-                let query = this.value.trim();
-                const parent = this.closest('.search-con');
-                let box = this.closest('.search-con')?.querySelector('.suggestions-box');
+    // Hide suggestion box on page load or when returning from back
+    window.addEventListener('pageshow', function () {
+        const suggestionBox = document.getElementById('web-suggestions-box-display');
+        const searchInput = document.querySelector('.main-search');
+        if (suggestionBox) suggestionBox.style.display = 'none';
+        if (searchInput) searchInput.value = '';
+    });
 
-                if (!box) {
-                    box = this.nextElementSibling?.classList.contains('suggestions-box') ?
-                        this.nextElementSibling :
-                        document.querySelector('#mobile-suggestions-box-display');
-                }
-                if (!box) {
-                    console.error('Suggestions box not found in parent element.');
-                    return;
-                } else {
-                    console.log('Suggestions box found:', box);
-                }
-                if (query.length < 2) {
-                    box.style.display = 'none';
-                    return;
-                }
+    // Handle keyup on search input for live suggestions
+    document.querySelectorAll('.main-search').forEach(input => {
+        input.addEventListener('keyup', function () {
+            const query = this.value.trim();
+            const box = document.getElementById('web-suggestions-box-display');
 
-                fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        const productCon = box.querySelector('.left-suggestion-main-con');
-                        const categoryCon = box.querySelector('.category-list');
-                        const noResults = box.querySelector('.left-suggestion-no-products');
+            if (query.length < 2) {
+                box.style.display = 'none';
+                return;
+            }
 
-                        productCon.innerHTML = '';
-                        categoryCon.innerHTML = '';
+            fetch(`/search-suggestions?q=${encodeURIComponent(query)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const productCon = box.querySelector('.left-suggestion-main-con');
+                    const categoryCon = box.querySelector('.category-list');
+                    const noResults = box.querySelector('.left-suggestion-no-products');
 
-                        if (data.products.length === 0 && data.categories.length === 0) {
-                            noResults.hidden = false;
-                            box.style.display = 'block';
-                            return;
-                        }
+                    productCon.innerHTML = '';
+                    categoryCon.innerHTML = '';
 
-                        noResults.hidden = true;
+                    if (data.products.length === 0 && data.categories.length === 0) {
+                        noResults.hidden = false;
+                        box.style.display = 'block';
+                        return;
+                    }
 
-                        data.products.forEach(product => {
-                            const productHTML = `
-                        <a class="search-product-element" href="${product.url}">
-                            <div class="suggestion-box">
-                                <div class="suggestion-product-img"><img class="img-fluid" alt="" src="${product.image ?? ''}"></div>
-                                <div class="suggestion-box-details">
-                                    <div class="product-line product-name">${product.name}</div>
+                    noResults.hidden = true;
+
+                    data.products.forEach(product => {
+                        productCon.innerHTML += `
+                            <a class="search-product-element" href="${product.url}">
+                                <div class="suggestion-box">
+                                    <div class="suggestion-product-img">
+                                        <img class="img-fluid" alt="" src="${product.image ?? ''}">
+                                    </div>
+                                    <div class="suggestion-box-details">
+                                        <div class="product-line product-name">${product.name}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>`;
-                            productCon.innerHTML += productHTML;
-                        });
+                            </a>`;
+                    });
 
                         data.categories.forEach(category => {
                             categoryCon.innerHTML += `<li><a class="search-category-name" href="${category.url}">${category.name}</a></li>`;
                         });
 
-                        box.style.display = 'block';
-                    })
-                    .catch(err => console.error('Search error:', err));
-            });
+                    box.style.display = 'block';
+                })
+                .catch(err => {
+                    console.error('Search error:', err);
+                });
         });
-    </script>
+    });
+
+    // Handle click on the search button (manual search)
+    document.querySelector('.submit-search').addEventListener('click', function () {
+        const input = document.querySelector('.main-search');
+        const query = input.value.trim();
+
+         if (query.length < 1) {
+            box.style.display = 'none';
+            return;
+        }
+
+        // Redirect to search results page
+        window.location.href = `/search?query=${encodeURIComponent(query)}`;
+
+        // Clear input and hide box
+        input.value = '';
+        const suggestionBox = document.getElementById('web-suggestions-box-display');
+        if (suggestionBox) suggestionBox.style.display = 'none';
+    });
+
+    // Hide box and clear search when a suggestion is clicked
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.search-product-element') || e.target.closest('.search-category-name')) {
+            document.querySelector('.main-search').value = '';
+            document.getElementById('web-suggestions-box-display').style.display = 'none';
+        }
+    });
+
+
+    // search button
+    document.querySelector('.submit-search').addEventListener('click', function () {
+        const input = document.getElementById('search-input'); // ✅ Use ID
+
+        if (!input) {
+            alert("Search input not found.");
+            return;
+        }
+
+        const query = input.value.trim();
+        console.log("Search input value:", query); // ✅ Debug log
+
+        if (query.length < 1) {
+            alert("Please enter a product name.");
+            return;
+        }
+
+        fetch(`/search-find?name=${encodeURIComponent(query)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    alert("Product not found.");
+                }
+            })
+            .catch(error => {
+                console.error("Search failed:", error);
+                alert("Something went wrong.");
+            });
+
+        // Optional: clear search input and hide suggestions
+        input.value = '';
+        const box = document.getElementById('web-suggestions-box-display');
+        if (box) box.style.display = 'none';
+    });
+
+    function updateSearchSuggestions(data) {
+    const productsCon = document.querySelector('.left-suggestion-main-con');
+    const categoriesCon = document.querySelector('.category-list');
+    const noResultsCon = document.querySelector('.left-suggestion-no-products');
+    const suggestionsBox = document.querySelector('#web-suggestions-box-display');
+
+    productsCon.innerHTML = '';
+    categoriesCon.innerHTML = '';
+
+    if ((data.products && data.products.length) || (data.categories && data.categories.length)) {
+        suggestionsBox.style.display = 'block';
+        noResultsCon.hidden = true;
+
+        // inject product cards and category links here...
+
+    } else {
+        suggestionsBox.style.display = 'block';
+        noResultsCon.hidden = false;
+    }
+}
+</script>
+
+
+
+
+
+
+
 
 
 

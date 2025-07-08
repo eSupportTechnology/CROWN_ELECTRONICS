@@ -36,7 +36,7 @@
                     <h3 class="text-lg fw-semibold mb-24">Billing Details</h3>
                     <div class="row gy-3">
                         <div class="col-sm-6 col-xs-6">
-                            <input type="text" name="first_name" class="common-input border-gray-100" placeholder="First Name" required>
+                            <input type="text" name="first_name" class="common-input border-gray-100" placeholder="First Name *)" required>
                         </div>
                         <div class="col-sm-6 col-xs-6">
                             <input type="text" name="last_name" class="common-input border-gray-100" placeholder="Last Name" required>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="mb-0 flex-between gap-8">
                                 <span class="text-gray-900 font-heading-two text-xl fw-bold">Total</span>
-                                <span class="text-gray-900 font-heading-two text-xl fw-bold">Rs 
+                                <span class="text-gray-900 font-heading-two text-xl fw-bold">Rs
 
                                     @if($product->currency && $product->currency->code != 'LKR')
                                     {{ number_format($subtotal* $product->currency->exchange_rate +300 , 2) }}</span>

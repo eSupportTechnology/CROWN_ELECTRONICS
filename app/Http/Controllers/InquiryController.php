@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Inquiry;
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\InquiryReplyMail;

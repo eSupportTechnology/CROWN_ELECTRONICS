@@ -71,6 +71,44 @@
         white-space: nowrap;
         font-weight: bold;
     }
+     @media (max-width: 576px) {
+        .dashboard-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .profile-info {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .orders-row {
+            justify-content: center;
+        }
+
+        .orders-box {
+            width: 80px;
+        }
+    }
+     @media (max-width: 576px) {
+        .dashboard-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .profile-info {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .orders-row {
+            justify-content: center;
+        }
+
+        .orders-box {
+            width: 80px;
+        }
+    }
 </style>
 
 <!-- Dashboard Header -->
@@ -98,6 +136,10 @@
         <div class="orders-box">
             <img src="https://icons.veryicon.com/png/128/miscellaneous/bigmk_app_icon/in-transit.png" alt="Shipped">
             <p>Shipped</p>
+        </div>
+        <div class="orders-box">
+            <img src="https://icons.veryicon.com/png/128/miscellaneous/document-format/reviewed-5.png" alt="To be reviewed">
+            <p>To be revieweds</p>
         </div>
         <a href="{{ route('My-Reviews') }}" class="orders-box text-decoration-none text-dark">
             @php

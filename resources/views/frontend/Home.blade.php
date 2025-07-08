@@ -55,15 +55,16 @@
         .carousel-item {
             height: 45vh;
             /* Adjust height for tablets */
-            margin-top: 125px;
+            margin-top: 100px;
         }
-        
+
 
     }
 
     @media(max-width:1200px) {
         .carousel-item {
             background-size: contain;
+
         }
 
         .site-common-con {
@@ -136,6 +137,14 @@
     }
 
 
+.product-image {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
     .product-image {
         width: 100%;
 
@@ -184,7 +193,7 @@
                 <p class="home-page-product-title">Online Exclusive</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/online-exclusive">VIEW ALL</a>
             </div>
         </div>
 
@@ -303,7 +312,7 @@
                 <p class="home-page-product-title">Top Selling</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/topseling">VIEW ALL</a>
             </div>
         </div>
 
@@ -364,7 +373,7 @@
                 <p class="home-page-product-title">Below Rs.10,000</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/below">VIEW ALL</a>
             </div>
         </div>
 
@@ -418,8 +427,8 @@
         </div>
     </div>
 
-    <div class="site-common-con mb-5">
-        <div class="m-0 row pt-0 mt-2">
+    <div class="mb-5 site-common-con">
+        <div class="pt-0 m-0 mt-2 row">
             <!-- First Banner Image (Left Side) -->
             @if(isset($banners[0]))
             <div class="col-12 col-sm-6 custom-4-banner">
@@ -436,11 +445,11 @@
         </div>
 
         <!-- Single Banner Image (Full Width) -->
-        <div class="m-0 row pt-0 mt-5">
+        <div class="pt-0 m-0 mt-5 row">
             @if(isset($banners[3]))
             <a href="{{ $banners[3]->url ?? '#' }}">
-                <div class="col-12 col-sm-12 single-banner-m p-0 m-0">
-                    <img src="{{ asset('storage/' . $banners[3]->image) }}" class="img-fluid mt-0 pt-0" alt="Single Banner">
+                <div class="p-0 m-0 col-12 col-sm-12 single-banner-m">
+                    <img src="{{ asset('storage/' . $banners[3]->image) }}" class="pt-0 mt-0 img-fluid" alt="Single Banner">
                 </div>
             </a>
             @endif

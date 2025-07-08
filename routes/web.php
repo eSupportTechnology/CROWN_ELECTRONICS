@@ -134,6 +134,7 @@ Route::get('/newsletter-subscription', function () {
 })->name('Subscribe_Newsletter');
 
 
+
 use App\Http\Controllers\Navbar;
 use App\Http\Controllers\SearchController;
 
@@ -178,6 +179,11 @@ Route::get('/shop/category/{category}', [ShopPageController::class, 'filterByCat
 
 Route::get('/product-details/{product_id}', [ShopPageController::class, 'showProductDetails'])->name('showProductDetails');
 
+// show category
+Route::get('/shop/online-exclusive', [HomeTemplateController::class, 'OnlineExclusive'])->name('shop.onlineExclusive');
+Route::get('/shop/topseling', [HomeTemplateController::class, 'TopSelling'])->name('shop.topseling');
+Route::get('/shop/below', [HomeTemplateController::class, 'BelowProduct'])->name('shop.belowProduct');
+
 Route::get('/cart/count', [CartController::class, 'getCartCount'])->name('cart.count');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
@@ -208,6 +214,8 @@ Route::get('/brands-data', [BrandController::class, 'getBrands']);
 Route::get('/brand/{slug}', [BrandController::class, 'showBrandProducts'])->name('brand.products');
 
 Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
+Route::get('/search-find', [SearchController::class, 'findProduct']);
+
 
 //admin dashboard
 use App\Http\Controllers\Auth\AdminLoginController;
