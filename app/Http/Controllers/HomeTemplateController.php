@@ -62,4 +62,29 @@ class HomeTemplateController extends Controller
         return view('frontend.Home', compact('categories', 'products', 'topSellingProducts', 'Onlineexclusive', 'belowrs', 'banners', 'sliders'));
     }
 
+    public function OnlineExclusive(){
+        $products = Product::where('tags', 'like', '%Online Exclusive%')
+        ->paginate(12); // Paginate instead of all()
+
+    return view('frontend.shop', compact('products'));
+
+    }
+
+    public function TopSelling(){
+         $products = Product::where('tags', 'like', '%Top Selling%')
+        ->paginate(12); // Paginate instead of all()
+
+    return view('frontend.shop', compact('products'));
+
+    }
+
+    public function BelowProduct(){
+
+        $products = Product::where('tags', 'like', '%Below%')
+        ->paginate(12); // Paginate instead of all()
+
+    return view('frontend.shop', compact('products'));
+
+    }
+
 }

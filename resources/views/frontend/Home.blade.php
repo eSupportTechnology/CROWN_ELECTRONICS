@@ -193,7 +193,7 @@
                 <p class="home-page-product-title">Online Exclusive</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/online-exclusive">VIEW ALL</a>
             </div>
         </div>
 
@@ -312,7 +312,7 @@
                 <p class="home-page-product-title">Top Selling</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/topseling">VIEW ALL</a>
             </div>
         </div>
 
@@ -373,7 +373,7 @@
                 <p class="home-page-product-title">Below Rs.10,000</p>
             </div>
             <div class="view-all-txt">
-                <a class="view-all-link" href="/shop">VIEW ALL</a>
+                <a class="view-all-link" href="/shop/below">VIEW ALL</a>
             </div>
         </div>
 
