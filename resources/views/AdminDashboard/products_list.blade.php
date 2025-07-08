@@ -7,15 +7,15 @@
         <h2 class="content-title card-title">Products List</h2>
     </div>
     <div>
-        <a href="#" class="btn btn-light rounded font-md">Export</a>
-        <a href="{{ route('add_products') }}" class="btn btn-primary btn-sm rounded">Create new</a>
+        <a href="#" class="rounded btn btn-light font-md">Export</a>
+        <a href="{{ route('add_products') }}" class="rounded btn btn-primary btn-sm">Create new</a>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
-            <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
+            <div class="mb-3 col-md-3 col-12 me-auto mb-md-0">
             <select class="form-select" id="categoryFilter">
                 <option value="all" selected>All categories</option>
                 @foreach($categories as $category)
@@ -66,7 +66,7 @@
                                     <td>{{ $product->quantity }}</td>
                                     <td>{{$product->currency->symbol ?? 'Rs'}}. {{ $product->normal_price }}</td>
                                     <td class="text-end">
-                                        <div>
+                                        <div class="gap-2 d-flex align-items-center">
                                             <a href="{{ route('products.view', $product->id) }}" class="btn btn-view btn-sm me-2">
                                                 <i class="fas fa-eye"></i>
                                             </a>
@@ -76,7 +76,7 @@
                                             <form id="deleteForm{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('deleteForm{{ $product->id }}', 'Are you sure you want to delete this product?')">
+                                                <button type="button" class="btn btn-danger btn-sm " onclick="confirmDelete('deleteForm{{ $product->id }}', 'Are you sure you want to delete this product?')">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>

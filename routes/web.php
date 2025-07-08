@@ -179,6 +179,11 @@ Route::get('/shop/category/{category}', [ShopPageController::class, 'filterByCat
 
 Route::get('/product-details/{product_id}', [ShopPageController::class, 'showProductDetails'])->name('showProductDetails');
 
+// show category
+Route::get('/shop/online-exclusive', [HomeTemplateController::class, 'OnlineExclusive'])->name('shop.onlineExclusive');
+Route::get('/shop/topseling', [HomeTemplateController::class, 'TopSelling'])->name('shop.topseling');
+Route::get('/shop/below', [HomeTemplateController::class, 'BelowProduct'])->name('shop.belowProduct');
+
 Route::get('/cart/count', [CartController::class, 'getCartCount'])->name('cart.count');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
