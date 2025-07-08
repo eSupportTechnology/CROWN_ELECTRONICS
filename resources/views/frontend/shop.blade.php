@@ -49,7 +49,7 @@
     <!-- ========================= Breadcrumb End =============================== -->
 
     <!-- =============================== Shop Section Start ======================================== -->
-    <section class="shop py-80">
+    <section class="shop py-80 ">
         <div class="container container-lg">
             <div class="row">
 
