@@ -73,7 +73,7 @@ class ProductController extends Controller
         $categories = Category::with('subcategories.subSubcategories')->get();
         $brands = Brand::all();
         $currencies = Currency::all();
-        return view('AdminDashboard.add_products', compact('categories', 'brands','currencies'));
+        return view('AdminDashboard.add_products', compact('categories', 'brands', 'currencies'));
     }
 
     public function getSubcategories($categoryId)
@@ -118,6 +118,19 @@ class ProductController extends Controller
             'variations.*.value' => 'nullable|string',
             'variations.*.hex_value' => 'nullable|string',
             'variations.*.quantity' => 'nullable|integer',
+        ], [
+            'product_name.required' => 'Please enter the product name.',
+            'quantity.required' => 'Quantity is required.',
+            'normal_price.required' => 'Normal price is required.',
+            'regular_price.required' => 'Regular price is required.',
+            'category_id.required' => 'category is required',
+            'brand_id.required' => 'Brand is required',
+            'product_description.required'=> 'Description is required',
+            'images.required' => 'Image is required',
+
+
+
+
         ]);
 
         // Use the commission percentage provided by the user

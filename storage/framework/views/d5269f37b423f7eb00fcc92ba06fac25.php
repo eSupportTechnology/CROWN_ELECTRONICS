@@ -21,14 +21,44 @@
                             <label for="product_name" class="form-label">Product title <i class="text-danger">*</i></label>
                             <input type="text" name="product_name" placeholder="Type here" class="form-control"
                                 id="product_name" />
+                            <?php $__errorArgs = ['product_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Product description<i class="text-danger">*</i></label>
                             <textarea name="product_description" placeholder="Type here" class="form-control" rows="4"></textarea>
+                             <?php $__errorArgs = ['product_description'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Total Quantity <i class="text-danger">*</i></label>
                             <input name="quantity" id="quantity" type="number" class="form-control" />
+                             <?php $__errorArgs = ['quantity'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="mb-4">
@@ -41,6 +71,16 @@
                                     </option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
+                             <?php $__errorArgs = ['currency_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 
                         </div>
 
@@ -52,13 +92,35 @@
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Regular price <i class="text-danger">*</i></label>
-                                    <input name="regular_price" id="regular_price" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                    <input name="regular_price" id="regular_price"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
                                         class="form-control" />
+                                         <?php $__errorArgs = ['regular_price'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Normal price <i class="text-danger">*</i></label>
-                                    <input name="normal_price" id="normal_price" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                    <input name="normal_price" id="normal_price"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
                                         class="form-control" />
+                                         <?php $__errorArgs = ['normal_price'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -80,7 +142,8 @@
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Commission price</label>
-                                    <input name="com_price" id="com_price" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                    <input name="com_price" id="com_price"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
                                         class="form-control" readonly />
                                 </div>
                             </div>
@@ -160,6 +223,16 @@
                                         <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
+                                 <?php $__errorArgs = ['category_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label class="form-label">Subcategory</label>
@@ -175,12 +248,22 @@
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label class="form-label">Brand<i class="text-danger">*</i> </label>
-                                <select name="brand_id" class="form-select" id="brandSelect" >
+                                <select name="brand_id" class="form-select" id="brandSelect">
                                     <option value="">Select a brand</option>
                                     <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($brand->id); ?>"><?php echo e($brand->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
+                                 <?php $__errorArgs = ['brand_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="error"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="mb-4">
                                 <label for="product_tags" class="form-label">Tags</label>
@@ -197,7 +280,7 @@
     </form>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const currencySelect = document.getElementById('currencySelect');
             const placeholderFields = [
                 document.getElementById('regular_price'),

@@ -23,14 +23,23 @@
                             <label for="product_name" class="form-label">Product title <i class="text-danger">*</i></label>
                             <input type="text" name="product_name" placeholder="Type here" class="form-control"
                                 id="product_name" />
+                            @error('product_name')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Product description<i class="text-danger">*</i></label>
                             <textarea name="product_description" placeholder="Type here" class="form-control" rows="4"></textarea>
+                             @error('product_description')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Total Quantity <i class="text-danger">*</i></label>
                             <input name="quantity" id="quantity" type="number" class="form-control" />
+                             @error('quantity')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="mb-4">
@@ -42,6 +51,9 @@
                                     </option>
                                 @endforeach
                             </select>
+                             @error('currency_id')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
 
                         </div>
 
@@ -53,13 +65,21 @@
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Regular price <i class="text-danger">*</i></label>
-                                    <input name="regular_price" id="regular_price" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                    <input name="regular_price" id="regular_price"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
                                         class="form-control" />
+                                         @error('regular_price')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Normal price <i class="text-danger">*</i></label>
-                                    <input name="normal_price" id="normal_price" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                    <input name="normal_price" id="normal_price"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
                                         class="form-control" />
+                                         @error('normal_price')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -81,7 +101,8 @@
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Commission price</label>
-                                    <input name="com_price" id="com_price" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                    <input name="com_price" id="com_price"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
                                         class="form-control" readonly />
                                 </div>
                             </div>
@@ -161,6 +182,9 @@
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
+                                 @error('category_id')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label class="form-label">Subcategory</label>
@@ -176,12 +200,15 @@
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label class="form-label">Brand<i class="text-danger">*</i> </label>
-                                <select name="brand_id" class="form-select" id="brandSelect" >
+                                <select name="brand_id" class="form-select" id="brandSelect">
                                     <option value="">Select a brand</option>
                                     @foreach ($brands as $brand)
                                         <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                     @endforeach
                                 </select>
+                                 @error('brand_id')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="product_tags" class="form-label">Tags</label>
@@ -198,7 +225,7 @@
     </form>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const currencySelect = document.getElementById('currencySelect');
             const placeholderFields = [
                 document.getElementById('regular_price'),
