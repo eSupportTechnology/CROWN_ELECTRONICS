@@ -26,25 +26,26 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Product description<i class="text-danger">*</i></label>
+                            <label class="form-label">Product description<i class="text-danger">*</i> </label>
                             <textarea name="product_description" placeholder="Type here" class="form-control" rows="4"></textarea>
                              <?php $__errorArgs = ['product_description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Total Quantity <i class="text-danger">*</i></label>
@@ -54,7 +55,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -76,7 +77,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -100,7 +101,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -116,7 +117,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -228,7 +229,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -259,7 +260,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="error"><?php echo e($message); ?></div>
+                                <div class="error text-danger" ><?php echo e($message); ?></div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;

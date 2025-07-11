@@ -127,6 +127,7 @@ class ProductController extends Controller
             'brand_id.required' => 'Brand is required',
             'product_description.required'=> 'Description is required',
             'images.required' => 'Image is required',
+            'currency_id.required' => 'currency is required',
 
 
 
