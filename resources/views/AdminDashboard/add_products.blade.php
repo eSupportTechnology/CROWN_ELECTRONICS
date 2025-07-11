@@ -175,7 +175,7 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label">Brand </label>
+                                <label class="form-label">Brand<i class="text-danger">*</i> </label>
                                 <select name="brand_id" class="form-select" id="brandSelect" >
                                     <option value="">Select a brand</option>
                                     @foreach ($brands as $brand)
