@@ -24,21 +24,21 @@
                             <input type="text" name="product_name" placeholder="Type here" class="form-control"
                                 id="product_name" />
                             @error('product_name')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Product description<i class="text-danger">*</i></label>
                             <textarea name="product_description" placeholder="Type here" class="form-control" rows="4"></textarea>
                              @error('product_description')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Total Quantity <i class="text-danger">*</i></label>
                             <input name="quantity" id="quantity" type="number" class="form-control" />
                              @error('quantity')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -52,7 +52,7 @@
                                 @endforeach
                             </select>
                              @error('currency_id')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
 
                         </div>
@@ -69,7 +69,7 @@
                                         placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
                                         class="form-control" />
                                          @error('regular_price')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                                 </div>
                                 <div class="mb-4">
@@ -78,7 +78,7 @@
                                         placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
                                         class="form-control" />
                                          @error('normal_price')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
                                     @endforeach
                                 </select>
                                  @error('category_id')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                             </div>
                             <div class="mb-3 col-sm-6">
@@ -207,7 +207,7 @@
                                     @endforeach
                                 </select>
                                  @error('brand_id')
-                                <div class="error">{{ $message }}</div>
+                                <div class="error" class="text-danger">{{ $message }}</div>
                             @enderror
                             </div>
                             <div class="mb-4">
