@@ -326,7 +326,7 @@
                         <p class="footer-title">About</p>
                         <ul>
                             <li><a class="footer-link" href="/about">About Us</a></li>
-                            <li><a class="footer-link" href="#">Careers</a></li>
+                            
                             <li><a class="footer-link" href="/contact">Contact Us</a></li>
 
                         </ul>
@@ -367,7 +367,7 @@
                     <div class="footer-links-set">
                         <p class="footer-title">Quick Links</p>
                         <ul>
-                            <li><a class="footer-link" href="#">Brands</a></li>
+                            
                             <li><a class="footer-link" href="/warranty">Warranty Information</a></li>
                             <li><a class="footer-link" href="/return-product">Return Products</a></li>
 
