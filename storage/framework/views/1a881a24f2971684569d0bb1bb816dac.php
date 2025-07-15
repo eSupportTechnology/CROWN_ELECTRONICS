@@ -1,6 +1,4 @@
-@extends ('AdminDashboard.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="content-header">
     <div>
@@ -12,11 +10,11 @@
     <header class="card-header">
         <div class="row align-items-center">
             <div class="col-md-2 col-6">
-                <form method="GET" action="{{ route('admin.customer.inquiries') }}">
-                    <input type="date" name="start_date" value="{{ request('start_date') }}" class="form-control" />
+                <form method="GET" action="<?php echo e(route('admin.customer.inquiries')); ?>">
+                    <input type="date" name="start_date" value="<?php echo e(request('start_date')); ?>" class="form-control" />
             </div>
             <div class="col-md-2 col-6">
-                <input type="date" name="end_date" value="{{ request('end_date') }}" class="form-control" />
+                <input type="date" name="end_date" value="<?php echo e(request('end_date')); ?>" class="form-control" />
             </div>
             <div class="col-md-2">
                 <button type="submit" class="btn btn-primary">Filter</button>
@@ -40,22 +38,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($inquiries as $inquiry)
+                            <?php $__currentLoopData = $inquiries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $inquiry): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $inquiry->full_name }}</td>
-                                <td>{{ $inquiry->created_at->format('d.m.Y') }}</td>
-                                <td>{{ $inquiry->subject }}</td>
+                                <td><?php echo e($loop->iteration); ?></td>
+                                <td><?php echo e($inquiry->full_name); ?></td>
+                                <td><?php echo e($inquiry->created_at->format('d.m.Y')); ?></td>
+                                <td><?php echo e($inquiry->subject); ?></td>
                                 <td>
-                                    <span class="badge bg-warning">{{ $inquiry->status }}</span>
+                                    <span class="badge bg-warning"><?php echo e($inquiry->status); ?></span>
                                 </td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-view btn-sm me-2" onclick="showInquiryModal('{{ $inquiry->customer_name }}', '{{ $inquiry->id }}', '{{ $inquiry->subject }}', '{{ $inquiry->message }}', '{{ $inquiry->reply ?? '' }}')">
+                                    <a href="#" class="btn btn-view btn-sm me-2" onclick="showInquiryModal('<?php echo e($inquiry->customer_name); ?>', '<?php echo e($inquiry->id); ?>', '<?php echo e($inquiry->subject); ?>', '<?php echo e($inquiry->message); ?>', '<?php echo e($inquiry->reply ?? ''); ?>')">
                                         <i class="fas fa-file"></i>
                                     </a>
                                 </td>
                             </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -84,8 +82,8 @@
                     <strong class="fw-bold">Message:</strong>
                     <p id="inquiryMessage"></p>
                 </div>
-                <form id="replyForm" action="{{ route('admin.inquiries.reply', ['id' => ':inquiryId']) }}" method="POST">
-                    @csrf
+                <form id="replyForm" action="<?php echo e(route('admin.inquiries.reply', ['id' => ':inquiryId'])); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
                     <div class="mb-3">
                         <label for="replyMessage" class="form-label fw-bold">Reply</label>
                         <textarea class="form-control" id="replyMessage" name="replyMessage" rows="4" placeholder="Type your reply..."></textarea>
@@ -116,4 +114,6 @@
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/AdminDashboard/inquiries.blade.php ENDPATH**/ ?>
