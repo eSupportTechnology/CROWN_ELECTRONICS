@@ -1,15 +1,16 @@
 <?php $__env->startSection('content'); ?>
 
+
 <div class="content-header">
     <div>
         <h2 class="content-title card-title">Customers</h2>
     </div>
     <div>
-        <a href="#" class="btn btn-light rounded font-md">Export</a>
+        <a href="<?php echo e(route('customers.export')); ?>" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
             <!-- Removed the date filter form -->
@@ -60,9 +61,9 @@
 <!-- card end// -->
 
 <!-- Pagination Area -->
-<div class="pagination-area mt-30 mb-50">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-start">
+<div class="pagination-area mt-30 mb-50 " >
+    <nav aria-label="Page navigation example" >
+        <ul class="pagination justify-content-start" >
             <?php echo e($customers->links()); ?>
 
         </ul>
