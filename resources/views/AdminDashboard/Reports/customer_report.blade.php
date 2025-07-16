@@ -1,114 +1,40 @@
-@extends('AdminDashboard.master')
-
-@section('content')
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+<head>
+    <title>Customer Report</title>
+    <style>
+        body { font-family: sans-serif; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+        h2 { margin-bottom: 5px; }
+    </style>
+</head>
 <body>
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
+    <h2>Customer Report</h2>
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul class="mb-0">
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Registered Date</th>
+                <th>Total Orders</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($customers as $index => $customer)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $customer->name }}</td>
+                    <td>{{ $customer->email }}</td>
+                    <td>{{ $customer->phone }}</td>
+                    <td>{{ $customer->created_at->format('Y-m-d') }}</td>
+                    <td>{{ $customer->customer_orders_count ?? 0 }}</td>
+                </tr>
             @endforeach
-        </ul>
-    </div>
-    @endif
-
-    <section class="content-main">
-        <div class="content-header">
-            <h2 class="content-title">Report - Customers</h2>
-        </div>
-
-        <!-- Room Form -->
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <!-- Room Table -->
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table id="tableData" class="table table-hover display">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Name</th>
-                                        <th>DOB</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
-                                        <th>Address</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($customers as $index=> $customer)
-                                    <tr>
-                                        <td>{{ $index+1 }}</td>
-                                        <td>{{ $customer->name }} </td>
-                                        <td>{{ $customer->dob }} </td>
-                                        <td>{{ $customer->email }}</td>
-                                        <td>{{ $customer->phone }}</td>
-                                        <td>{{ $customer->address }}</td>
-
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- JavaScript to handle delete confirmation -->
-    <script>
-        $(document).ready(function() {
-            var table = $('#tableData').DataTable({
-                dom: 'Bfrtip', // Layout for DataTables with Buttons
-                buttons: [{
-                        extend: 'copyHtml5',
-                        footer: true
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        footer: true
-                    },
-                    {
-                        extend: 'csvHtml5',
-                        footer: true
-                    },
-                    {
-                        extend: 'pdfHtml5',
-                        footer: true,
-                        title: 'Customer Report',
-                        customize: function(doc) {
-                            // Set a margin for the footer
-                            doc.content[1].margin = [0, 0, 0, 20];
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        footer: true,
-                        title: 'Customer Report',
-                    }
-                ],
-
-            });
-
-
-        });
-    </script>
-
-
-
+        </tbody>
+    </table>
 </body>
-
 </html>
-@endsection

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Models\CustomerOrderItems;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -125,7 +126,7 @@ class ProductController extends Controller
             'regular_price.required' => 'Regular price is required.',
             'category_id.required' => 'category is required',
             'brand_id.required' => 'Brand is required',
-            'product_description.required'=> 'Description is required',
+            'product_description.required' => 'Description is required',
             'images.required' => 'Image is required',
             'currency_id.required' => 'currency is required',
 
@@ -243,6 +244,18 @@ class ProductController extends Controller
             'variations.*.value' => 'nullable|string',
             'variations.*.hex_value' => 'nullable|string',
             'variations.*.quantity' => 'nullable|integer',
+
+        ], [
+            'product_name.required' => 'Please enter the product name.',
+            'quantity.required' => 'Quantity is required.',
+            'normal_price.required' => 'Normal price is required.',
+            'regular_price.required' => 'Regular price is required.',
+            'category_id.required' => 'category is required',
+            'brand_id.required' => 'Brand is required',
+            'product_description.required' => 'Description is required',
+            'images.required' => 'Image is required',
+            'currency_id.required' => 'currency is required',
+
         ]);
 
         $product = Product::findOrFail($id);
@@ -282,9 +295,16 @@ class ProductController extends Controller
         }
 
         // Handle deleted images
-        if ($request->has('deleted_images')) {
-            ProductImage::whereIn('id', $validatedData['deleted_images'])->delete();
+        if (!empty($validatedData['deleted_images'])) {
+        $imagesToDelete = ProductImage::whereIn('id', $validatedData['deleted_images'])->get();
+
+        foreach ($imagesToDelete as $image) {
+            if (Storage::disk('public')->exists($image->image_path)) {
+                Storage::disk('public')->delete($image->image_path);
+            }
+            $image->delete();
         }
+    }
 
         // Handle product variations
         $variationIds = collect($request->input('variations'))->pluck('id')->filter();
