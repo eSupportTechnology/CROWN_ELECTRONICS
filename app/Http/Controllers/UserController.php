@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SystemUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -91,7 +92,7 @@ class UserController extends Controller
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('user_images', $fileName, 'public');
-            $user->image = $fileName; // Update image path
+            $user->image = $fileName; 
         }
 
         $user->name = $request->name;
@@ -117,11 +118,9 @@ class UserController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
-        // Login successful
         return redirect()->intended('frontend.Home');
     }
 
-    // Login failed
     return back()->withErrors([
         'email' => 'The provided credentials do not match our records.',
     ])->withInput($request->except('password'));

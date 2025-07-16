@@ -297,7 +297,7 @@
 
                     <div class="hotline">
                         <p>HOTLINE</p>
-                        <a class="tel-no" href="#">+94 112 251 202 </a>
+                        <a class="tel-no" href="tel:+94112251202">+94 112 251 202 </a>
                     </div>
                     <div class="social-media">
                     <ul>
@@ -326,7 +326,7 @@
                         <p class="footer-title">About</p>
                         <ul>
                             <li><a class="footer-link" href="/about">About Us</a></li>
-                            <li><a class="footer-link" href="#">Careers</a></li>
+                            
                             <li><a class="footer-link" href="/contact">Contact Us</a></li>
 
                         </ul>
@@ -343,7 +343,7 @@
                         <ul>
                             <li><a class="footer-link" href="/faq">F&Q</a></li>
                             <li><a class="footer-link" href="/buy">How To Buy</a></li>
-                            <li><a class="footer-link" href="#">Shipping &amp; Delivery</a></li>
+                            <li><a class="footer-link" href="/shipping-delivery">Shipping &amp; Delivery</a></li>
 
                         </ul>
                     </div>
@@ -367,9 +367,9 @@
                     <div class="footer-links-set">
                         <p class="footer-title">Quick Links</p>
                         <ul>
-                            <li><a class="footer-link" href="#">Brands</a></li>
-                            <li><a class="footer-link" href="#">Warranty Information</a></li>
-                            <li><a class="footer-link" href="#">Return Products</a></li>
+                            
+                            <li><a class="footer-link" href="/warranty">Warranty Information</a></li>
+                            <li><a class="footer-link" href="/return-product">Return Products</a></li>
 
                         </ul>
                     </div>
