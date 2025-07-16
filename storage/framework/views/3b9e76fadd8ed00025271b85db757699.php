@@ -45,7 +45,7 @@
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
-                        </table>   
+                        </table>
                     </div>
                 </div>
             </div>
@@ -55,16 +55,16 @@
 <!-- Add User Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #222736">
             <div class="modal-header">
                 <h5 class="modal-title" id="addUserModalLabel">Add New Rule</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-4">
+            <div class="p-4 modal-body">
                 <form id="addUserForm" action="<?php echo e(route('admin_rules.store')); ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <textarea name="rule" rows="3" class="form-control w-100" required></textarea>
-                    <button type="submit" class="btn btn-success btn-create mt-2">Add</button>
+                    <button type="submit" class="mt-2 btn btn-success btn-create">Add</button>
                 </form>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 <h5 class="modal-title" id="editRuleModalLabel">Edit Rule</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-4">
+            <div class="p-4 modal-body">
                 <form id="editRuleForm" action="<?php echo e(route('admin_users.update', ':id')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
