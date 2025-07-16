@@ -14,18 +14,18 @@ class UserController extends Controller
 
     public function show()
     {
-        $users = SystemUser::all(); 
+        $users = SystemUser::all();
         return view('AdminDashboard.users', compact('users'));
     }
 
 
     public function slider()
     {
-        
+
         return view('AdminDashboard.slider');
     }
 
-  
+
     public function store(Request $request)
     {
 
@@ -42,21 +42,23 @@ class UserController extends Controller
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $file->storeAs('user_images', $fileName, 'public'); 
+                $file->storeAs('user_images', $fileName, 'public');
                 $validatedData['image'] = $fileName;
             } else {
-                $validatedData['image'] = 'default-user.png'; 
+                $validatedData['image'] = 'default-user.png';
             }
 
             SystemUser::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'contact' => $request->contact,
-                'password' => Hash::make($request->password), 
+                'password' => Hash::make($request->password),
                 'role' => $request->role,
                 'image' => $validatedData['image'],
                 'status' => $request->status,
             ]);
+
+            return redirect()->route('users')->with('success', 'User added successfully.');
 
     }
 
@@ -88,7 +90,7 @@ class UserController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('user_images', $fileName, 'public'); 
+            $file->storeAs('user_images', $fileName, 'public');
             $user->image = $fileName; // Update image path
         }
 

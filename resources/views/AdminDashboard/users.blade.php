@@ -72,7 +72,7 @@
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
-                                             
+
                                             </div>
                                         </td>
                                     </tr>
@@ -95,7 +95,7 @@
 <!-- Add User Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #222736">
             <div class="modal-header">
                 <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
