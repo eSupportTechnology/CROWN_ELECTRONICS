@@ -36,11 +36,11 @@
                                         <td>
                                             <div class="d-flex flex-column">
                                                 <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <div class="mb-1 d-flex align-items-center">
+                                                    <div class="d-flex align-items-center mb-1">
                                                         <span class="me-1"><?php echo e($subcategory->name); ?></span>
                                                         <?php if($subcategory->subSubcategories->isNotEmpty()): ?>
                                                             <div class="dropdown">
-                                                                <a href="#" data-bs-toggle="dropdown" class="p-0 btn" style="width: 24px; height: 24px; border: none; background: none;">
+                                                                <a href="#" data-bs-toggle="dropdown" class="btn p-0" style="width: 24px; height: 24px; border: none; background: none;">
                                                                     <i class="fa fa-caret-down" style="font-size: 14px;"></i>
                                                                 </a>
                                                                 <div class="dropdown-menu">
@@ -81,7 +81,7 @@
 <!-- Modal for creating a category -->
 <div class="modal fade" id="createCategoryModal" tabindex="-1" aria-labelledby="createCategoryLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="background-color: #222736">
+        <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="createCategoryLabel">Create New Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -92,7 +92,7 @@
                         <label for="categoryName" class="form-label" style="font-size: 15px;">Main Category</label>
                         <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name" required>
                     </div>
-                    <button type="button" class="mb-3 btn btn-secondary" id="addSubcategoryGroup">
+                    <button type="button" class="btn btn-secondary mb-3" id="addSubcategoryGroup">
                         Add Subcategory
                     </button>
                     <div id="subcategories" class="mb-3">
