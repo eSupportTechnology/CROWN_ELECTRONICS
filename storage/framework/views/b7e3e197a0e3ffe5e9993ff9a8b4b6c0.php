@@ -1,6 +1,4 @@
-@extends ('AdminDashboard.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <style>
         .modal-content {
@@ -60,45 +58,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($users->isEmpty())
+                        <?php if($users->isEmpty()): ?>
                             <tr>
                                 <td colspan="8" class="text-center">No users found.</td>
                             </tr>
-                        @else
-                            @foreach ($users as $user)
+                        <?php else: ?>
+                            <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $user->name }}</td>
+                                    <td><?php echo e($loop->iteration); ?></td>
+                                    <td><?php echo e($user->name); ?></td>
                                     <td>
-                                        <img src="{{ asset('storage/user_images/' . ($user->image ?? 'default-user.png')) }}"
+                                        <img src="<?php echo e(asset('storage/user_images/' . ($user->image ?? 'default-user.png'))); ?>"
                                             class="img-sm img-thumbnail" alt="user" />
                                     </td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->contact }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    <td><?php echo e($user->email); ?></td>
+                                    <td><?php echo e($user->contact); ?></td>
+                                    <td><?php echo e($user->role); ?></td>
                                     <td>
-                                        <span class="badge {{ $user->status === 'Active' ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $user->status }}
+                                        <span class="badge <?php echo e($user->status === 'Active' ? 'bg-success' : 'bg-danger'); ?>">
+                                            <?php echo e($user->status); ?>
+
                                         </span>
                                     </td>
                                     <td class="text-end">
-                                        <a href="{{ route('edit_users', $user->id) }}" class="btn btn-warning btn-sm me-2">
+                                        <a href="<?php echo e(route('edit_users', $user->id)); ?>" class="btn btn-warning btn-sm me-2">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form id="delete-form-{{ $user->id }}"
-                                            action="{{ route('delete_users', $user->id) }}" method="POST"
+                                        <form id="delete-form-<?php echo e($user->id); ?>"
+                                            action="<?php echo e(route('delete_users', $user->id)); ?>" method="POST"
                                             style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('DELETE'); ?>
                                             <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="confirmDelete('delete-form-{{ $user->id }}', 'Are you sure you want to delete this user?');">
+                                                onclick="confirmDelete('delete-form-<?php echo e($user->id); ?>', 'Are you sure you want to delete this user?');">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
-                        @endif
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -113,8 +112,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('system_users.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <form action="<?php echo e(route('system_users.store')); ?>" method="POST" enctype="multipart/form-data">
+                        <?php echo csrf_field(); ?>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -124,12 +123,26 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        id="email" name="email" value="{{ old('email') }}"
+                                    <input type="email" class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                        id="email" name="email" value="<?php echo e(old('email')); ?>"
                                         placeholder="example@mail.com" required>
-                                    @error('email')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="mb-3">
                                     <label for="contact" class="form-label">Contact</label>
@@ -190,4 +203,6 @@
         });
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/users.blade.php ENDPATH**/ ?>

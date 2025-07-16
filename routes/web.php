@@ -331,7 +331,7 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
 
     Route::resource('system_users', UserController::class);
 
-    Route::get('/admins/userss', [UserController::class, 'show'])->name('users');
+    Route::get('/admins/users', [UserController::class, 'show'])->name('users');
 
     Route::get('/admins/slider', [SliderController::class, 'index'])->name('slider');
     Route::post('/admins/slider', [SliderController::class, 'store'])->name('slider.store');

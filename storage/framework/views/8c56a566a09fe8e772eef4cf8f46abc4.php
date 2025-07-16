@@ -1,6 +1,4 @@
-@extends('AdminDashboard.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <style>
         .modal-content {
             background-color: #1a1a1a !important;
@@ -50,23 +48,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($sliders as $slider)
+                    <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{ $slider->id }}</td>
+                            <td><?php echo e($slider->id); ?></td>
                             <td>
-                                <img src="{{ asset('storage/' . $slider->image) }}" class="img-thumbnail" alt="slider-image" style="width: 100px;">
+                                <img src="<?php echo e(asset('storage/' . $slider->image)); ?>" class="img-thumbnail" alt="slider-image" style="width: 100px;">
                             </td>
                             <td class="text-end">
-                                <form action="{{ route('slider.destroy', $slider->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
+                                <form action="<?php echo e(route('slider.destroy', $slider->id)); ?>" method="POST" style="display:inline;">
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('DELETE'); ?>
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -82,8 +80,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form action="<?php echo e(route('slider.store')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
@@ -97,4 +95,6 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/slider.blade.php ENDPATH**/ ?>

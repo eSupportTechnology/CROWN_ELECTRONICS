@@ -1,6 +1,4 @@
-@extends ('AdminDashboard.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <style>
         .modal-content {
@@ -56,36 +54,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($currencies->isEmpty())
+                        <?php if($currencies->isEmpty()): ?>
                             <tr>
                                 <td colspan="5" class="text-center">No currencies found.</td>
                             </tr>
-                        @else
-                            @foreach ($currencies as $currency)
+                        <?php else: ?>
+                            <?php $__currentLoopData = $currencies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $currency): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $currency->code }}</td>
-                                    <td>{{ $currency->name }}</td>
-                                    <td>{{ $currency->symbol }}</td>
-                                    <td>{{ $currency->exchange_rate }}</td>
+                                    <td><?php echo e($loop->iteration); ?></td>
+                                    <td><?php echo e($currency->code); ?></td>
+                                    <td><?php echo e($currency->name); ?></td>
+                                    <td><?php echo e($currency->symbol); ?></td>
+                                    <td><?php echo e($currency->exchange_rate); ?></td>
                                     <td class="text-end">
-                                        <a href="{{ route('currencies.edit', $currency->id) }}"
+                                        <a href="<?php echo e(route('currencies.edit', $currency->id)); ?>"
                                             class="btn btn-warning btn-sm me-2">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('currencies.destroy', $currency->id) }}" method="POST"
+                                        <form action="<?php echo e(route('currencies.destroy', $currency->id)); ?>" method="POST"
                                             style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('DELETE'); ?>
                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="confirmDelete('currency-form-{{ $currency->id }}', 'Are you sure you want to delete this currency?');">
+                                                onclick="confirmDelete('currency-form-<?php echo e($currency->id); ?>', 'Are you sure you want to delete this currency?');">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
-                        @endif
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -101,8 +99,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('currencies.store') }}" method="POST">
-                        @csrf
+                    <form action="<?php echo e(route('currencies.store')); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
                         <div class="mb-3">
                             <label for="code" class="form-label">Currency Code</label>
                             <input type="text" class="form-control" id="code" name="code" placeholder="e.g. USD"
@@ -141,4 +139,6 @@
         });
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/currencies.blade.php ENDPATH**/ ?>
