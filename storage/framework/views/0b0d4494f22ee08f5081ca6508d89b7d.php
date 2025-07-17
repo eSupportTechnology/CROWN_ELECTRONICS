@@ -39,7 +39,8 @@
                             <label class="form-label">Currency <i class="text-danger">*</i></label>
                             <select name="currency_id" class="form-select" id="currencySelect">
                                 <?php $__currentLoopData = $currencies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $currency): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($currency->id); ?>" data-symbol="<?php echo e($currency->symbol); ?>" <?php echo e($currency->id == $product->currency_id ? 'selected' : ''); ?>>
+                                    <option value="<?php echo e($currency->id); ?>" data-symbol="<?php echo e($currency->symbol); ?>"
+                                        <?php echo e($currency->id == $product->currency_id ? 'selected' : ''); ?>>
                                         <?php echo e($currency->name); ?> <?php echo e($currency->symbol); ?>
 
                                     </option>
@@ -58,16 +59,18 @@
                                 <div class="mb-4">
                                     <label class="form-label">Normal price <i class="text-danger">*</i></label>
                                     <input name="normal_price" id="normal_price"
-                                        value="<?php echo e(old('normal_price', $product->normal_price)); ?>" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>"
-                                        type="number" class="form-control" />
+                                        value="<?php echo e(old('normal_price', $product->normal_price)); ?>"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                        class="form-control" />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Affiliate price</label>
                                     <input name="affiliate_price" id="affiliate_price"
-                                        value="<?php echo e(old('affiliate_price', $product->affiliate_price)); ?>" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>"
-                                        type="number" class="form-control" readonly />
+                                        value="<?php echo e(old('affiliate_price', $product->affiliate_price)); ?>"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                        class="form-control" readonly />
                                 </div>
                             </div>
                         </div>
@@ -85,8 +88,9 @@
                                 <div class="mb-4">
                                     <label class="form-label">Commission price</label>
                                     <input name="com_price" id="com_price"
-                                        value="<?php echo e(old('commission_price', $product->commission_price)); ?>" placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>"
-                                        type="number" class="form-control" readonly />
+                                        value="<?php echo e(old('commission_price', $product->commission_price)); ?>"
+                                        placeholder="<?php echo e($currencies->first()->symbol ?? 'Rs'); ?>" type="number"
+                                        class="form-control" readonly />
                                 </div>
                             </div>
                         </div>
@@ -153,92 +157,96 @@
                             <img src="<?php echo e(asset('backend/assets/imgs/theme/upload.svg')); ?>" alt="" />
                             <input name="images[]" id="media_upload" class="form-control" type="file" multiple />
                         </div>
+
+                        <!-- 🆕 This div will hold hidden inputs of deleted image IDs -->
+                        <div id="deleted_images_container"></div>
+
                         <div class="image-preview mt-4" id="image_preview_container"
                             style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Image previews will appear here -->
                             <?php $__currentLoopData = $product->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="position-relative">
                                     <img src="<?php echo e(asset('storage/' . $image->image_path)); ?>" alt="Product Image"
                                         class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
                                     <span
-                                        class="position-absolute top-0 end-0 bg-danger text-white rounded-circle p-1 cursor-pointer delete-existing-image"
+                                        class="position-absolute top-0 end-0 bg-danger text-white rounded-circle p-1 delete-existing-image"
                                         data-image-id="<?php echo e($image->id); ?>" style="cursor: pointer;">&times;</span>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4>Organization</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row gx-2">
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Category <i class="text-danger">*</i></label>
-                                <select name="category_id" class="form-select" id="categorySelect">
-                                    <option value="">Select a category</option>
-                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>"
-                                            <?php echo e($category->id == $product->category_id ? 'selected' : ''); ?>>
-                                            <?php echo e($category->name); ?>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Organization</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row gx-2">
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Category <i class="text-danger">*</i></label>
+                                    <select name="category_id" class="form-select" id="categorySelect">
+                                        <option value="">Select a category</option>
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($category->id); ?>"
+                                                <?php echo e($category->id == $product->category_id ? 'selected' : ''); ?>>
+                                                <?php echo e($category->name); ?>
 
-                                        </option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
+                                            </option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
 
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Subcategory</label>
-                                <select name="subcategory_id" class="form-select" id="subcategorySelect">
-                                    <option value="">Select a subcategory</option>
-                                    <?php $__currentLoopData = $product->category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($subcategory->id); ?>"
-                                            <?php echo e($subcategory->id == $product->subcategory_id ? 'selected' : ''); ?>>
-                                            <?php echo e($subcategory->name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Sub-Subcategory</label>
-                                <select name="sub_subcategory_id" class="form-select" id="subsubcategorySelect">
-                                    <option value="">Select a sub-subcategory</option>
-                                    <?php $__currentLoopData = $product->subcategory ? $product->subcategory->subSubcategories : []; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subSubcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($subSubcategory->id); ?>"
-                                            <?php echo e($subSubcategory->id == $product->sub_subcategory_id ? 'selected' : ''); ?>>
-                                            <?php echo e($subSubcategory->name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Subcategory</label>
+                                    <select name="subcategory_id" class="form-select" id="subcategorySelect">
+                                        <option value="">Select a subcategory</option>
+                                        <?php $__currentLoopData = $product->category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($subcategory->id); ?>"
+                                                <?php echo e($subcategory->id == $product->subcategory_id ? 'selected' : ''); ?>>
+                                                <?php echo e($subcategory->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Sub-Subcategory</label>
+                                    <select name="sub_subcategory_id" class="form-select" id="subsubcategorySelect">
+                                        <option value="">Select a sub-subcategory</option>
+                                        <?php $__currentLoopData = $product->subcategory ? $product->subcategory->subSubcategories : []; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subSubcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($subSubcategory->id); ?>"
+                                                <?php echo e($subSubcategory->id == $product->sub_subcategory_id ? 'selected' : ''); ?>>
+                                                <?php echo e($subSubcategory->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
 
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Brand </label>
-                                <select name="brand_id" class="form-select" id="brandSelect">
-                                    <option value="">Select a brand</option>
-                                    <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($brand->id); ?>"
-                                            <?php echo e($brand->id == $product->brand_id ? 'selected' : ''); ?>><?php echo e($brand->name); ?>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Brand </label>
+                                    <select name="brand_id" class="form-select" id="brandSelect">
+                                        <option value="">Select a brand</option>
+                                        <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($brand->id); ?>"
+                                                <?php echo e($brand->id == $product->brand_id ? 'selected' : ''); ?>>
+                                                <?php echo e($brand->name); ?>
 
-                                        </option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
+                                            </option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
 
-                            <div class="mb-4">
-                                <label for="product_tags" class="form-label">Tags</label>
-                                <input name="tags" type="text" class="form-control"
-                                    value="<?php echo e(old('tags', $product->tags)); ?>" />
+                                <div class="mb-4">
+                                    <label for="product_tags" class="form-label">Tags</label>
+                                    <input name="tags" type="text" class="form-control"
+                                        value="<?php echo e(old('tags', $product->tags)); ?>" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const currencySelect = document.getElementById('currencySelect');
             const placeholderFields = [
                 document.getElementById('normal_price'),
@@ -454,6 +462,28 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const imagePreviewContainer = document.getElementById('image_preview_container');
+        const deletedImagesContainer = document.getElementById('deleted_images_container');
+
+        imagePreviewContainer.addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-existing-image')) {
+                const imageId = event.target.getAttribute('data-image-id');
+
+                // Add hidden input for deleted image ID
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'deleted_images[]';
+                hiddenInput.value = imageId;
+                deletedImagesContainer.appendChild(hiddenInput);
+
+                // Remove image from preview
+                event.target.parentElement.remove();
+            }
+        });
+    });
+</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const affiliateCheckbox = document.getElementById('affiliate_checkbox');

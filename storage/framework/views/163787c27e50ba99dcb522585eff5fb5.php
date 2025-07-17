@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $__env->startSection('content'); ?>
     <style>
         .brand-image {
@@ -162,3 +163,5 @@
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/brands_list.blade.php ENDPATH**/ ?>
+=======
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199

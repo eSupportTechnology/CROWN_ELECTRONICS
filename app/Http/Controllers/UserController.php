@@ -99,7 +99,7 @@ class UserController extends Controller
             $file     = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('user_images', $fileName, 'public');
-            $user->image = $fileName; // Update image path
+            $user->image = $fileName;
         }
 
         $user->name    = $request->name;
@@ -131,15 +131,14 @@ public function destroy($id)
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Login successful
-            return redirect()->intended('frontend.Home');
-        }
-
-        // Login failed
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->withInput($request->except('password'));
+    if (Auth::attempt($credentials)) {
+        return redirect()->intended('frontend.Home');
     }
+
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ])->withInput($request->except('password'));
+}
+
 
 }

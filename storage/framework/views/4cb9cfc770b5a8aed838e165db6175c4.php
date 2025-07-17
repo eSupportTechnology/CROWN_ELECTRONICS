@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<<<<<<< HEAD
     <style>
         .modal-content {
             background-color: #1a1a1a !important;
@@ -27,6 +28,8 @@
             /* Light gray placeholder */
         }
     </style>
+=======
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
 <div class="content-header">
     <div>
         <h2 class="content-title card-title">Banner Images</h2>

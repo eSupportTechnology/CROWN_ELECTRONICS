@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php $__env->startSection('content'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +23,7 @@
 
     <section class="content-main">
         <div class="content-header">
-            <h2 class="content-title">Report - Customers</h2>
+            <h2 class="content-title">Report - Affiliate Customer's Bank Details</h2>
         </div>
 
         <!-- Room Form -->
@@ -37,24 +36,27 @@
                             <table id="tableData" class="table table-hover display">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
+                                        <th>#</th>
                                         <th>Name</th>
-                                        <th>DOB</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
-                                        <th>Address</th>
+                                        <th>NIC</th>
+                                        <th>Bank Name</th>
+                                        <th>Branch</th>
+                                        <th>Acount Name</th>
+                                        <th>Account Number</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $__currentLoopData = $customers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=> $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $__currentLoopData = $affiliates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$affiliate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td><?php echo e($index+1); ?></td>
-                                        <td><?php echo e($customer->name); ?> </td>
-                                        <td><?php echo e($customer->dob); ?> </td>
-                                        <td><?php echo e($customer->email); ?></td>
-                                        <td><?php echo e($customer->phone); ?></td>
-                                        <td><?php echo e($customer->address); ?></td>
-
+                                        <td><?php echo e($affiliate->name); ?></td>
+                                        <td><?php echo e($affiliate->NIC); ?></td>
+                                        <td><?php echo e($affiliate->bank_name); ?></td>
+                                        <td><?php echo e($affiliate->branch); ?></td>
+                                        <td><?php echo e($affiliate->account_name); ?></td>
+                                        <td><?php echo e($affiliate->account_number); ?></td>     
+                                        <td><?php echo e(ucfirst($affiliate->status)); ?></td>
                                     </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
@@ -87,7 +89,7 @@
                     {
                         extend: 'pdfHtml5',
                         footer: true,
-                        title: 'Customer Report',
+                        title: 'Affiliate Customers bank details Report',
                         customize: function(doc) {
                             // Set a margin for the footer
                             doc.content[1].margin = [0, 0, 0, 20];
@@ -95,8 +97,8 @@
                     },
                     {
                         extend: 'print',
-                        footer: true,
-                        title: 'Customer Report',
+                        footer: true,      
+                        title: 'Affiliate Customers Bank Details Report',
                     }
                 ],
 
@@ -112,47 +114,4 @@
 
 </html>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/customer_report.blade.php ENDPATH**/ ?>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Customer Report</title>
-    <style>
-        body { font-family: sans-serif; font-size: 12px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
-        h2 { margin-bottom: 5px; }
-    </style>
-</head>
-<body>
-    <h2>Customer Report</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Registered Date</th>
-                <th>Total Orders</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $__currentLoopData = $customers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr>
-                    <td><?php echo e($index + 1); ?></td>
-                    <td><?php echo e($customer->name); ?></td>
-                    <td><?php echo e($customer->email); ?></td>
-                    <td><?php echo e($customer->phone); ?></td>
-                    <td><?php echo e($customer->created_at->format('Y-m-d')); ?></td>
-                    <td><?php echo e($customer->customer_orders_count ?? 0); ?></td>
-                </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </tbody>
-    </table>
-</body>
-</html>
-<?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/customer_report.blade.php ENDPATH**/ ?>
->>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/affiliate_cus_bank_data.blade.php ENDPATH**/ ?>
