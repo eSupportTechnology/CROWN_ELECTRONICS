@@ -1,6 +1,9 @@
 @extends('AdminDashboard.master')
 
+
 @section('content')
+
+
 
 
 <div class="content-header">
@@ -65,7 +68,7 @@
 <!-- Pagination Area -->
 <div class="pagination-area mt-30 mb-50 " >
     <nav aria-label="Page navigation example" >
-        <ul class="pagination justify-content-start" >
+        <ul class="pagination justify-content-start" style="color: black" >
             {{ $customers->links() }}
         </ul>
     </nav>
