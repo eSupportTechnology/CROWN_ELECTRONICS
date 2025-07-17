@@ -8,7 +8,7 @@
         <h2 class="content-title card-title">Customers</h2>
     </div>
     <div>
-        <a href="<?php echo e(route('customers.export')); ?>" class="rounded btn btn-light font-md">Export</a>
+        <a href="<?php echo e(route('customerReport')); ?>" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 

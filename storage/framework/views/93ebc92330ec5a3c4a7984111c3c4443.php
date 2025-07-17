@@ -23,7 +23,7 @@
 
     <section class="content-main">
         <div class="content-header">
-            <h2 class="content-title">Report - Customers</h2>
+            <h2 class="content-title">Report - Affiliate Customers</h2>
         </div>
 
         <!-- Room Form -->
@@ -36,24 +36,35 @@
                             <table id="tableData" class="table table-hover display">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
+                                        <th>#</th>
                                         <th>Name</th>
-                                        <th>DOB</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
+                                        <th>NIC</th>
                                         <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Gender</th>
+                                        <th>Promotion Method</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $__currentLoopData = $customers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=> $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $__currentLoopData = $affiliates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$affiliate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td><?php echo e($index+1); ?></td>
-                                        <td><?php echo e($customer->name); ?> </td>
-                                        <td><?php echo e($customer->dob); ?> </td>
-                                        <td><?php echo e($customer->email); ?></td>
-                                        <td><?php echo e($customer->phone); ?></td>
-                                        <td><?php echo e($customer->address); ?></td>
+                                        <td><?php echo e($affiliate->name); ?></td>
+                                        <td><?php echo e($affiliate->NIC); ?></td>
+                                        <td><?php echo e($affiliate->address); ?></td>
+                                        <td><?php echo e($affiliate->email); ?></td>
+                                        <td><?php echo e($affiliate->contactno); ?></td>
+                                        <td><?php echo e($affiliate->gender); ?></td>
+                                        <td>
+                                            <?php $__currentLoopData = json_decode($affiliate->promotion_method, true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <span><?php echo e($method); ?></span><br>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </td>
 
+                                        <td><?php echo e(ucfirst($affiliate->status)); ?></td>
+                                        
                                     </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
@@ -86,7 +97,8 @@
                     {
                         extend: 'pdfHtml5',
                         footer: true,
-                        title: 'Customer Report',
+                        title: 'Affiliate Customer Report',
+                        orientation: 'landscape',
                         customize: function(doc) {
                             // Set a margin for the footer
                             doc.content[1].margin = [0, 0, 0, 20];
@@ -95,7 +107,7 @@
                     {
                         extend: 'print',
                         footer: true,
-                        title: 'Customer Report',
+                        title: 'Affiliate Customer Report',
                     }
                 ],
 
@@ -111,5 +123,4 @@
 
 </html>
 <?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/customer_report.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/affiliate_customer_report.blade.php ENDPATH**/ ?>
