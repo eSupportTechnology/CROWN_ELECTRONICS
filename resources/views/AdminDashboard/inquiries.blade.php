@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
             <div class="col-md-2 col-6">
@@ -53,7 +53,7 @@
                                     <a href="#" class="btn btn-view btn-sm me-2" onclick="showInquiryModal('{{ $inquiry->customer_name }}', '{{ $inquiry->id }}', '{{ $inquiry->subject }}', '{{ $inquiry->message }}', '{{ $inquiry->reply ?? '' }}')">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                </td>                               
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -68,7 +68,7 @@
 <!-- Customer Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #222736">
             <div class="modal-header">
                 <h4 class="modal-title" id="inquiryModalLabel">Inquiry Details</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

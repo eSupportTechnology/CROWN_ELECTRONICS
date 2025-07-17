@@ -2,6 +2,35 @@
 
 @section('content')
 
+    <style>
+        .modal-content {
+            background-color: #1a1a1a !important;
+            /* Dark background */
+            color: #ffffff !important;
+            /* Light text */
+        }
+
+        .modal-content .form-label,
+        .modal-content .form-check-label,
+        .modal-content .modal-title {
+            color: #ffffff !important;
+        }
+
+        .modal-content .form-control,
+        .modal-content .form-select {
+            background-color: #333 !important;
+            /* Dark input background */
+            color: #ffffff !important;
+            /* Light text in input */
+            border: 1px solid #555;
+        }
+
+        .modal-content input::placeholder {
+            color: #bbbbbb !important;
+            /* Light gray placeholder */
+        }
+    </style>
+
 <div class="content-header">
     <div>
         <h2 class="content-title card-title">Currencies</h2>

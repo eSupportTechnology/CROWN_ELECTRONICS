@@ -266,6 +266,8 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin/add_products', [ProductController::class, 'displayCategories'])->name('add_products');
     Route::get('/api/subcategories/{categoryId}', [ProductController::class, 'getSubcategories']);
     Route::get('/api/sub-subcategories/{subcategoryId}', [ProductController::class, 'getSubSubcategories']);
+    Route::get('/products/export/pdf', [ProductController::class, 'exportPDF'])->name('products.export.pdf');
+
 
 
     Route::get('/admin/categories', [CategoryController::class, 'index'])->name('categories');
@@ -283,6 +285,7 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::delete('/admin/orders/{order}', [OrderController::class, 'destroy'])->name('order.delete');
     Route::get('/admin/order-details/{orderCode}', [OrderController::class, 'showOrderDetails'])->name('order-details');
     Route::patch('/order/update-status/{order_code}', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
+    Route::get('/customers/export', [CustomerController::class, 'export'])->name('customers.export');
 
 
 
@@ -331,7 +334,8 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
 
     Route::resource('system_users', UserController::class);
 
-    Route::get('/admins/userss', [UserController::class, 'show'])->name('users');
+    Route::get('/admins/users', [UserController::class, 'show'])->name('users');
+
 
     Route::get('/admins/slider', [SliderController::class, 'index'])->name('slider');
     Route::post('/admins/slider', [SliderController::class, 'store'])->name('slider.store');

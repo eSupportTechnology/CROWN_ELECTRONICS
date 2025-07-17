@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $__env->startSection('content'); ?>
     <style>
         .brand-image {
@@ -20,7 +21,7 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover align-middle">
+                <table class="table align-middle table-hover">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -77,7 +78,7 @@
     <!-- Create Brand Modal -->
     <div class="modal fade" id="createBrandModal" tabindex="-1" aria-labelledby="createBrandLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="background-color: #222736">
                 <div class="modal-header">
                     <h5 class="modal-title">Create New Brand</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -100,7 +101,7 @@
                             <input type="file" class="form-control" name="image" id="brandImage" accept="image/*">
                         </div>
 
-                        <div class="form-check form-switch mb-3">
+                        <div class="mb-3 form-check form-switch">
                             <input class="form-check-input" type="checkbox" name="is_top_brand" id="isTopBrand"
                                 value="1">
                             <label class="form-check-label" for="isTopBrand">Top Brand</label>
@@ -162,3 +163,5 @@
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\eSupport Project\CROWN_ELECTRONICS\resources\views/AdminDashboard/brands_list.blade.php ENDPATH**/ ?>
+=======
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
