@@ -11,7 +11,7 @@
         <h2 class="content-title card-title">Customers</h2>
     </div>
     <div>
-        <a href="{{ route('customers.export') }}" class="rounded btn btn-light font-md">Export</a>
+        <a href="{{ route('customerReport') }}" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 

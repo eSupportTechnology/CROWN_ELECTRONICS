@@ -35,11 +35,11 @@
         <h2 class="content-title card-title">Affiliate Customers</h2>
     </div>
     <div>
-        <a href="#" class="btn btn-light rounded font-md">Export</a>
+        <a href="{{ route('affiliateCustomerReport') }}" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
             <div class="col-md-2 col-6">
@@ -68,12 +68,12 @@
                         <tbody>
                             @foreach($affiliates as $affiliate)
                             <tr>
-                                <td>{{ $loop->iteration }}</td> 
-                                <td>{{ $affiliate->name }}</td> 
-                                <td>{{ $affiliate->NIC }}</td> 
-                                <td>{{ $affiliate->address }}</td> 
-                                <td>{{ $affiliate->email }}</td> 
-                                <td>{{ $affiliate->contactno }}</td> 
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $affiliate->name }}</td>
+                                <td>{{ $affiliate->NIC }}</td>
+                                <td>{{ $affiliate->address }}</td>
+                                <td>{{ $affiliate->email }}</td>
+                                <td>{{ $affiliate->contactno }}</td>
                                 <td>{{ $affiliate->gender }}</td>
                                 <td>{{ ucfirst($affiliate->status) }}</td>
                                 <td class="text-end">
@@ -88,14 +88,14 @@
                                             <button type="submit" class="btn btn-success btn-sm">Approve</button>
                                         </form>
                                     @endif
-                                    
+
                                     @if($affiliate->status !== 'rejected')
                                         <form action="{{ route('admin.affiliates.updateStatus', ['id' => $affiliate->id, 'status' => 'rejected']) }}" method="POST" style="display:inline;">
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm">Reject</button>
                                         </form>
                                     @endif
-                                </td>                                  
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

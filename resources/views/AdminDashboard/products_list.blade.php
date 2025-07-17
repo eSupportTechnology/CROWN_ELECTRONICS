@@ -7,7 +7,7 @@
         <h2 class="content-title card-title">Products List</h2>
     </div>
     <div>
-        <a href="{{ route('products.export.pdf') }}" class="rounded btn btn-light font-md">Export</a>
+        <a href="{{ route('productReport') }}" class="rounded btn btn-light font-md">Export</a>
         <a href="{{ route('add_products') }}" class="rounded btn btn-primary btn-sm">Create new</a>
     </div>
 </div>
