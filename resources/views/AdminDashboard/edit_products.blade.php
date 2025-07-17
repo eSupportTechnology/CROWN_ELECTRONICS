@@ -41,7 +41,8 @@
                             <label class="form-label">Currency <i class="text-danger">*</i></label>
                             <select name="currency_id" class="form-select" id="currencySelect">
                                 @foreach ($currencies as $currency)
-                                    <option value="{{ $currency->id }}" data-symbol="{{ $currency->symbol }}" {{ $currency->id == $product->currency_id ? 'selected' : '' }}>
+                                    <option value="{{ $currency->id }}" data-symbol="{{ $currency->symbol }}"
+                                        {{ $currency->id == $product->currency_id ? 'selected' : '' }}>
                                         {{ $currency->name }} {{ $currency->symbol }}
                                     </option>
                                 @endforeach
@@ -59,16 +60,18 @@
                                 <div class="mb-4">
                                     <label class="form-label">Normal price <i class="text-danger">*</i></label>
                                     <input name="normal_price" id="normal_price"
-                                        value="{{ old('normal_price', $product->normal_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
-                                        type="number" class="form-control" />
+                                        value="{{ old('normal_price', $product->normal_price) }}"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                        class="form-control" />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <label class="form-label">Affiliate price</label>
                                     <input name="affiliate_price" id="affiliate_price"
-                                        value="{{ old('affiliate_price', $product->affiliate_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
-                                        type="number" class="form-control" readonly />
+                                        value="{{ old('affiliate_price', $product->affiliate_price) }}"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                        class="form-control" readonly />
                                 </div>
                             </div>
                         </div>
@@ -86,8 +89,9 @@
                                 <div class="mb-4">
                                     <label class="form-label">Commission price</label>
                                     <input name="com_price" id="com_price"
-                                        value="{{ old('commission_price', $product->commission_price) }}" placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}"
-                                        type="number" class="form-control" readonly />
+                                        value="{{ old('commission_price', $product->commission_price) }}"
+                                        placeholder="{{ $currencies->first()->symbol ?? 'Rs' }}" type="number"
+                                        class="form-control" readonly />
                                 </div>
                             </div>
                         </div>
@@ -154,90 +158,94 @@
                             <img src="{{ asset('backend/assets/imgs/theme/upload.svg') }}" alt="" />
                             <input name="images[]" id="media_upload" class="form-control" type="file" multiple />
                         </div>
+
+                        <!-- 🆕 This div will hold hidden inputs of deleted image IDs -->
+                        <div id="deleted_images_container"></div>
+
                         <div class="image-preview mt-4" id="image_preview_container"
                             style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Image previews will appear here -->
                             @foreach ($product->images as $image)
                                 <div class="position-relative">
                                     <img src="{{ asset('storage/' . $image->image_path) }}" alt="Product Image"
                                         class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
                                     <span
-                                        class="position-absolute top-0 end-0 bg-danger text-white rounded-circle p-1 cursor-pointer delete-existing-image"
+                                        class="position-absolute top-0 end-0 bg-danger text-white rounded-circle p-1 delete-existing-image"
                                         data-image-id="{{ $image->id }}" style="cursor: pointer;">&times;</span>
                                 </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4>Organization</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row gx-2">
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Category <i class="text-danger">*</i></label>
-                                <select name="category_id" class="form-select" id="categorySelect">
-                                    <option value="">Select a category</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Organization</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row gx-2">
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Category <i class="text-danger">*</i></label>
+                                    <select name="category_id" class="form-select" id="categorySelect">
+                                        <option value="">Select a category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Subcategory</label>
-                                <select name="subcategory_id" class="form-select" id="subcategorySelect">
-                                    <option value="">Select a subcategory</option>
-                                    @foreach ($product->category->subcategories as $subcategory)
-                                        <option value="{{ $subcategory->id }}"
-                                            {{ $subcategory->id == $product->subcategory_id ? 'selected' : '' }}>
-                                            {{ $subcategory->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Sub-Subcategory</label>
-                                <select name="sub_subcategory_id" class="form-select" id="subsubcategorySelect">
-                                    <option value="">Select a sub-subcategory</option>
-                                    @foreach ($product->subcategory ? $product->subcategory->subSubcategories : [] as $subSubcategory)
-                                        <option value="{{ $subSubcategory->id }}"
-                                            {{ $subSubcategory->id == $product->sub_subcategory_id ? 'selected' : '' }}>
-                                            {{ $subSubcategory->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Subcategory</label>
+                                    <select name="subcategory_id" class="form-select" id="subcategorySelect">
+                                        <option value="">Select a subcategory</option>
+                                        @foreach ($product->category->subcategories as $subcategory)
+                                            <option value="{{ $subcategory->id }}"
+                                                {{ $subcategory->id == $product->subcategory_id ? 'selected' : '' }}>
+                                                {{ $subcategory->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Sub-Subcategory</label>
+                                    <select name="sub_subcategory_id" class="form-select" id="subsubcategorySelect">
+                                        <option value="">Select a sub-subcategory</option>
+                                        @foreach ($product->subcategory ? $product->subcategory->subSubcategories : [] as $subSubcategory)
+                                            <option value="{{ $subSubcategory->id }}"
+                                                {{ $subSubcategory->id == $product->sub_subcategory_id ? 'selected' : '' }}>
+                                                {{ $subSubcategory->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="col-sm-6 mb-3">
-                                <label class="form-label">Brand </label>
-                                <select name="brand_id" class="form-select" id="brandSelect">
-                                    <option value="">Select a brand</option>
-                                    @foreach ($brands as $brand)
-                                        <option value="{{ $brand->id }}"
-                                            {{ $brand->id == $product->brand_id ? 'selected' : '' }}>{{ $brand->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label class="form-label">Brand </label>
+                                    <select name="brand_id" class="form-select" id="brandSelect">
+                                        <option value="">Select a brand</option>
+                                        @foreach ($brands as $brand)
+                                            <option value="{{ $brand->id }}"
+                                                {{ $brand->id == $product->brand_id ? 'selected' : '' }}>
+                                                {{ $brand->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="mb-4">
-                                <label for="product_tags" class="form-label">Tags</label>
-                                <input name="tags" type="text" class="form-control"
-                                    value="{{ old('tags', $product->tags) }}" />
+                                <div class="mb-4">
+                                    <label for="product_tags" class="form-label">Tags</label>
+                                    <input name="tags" type="text" class="form-control"
+                                        value="{{ old('tags', $product->tags) }}" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const currencySelect = document.getElementById('currencySelect');
             const placeholderFields = [
                 document.getElementById('normal_price'),
@@ -453,6 +461,28 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const imagePreviewContainer = document.getElementById('image_preview_container');
+        const deletedImagesContainer = document.getElementById('deleted_images_container');
+
+        imagePreviewContainer.addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-existing-image')) {
+                const imageId = event.target.getAttribute('data-image-id');
+
+                // Add hidden input for deleted image ID
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'deleted_images[]';
+                hiddenInput.value = imageId;
+                deletedImagesContainer.appendChild(hiddenInput);
+
+                // Remove image from preview
+                event.target.parentElement.remove();
+            }
+        });
+    });
+</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const affiliateCheckbox = document.getElementById('affiliate_checkbox');
