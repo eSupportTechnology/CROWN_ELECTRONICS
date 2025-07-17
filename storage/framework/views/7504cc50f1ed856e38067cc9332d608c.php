@@ -1,12 +1,14 @@
 <?php $__env->startSection('content'); ?>
 
 
+
+
 <div class="content-header">
     <div>
         <h2 class="content-title card-title">Customers</h2>
     </div>
     <div>
-        <a href="<?php echo e(route('customers.export')); ?>" class="rounded btn btn-light font-md">Export</a>
+        <a href="<?php echo e(route('customerReport')); ?>" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 
@@ -63,7 +65,7 @@
 <!-- Pagination Area -->
 <div class="pagination-area mt-30 mb-50 " >
     <nav aria-label="Page navigation example" >
-        <ul class="pagination justify-content-start" >
+        <ul class="pagination justify-content-start" style="color: black" >
             <?php echo e($customers->links()); ?>
 
         </ul>

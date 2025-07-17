@@ -45,14 +45,14 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 55px; 
-    height: 55px; 
-    border-radius: 50%; 
-    background-color: white; 
-    margin: auto; 
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: white;
+    margin: auto;
 }
 
-</style>  
+</style>
 
 <div class="content-header">
     <div>
@@ -62,14 +62,14 @@
 
 <main>
     <div class="container">
-        
+
         <div class="order-cards-row mt-2 d-flex">
             <div class="card" style="width: 40%;">
                 <div class="card-title">Profile</div>
                 <div class="card-body p-2">
                     <div class="text-center">
                         <div class="profile-image mb-3">
-                            <img src="{{ asset('backend/assets/images/default-user.png') }}" 
+                            <img src="{{ asset('backend/assets/images/default-user.png') }}"
                                 alt="Profile Image" class="rounded-circle" width="100" height="100" style="object-fit: cover;">
                         </div>
                         <p class="mb-1 text-muted">USER ID: #{{ str_pad($customer->id, 4, '0', STR_PAD_LEFT) }}</p>
@@ -91,7 +91,7 @@
                         <div class="icon-container" style="border: 2px dotted #007bff;">
                             <i class="fa fa-dollar-sign" style="color: #007bff; font-size: 28px;"></i>
                         </div>
-                        <h4 class="fw-bold mt-2">Rs {{ number_format($totalCost, 2) }} </h4> 
+                        <h4 class="fw-bold mt-2">Rs {{ number_format($totalCost, 2) }} </h4>
                         <div class="card-name">TOTAL COST</div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Order ID</th>
-                                        <th scope="col">Date</th> 
+                                        <th scope="col">Date</th>
                                         <th scope="col">Items</th>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Status</th>
@@ -161,8 +161,8 @@
                                                         $firstItem = $order->items->first();
                                                         $productImage = $firstItem && $firstItem->product && $firstItem->product->images ? $firstItem->product->images->first() : null;
                                                         $totalCount = $order->items->count();
-                                                        $itemsToShow = $order->items->take(1); 
-                                                        $additionalCount = $totalCount - $itemsToShow->count(); 
+                                                        $itemsToShow = $order->items->take(1);
+                                                        $additionalCount = $totalCount - $itemsToShow->count();
                                                     @endphp
                                                     @if($productImage)
                                                         <img src="{{ asset('storage/' . $productImage->image_path) }}" alt="Product Image" width="50">
@@ -181,7 +181,7 @@
                                                                     <span>Product unavailable</span>
                                                                 @endif
                                                             @endforeach
-                                                            @if($totalCount > 1) 
+                                                            @if($totalCount > 1)
                                                                 <strong style="font-weight: 500;">& {{ $additionalCount }} more item{{ $additionalCount > 1 ? 's' : '' }}</strong>
                                                             @endif
                                                         </p>
@@ -201,7 +201,7 @@
 
                             </table>
                         @endif
-                       
+
                     </div>
                 </div>
             </div>
