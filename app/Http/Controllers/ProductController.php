@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Models\CustomerOrderItems;
 use Illuminate\Support\Facades\Storage;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class ProductController extends Controller
 {
 
@@ -340,4 +340,16 @@ class ProductController extends Controller
 
         return redirect()->route('products_list')->with('success', 'Product updated successfully.');
     }
+
+
+
+public function exportPDF()
+{
+     $products = Product::with(['category', 'currency', 'images'])->get();
+
+    $pdf = Pdf::loadView('AdminDashboard.Reports.product_report', compact('products'));
+
+    return $pdf->download('product-list.pdf');
+}
+
 }

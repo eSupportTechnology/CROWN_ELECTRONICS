@@ -266,6 +266,8 @@ Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin/add_products', [ProductController::class, 'displayCategories'])->name('add_products');
     Route::get('/api/subcategories/{categoryId}', [ProductController::class, 'getSubcategories']);
     Route::get('/api/sub-subcategories/{subcategoryId}', [ProductController::class, 'getSubSubcategories']);
+    Route::get('/products/export/pdf', [ProductController::class, 'exportPDF'])->name('products.export.pdf');
+
 
 
     Route::get('/admin/categories', [CategoryController::class, 'index'])->name('categories');
