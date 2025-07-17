@@ -41,7 +41,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/mobile/users', [MobileUserController::class, 'index']); // Get all users
     Route::get('/mobile/users/{id}', [MobileUserController::class, 'show']); // Get user by ID
     Route::delete('/mobile/users/{id}', [MobileUserController::class, 'destroy']); // Delete user
-    
+
 });
 
 // Public Product & Category Routes

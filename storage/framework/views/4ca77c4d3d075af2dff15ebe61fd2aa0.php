@@ -5,7 +5,11 @@
         <h2 class="content-title card-title">Products List</h2>
     </div>
     <div>
+<<<<<<< HEAD
+        <a href="#" class="rounded btn btn-light font-md">Export</a>
+=======
         <a href="<?php echo e(route('products.export.pdf')); ?>" class="rounded btn btn-light font-md">Export</a>
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
         <a href="<?php echo e(route('add_products')); ?>" class="rounded btn btn-primary btn-sm">Create new</a>
     </div>
 </div>

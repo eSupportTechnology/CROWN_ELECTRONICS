@@ -1,15 +1,55 @@
 <?php $__env->startSection('content'); ?>
 
+<<<<<<< HEAD
+    <style>
+        .modal-content {
+            background-color: #1a1a1a !important;
+            /* Dark background */
+            color: #ffffff !important;
+            /* Light text */
+        }
+
+        .modal-content .form-label,
+        .modal-content .form-check-label,
+        .modal-content .modal-title {
+            color: #ffffff !important;
+        }
+
+        .modal-content .form-control,
+        .modal-content .form-select {
+            background-color: #333 !important;
+            /* Dark input background */
+            color: #ffffff !important;
+            /* Light text in input */
+            border: 1px solid #555;
+        }
+
+        .modal-content input::placeholder {
+            color: #bbbbbb !important;
+            /* Light gray placeholder */
+        }
+    </style>
+
+=======
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
 <div class="content-header">
     <div>
         <h2 class="content-title card-title">Currencies</h2>
     </div>
     <div>
+<<<<<<< HEAD
+        <button type="button" class="btn btn-primary btn-sm rounded" data-bs-toggle="modal" data-bs-target="#addCurrencyModal">Add</button>
+    </div>
+</div>
+
+<div class="card mb-4">
+=======
         <button type="button" class="rounded btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addCurrencyModal">Add</button>
     </div>
 </div>
 
 <div class="mb-4 card">
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-hover">
@@ -60,7 +100,11 @@
 <!-- Add Currency Modal -->
 <div class="modal fade" id="addCurrencyModal" tabindex="-1" aria-labelledby="addCurrencyModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+<<<<<<< HEAD
+        <div class="modal-content">
+=======
         <div class="modal-content" style="background-color: #222736">
+>>>>>>> 1006f4f51c608c85d6f4e6ac86418b5fc35da199
             <div class="modal-header">
                 <h5 class="modal-title">Add New Currency</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
