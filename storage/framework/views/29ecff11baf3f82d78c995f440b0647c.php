@@ -19,11 +19,11 @@
         <h2 class="content-title card-title">Vendors</h2>
     </div>
     <div>
-        <a href="#" class="btn btn-light rounded font-md">Export</a>
+        <a href="<?php echo e(route('vendorReport')); ?>" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
             <div class="col-md-2 col-6">
@@ -50,11 +50,11 @@
                         <tbody>
                             <?php $__currentLoopData = $vendors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vendor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td><?php echo e($loop->iteration); ?></td> 
-                                <td><?php echo e($vendor->name); ?></td> 
-                                <td><?php echo e($vendor->address); ?></td> 
-                                <td><?php echo e($vendor->email); ?></td> 
-                                <td><?php echo e($vendor->phone); ?></td> 
+                                <td><?php echo e($loop->iteration); ?></td>
+                                <td><?php echo e($vendor->name); ?></td>
+                                <td><?php echo e($vendor->address); ?></td>
+                                <td><?php echo e($vendor->email); ?></td>
+                                <td><?php echo e($vendor->phone); ?></td>
                                 <td>
                                     <span class="<?php echo e(strtolower($vendor->status)); ?>-status">
                                         <?php echo e(ucfirst($vendor->status)); ?>
@@ -64,7 +64,7 @@
                                 <td class="text-end">
                                     <?php if($vendor->status === 'approved'): ?>
                                         <!-- More Details Button -->
-                                        <a href="<?php echo e(route('vendor-details', $vendor->id)); ?>" class="btn btn-info btn-sm me-2 text-white">More Details</a>
+                                        <a href="<?php echo e(route('vendor-details', $vendor->id)); ?>" class="text-white btn btn-info btn-sm me-2">More Details</a>
                                     <?php endif; ?>
 
                                     <?php if($vendor->status === 'pending'): ?>
@@ -81,7 +81,7 @@
                                         </form>
                                     <?php endif; ?>
                                 </td>
-                              
+
                             </tr>
 
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

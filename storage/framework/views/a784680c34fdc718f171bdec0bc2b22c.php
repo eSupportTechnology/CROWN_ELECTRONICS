@@ -1,30 +1,29 @@
-@extends('AdminDashboard.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <body>
-    @if (session('success'))
+    <?php if(session('success')): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
+        <?php echo e(session('success')); ?>
+
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endif
+    <?php endif; ?>
 
-    @if ($errors->any())
+    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
         <ul class="mb-0">
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
-    @endif
+    <?php endif; ?>
 
     <section class="content-main">
         <div class="content-header">
-            <h2 class="content-title">Report - Customers</h2>
+            <h2 class="content-title">Report - Vendors</h2>
         </div>
 
         <!-- Room Form -->
@@ -37,26 +36,33 @@
                             <table id="tableData" class="table table-hover display">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
+                                        <th>#</th>
                                         <th>Name</th>
-                                        <th>DOB</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
+                                        <th>Shop Name</th>
                                         <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($customers as $index=> $customer)
+                                <?php $__currentLoopData = $vendors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $vendor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td>{{ $index+1 }}</td>
-                                        <td>{{ $customer->name }} </td>
-                                        <td>{{ $customer->dob }} </td>
-                                        <td>{{ $customer->email }}</td>
-                                        <td>{{ $customer->phone }}</td>
-                                        <td>{{ $customer->address }}</td>
+                                        <td><?php echo e($index + 1); ?></td>
+                                        <td><?php echo e($vendor->name); ?></td>
+                                        <td><?php echo e($vendor->shop ? $vendor->shop->shop_name : 'No Shop'); ?></td>
+                                        <td><?php echo e($vendor->address); ?></td>
+                                        <td><?php echo e($vendor->email); ?></td>
+                                        <td><?php echo e($vendor->phone); ?></td>
+                                        <td>
+                                            <span class="<?php echo e(strtolower($vendor->status)); ?>-status">
+                                                <?php echo e(ucfirst($vendor->status)); ?>
 
+                                            </span>
+                                        </td>
                                     </tr>
-                                    @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -87,7 +93,7 @@
                     {
                         extend: 'pdfHtml5',
                         footer: true,
-                        title: 'Customer Report',
+                        title: 'Vendor Report',
                         customize: function(doc) {
                             // Set a margin for the footer
                             doc.content[1].margin = [0, 0, 0, 20];
@@ -96,7 +102,7 @@
                     {
                         extend: 'print',
                         footer: true,
-                        title: 'Customer Report',
+                        title: 'Vendor Report',
                     }
                 ],
 
@@ -111,4 +117,5 @@
 </body>
 
 </html>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('AdminDashboard.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\ASUS\Desktop\crown elc\CROWN_ELECTRONICS\resources\views/AdminDashboard/Reports/vendor_report.blade.php ENDPATH**/ ?>

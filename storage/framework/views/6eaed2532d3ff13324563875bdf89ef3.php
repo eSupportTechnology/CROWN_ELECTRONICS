@@ -35,11 +35,11 @@
         <h2 class="content-title card-title">Affiliate Customers</h2>
     </div>
     <div>
-        <a href="#" class="btn btn-light rounded font-md">Export</a>
+        <a href="<?php echo e(route('affiliateCustomerReport')); ?>" class="rounded btn btn-light font-md">Export</a>
     </div>
 </div>
 
-<div class="card mb-4">
+<div class="mb-4 card">
     <header class="card-header">
         <div class="row align-items-center">
             <div class="col-md-2 col-6">
@@ -68,12 +68,12 @@
                         <tbody>
                             <?php $__currentLoopData = $affiliates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $affiliate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td><?php echo e($loop->iteration); ?></td> 
-                                <td><?php echo e($affiliate->name); ?></td> 
-                                <td><?php echo e($affiliate->NIC); ?></td> 
-                                <td><?php echo e($affiliate->address); ?></td> 
-                                <td><?php echo e($affiliate->email); ?></td> 
-                                <td><?php echo e($affiliate->contactno); ?></td> 
+                                <td><?php echo e($loop->iteration); ?></td>
+                                <td><?php echo e($affiliate->name); ?></td>
+                                <td><?php echo e($affiliate->NIC); ?></td>
+                                <td><?php echo e($affiliate->address); ?></td>
+                                <td><?php echo e($affiliate->email); ?></td>
+                                <td><?php echo e($affiliate->contactno); ?></td>
                                 <td><?php echo e($affiliate->gender); ?></td>
                                 <td><?php echo e(ucfirst($affiliate->status)); ?></td>
                                 <td class="text-end">
@@ -88,14 +88,14 @@
                                             <button type="submit" class="btn btn-success btn-sm">Approve</button>
                                         </form>
                                     <?php endif; ?>
-                                    
+
                                     <?php if($affiliate->status !== 'rejected'): ?>
                                         <form action="<?php echo e(route('admin.affiliates.updateStatus', ['id' => $affiliate->id, 'status' => 'rejected'])); ?>" method="POST" style="display:inline;">
                                             <?php echo csrf_field(); ?>
                                             <button type="submit" class="btn btn-danger btn-sm">Reject</button>
                                         </form>
                                     <?php endif; ?>
-                                </td>                                  
+                                </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
