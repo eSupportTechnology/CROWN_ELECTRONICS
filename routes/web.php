@@ -161,6 +161,7 @@ Route::get('/vendor-details/{vendorId}', [VendorController::class, 'showVendorDe
 Route::get('/search-products', [ProductController::class, 'searchProducts'])->name('search.products');
 
 
+
 Route::get('/admin/reviews', [ReviewsController::class, 'adminView'])->name('adminReviews');
 
 
@@ -215,6 +216,7 @@ Route::get('/brand/{slug}', [BrandController::class, 'showBrandProducts'])->name
 
 Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
 Route::get('/search-find', [SearchController::class, 'findProduct']);
+
 
 
 //admin dashboard
