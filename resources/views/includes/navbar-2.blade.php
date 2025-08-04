@@ -1119,7 +1119,18 @@
         noResultsCon.hidden = false;
     }
 }
+
+  document.getElementById('search-input').addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') {
+            const query = encodeURIComponent(this.value);
+            window.location.href = `/livesearch?q=${query}`;
+        }
+    });
+
+
+
 </script>
+
 
 
 
