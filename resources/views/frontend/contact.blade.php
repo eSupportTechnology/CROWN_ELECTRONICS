@@ -144,7 +144,8 @@
                         <span class="text-white fw-medium">Get Support On Call</span>
                         <span class="text-xl text-white w-36 h-36 bg-main-600 rounded-8 flex-center"><i class="ph ph-headset"></i></span>
                     </a>
-                    <a href="#" class="flex-wrap gap-8 p-10 px-16 bg-neutral-600 hover-bg-main-600 rounded-8 flex-between flex-grow-1">
+                    <a href="https://www.google.com/maps/search/Bandaranaike%20International%20Airport/@7.18015655,79.88425807,17z "
+                    class="flex-wrap gap-8 p-10 px-16 bg-neutral-600 hover-bg-main-600 rounded-8 flex-between flex-grow-1">
                         <span class="text-white fw-medium">Get Direction</span>
                         <span class="text-xl text-white w-36 h-36 bg-main-600 rounded-8 flex-center"><i class="ph ph-map-pin"></i></span>
                     </a>
